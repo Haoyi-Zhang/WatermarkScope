@@ -53,9 +53,9 @@
     ".png": 4,
     ".txt": 1
   },
-  "created_at_utc": "2026-05-08T10:00:11.973890+00:00",
+  "created_at_utc": "2026-05-08T10:04:07.180376+00:00",
   "manifest": "PRESERVED_RESULT_MANIFEST.jsonl",
   "policy": "Existing result artifacts are immutable for continuation work. Add new artifacts instead of overwriting old evidence.",
   "preserved_file_count": 292,
-  "total_bytes": 304558717
+  "total_bytes": 304558719
 }
