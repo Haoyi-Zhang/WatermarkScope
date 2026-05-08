@@ -1,0 +1,62 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "formal_automatic_classifier_claim_allowed": false,
+  "formal_harmlessness_claim_allowed": false,
+  "formal_security_certificate_claim_allowed": false,
+  "formal_v5_claim_allowed": true,
+  "formal_v5_materialized_evidence_available": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:34:37+00:00",
+  "materialization_gate_pass": true,
+  "paper_language_lock": {
+    "allowed_if_materialization_passes": [
+      "DeepSeek-only marker-hidden selective triage with support-evidence binding",
+      "coverage-risk frontier and threshold sensitivity reported as audit evidence",
+      "visible-marker rows diagnostic-only"
+    ],
+    "allowed_only_if_formal_v5_claim_allowed": [
+      "v5 coverage upgrade over the locked 81/960 v3 decisive coverage"
+    ],
+    "forbidden_even_if_gate_passes": [
+      "security certificate",
+      "harmlessness guarantee",
+      "automatic latent-trojan classifier",
+      "expert-signed or named expert labels"
+    ]
+  },
+  "postrun_metrics": {
+    "decisive_count": 320,
+    "decisive_coverage": 0.3333333333333333,
+    "decisive_coverage_ci95": {
+      "high": 0.3637654259478915,
+      "k": 320,
+      "low": 0.3042297644732227,
+      "method": "wilson",
+      "n": 960,
+      "rate": 0.3333333333333333
+    },
+    "marker_hidden_claim_rows": 960,
+    "materialized_row_count": 960,
+    "threshold_sweep_count": 6,
+    "unique_case_count": 320,
+    "unsafe_pass_ci95": {
+      "high": 0.003985571263342763,
+      "k": 0,
+      "low": 0.0,
+      "method": "wilson",
+      "n": 960,
+      "rate": 0.0
+    },
+    "unsafe_pass_count": 0,
+    "visible_marker_claim_rows": 0
+  },
+  "promotion_policy": "Passing materialization means the v2 evidence package is reproducible and case-bound. A v5 coverage-upgrade claim additionally requires decisive coverage to exceed the locked v3 81/960 boundary.",
+  "schema_version": "sealaudit_v5_postrun_promotion_gate_v2",
+  "source_artifacts": {
+    "evidence": "results\\SealAudit\\artifacts\\generated\\sealaudit_v5_final_claim_evidence_rows_v2_20260507.json",
+    "frontier": "results\\SealAudit\\artifacts\\generated\\sealaudit_v5_coverage_risk_frontier_v2_20260507.json",
+    "threshold": "results\\SealAudit\\artifacts\\generated\\sealaudit_v5_threshold_sensitivity_v2_20260507.json",
+    "visible": "results\\SealAudit\\artifacts\\generated\\sealaudit_v5_visible_marker_diagnostic_boundary_v2_20260507.json"
+  }
+}

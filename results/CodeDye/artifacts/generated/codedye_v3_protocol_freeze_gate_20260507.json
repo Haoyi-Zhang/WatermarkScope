@@ -1,0 +1,26 @@
+{
+  "claim_bearing": false,
+  "claim_policy": "If sensitivity remains moderate, claim remains curator-side null-audit rather than high-recall detection.",
+  "evidence_conjunction": [
+    "raw_provider_transcript_hash_present",
+    "structured_payload_hash_present",
+    "prompt_hash_present",
+    "task_hash_present",
+    "canary_margin_above_frozen_threshold",
+    "provenance_margin_above_frozen_threshold",
+    "chronology_consistency_pass",
+    "retrieval_confound_discount_below_rejection_limit",
+    "query_budget_recorded"
+  ],
+  "formal_live_claim_allowed": false,
+  "frozen": true,
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "purpose": "Preregister the next CodeDye protocol before any new DeepSeek claim-bearing rerun.",
+  "required_postrun_gates": [
+    "codedye_v3_positive_negative_control_gate_20260507.json",
+    "codedye_v3_live_claim_boundary_gate_20260507.json",
+    "codedye_v3_support_exclusion_gate_20260507.json"
+  ],
+  "schema_version": "codedye_v3_protocol_freeze_gate",
+  "threshold_policy": "Thresholds are frozen before rerun and cannot be adjusted using live 300-row outcomes."
+}

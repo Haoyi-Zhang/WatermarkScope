@@ -1,0 +1,171 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "forbidden_claims": [
+    "universal code watermark",
+    "first-sample/no-retry natural-generation guarantee",
+    "validator-repair evidence as main result",
+    "provider-general claim outside admitted white-box cells",
+    "perfect-score language"
+  ],
+  "formal_bestpaper_local_semcodebook_ready": true,
+  "formal_scoped_whitebox_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T20:57:21+00:00",
+  "locked_effect_surface": {
+    "admitted_families": 5,
+    "admitted_models": 10,
+    "admitted_records": 72000,
+    "generation_changing_ablation_rows": 43200,
+    "negative_control_ci95": {
+      "high": 8.002398774667768e-05,
+      "k": 0,
+      "low": 0.0,
+      "method": "wilson",
+      "n": 48000,
+      "rate": 0.0
+    },
+    "positive_recovery_ci95": {
+      "high": 0.9745748406649429,
+      "k": 23342,
+      "low": 0.9704405660946408,
+      "method": "wilson",
+      "n": 24000,
+      "rate": 0.9725833333333334
+    },
+    "scale_coverage": [
+      "large",
+      "mid",
+      "small",
+      "tiny"
+    ],
+    "zero_failure_metrics": {
+      "blind_negative_hit_count": 0,
+      "compiler_failures": 0,
+      "helper_failures": 0,
+      "mock_or_fallback_count": 0,
+      "negative_control_hits": 0
+    }
+  },
+  "main_claim_allowed": "structured provenance watermark over admitted white-box model cells",
+  "mandatory_component_delta_table": {
+    "paper_table_required": true,
+    "paper_table_scope": "paired deltas over the fixed generation-changing ablation denominator only",
+    "row_count": 8,
+    "rows": [
+      {
+        "ci95": null,
+        "comparison": "full_vs_ast_only",
+        "comparison_rate": null,
+        "delta": null,
+        "full_rate": 0.8916666666666667,
+        "interpretation": "component contribution evidence"
+      },
+      {
+        "ci95": null,
+        "comparison": "full_vs_cfg_only",
+        "comparison_rate": null,
+        "delta": null,
+        "full_rate": 0.8916666666666667,
+        "interpretation": "component contribution evidence"
+      },
+      {
+        "ci95": null,
+        "comparison": "full_vs_drop_ast",
+        "comparison_rate": null,
+        "delta": null,
+        "full_rate": 0.8916666666666667,
+        "interpretation": "component contribution evidence"
+      },
+      {
+        "ci95": null,
+        "comparison": "full_vs_drop_cfg",
+        "comparison_rate": null,
+        "delta": null,
+        "full_rate": 0.8916666666666667,
+        "interpretation": "component contribution evidence"
+      },
+      {
+        "ci95": null,
+        "comparison": "full_vs_drop_ssa",
+        "comparison_rate": null,
+        "delta": null,
+        "full_rate": 0.8916666666666667,
+        "interpretation": "component contribution evidence"
+      },
+      {
+        "ci95": null,
+        "comparison": "full_vs_ecc_off",
+        "comparison_rate": null,
+        "delta": null,
+        "full_rate": 0.8916666666666667,
+        "interpretation": "component contribution evidence"
+      },
+      {
+        "ci95": null,
+        "comparison": "full_vs_ssa_only",
+        "comparison_rate": null,
+        "delta": null,
+        "full_rate": 0.8916666666666667,
+        "interpretation": "component contribution evidence"
+      },
+      {
+        "ci95": null,
+        "comparison": "full_vs_unkeyed_schedule",
+        "comparison_rate": null,
+        "delta": null,
+        "full_rate": 0.8916666666666667,
+        "interpretation": "component contribution evidence"
+      }
+    ]
+  },
+  "mandatory_miss_disclosure": {
+    "miss_by_attack": {
+      "comment_whitespace_normalize": 1300,
+      "control_flow_rewrite": 1300,
+      "cross_language_translation": 1300,
+      "dataflow_rewrite": 1170,
+      "dead_code_add_remove": 1320,
+      "helper_extract_inline": 1220,
+      "rename": 1300,
+      "unperturbed": 1300
+    },
+    "miss_by_language": {
+      "cpp": 1920,
+      "go": 2560,
+      "java": 1600,
+      "javascript": 1600,
+      "python": 2530
+    },
+    "miss_by_model": {
+      "DeepSeek-Coder-6.7B-Instruct": 10210
+    },
+    "miss_concentration_model": "DeepSeek-Coder-6.7B-Instruct",
+    "miss_concentration_rate": 1.0,
+    "miss_rate_ci95": {
+      "high": 0.4793474275106274,
+      "k": 10210,
+      "low": 0.4660326567559042,
+      "method": "wilson",
+      "n": 21600,
+      "rate": 0.4726851851851852
+    },
+    "paper_sentence_required": "All row-level positive misses in the final miss taxonomy are attributed to DeepSeek-Coder-6.7B-Instruct detector abstain/reject outcomes; the paper must present this as a failure boundary, not hide it in an aggregate.",
+    "positive_count": 21600,
+    "positive_miss_count": 10210
+  },
+  "reviewer_attack_closure": [
+    "DeepSeek-Coder-6.7B miss concentration is mandatory disclosure.",
+    "Component-causality claims require paired deltas plus negative-control bounds.",
+    "No-retry natural generation and validator-repair evidence remain explicitly non-promoted."
+  ],
+  "schema_version": "semcodebook_final_claim_lock_v1",
+  "source_artifacts": {
+    "causal_contribution_table": "results/SemCodebook/artifacts/generated/semcodebook_causal_contribution_table_v1_20260507.json",
+    "causal_gate": "results/SemCodebook/artifacts/generated/semcodebook_causal_contribution_gate_v2_20260507.json",
+    "effect_authenticity": "results/SemCodebook/artifacts/generated/semcodebook_whitebox_effect_authenticity_gate_20260505.json",
+    "miss_taxonomy": "results/SemCodebook/artifacts/generated/semcodebook_row_level_miss_attribution_v3_20260507.json",
+    "model_sufficiency": "results/SemCodebook/artifacts/generated/semcodebook_whitebox_model_sufficiency_gate_20260505.json",
+    "recoverability_theorem": "results/SemCodebook/artifacts/generated/semcodebook_structural_recoverability_theorem_v1_20260507.md"
+  }
+}

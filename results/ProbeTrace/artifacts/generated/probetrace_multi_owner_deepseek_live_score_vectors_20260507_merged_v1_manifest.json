@@ -1,0 +1,91 @@
+{
+  "blockers": [],
+  "canonical_input": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_rows_20260507.jsonl",
+  "canonical_input_sha256": "997d4b78252a8a4d6000424cd1c2c32a76e0d608dab2b88717eeb1b035ba1edc",
+  "claim_bearing": false,
+  "claim_bearing_rows": 6000,
+  "duplicate_key_count": 0,
+  "expected_row_count": 6000,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-08T08:54:40+00:00",
+  "language_count": 3,
+  "merge_policy": "No result-based filtering. Rows are ordered only by canonical input order.",
+  "missing_hash_rows": 0,
+  "missing_key_count": 0,
+  "output": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_merged_v1.jsonl",
+  "output_sha256": "84fee479bf9e4e4fb33527291e9e04fcf0a5c101ee22cd7799dd45f6bb8b0ce5",
+  "owner_count": 5,
+  "role_counts": {
+    "null_owner": 750,
+    "random_owner": 750,
+    "same_provider_unwrap": 750,
+    "true_owner": 750,
+    "wrong_owner": 3000
+  },
+  "row_count": 6000,
+  "schema_version": "probetrace_multi_owner_live_shard_merge_v1",
+  "source_summaries": [
+    {
+      "canonical_index_filter": [
+        0,
+        2600
+      ],
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl",
+      "row_count": 2600,
+      "sha256": "2ea1202256e0c9cf1ed25b9983f532349f7acc9af883cc772c7af65581be6ab0"
+    },
+    {
+      "canonical_index_filter": null,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_tail_parallel_v1_shard_01.jsonl",
+      "row_count": 425,
+      "sha256": "876775fa228a2f2d8cb383d7b4d0cba751fb195ab54cefc055e1a05d125a8295"
+    },
+    {
+      "canonical_index_filter": null,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_tail_parallel_v1_shard_02.jsonl",
+      "row_count": 425,
+      "sha256": "f81d96936cd4f0a458268a98b1b2d819af1292f7104e641c8ed40ab9332fc584"
+    },
+    {
+      "canonical_index_filter": null,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_tail_parallel_v1_shard_03.jsonl",
+      "row_count": 425,
+      "sha256": "526f1bc22eb147630147b70a13e70df20eccae48000854f9f3988ab6c9a8115b"
+    },
+    {
+      "canonical_index_filter": null,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_tail_parallel_v1_shard_04.jsonl",
+      "row_count": 425,
+      "sha256": "6c0ab72a6a5d439b2edc89c55c0fe5026840cfdb2f98d30e7e104b5341d8417c"
+    },
+    {
+      "canonical_index_filter": null,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_tail_parallel_v1_shard_05.jsonl",
+      "row_count": 425,
+      "sha256": "369c275e50b96f978e42d0a35454f3246c5765c2041b17af43fbb30a112e752e"
+    },
+    {
+      "canonical_index_filter": null,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_tail_parallel_v1_shard_06.jsonl",
+      "row_count": 425,
+      "sha256": "19cdad02a9d4b97a837ca95fc0f840f6939a9a92e27f19eb34163f8cc6ebb698"
+    },
+    {
+      "canonical_index_filter": null,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_tail_parallel_v1_shard_07.jsonl",
+      "row_count": 425,
+      "sha256": "bb4ef46fd173c8a491bbcea5bcb78b976d16d6220684517405b36d63aabbedcf"
+    },
+    {
+      "canonical_index_filter": null,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_tail_parallel_v1_shard_08.jsonl",
+      "row_count": 425,
+      "sha256": "8ebeec0514faa89a5e60599712525bcd144a01e2cd2f2428953a32596e61a4dc"
+    }
+  ],
+  "split_counts": {
+    "owner_heldout": 1200,
+    "task_heldout": 1200,
+    "train_dev": 3600
+  }
+}

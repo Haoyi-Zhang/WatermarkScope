@@ -1,0 +1,91 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "date": "20260508",
+  "gate_pass": true,
+  "portfolio_prior_strict_audit": {
+    "claim_bearing": false,
+    "path": "results/watermark_strict_reviewer_audit_v8_20260507.json",
+    "verdict": "bestpaper_ready_by_strict_artifact_gate"
+  },
+  "projects": {
+    "CodeDye": {
+      "decision_counts": {
+        "contamination_signal_detected": 2,
+        "null_not_rejected": 18
+      },
+      "main_claim_boundary": {
+        "support_rows_enter_main_table": false,
+        "threshold_adjusted_after_result": false,
+        "v3_main_denominator_unchanged": true,
+        "v4_rows_support_only": true
+      },
+      "new_artifacts": [
+        "results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_protocol_v1_20260508.json",
+        "results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_results_20260508.json",
+        "results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_postrun_gate_v1_20260508.json"
+      ],
+      "next_action": "Do not upgrade to high-recall detection; use v4 as robustness support for the sparse null-audit narrative.",
+      "record_count": 20,
+      "status": "DeepSeek query-budget support axis executed with live rows and admitted as support-only",
+      "support_gate_pass": true
+    },
+    "ProbeTrace": {
+      "abstain_or_noncandidate_ci95": {
+        "high": 1.0,
+        "k": 20,
+        "low": 0.8388748419471806,
+        "method": "wilson",
+        "n": 20,
+        "rate": 1.0
+      },
+      "candidate_owner_emit_rows": 0,
+      "high_score_rows": 0,
+      "new_artifacts": [
+        "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_protocol_v1_20260508.json",
+        "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_live_results_v1_20260508.jsonl",
+        "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_postrun_gate_v1_20260508.json"
+      ],
+      "next_action": "Keep provider-general claim blocked until non-DeepSeek keys are available; report shortcut challenge in robustness section.",
+      "record_count": 20,
+      "status": "DeepSeek corrupted-commitment challenge executed; perfect main score-vector result now has an explicit fail-closed shortcut control",
+      "support_gate_pass": true
+    },
+    "SealAudit": {
+      "decision_counts": {
+        "confirmed_benign": 80,
+        "confirmed_latent_risk": 240,
+        "hard_ambiguity_retained": 484,
+        "needs_expert_review": 156
+      },
+      "decisive_count": 320,
+      "hidden_claim_rows": 960,
+      "new_artifact": "results/SealAudit/artifacts/generated/sealaudit_v6_failure_taxonomy_audit_v1_20260508.json",
+      "next_action": "Use taxonomy to justify selective triage; do not claim full classifier or security certificate.",
+      "status": "v5 selective triage result decomposed into coverage-risk and nondecisive failure taxonomy",
+      "support_gate_pass": true,
+      "unsafe_pass_count": 0
+    },
+    "SemCodebook": {
+      "current_admitted_model_count": 10,
+      "current_total_admitted_records": 72000,
+      "gpu_run_allowed_now": false,
+      "new_artifact": "results/SemCodebook/artifacts/generated/semcodebook_whitebox_next_gpu_queue_v1_20260508.json",
+      "next_action": "Move to a server with NVIDIA device access and PEFT installed, then run queued CodeLlama/Stable-Code/CodeGen expansions as full 7200-row cells.",
+      "next_gpu_queue_count": 5,
+      "resource_blockers": [
+        "torch_missing",
+        "transformers_missing",
+        "peft_missing"
+      ],
+      "status": "current 72k admitted claim preserved; future white-box expansion is queued but blocked on current machine resources"
+    }
+  },
+  "remaining_experiment_constraints": [
+    "SemCodebook white-box expansion cannot run on current js4 because NVIDIA device access is unavailable and PEFT is missing.",
+    "Black-box scope remains DeepSeek-only until additional provider keys are supplied.",
+    "New CodeDye and ProbeTrace rows are support-only and must not enter the locked main denominators.",
+    "No existing result file was overwritten; new files are additive and versioned."
+  ],
+  "schema_version": "watermark_experiment_deepening_status_v2"
+}

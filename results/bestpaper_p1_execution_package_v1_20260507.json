@@ -1,0 +1,95 @@
+{
+  "claim_bearing": false,
+  "formal_experiment_allowed": false,
+  "generated_at_utc": "2026-05-06T16:37:14+00:00",
+  "portfolio_start_condition": [
+    "python scripts/check_preserved_results.py passes",
+    "python scripts/check_bestpaper_closure.py passes",
+    "python scripts/check_bestpaper_second_pass.py passes",
+    "Project-specific local_ready or remote/API requirements satisfied"
+  ],
+  "portfolio_stop_condition": "Do not mark bestpaper_ready until all four P1 promotion gates pass.",
+  "preservation_policy": "Do not edit preserved artifacts. Every run writes versioned outputs.",
+  "projects": {
+    "CodeDye": {
+      "command": "python projects/CodeDye/scripts/run_attack_matrix_live_support.py --provider deepseek --claim-bearing-canonical --run-id codedye_v3_20260507",
+      "local_ready": false,
+      "missing_local_inputs": [
+        "DeepSeek live/API environment",
+        "row-level positive-control result bundle"
+      ],
+      "p1": "v3 controls/rerun to improve or explain positive-control sensitivity",
+      "runner_contract": {
+        "outputs": [
+          "results/CodeDye/artifacts/generated/codedye_v3_positive_negative_control_gate_20260507.json",
+          "results/CodeDye/artifacts/generated/codedye_v3_live_claim_boundary_gate_20260507.json",
+          "results/CodeDye/artifacts/generated/codedye_v3_support_exclusion_gate_20260507.json"
+        ],
+        "pre_run_gate": "results/CodeDye/artifacts/generated/codedye_v3_protocol_freeze_gate_20260507.json",
+        "promotion_condition": "Threshold frozen before rerun; positive and negative controls pass; support rows excluded; raw/structured hashes complete."
+      }
+    },
+    "ProbeTrace": {
+      "command": "python projects/ProbeTrace/scripts/run_multi_owner_support.py --owners 5 --claim-bearing false --run-id probetrace_multi_owner_20260507",
+      "local_ready": false,
+      "missing_local_inputs": [
+        "5 active owner registry",
+        "live provider/API access or prepared remote run outputs"
+      ],
+      "p1": "fresh multi-owner score-vector run",
+      "runner_contract": {
+        "outputs": [
+          "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_score_vectors_20260507.jsonl",
+          "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_promotion_gate_20260507.json"
+        ],
+        "pre_run_gate": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_support_gate_v1_20260507.json",
+        "promotion_condition": "Owner-heldout and task-heldout splits pass; wrong/null/random controls >= 4x positives; per-owner TPR/FPR CI and margin/AUC present."
+      }
+    },
+    "SealAudit": {
+      "command": "python projects/SealAudit/scripts/run_second_stage_v5_conjunction.py --provider deepseek --run-id sealaudit_v5_20260507",
+      "local_ready": true,
+      "missing_local_inputs": [
+        "DeepSeek/API v5 rerun environment"
+      ],
+      "p1": "fresh v5 claim-bearing second-stage run",
+      "runner_contract": {
+        "outputs": [
+          "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_20260507.json",
+          "results/SealAudit/artifacts/generated/sealaudit_v5_coverage_risk_frontier_20260507.json"
+        ],
+        "pre_run_gate": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_conjunction_gate_20260507.json",
+        "promotion_condition": "Coverage improves over 8.44%; unsafe-pass count remains 0 or is bounded and disclosed; visible-marker rows remain diagnostic-only."
+      }
+    },
+    "SemCodebook": {
+      "command": "python scripts/run_semcodebook_p1_miss_attribution.py --input results/SemCodebook/artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json --output results/SemCodebook/artifacts/generated/semcodebook_row_level_miss_attribution_v1_20260507.json",
+      "local_ready": false,
+      "missing_local_inputs": [
+        "results/SemCodebook/artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json"
+      ],
+      "p1": "row-level positive-miss attribution from raw full-eval rows",
+      "remote_source_hint": {
+        "exclusion_reason": "large raw/structured result; represented by hash and upstream gate in this progress repository",
+        "github_contents_upload": false,
+        "path": "artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json",
+        "size_bytes": 237543393,
+        "source_sha256": "82f6ec1d7fd375973620c204775fab2489a8a82c706326eac81fb4a066aad0a0"
+      },
+      "runner_contract": {
+        "input": "results/SemCodebook/artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json",
+        "output": "results/SemCodebook/artifacts/generated/semcodebook_row_level_miss_attribution_v1_20260507.json",
+        "promotion_condition": "Every positive miss maps to exactly one primary failure bucket; per-bucket Wilson CI exists; no threshold or denominator changes.",
+        "required_group_keys": [
+          "model",
+          "family",
+          "scale_group",
+          "language",
+          "attack_condition",
+          "carrier_family"
+        ]
+      }
+    }
+  },
+  "schema_version": "bestpaper_p1_execution_package_v1"
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "codedye_attack_matrix_live_support_progress_v1",
+  "status": "support_repair_health_passed",
+  "completed": 20,
+  "total": 20,
+  "output": "results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_results_20260508.json",
+  "claim_bearing": false,
+  "blockers": [
+    "required_attack_live_records_missing",
+    "declared_attack_live_records_missing",
+    "attack_admissible_rate_below_0.90:0.0000"
+  ],
+  "canonical_promotion_blockers": [
+    "required_attack_live_records_missing",
+    "declared_attack_live_records_missing",
+    "attack_admissible_rate_below_0.90:0.0000"
+  ],
+  "support_blockers": [
+    "required_attack_live_records_missing",
+    "declared_support_attack_live_records_missing"
+  ],
+  "support_gate_pass": false,
+  "targeted_repair_health": {
+    "mode": "targeted_repair_health",
+    "repair_health_pass": true,
+    "claim_bearing": false,
+    "formal_claim_allowed": false,
+    "coverage_blockers_allowed": [
+      "required_attack_live_records_missing",
+      "declared_attack_live_records_missing"
+    ],
+    "record_count": 20,
+    "expected_record_count": 20,
+    "blockers": [],
+    "policy": "Filtered launches may pass only as targeted repair-health evidence. They remain support-only and never satisfy the canonical full attack-matrix claim gate."
+  },
+  "run_filter": {
+    "task_filter_enabled": false,
+    "attack_filter_enabled": true,
+    "task_ids": [],
+    "attack_ids": [
+      "query_budget_drop"
+    ],
+    "input_row_count": 140,
+    "filtered_row_count": 20,
+    "missing_task_ids": [],
+    "missing_attack_ids": [],
+    "claim_policy_note": "Filters are permitted for repair-health/support-only launches. A filtered canonical run is never sufficient for a full main-table claim."
+  }
+}

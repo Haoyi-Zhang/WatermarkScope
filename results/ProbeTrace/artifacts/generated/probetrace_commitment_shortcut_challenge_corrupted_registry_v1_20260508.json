@@ -1,0 +1,544 @@
+{
+  "anti_overfit_constraints": [
+    "Owner keys are generated root-only after this manifest is frozen and never written to the repository.",
+    "Owner-specific prompts may include opaque witness cues but must not reveal owner slot ids or labels.",
+    "Wrong-owner negatives must be at least 4x the positive denominator.",
+    "Owner-held-out and task-held-out splits must be reported separately from train/dev owners.",
+    "Current single-owner APIS-300 floor remains frozen and cannot be overwritten by future expansion failures.",
+    "No non-DeepSeek provider-general claim is allowed from this manifest."
+  ],
+  "artifact_role": "support_only_corrupted_commitment_negative_control_registry",
+  "challenge_policy": "The source witness commitment in each input row is left unchanged while candidate owner registry commitments are deterministically corrupted. A robust attribution protocol should fail closed.",
+  "claim_bearing": false,
+  "current_single_owner_floor": {
+    "claim_lock_gate_pass": true,
+    "false_positive_count": 0,
+    "floor_pass": true,
+    "fpr": 0.0,
+    "fpr_ci95_high": 0.003191,
+    "negative_n": 1200,
+    "positive_n": 300,
+    "preservation_policy": "The future expansion cannot overwrite or dilute this floor; report old single-owner and new multi-owner metrics separately.",
+    "scope_gate_pass": true,
+    "source_scope": "current DeepSeek-only single active-owner/source-bound APIS-300 + HardDecoy-96 + transfer-900",
+    "statistics_formal_claim_allowed": true,
+    "tpr": 1.0,
+    "tpr_ci95_low": 0.987357,
+    "true_positive_count": 300
+  },
+  "formal_claim_allowed": false,
+  "generated_at_utc": "2026-05-05T11:16:20Z",
+  "language_count": 3,
+  "language_task_pool_counts": {
+    "go": 300,
+    "javascript": 300,
+    "python": 300
+  },
+  "languages": [
+    "python",
+    "javascript",
+    "go"
+  ],
+  "owner_slot_count": 5,
+  "owner_slots": [
+    {
+      "claim_role": "support_only_corrupted_commitment_negative_control",
+      "owner_key_commitment_placeholder_sha256": "15bf1ce141e99a5c2fdd632fa4e40ea2c431a8b1b3e5d19431bc0ae071ce9d30",
+      "owner_key_commitment_status": "deliberately_corrupted_for_commitment_shortcut_challenge",
+      "owner_key_material_in_registry": false,
+      "owner_slot_id": "owner_alpha",
+      "prompt_owner_id_leakage_allowed": false,
+      "split": "train_dev",
+      "witness_registry_families": [
+        "semantic_witness",
+        "commitment_chain",
+        "active_schedule",
+        "decoy_registry",
+        "task_binding",
+        "source_hash_binding"
+      ],
+      "witness_registry_family_count": 6
+    },
+    {
+      "claim_role": "support_only_corrupted_commitment_negative_control",
+      "owner_key_commitment_placeholder_sha256": "4f0bd3c1780034472bcdaa7f9dddffa280610b92fc664bc6756402c17b9264c1",
+      "owner_key_commitment_status": "deliberately_corrupted_for_commitment_shortcut_challenge",
+      "owner_key_material_in_registry": false,
+      "owner_slot_id": "owner_beta",
+      "prompt_owner_id_leakage_allowed": false,
+      "split": "train_dev",
+      "witness_registry_families": [
+        "semantic_witness",
+        "commitment_chain",
+        "active_schedule",
+        "decoy_registry",
+        "task_binding",
+        "source_hash_binding"
+      ],
+      "witness_registry_family_count": 6
+    },
+    {
+      "claim_role": "support_only_corrupted_commitment_negative_control",
+      "owner_key_commitment_placeholder_sha256": "dd0f3b7cd32bb931eef20a0eaa88d20570d44c0e36717d97607a0d8d8ed59f0d",
+      "owner_key_commitment_status": "deliberately_corrupted_for_commitment_shortcut_challenge",
+      "owner_key_material_in_registry": false,
+      "owner_slot_id": "owner_gamma",
+      "prompt_owner_id_leakage_allowed": false,
+      "split": "train_dev",
+      "witness_registry_families": [
+        "semantic_witness",
+        "commitment_chain",
+        "active_schedule",
+        "decoy_registry",
+        "task_binding",
+        "source_hash_binding"
+      ],
+      "witness_registry_family_count": 6
+    },
+    {
+      "claim_role": "support_only_corrupted_commitment_negative_control",
+      "owner_key_commitment_placeholder_sha256": "62386cb1f44c77e31743802b48cc4e424680f23bd209e7221b5a662f9369f305",
+      "owner_key_commitment_status": "deliberately_corrupted_for_commitment_shortcut_challenge",
+      "owner_key_material_in_registry": false,
+      "owner_slot_id": "owner_delta",
+      "prompt_owner_id_leakage_allowed": false,
+      "split": "task_heldout",
+      "witness_registry_families": [
+        "semantic_witness",
+        "commitment_chain",
+        "active_schedule",
+        "decoy_registry",
+        "task_binding",
+        "source_hash_binding"
+      ],
+      "witness_registry_family_count": 6
+    },
+    {
+      "claim_role": "support_only_corrupted_commitment_negative_control",
+      "owner_key_commitment_placeholder_sha256": "743598c357a19abfbd0b0640739acd8951bfc77052d980ebe9dc6abec2a2a4be",
+      "owner_key_commitment_status": "deliberately_corrupted_for_commitment_shortcut_challenge",
+      "owner_key_material_in_registry": false,
+      "owner_slot_id": "owner_epsilon",
+      "prompt_owner_id_leakage_allowed": false,
+      "split": "owner_heldout",
+      "witness_registry_families": [
+        "semantic_witness",
+        "commitment_chain",
+        "active_schedule",
+        "decoy_registry",
+        "task_binding",
+        "source_hash_binding"
+      ],
+      "witness_registry_family_count": 6
+    }
+  ],
+  "schema_version": "probetrace_multi_owner_multilingual_expansion_v1",
+  "source_artifacts": {
+    "anti_overfit_transfer_scope_gate": {
+      "path": "artifacts/generated/probetrace_anti_overfit_transfer_scope_gate_20260504.json",
+      "sha256": "7f45e5bd0fbed907563b5610ab613f75e6a57f7652d22d750e3c5e533c6e200c"
+    },
+    "api_stealbench_300_manifest": {
+      "path": "artifacts/generated/api_stealbench_300_manifest.json",
+      "sha256": "283959ec4634b44b7f21c8556adaedea9a45517888827b44b12ce8743f6a3755",
+      "task_count": 300
+    },
+    "api_stealbench_multilingual_manifest": {
+      "language_counts": {
+        "go": 300,
+        "javascript": 300
+      },
+      "path": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "sha256": "b30054c62a070d029b147c660c09ebbfb9c5f5915d725d819a8b82fdb8597a5b",
+      "task_count": 600
+    },
+    "claim_boundary_lock": {
+      "path": "artifacts/generated/claim_boundary_lock_20260504.json",
+      "sha256": "ef6ebbfef2fb9627b05953f18562eeb689552e8c3bde1d389c3c7313c7c64e42"
+    },
+    "statistics_repro_gate": {
+      "path": "artifacts/generated/statistics_repro_gate.json",
+      "sha256": "0e785c4cb0592ae6679e489bab01e32f64304a309bf0463b931c2b27a0004911"
+    }
+  },
+  "target_positive_records": 750,
+  "target_wrong_owner_negative_records": 3000,
+  "task_allocation_cells": [
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "python",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_alpha",
+      "owner_split": "train_dev",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "9b8c30a88bef3e23d28693b3f56eb188691e9f9a183d952a3264d0dcb76bb0e6",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_300_manifest.json",
+      "visible_task_id_sample": [
+        "apisb300_adversarial_instruction_blending_container_choice_01",
+        "apisb300_adversarial_instruction_blending_container_choice_02",
+        "apisb300_adversarial_instruction_blending_container_choice_03",
+        "apisb300_adversarial_instruction_blending_container_choice_04",
+        "apisb300_adversarial_instruction_blending_container_choice_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "javascript",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_alpha",
+      "owner_split": "train_dev",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "09d48511b93bc8d44a37afffdb4a21bf96dcf35bc399705213c0cba0e6d2fdf0",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "visible_task_id_sample": [
+        "apisb_multilingual_javascript_adversarial_instruction_blending_container_choice_01",
+        "apisb_multilingual_javascript_adversarial_instruction_blending_container_choice_02",
+        "apisb_multilingual_javascript_adversarial_instruction_blending_container_choice_03",
+        "apisb_multilingual_javascript_adversarial_instruction_blending_container_choice_04",
+        "apisb_multilingual_javascript_adversarial_instruction_blending_container_choice_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "go",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_alpha",
+      "owner_split": "train_dev",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "5a7778155167cbd4cb326f937abef955b7c6ff8938ab3a60d52195a42e4cc51e",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "visible_task_id_sample": [
+        "apisb_multilingual_go_adversarial_instruction_blending_container_choice_01",
+        "apisb_multilingual_go_adversarial_instruction_blending_container_choice_02",
+        "apisb_multilingual_go_adversarial_instruction_blending_container_choice_03",
+        "apisb_multilingual_go_adversarial_instruction_blending_container_choice_04",
+        "apisb_multilingual_go_adversarial_instruction_blending_container_choice_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "python",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_beta",
+      "owner_split": "train_dev",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "92d66b87d253baf1d4087dada471e1d5afa9ab33380b6b94a317249a0a044f4c",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_300_manifest.json",
+      "visible_task_id_sample": [
+        "apisb300_budget_control_lookup_idiom_01",
+        "apisb300_budget_control_lookup_idiom_02",
+        "apisb300_budget_control_lookup_idiom_03",
+        "apisb300_budget_control_lookup_idiom_04",
+        "apisb300_budget_control_lookup_idiom_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "javascript",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_beta",
+      "owner_split": "train_dev",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "2ace0cb274b875ab15c5973ec19b535b7306e70d686116e7a38e867a57eb9437",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "visible_task_id_sample": [
+        "apisb_multilingual_javascript_budget_control_lookup_idiom_01",
+        "apisb_multilingual_javascript_budget_control_lookup_idiom_02",
+        "apisb_multilingual_javascript_budget_control_lookup_idiom_03",
+        "apisb_multilingual_javascript_budget_control_lookup_idiom_04",
+        "apisb_multilingual_javascript_budget_control_lookup_idiom_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "go",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_beta",
+      "owner_split": "train_dev",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "9ecf5cb6e9c1ae2b875ce03b3a0ebf515b6072dbc321e6eea808141cf3bb94f7",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "visible_task_id_sample": [
+        "apisb_multilingual_go_budget_control_lookup_idiom_01",
+        "apisb_multilingual_go_budget_control_lookup_idiom_02",
+        "apisb_multilingual_go_budget_control_lookup_idiom_03",
+        "apisb_multilingual_go_budget_control_lookup_idiom_04",
+        "apisb_multilingual_go_budget_control_lookup_idiom_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "python",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_gamma",
+      "owner_split": "train_dev",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "94f25816c210cc73537cc47a3751cc51bcdb8144f5232728a8e991b81f8362fc",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_300_manifest.json",
+      "visible_task_id_sample": [
+        "apisb300_multi_turn_probe_prompts_helper_split_01",
+        "apisb300_multi_turn_probe_prompts_helper_split_02",
+        "apisb300_multi_turn_probe_prompts_helper_split_03",
+        "apisb300_multi_turn_probe_prompts_helper_split_04",
+        "apisb300_multi_turn_probe_prompts_helper_split_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "javascript",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_gamma",
+      "owner_split": "train_dev",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "b9a3337a08f5b114a3f7fca4ac9a1c6929fb806b4664644b7fb86bc936f6e971",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "visible_task_id_sample": [
+        "apisb_multilingual_javascript_multi_turn_probe_prompts_helper_split_01",
+        "apisb_multilingual_javascript_multi_turn_probe_prompts_helper_split_02",
+        "apisb_multilingual_javascript_multi_turn_probe_prompts_helper_split_03",
+        "apisb_multilingual_javascript_multi_turn_probe_prompts_helper_split_04",
+        "apisb_multilingual_javascript_multi_turn_probe_prompts_helper_split_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "go",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_gamma",
+      "owner_split": "train_dev",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "055619068e686d704f08830e2b9e0226b6d3574d562c48f5074746e357183db4",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "visible_task_id_sample": [
+        "apisb_multilingual_go_multi_turn_probe_prompts_helper_split_01",
+        "apisb_multilingual_go_multi_turn_probe_prompts_helper_split_02",
+        "apisb_multilingual_go_multi_turn_probe_prompts_helper_split_03",
+        "apisb_multilingual_go_multi_turn_probe_prompts_helper_split_04",
+        "apisb_multilingual_go_multi_turn_probe_prompts_helper_split_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "python",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_delta",
+      "owner_split": "task_heldout",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "961e7c1bce8a70362e948c4e6a51801fa0cdc760943b5fd5a54a5f012e063161",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_300_manifest.json",
+      "visible_task_id_sample": [
+        "apisb300_neutralization_before_distillation_container_choice_01",
+        "apisb300_neutralization_before_distillation_container_choice_02",
+        "apisb300_neutralization_before_distillation_container_choice_03",
+        "apisb300_neutralization_before_distillation_container_choice_04",
+        "apisb300_neutralization_before_distillation_container_choice_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "javascript",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_delta",
+      "owner_split": "task_heldout",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "40b88256f5095431da14384ae231e07908c4b2809746d1224f447eb556a218bd",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "visible_task_id_sample": [
+        "apisb_multilingual_javascript_neutralization_before_distillation_container_choice_01",
+        "apisb_multilingual_javascript_neutralization_before_distillation_container_choice_02",
+        "apisb_multilingual_javascript_neutralization_before_distillation_container_choice_03",
+        "apisb_multilingual_javascript_neutralization_before_distillation_container_choice_04",
+        "apisb_multilingual_javascript_neutralization_before_distillation_container_choice_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "go",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_delta",
+      "owner_split": "task_heldout",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "4f7c0cb1e296f276c3c2d7fa9b565987ba1e94bfdeb559cb3a9f7da0a140314a",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "visible_task_id_sample": [
+        "apisb_multilingual_go_neutralization_before_distillation_container_choice_01",
+        "apisb_multilingual_go_neutralization_before_distillation_container_choice_02",
+        "apisb_multilingual_go_neutralization_before_distillation_container_choice_03",
+        "apisb_multilingual_go_neutralization_before_distillation_container_choice_04",
+        "apisb_multilingual_go_neutralization_before_distillation_container_choice_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "python",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_epsilon",
+      "owner_split": "owner_heldout",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "44cfcff97e5ff9fa21a2545758db46d1c008e02c59552b8de819bde083c9997a",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_300_manifest.json",
+      "visible_task_id_sample": [
+        "apisb300_probe_prompts_lookup_idiom_01",
+        "apisb300_probe_prompts_lookup_idiom_02",
+        "apisb300_probe_prompts_lookup_idiom_03",
+        "apisb300_probe_prompts_lookup_idiom_04",
+        "apisb300_probe_prompts_lookup_idiom_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "javascript",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_epsilon",
+      "owner_split": "owner_heldout",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "8594a94aacd94029f6ff69ca9593a6d3661a4c839fddfe3f6a2ca254285e8456",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "visible_task_id_sample": [
+        "apisb_multilingual_javascript_probe_prompts_lookup_idiom_01",
+        "apisb_multilingual_javascript_probe_prompts_lookup_idiom_02",
+        "apisb_multilingual_javascript_probe_prompts_lookup_idiom_03",
+        "apisb_multilingual_javascript_probe_prompts_lookup_idiom_04",
+        "apisb_multilingual_javascript_probe_prompts_lookup_idiom_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    },
+    {
+      "claim_bearing": false,
+      "claim_role": "future_multi_owner_multilingual_cell_not_current_evidence",
+      "language": "go",
+      "null_owner_negative_target": 50,
+      "owner_slot_id": "owner_epsilon",
+      "owner_split": "owner_heldout",
+      "positive_task_count": 50,
+      "positive_task_ids_sha256": "6e225c404a4a5343e97a87e05e936583d658b6c041f2f07227b3e8e90cdc5ca3",
+      "positive_task_target": 50,
+      "prompt_owner_id_leakage_allowed": false,
+      "provider": "DeepSeek",
+      "random_owner_negative_target": 50,
+      "same_provider_unwrap_control_target": 50,
+      "source_manifest": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "visible_task_id_sample": [
+        "apisb_multilingual_go_probe_prompts_lookup_idiom_01",
+        "apisb_multilingual_go_probe_prompts_lookup_idiom_02",
+        "apisb_multilingual_go_probe_prompts_lookup_idiom_03",
+        "apisb_multilingual_go_probe_prompts_lookup_idiom_04",
+        "apisb_multilingual_go_probe_prompts_lookup_idiom_05"
+      ],
+      "wrong_owner_negative_multiplier": 4,
+      "wrong_owner_negative_target": 200
+    }
+  ],
+  "wrong_owner_negative_multiplier": 4
+}

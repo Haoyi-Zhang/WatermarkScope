@@ -1,0 +1,91 @@
+{
+  "allowed_current_claim": "DeepSeek-only marker-hidden selective audit/triage protocol",
+  "bestpaper_ready": false,
+  "bestpaper_ready_reason": "Current v3 DeepSeek evidence supports selective marker-hidden triage; decisive coverage is only 81/960, so v5 must improve coverage-risk frontier before any stronger audit-classifier claim.",
+  "blockers": [],
+  "claim_bearing": false,
+  "forbidden_claims": [
+    "security certificate",
+    "harmlessness guarantee",
+    "automatic latent-trojan classifier",
+    "visible-marker rows as main evidence",
+    "expert-signed gold labels or named/institutional expert certification",
+    "v5 coverage upgrade before final v5 postrun promotion passes"
+  ],
+  "formal_automatic_classifier_claim_allowed": false,
+  "formal_harmlessness_claim_allowed": false,
+  "formal_marker_hidden_selective_triage_claim_allowed": true,
+  "formal_security_certificate_claim_allowed": false,
+  "formal_v5_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T21:13:08+00:00",
+  "locked_effect_surface": {
+    "case_count": 320,
+    "decision_distribution": {
+      "benign": 80,
+      "latent_trojan": 1,
+      "needs_review": 879
+    },
+    "decisive_count": 81,
+    "decisive_coverage_ci95": {
+      "high": 0.10365684661114782,
+      "k": 81,
+      "low": 0.06840615950150586,
+      "method": "wilson",
+      "n": 960,
+      "rate": 0.084375
+    },
+    "expert_review_role_support_only": true,
+    "marker_hidden_claim_rows": 960,
+    "marker_visible_diagnostic_rows": 320,
+    "needs_review_ci95": {
+      "high": 0.9315938404984943,
+      "k": 879,
+      "low": 0.8963431533888522,
+      "method": "wilson",
+      "n": 960,
+      "rate": 0.915625
+    },
+    "needs_review_count": 879,
+    "unsafe_pass_ci95": {
+      "high": 0.003985571263342763,
+      "k": 0,
+      "low": 0.0,
+      "method": "wilson",
+      "n": 960,
+      "rate": 0.0
+    },
+    "unsafe_pass_count": 0,
+    "v5_final_evidence_ready": false,
+    "v5_postrun_gate_pass": false
+  },
+  "paper_table_requirements": [
+    "Report 81/960 decisive marker-hidden rows as selective coverage, not accuracy.",
+    "Report 879/960 needs-review rows as review load, not hidden success.",
+    "Report 0/960 unsafe-pass rows with nonzero Wilson upper bound.",
+    "Keep 320 visible-marker rows diagnostic-only.",
+    "Describe expert review only as anonymous role-based support and packet confirmation."
+  ],
+  "remaining_blockers": [
+    "decisive_coverage_only_81_of_960",
+    "v5_final_evidence_not_claim_bearing",
+    "v5_coverage_risk_frontier_missing",
+    "v5_threshold_sensitivity_missing",
+    "v5_visible_marker_boundary_missing"
+  ],
+  "required_next_evidence": [
+    "Fresh v5 second-stage DeepSeek evidence with 960 hidden claim rows.",
+    "Coverage-risk frontier showing improved decisive coverage without unsafe-pass inflation.",
+    "Threshold sensitivity and visible-marker diagnostic boundary artifacts.",
+    "Hard ambiguity retained rather than forced labels."
+  ],
+  "schema_version": "sealaudit_final_claim_lock_v1",
+  "source_artifacts": {
+    "canonical_claim_surface": "results/SealAudit/artifacts/generated/canonical_claim_surface_results.json",
+    "coverage_risk_frontier": "results/SealAudit/artifacts/generated/sealaudit_coverage_risk_frontier_gate_20260505.json",
+    "expert_role_support": "results/SealAudit/artifacts/generated/sealaudit_expert_review_role_support_gate_v1_20260507.json",
+    "v5_postrun_promotion": "results/SealAudit/artifacts/generated/sealaudit_v5_postrun_promotion_gate_v1_20260507.json",
+    "v5_readiness": "results/SealAudit/artifacts/generated/sealaudit_v5_final_evidence_readiness_gate_20260507.json"
+  },
+  "upgrade_claim_allowed": false
+}

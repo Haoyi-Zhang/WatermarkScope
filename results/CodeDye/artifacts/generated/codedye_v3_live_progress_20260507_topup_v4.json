@@ -1,0 +1,12 @@
+{
+  "schema_version": "codedye_v3_canonical_topup_progress_v1",
+  "status": "blocked",
+  "completed": 299,
+  "target_records": 300,
+  "output": "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507_topup_v4.json",
+  "claim_bearing": false,
+  "blockers": [
+    "topup_target_record_count_not_met:299/300",
+    "topup_unique_task_count_not_target"
+  ]
+}

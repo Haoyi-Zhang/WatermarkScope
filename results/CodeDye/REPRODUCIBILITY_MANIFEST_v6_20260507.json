@@ -1,0 +1,147 @@
+{
+  "artifact_count": 10,
+  "artifacts": [
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 3987,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_final_claim_lock_v1_20260507.json",
+      "schema_version": "codedye_final_claim_lock_v1",
+      "sha256": "e12dd7247c62fd5ea4808b4c441f04eaf758ca473c15633a0013977a81de661f"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 2038,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": null,
+      "path": "results/CodeDye/artifacts/generated/codedye_final_claim_lock_v1_20260507.md",
+      "schema_version": null,
+      "sha256": "e0f3394291a4d08388476bf47ba8b209606b6e9284001286955aa9d15dde513a"
+    },
+    {
+      "blocked": null,
+      "blockers": [
+        "fresh_v3_required_hash_fields_missing_in_legacy_source"
+      ],
+      "bytes": 373342,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_live_traceability_manifest_v1_20260507.json",
+      "schema_version": "codedye_live_traceability_manifest_v1",
+      "sha256": "6792a04a819a7a15d6ec5ec5c5717958bc10f7b134a219c60f0bfcad7450ea70"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 1185,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_run_readiness_classifier_v1_20260507.json",
+      "schema_version": "codedye_v3_run_readiness_classifier_v1",
+      "sha256": "31e02ebb5b357601384ed99a9dc7d7822bc4bf69c7fe2636112aa24190ce58df"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 3716,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_fresh_run_preflight_contract_v1_20260507.json",
+      "schema_version": "codedye_v3_fresh_run_preflight_contract_v1",
+      "sha256": "26cb370407b354f58608af57c66e730df525245a72b680c3e8aa81e6208b3a4d"
+    },
+    {
+      "blocked": true,
+      "blockers": [
+        "fresh_v3_live_result_missing"
+      ],
+      "bytes": 1936,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": false,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_postrun_promotion_gate_v1_20260507.json",
+      "schema_version": "codedye_v3_postrun_promotion_gate_v1",
+      "sha256": "3c6a506c56daf4b7992cd584fd565dc76489b7a6b20575052cb312a5a9b41ba6"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 8996,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_low_signal_claim_boundary_gate_20260505.json",
+      "schema_version": "codedye_low_signal_claim_boundary_gate_v1",
+      "sha256": "5bddc0e00c2774e9b1542a3a6a9b068c7f17884a911c5935b8ce5684a5ac1788"
+    },
+    {
+      "blocked": false,
+      "blockers": [],
+      "bytes": 1563,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_positive_miss_taxonomy_v2_20260507.json",
+      "schema_version": "codedye_positive_control_taxonomy_v2",
+      "sha256": "f028ed0e85e3d2c2037e14ef3023121fbbae98dfc8f4f538699edb2043f72d84"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 138626,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_negative_control_row_hash_manifest_v2_20260507.json",
+      "schema_version": "codedye_negative_control_row_hash_manifest_v2",
+      "sha256": "be4dec83b0ca0957ad80d96c932cee1a6f6537979f10c9170bf60f69d4506e40"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 201,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/CodeDye/ANONYMIZATION_AUDIT.json",
+      "schema_version": "watermark_github_progress_anonymization_audit_v1",
+      "sha256": "df9670a8c51cef807134c8b712d8c1513b87c30e98f51d4621d0be33c13fb0eb"
+    }
+  ],
+  "boundary": "Additive v6 reviewer index with fresh-run contracts and provider readiness v2.",
+  "claim_bearing": false,
+  "claim_lock": {
+    "allowed_current_claim": "DeepSeek-only curator-side sparse null-audit with hash-bound transcript retention",
+    "bestpaper_ready": false,
+    "forbidden_claims": [
+      "high-recall contamination detector",
+      "contamination prevalence estimate",
+      "provider accusation",
+      "evidence that non-signals prove absence of contamination",
+      "support/public rows as main-denominator evidence",
+      "v3 live claim before the postrun promotion gate passes"
+    ],
+    "gate_pass": true,
+    "path": "results/CodeDye/artifacts/generated/codedye_final_claim_lock_v1_20260507.json",
+    "project": "CodeDye",
+    "remaining_blockers": [
+      "fresh_v3_live_result_missing",
+      "positive_control_sensitivity_only_170_of_300",
+      "live_signal_only_6_of_300"
+    ],
+    "schema_version": "codedye_final_claim_lock_v1",
+    "upgrade_claim_allowed": false
+  },
+  "generated_at_utc": "2026-05-06T22:35:51+00:00",
+  "missing_artifacts": [],
+  "project": "CodeDye",
+  "schema_version": "codedye_reviewer_reproducibility_manifest_v6"
+}

@@ -1,0 +1,159 @@
+{
+  "admitted_summary": {
+    "admitted_cell_count": 0,
+    "admitted_families": [],
+    "claim_ready": false
+  },
+  "artifact_role": "no_retry_canonical_run_contract_and_readiness_gate_not_results",
+  "blockers": [],
+  "cells": [
+    {
+      "admission_blockers": [],
+      "admitted": false,
+      "audit_gate_pass": false,
+      "audit_path": "artifacts/generated/semcodebook_first_sample_no_retry_deepseekcoder67b_postrun_audit_gate_20260505.json",
+      "audit_present": false,
+      "audit_sha256": "",
+      "backbone": "DeepSeek-Coder-6.7B-Instruct",
+      "cell_id": "deepseekcoder67b_first_sample_no_retry",
+      "family": "deepseek",
+      "negative_count": 0,
+      "positive_count": 0,
+      "record_count": 0,
+      "result_path": "artifacts/generated/semcodebook_first_sample_no_retry_deepseekcoder67b_full_eval_results_20260505.json",
+      "result_present": false,
+      "result_sha256": "",
+      "source_main_cell": "deepseekcoder67b",
+      "support_materializer_or_retry_origin_count": 0,
+      "support_retry_record_count": 0
+    },
+    {
+      "admission_blockers": [],
+      "admitted": false,
+      "audit_gate_pass": false,
+      "audit_path": "artifacts/generated/semcodebook_first_sample_no_retry_qwen25coder7b_postrun_audit_gate_20260505.json",
+      "audit_present": false,
+      "audit_sha256": "",
+      "backbone": "Qwen2.5-Coder-7B-Instruct",
+      "cell_id": "qwen25coder7b_first_sample_no_retry",
+      "family": "qwen",
+      "negative_count": 0,
+      "positive_count": 0,
+      "record_count": 0,
+      "result_path": "artifacts/generated/semcodebook_first_sample_no_retry_qwen25coder7b_full_eval_results_20260505.json",
+      "result_present": false,
+      "result_sha256": "",
+      "source_main_cell": "qwen25coder7b",
+      "support_materializer_or_retry_origin_count": 0,
+      "support_retry_record_count": 0
+    },
+    {
+      "admission_blockers": [],
+      "admitted": false,
+      "audit_gate_pass": false,
+      "audit_path": "artifacts/generated/semcodebook_first_sample_no_retry_starcoder2_7b_postrun_audit_gate_20260505.json",
+      "audit_present": false,
+      "audit_sha256": "",
+      "backbone": "StarCoder2-7B",
+      "cell_id": "starcoder2_7b_first_sample_no_retry",
+      "family": "starcoder2_or_phi",
+      "negative_count": 0,
+      "positive_count": 0,
+      "record_count": 0,
+      "result_path": "artifacts/generated/semcodebook_first_sample_no_retry_starcoder2_7b_full_eval_results_20260505.json",
+      "result_present": false,
+      "result_sha256": "",
+      "source_main_cell": "starcoder2_7b",
+      "support_materializer_or_retry_origin_count": 0,
+      "support_retry_record_count": 0
+    },
+    {
+      "admission_blockers": [],
+      "admitted": false,
+      "audit_gate_pass": false,
+      "audit_path": "artifacts/generated/semcodebook_first_sample_no_retry_phi1code13b_postrun_audit_gate_20260505.json",
+      "audit_present": false,
+      "audit_sha256": "",
+      "backbone": "Phi-1-Code-1.3B",
+      "backup_for": "starcoder2_7b_first_sample_no_retry",
+      "cell_id": "phi1code13b_first_sample_no_retry_backup",
+      "family": "starcoder2_or_phi",
+      "negative_count": 0,
+      "positive_count": 0,
+      "record_count": 0,
+      "result_path": "artifacts/generated/semcodebook_first_sample_no_retry_phi1code13b_full_eval_results_20260505.json",
+      "result_present": false,
+      "result_sha256": "",
+      "source_main_cell": "phi1code13b",
+      "support_materializer_or_retry_origin_count": 0,
+      "support_retry_record_count": 0
+    }
+  ],
+  "claim_bearing": false,
+  "contract_scope": {
+    "benchmark": "CarrierStressBench",
+    "existing_support_retry_results_may_not_be_reused": true,
+    "fresh_rerun_required": true,
+    "records_per_task": 12,
+    "required_admitted_cells": 3,
+    "required_family_groups": [
+      "deepseek",
+      "qwen",
+      "starcoder2_or_phi"
+    ],
+    "required_records_per_cell": 7200,
+    "required_tasks_per_cell": 600
+  },
+  "first_sample_raw_generation_claim_allowed": false,
+  "formal_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T12:14:07.897966+00:00",
+  "non_downgrade_policy": {
+    "current_claim_results_unchanged": true,
+    "no_promotion_from_plan_or_smoke": true,
+    "no_support_retry_denominator_mixing": true,
+    "no_task_deletion": true,
+    "no_threshold_lowering": true
+  },
+  "operator_entrypoint": {
+    "example_env_prefix": "SEMCODEBOOK_FIRST_SAMPLE_ONLY=1 SEMCODEBOOK_DISABLE_SUPPORT_RETRY=1 SEMCODEBOOK_DISABLE_SUPPORT_MATERIALIZER=1 SEMCODEBOOK_CANDIDATE_BUDGET=1",
+    "note": "This script defines and checks the contract only; it does not launch a long canonical run.",
+    "postrun_audit_runner": "scripts/build_post_full_carrierstressbench_audit_gate.py",
+    "runner": "scripts/run_full_eval.py"
+  },
+  "required_environment": {
+    "SEMCODEBOOK_CANDIDATE_BUDGET": "1",
+    "SEMCODEBOOK_DISABLE_SUPPORT_MATERIALIZER": "1",
+    "SEMCODEBOOK_DISABLE_SUPPORT_RETRY": "1",
+    "SEMCODEBOOK_FIRST_SAMPLE_ONLY": "1"
+  },
+  "required_record_invariants": {
+    "candidate_budget": 1,
+    "generation_support_retry_attempted": false,
+    "generation_support_retry_candidate_count": 0,
+    "negative_denominator_per_cell": 4800,
+    "no_support_retry_or_materializer_notes": true,
+    "positive_denominator_per_cell": 2400,
+    "postrun_audit_required": true,
+    "raw_and_structured_hashes_required": true,
+    "support_materializer_selected_origin_allowed": false
+  },
+  "schema_version": "semcodebook_no_retry_canonical_run_contract_v1",
+  "source_checks": {
+    "all_required_source_paths_present": true,
+    "candidate_budget_env_override_present": true,
+    "first_sample_disables_sampling": true,
+    "first_sample_env_flag_present": true,
+    "run_full_eval_emits_support_retry_fields": true,
+    "source_sha256": {
+      "scripts/build_post_full_carrierstressbench_audit_gate.py": "d50f46b0ea7229f780df0d51d0a39c88ce3dac3899139e5ac9f5bfc6d678158f",
+      "scripts/run_full_eval.py": "015ab31ef7b4329c319653f7528dd30928961c270d8c5e962cbd016d5a61ebcb",
+      "src/semcodebook/inference.py": "0d3df6d7efa6a0dca3531e839c80cf0fa221c4c25f955eee5752981c69c0dcd6"
+    },
+    "support_materializer_disable_flag_present": true,
+    "support_materializer_guarded_by_disable_flag": true,
+    "support_retry_disable_flag_present": true,
+    "support_retry_guarded_by_disable_flag": true
+  },
+  "status": "passed"
+}

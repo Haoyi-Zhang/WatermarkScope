@@ -1,0 +1,44 @@
+{
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T16:26:51+00:00",
+  "reviewer_attack_closure": {
+    "low_effect": "Low live yield is preserved as sparse null-audit evidence, not inflated into detection accuracy.",
+    "moderate_sensitivity": "Positive-control misses remain a P1 method-improvement target.",
+    "statistics_boundary": "4/300 statistics-artifact positives are not substituted for the final 6/300 signal count."
+  },
+  "schema_version": "codedye_audit_utility_second_pass_v1",
+  "source_artifacts": [
+    "codedye_low_signal_claim_boundary_gate_20260505.json",
+    "statistics_repro_gate.json"
+  ],
+  "utility_surface": {
+    "final_signal_ci95": {
+      "high": 0.042940186730055147,
+      "k": 6,
+      "low": 0.009197506067771082,
+      "n": 300,
+      "rate": 0.02
+    },
+    "final_signal_count": 6,
+    "full_eval_record_count": 1106,
+    "live_audit_rows": 300,
+    "negative_control_false_positive_ci95": {
+      "high": 0.012643429997735661,
+      "k": 0,
+      "low": 0.0,
+      "n": 300,
+      "rate": 0.0
+    },
+    "payload_hash_missing": 0,
+    "positive_control_ci95": {
+      "high": 0.6215496625310637,
+      "k": 170,
+      "low": 0.5100978801359048,
+      "n": 300,
+      "rate": 0.5666666666666667
+    },
+    "positive_control_detected": 170,
+    "statistics_artifact_signal_count": 4,
+    "support_rows_excluded": 806
+  }
+}

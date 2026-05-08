@@ -1,0 +1,1459 @@
+{
+  "arm_summaries": {
+    "ast_only_carriers": {
+      "attack_counts": {
+        "comment_whitespace_normalize": 600,
+        "control_flow_rewrite": 600,
+        "cross_language_translation": 600,
+        "dataflow_rewrite": 600,
+        "dead_code_add_remove": 600,
+        "helper_extract_inline": 600,
+        "rename": 600,
+        "unperturbed": 600
+      },
+      "family_counts": {
+        "cfg_branch_normalization": 800,
+        "container_helper": 800,
+        "guard_helper_accumulator": 800,
+        "guard_loop_accumulator": 800,
+        "multilingual_equivalence": 800,
+        "ssa_phi_liveness": 800
+      },
+      "language_counts": {
+        "cpp": 960,
+        "go": 960,
+        "java": 960,
+        "javascript": 960,
+        "python": 960
+      },
+      "negative_false_positive": 0,
+      "negative_fp_ci95": {
+        "high": 0.001598049990609079,
+        "k": 0,
+        "low": 1.0842021724855044e-19,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.0
+      },
+      "negative_n": 2400,
+      "positive_detected": 10,
+      "positive_n": 2400,
+      "positive_recovery_ci95": {
+        "high": 0.007653219880945543,
+        "k": 10,
+        "low": 0.0022648463597417933,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.004166666666666667
+      },
+      "row_count": 4800
+    },
+    "cfg_only_carriers": {
+      "attack_counts": {
+        "comment_whitespace_normalize": 600,
+        "control_flow_rewrite": 600,
+        "cross_language_translation": 600,
+        "dataflow_rewrite": 600,
+        "dead_code_add_remove": 600,
+        "helper_extract_inline": 600,
+        "rename": 600,
+        "unperturbed": 600
+      },
+      "family_counts": {
+        "cfg_branch_normalization": 800,
+        "container_helper": 800,
+        "guard_helper_accumulator": 800,
+        "guard_loop_accumulator": 800,
+        "multilingual_equivalence": 800,
+        "ssa_phi_liveness": 800
+      },
+      "language_counts": {
+        "cpp": 960,
+        "go": 960,
+        "java": 960,
+        "javascript": 960,
+        "python": 960
+      },
+      "negative_false_positive": 0,
+      "negative_fp_ci95": {
+        "high": 0.001598049990609079,
+        "k": 0,
+        "low": 1.0842021724855044e-19,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.0
+      },
+      "negative_n": 2400,
+      "positive_detected": 140,
+      "positive_n": 2400,
+      "positive_recovery_ci95": {
+        "high": 0.0684348790078034,
+        "k": 140,
+        "low": 0.049643398483901285,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.058333333333333334
+      },
+      "row_count": 4800
+    },
+    "drop_ast_carriers": {
+      "attack_counts": {
+        "comment_whitespace_normalize": 600,
+        "control_flow_rewrite": 600,
+        "cross_language_translation": 600,
+        "dataflow_rewrite": 600,
+        "dead_code_add_remove": 600,
+        "helper_extract_inline": 600,
+        "rename": 600,
+        "unperturbed": 600
+      },
+      "family_counts": {
+        "cfg_branch_normalization": 800,
+        "container_helper": 800,
+        "guard_helper_accumulator": 800,
+        "guard_loop_accumulator": 800,
+        "multilingual_equivalence": 800,
+        "ssa_phi_liveness": 800
+      },
+      "language_counts": {
+        "cpp": 960,
+        "go": 960,
+        "java": 960,
+        "javascript": 960,
+        "python": 960
+      },
+      "negative_false_positive": 0,
+      "negative_fp_ci95": {
+        "high": 0.001598049990609079,
+        "k": 0,
+        "low": 1.0842021724855044e-19,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.0
+      },
+      "negative_n": 2400,
+      "positive_detected": 2140,
+      "positive_n": 2400,
+      "positive_recovery_ci95": {
+        "high": 0.9034809785637838,
+        "k": 2140,
+        "low": 0.8786005489435724,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.8916666666666667
+      },
+      "row_count": 4800
+    },
+    "drop_cfg_carriers": {
+      "attack_counts": {
+        "comment_whitespace_normalize": 600,
+        "control_flow_rewrite": 600,
+        "cross_language_translation": 600,
+        "dataflow_rewrite": 600,
+        "dead_code_add_remove": 600,
+        "helper_extract_inline": 600,
+        "rename": 600,
+        "unperturbed": 600
+      },
+      "family_counts": {
+        "cfg_branch_normalization": 800,
+        "container_helper": 800,
+        "guard_helper_accumulator": 800,
+        "guard_loop_accumulator": 800,
+        "multilingual_equivalence": 800,
+        "ssa_phi_liveness": 800
+      },
+      "language_counts": {
+        "cpp": 960,
+        "go": 960,
+        "java": 960,
+        "javascript": 960,
+        "python": 960
+      },
+      "negative_false_positive": 0,
+      "negative_fp_ci95": {
+        "high": 0.001598049990609079,
+        "k": 0,
+        "low": 1.0842021724855044e-19,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.0
+      },
+      "negative_n": 2400,
+      "positive_detected": 1970,
+      "positive_n": 2400,
+      "positive_recovery_ci95": {
+        "high": 0.8356595188318829,
+        "k": 1970,
+        "low": 0.8049817324241428,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.8208333333333333
+      },
+      "row_count": 4800
+    },
+    "drop_ssa_carriers": {
+      "attack_counts": {
+        "comment_whitespace_normalize": 600,
+        "control_flow_rewrite": 600,
+        "cross_language_translation": 600,
+        "dataflow_rewrite": 600,
+        "dead_code_add_remove": 600,
+        "helper_extract_inline": 600,
+        "rename": 600,
+        "unperturbed": 600
+      },
+      "family_counts": {
+        "cfg_branch_normalization": 800,
+        "container_helper": 800,
+        "guard_helper_accumulator": 800,
+        "guard_loop_accumulator": 800,
+        "multilingual_equivalence": 800,
+        "ssa_phi_liveness": 800
+      },
+      "language_counts": {
+        "cpp": 960,
+        "go": 960,
+        "java": 960,
+        "javascript": 960,
+        "python": 960
+      },
+      "negative_false_positive": 0,
+      "negative_fp_ci95": {
+        "high": 0.001598049990609079,
+        "k": 0,
+        "low": 1.0842021724855044e-19,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.0
+      },
+      "negative_n": 2400,
+      "positive_detected": 100,
+      "positive_n": 2400,
+      "positive_recovery_ci95": {
+        "high": 0.05042079507458337,
+        "k": 100,
+        "low": 0.034377417416808276,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.041666666666666664
+      },
+      "row_count": 4800
+    },
+    "ecc_raw_payload4_no_correction": {
+      "attack_counts": {
+        "comment_whitespace_normalize": 600,
+        "control_flow_rewrite": 600,
+        "cross_language_translation": 600,
+        "dataflow_rewrite": 600,
+        "dead_code_add_remove": 600,
+        "helper_extract_inline": 600,
+        "rename": 600,
+        "unperturbed": 600
+      },
+      "family_counts": {
+        "cfg_branch_normalization": 800,
+        "container_helper": 800,
+        "guard_helper_accumulator": 800,
+        "guard_loop_accumulator": 800,
+        "multilingual_equivalence": 800,
+        "ssa_phi_liveness": 800
+      },
+      "language_counts": {
+        "cpp": 960,
+        "go": 960,
+        "java": 960,
+        "javascript": 960,
+        "python": 960
+      },
+      "negative_false_positive": 0,
+      "negative_fp_ci95": {
+        "high": 0.001598049990609079,
+        "k": 0,
+        "low": 1.0842021724855044e-19,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.0
+      },
+      "negative_n": 2400,
+      "positive_detected": 1360,
+      "positive_n": 2400,
+      "positive_recovery_ci95": {
+        "high": 0.5863697590559812,
+        "k": 1360,
+        "low": 0.5467505009452708,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.5666666666666667
+      },
+      "row_count": 4800
+    },
+    "full_ast_cfg_ssa_ecc_keyed": {
+      "attack_counts": {
+        "comment_whitespace_normalize": 600,
+        "control_flow_rewrite": 600,
+        "cross_language_translation": 600,
+        "dataflow_rewrite": 600,
+        "dead_code_add_remove": 600,
+        "helper_extract_inline": 600,
+        "rename": 600,
+        "unperturbed": 600
+      },
+      "family_counts": {
+        "cfg_branch_normalization": 800,
+        "container_helper": 800,
+        "guard_helper_accumulator": 800,
+        "guard_loop_accumulator": 800,
+        "multilingual_equivalence": 800,
+        "ssa_phi_liveness": 800
+      },
+      "language_counts": {
+        "cpp": 960,
+        "go": 960,
+        "java": 960,
+        "javascript": 960,
+        "python": 960
+      },
+      "negative_false_positive": 0,
+      "negative_fp_ci95": {
+        "high": 0.001598049990609079,
+        "k": 0,
+        "low": 1.0842021724855044e-19,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.0
+      },
+      "negative_n": 2400,
+      "positive_detected": 2140,
+      "positive_n": 2400,
+      "positive_recovery_ci95": {
+        "high": 0.9034809785637838,
+        "k": 2140,
+        "low": 0.8786005489435724,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.8916666666666667
+      },
+      "row_count": 4800
+    },
+    "ssa_only_carriers": {
+      "attack_counts": {
+        "comment_whitespace_normalize": 600,
+        "control_flow_rewrite": 600,
+        "cross_language_translation": 600,
+        "dataflow_rewrite": 600,
+        "dead_code_add_remove": 600,
+        "helper_extract_inline": 600,
+        "rename": 600,
+        "unperturbed": 600
+      },
+      "family_counts": {
+        "cfg_branch_normalization": 800,
+        "container_helper": 800,
+        "guard_helper_accumulator": 800,
+        "guard_loop_accumulator": 800,
+        "multilingual_equivalence": 800,
+        "ssa_phi_liveness": 800
+      },
+      "language_counts": {
+        "cpp": 960,
+        "go": 960,
+        "java": 960,
+        "javascript": 960,
+        "python": 960
+      },
+      "negative_false_positive": 0,
+      "negative_fp_ci95": {
+        "high": 0.001598049990609079,
+        "k": 0,
+        "low": 1.0842021724855044e-19,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.0
+      },
+      "negative_n": 2400,
+      "positive_detected": 1960,
+      "positive_n": 2400,
+      "positive_recovery_ci95": {
+        "high": 0.8316370409131892,
+        "k": 1960,
+        "low": 0.8006841940927583,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.8166666666666667
+      },
+      "row_count": 4800
+    },
+    "unkeyed_static_family_order": {
+      "attack_counts": {
+        "comment_whitespace_normalize": 600,
+        "control_flow_rewrite": 600,
+        "cross_language_translation": 600,
+        "dataflow_rewrite": 600,
+        "dead_code_add_remove": 600,
+        "helper_extract_inline": 600,
+        "rename": 600,
+        "unperturbed": 600
+      },
+      "family_counts": {
+        "cfg_branch_normalization": 800,
+        "container_helper": 800,
+        "guard_helper_accumulator": 800,
+        "guard_loop_accumulator": 800,
+        "multilingual_equivalence": 800,
+        "ssa_phi_liveness": 800
+      },
+      "language_counts": {
+        "cpp": 960,
+        "go": 960,
+        "java": 960,
+        "javascript": 960,
+        "python": 960
+      },
+      "negative_false_positive": 0,
+      "negative_fp_ci95": {
+        "high": 0.001598049990609079,
+        "k": 0,
+        "low": 1.0842021724855044e-19,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.0
+      },
+      "negative_n": 2400,
+      "positive_detected": 1570,
+      "positive_n": 2400,
+      "positive_recovery_ci95": {
+        "high": 0.6729358669518989,
+        "k": 1570,
+        "low": 0.6349047343009967,
+        "method": "wilson",
+        "n": 2400,
+        "rate": 0.6541666666666667
+      },
+      "row_count": 4800
+    }
+  },
+  "blockers": [],
+  "claim_bearing": false,
+  "claim_boundary": "This table supports component contribution analysis for the fresh generation-changing ablation only; it does not promote first-sample/no-retry natural generation.",
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T17:16:08+00:00",
+  "input": "results/SemCodebook/artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json",
+  "paired_comparisons": {
+    "full_vs_ast_only": {
+      "arm_better_rows": 0,
+      "full_better_rows": 2130,
+      "normal_ci95": {
+        "high": 0.9001442597554753,
+        "low": 0.8748557402445246,
+        "method": "paired_normal_approximation"
+      },
+      "paired_delta_full_minus_arm": 0.8875,
+      "paired_n": 2400,
+      "tied_rows": 270
+    },
+    "full_vs_cfg_only": {
+      "arm_better_rows": 0,
+      "full_better_rows": 2000,
+      "normal_ci95": {
+        "high": 0.8482463917418464,
+        "low": 0.8184202749248204,
+        "method": "paired_normal_approximation"
+      },
+      "paired_delta_full_minus_arm": 0.8333333333333334,
+      "paired_n": 2400,
+      "tied_rows": 400
+    },
+    "full_vs_drop_ast": {
+      "arm_better_rows": 0,
+      "full_better_rows": 0,
+      "normal_ci95": {
+        "high": 0.0,
+        "low": 0.0,
+        "method": "paired_normal_approximation"
+      },
+      "paired_delta_full_minus_arm": 0.0,
+      "paired_n": 2400,
+      "tied_rows": 2400
+    },
+    "full_vs_drop_cfg": {
+      "arm_better_rows": 180,
+      "full_better_rows": 350,
+      "normal_ci95": {
+        "high": 0.0894231350947524,
+        "low": 0.05224353157191426,
+        "method": "paired_normal_approximation"
+      },
+      "paired_delta_full_minus_arm": 0.07083333333333333,
+      "paired_n": 2400,
+      "tied_rows": 1870
+    },
+    "full_vs_drop_ssa": {
+      "arm_better_rows": 0,
+      "full_better_rows": 2040,
+      "normal_ci95": {
+        "high": 0.8642885467275672,
+        "low": 0.8357114532724328,
+        "method": "paired_normal_approximation"
+      },
+      "paired_delta_full_minus_arm": 0.85,
+      "paired_n": 2400,
+      "tied_rows": 360
+    },
+    "full_vs_ecc_off": {
+      "arm_better_rows": 100,
+      "full_better_rows": 880,
+      "normal_ci95": {
+        "high": 0.34701634162464595,
+        "low": 0.30298365837535407,
+        "method": "paired_normal_approximation"
+      },
+      "paired_delta_full_minus_arm": 0.325,
+      "paired_n": 2400,
+      "tied_rows": 1420
+    },
+    "full_vs_ssa_only": {
+      "arm_better_rows": 180,
+      "full_better_rows": 360,
+      "normal_ci95": {
+        "high": 0.09374245746628992,
+        "low": 0.05625754253371006,
+        "method": "paired_normal_approximation"
+      },
+      "paired_delta_full_minus_arm": 0.075,
+      "paired_n": 2400,
+      "tied_rows": 1860
+    },
+    "full_vs_unkeyed_schedule": {
+      "arm_better_rows": 100,
+      "full_better_rows": 670,
+      "normal_ci95": {
+        "high": 0.258077183685149,
+        "low": 0.21692281631485102,
+        "method": "paired_normal_approximation"
+      },
+      "paired_delta_full_minus_arm": 0.2375,
+      "paired_n": 2400,
+      "tied_rows": 1630
+    }
+  },
+  "record_count": 43200,
+  "schema_version": "semcodebook_causal_contribution_table_v1",
+  "slice_summaries": {
+    "attack_condition": {
+      "ast_only_carriers": {
+        "comment_whitespace_normalize": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "control_flow_rewrite": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "cross_language_translation": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "dataflow_rewrite": {
+          "positive_detected": 10,
+          "positive_n": 300,
+          "rate": 0.03333333333333333
+        },
+        "dead_code_add_remove": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "helper_extract_inline": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "rename": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "unperturbed": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        }
+      },
+      "cfg_only_carriers": {
+        "comment_whitespace_normalize": {
+          "positive_detected": 10,
+          "positive_n": 300,
+          "rate": 0.03333333333333333
+        },
+        "control_flow_rewrite": {
+          "positive_detected": 10,
+          "positive_n": 300,
+          "rate": 0.03333333333333333
+        },
+        "cross_language_translation": {
+          "positive_detected": 10,
+          "positive_n": 300,
+          "rate": 0.03333333333333333
+        },
+        "dataflow_rewrite": {
+          "positive_detected": 60,
+          "positive_n": 300,
+          "rate": 0.2
+        },
+        "dead_code_add_remove": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "helper_extract_inline": {
+          "positive_detected": 30,
+          "positive_n": 300,
+          "rate": 0.1
+        },
+        "rename": {
+          "positive_detected": 10,
+          "positive_n": 300,
+          "rate": 0.03333333333333333
+        },
+        "unperturbed": {
+          "positive_detected": 10,
+          "positive_n": 300,
+          "rate": 0.03333333333333333
+        }
+      },
+      "drop_ast_carriers": {
+        "comment_whitespace_normalize": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "control_flow_rewrite": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "cross_language_translation": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "dataflow_rewrite": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "dead_code_add_remove": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "helper_extract_inline": {
+          "positive_detected": 250,
+          "positive_n": 300,
+          "rate": 0.8333333333333334
+        },
+        "rename": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "unperturbed": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        }
+      },
+      "drop_cfg_carriers": {
+        "comment_whitespace_normalize": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        },
+        "control_flow_rewrite": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        },
+        "cross_language_translation": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        },
+        "dataflow_rewrite": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "dead_code_add_remove": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        },
+        "helper_extract_inline": {
+          "positive_detected": 260,
+          "positive_n": 300,
+          "rate": 0.8666666666666667
+        },
+        "rename": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        },
+        "unperturbed": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        }
+      },
+      "drop_ssa_carriers": {
+        "comment_whitespace_normalize": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "control_flow_rewrite": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "cross_language_translation": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "dataflow_rewrite": {
+          "positive_detected": 60,
+          "positive_n": 300,
+          "rate": 0.2
+        },
+        "dead_code_add_remove": {
+          "positive_detected": 10,
+          "positive_n": 300,
+          "rate": 0.03333333333333333
+        },
+        "helper_extract_inline": {
+          "positive_detected": 30,
+          "positive_n": 300,
+          "rate": 0.1
+        },
+        "rename": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        },
+        "unperturbed": {
+          "positive_detected": 0,
+          "positive_n": 300,
+          "rate": 0.0
+        }
+      },
+      "ecc_raw_payload4_no_correction": {
+        "comment_whitespace_normalize": {
+          "positive_detected": 170,
+          "positive_n": 300,
+          "rate": 0.5666666666666667
+        },
+        "control_flow_rewrite": {
+          "positive_detected": 170,
+          "positive_n": 300,
+          "rate": 0.5666666666666667
+        },
+        "cross_language_translation": {
+          "positive_detected": 170,
+          "positive_n": 300,
+          "rate": 0.5666666666666667
+        },
+        "dataflow_rewrite": {
+          "positive_detected": 170,
+          "positive_n": 300,
+          "rate": 0.5666666666666667
+        },
+        "dead_code_add_remove": {
+          "positive_detected": 160,
+          "positive_n": 300,
+          "rate": 0.5333333333333333
+        },
+        "helper_extract_inline": {
+          "positive_detected": 180,
+          "positive_n": 300,
+          "rate": 0.6
+        },
+        "rename": {
+          "positive_detected": 170,
+          "positive_n": 300,
+          "rate": 0.5666666666666667
+        },
+        "unperturbed": {
+          "positive_detected": 170,
+          "positive_n": 300,
+          "rate": 0.5666666666666667
+        }
+      },
+      "full_ast_cfg_ssa_ecc_keyed": {
+        "comment_whitespace_normalize": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "control_flow_rewrite": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "cross_language_translation": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "dataflow_rewrite": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "dead_code_add_remove": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "helper_extract_inline": {
+          "positive_detected": 250,
+          "positive_n": 300,
+          "rate": 0.8333333333333334
+        },
+        "rename": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        },
+        "unperturbed": {
+          "positive_detected": 270,
+          "positive_n": 300,
+          "rate": 0.9
+        }
+      },
+      "ssa_only_carriers": {
+        "comment_whitespace_normalize": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        },
+        "control_flow_rewrite": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        },
+        "cross_language_translation": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        },
+        "dataflow_rewrite": {
+          "positive_detected": 260,
+          "positive_n": 300,
+          "rate": 0.8666666666666667
+        },
+        "dead_code_add_remove": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        },
+        "helper_extract_inline": {
+          "positive_detected": 260,
+          "positive_n": 300,
+          "rate": 0.8666666666666667
+        },
+        "rename": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        },
+        "unperturbed": {
+          "positive_detected": 240,
+          "positive_n": 300,
+          "rate": 0.8
+        }
+      },
+      "unkeyed_static_family_order": {
+        "comment_whitespace_normalize": {
+          "positive_detected": 200,
+          "positive_n": 300,
+          "rate": 0.6666666666666666
+        },
+        "control_flow_rewrite": {
+          "positive_detected": 200,
+          "positive_n": 300,
+          "rate": 0.6666666666666666
+        },
+        "cross_language_translation": {
+          "positive_detected": 200,
+          "positive_n": 300,
+          "rate": 0.6666666666666666
+        },
+        "dataflow_rewrite": {
+          "positive_detected": 160,
+          "positive_n": 300,
+          "rate": 0.5333333333333333
+        },
+        "dead_code_add_remove": {
+          "positive_detected": 190,
+          "positive_n": 300,
+          "rate": 0.6333333333333333
+        },
+        "helper_extract_inline": {
+          "positive_detected": 220,
+          "positive_n": 300,
+          "rate": 0.7333333333333333
+        },
+        "rename": {
+          "positive_detected": 200,
+          "positive_n": 300,
+          "rate": 0.6666666666666666
+        },
+        "unperturbed": {
+          "positive_detected": 200,
+          "positive_n": 300,
+          "rate": 0.6666666666666666
+        }
+      }
+    },
+    "family": {
+      "ast_only_carriers": {
+        "cfg_branch_normalization": {
+          "positive_detected": 10,
+          "positive_n": 400,
+          "rate": 0.025
+        },
+        "container_helper": {
+          "positive_detected": 0,
+          "positive_n": 400,
+          "rate": 0.0
+        },
+        "guard_helper_accumulator": {
+          "positive_detected": 0,
+          "positive_n": 400,
+          "rate": 0.0
+        },
+        "guard_loop_accumulator": {
+          "positive_detected": 0,
+          "positive_n": 400,
+          "rate": 0.0
+        },
+        "multilingual_equivalence": {
+          "positive_detected": 0,
+          "positive_n": 400,
+          "rate": 0.0
+        },
+        "ssa_phi_liveness": {
+          "positive_detected": 0,
+          "positive_n": 400,
+          "rate": 0.0
+        }
+      },
+      "cfg_only_carriers": {
+        "cfg_branch_normalization": {
+          "positive_detected": 60,
+          "positive_n": 400,
+          "rate": 0.15
+        },
+        "container_helper": {
+          "positive_detected": 20,
+          "positive_n": 400,
+          "rate": 0.05
+        },
+        "guard_helper_accumulator": {
+          "positive_detected": 20,
+          "positive_n": 400,
+          "rate": 0.05
+        },
+        "guard_loop_accumulator": {
+          "positive_detected": 10,
+          "positive_n": 400,
+          "rate": 0.025
+        },
+        "multilingual_equivalence": {
+          "positive_detected": 20,
+          "positive_n": 400,
+          "rate": 0.05
+        },
+        "ssa_phi_liveness": {
+          "positive_detected": 10,
+          "positive_n": 400,
+          "rate": 0.025
+        }
+      },
+      "drop_ast_carriers": {
+        "cfg_branch_normalization": {
+          "positive_detected": 400,
+          "positive_n": 400,
+          "rate": 1.0
+        },
+        "container_helper": {
+          "positive_detected": 320,
+          "positive_n": 400,
+          "rate": 0.8
+        },
+        "guard_helper_accumulator": {
+          "positive_detected": 320,
+          "positive_n": 400,
+          "rate": 0.8
+        },
+        "guard_loop_accumulator": {
+          "positive_detected": 390,
+          "positive_n": 400,
+          "rate": 0.975
+        },
+        "multilingual_equivalence": {
+          "positive_detected": 320,
+          "positive_n": 400,
+          "rate": 0.8
+        },
+        "ssa_phi_liveness": {
+          "positive_detected": 390,
+          "positive_n": 400,
+          "rate": 0.975
+        }
+      },
+      "drop_cfg_carriers": {
+        "cfg_branch_normalization": {
+          "positive_detected": 400,
+          "positive_n": 400,
+          "rate": 1.0
+        },
+        "container_helper": {
+          "positive_detected": 330,
+          "positive_n": 400,
+          "rate": 0.825
+        },
+        "guard_helper_accumulator": {
+          "positive_detected": 250,
+          "positive_n": 400,
+          "rate": 0.625
+        },
+        "guard_loop_accumulator": {
+          "positive_detected": 330,
+          "positive_n": 400,
+          "rate": 0.825
+        },
+        "multilingual_equivalence": {
+          "positive_detected": 330,
+          "positive_n": 400,
+          "rate": 0.825
+        },
+        "ssa_phi_liveness": {
+          "positive_detected": 330,
+          "positive_n": 400,
+          "rate": 0.825
+        }
+      },
+      "drop_ssa_carriers": {
+        "cfg_branch_normalization": {
+          "positive_detected": 20,
+          "positive_n": 400,
+          "rate": 0.05
+        },
+        "container_helper": {
+          "positive_detected": 20,
+          "positive_n": 400,
+          "rate": 0.05
+        },
+        "guard_helper_accumulator": {
+          "positive_detected": 20,
+          "positive_n": 400,
+          "rate": 0.05
+        },
+        "guard_loop_accumulator": {
+          "positive_detected": 10,
+          "positive_n": 400,
+          "rate": 0.025
+        },
+        "multilingual_equivalence": {
+          "positive_detected": 20,
+          "positive_n": 400,
+          "rate": 0.05
+        },
+        "ssa_phi_liveness": {
+          "positive_detected": 10,
+          "positive_n": 400,
+          "rate": 0.025
+        }
+      },
+      "ecc_raw_payload4_no_correction": {
+        "cfg_branch_normalization": {
+          "positive_detected": 60,
+          "positive_n": 400,
+          "rate": 0.15
+        },
+        "container_helper": {
+          "positive_detected": 240,
+          "positive_n": 400,
+          "rate": 0.6
+        },
+        "guard_helper_accumulator": {
+          "positive_detected": 240,
+          "positive_n": 400,
+          "rate": 0.6
+        },
+        "guard_loop_accumulator": {
+          "positive_detected": 250,
+          "positive_n": 400,
+          "rate": 0.625
+        },
+        "multilingual_equivalence": {
+          "positive_detected": 320,
+          "positive_n": 400,
+          "rate": 0.8
+        },
+        "ssa_phi_liveness": {
+          "positive_detected": 250,
+          "positive_n": 400,
+          "rate": 0.625
+        }
+      },
+      "full_ast_cfg_ssa_ecc_keyed": {
+        "cfg_branch_normalization": {
+          "positive_detected": 400,
+          "positive_n": 400,
+          "rate": 1.0
+        },
+        "container_helper": {
+          "positive_detected": 320,
+          "positive_n": 400,
+          "rate": 0.8
+        },
+        "guard_helper_accumulator": {
+          "positive_detected": 320,
+          "positive_n": 400,
+          "rate": 0.8
+        },
+        "guard_loop_accumulator": {
+          "positive_detected": 390,
+          "positive_n": 400,
+          "rate": 0.975
+        },
+        "multilingual_equivalence": {
+          "positive_detected": 320,
+          "positive_n": 400,
+          "rate": 0.8
+        },
+        "ssa_phi_liveness": {
+          "positive_detected": 390,
+          "positive_n": 400,
+          "rate": 0.975
+        }
+      },
+      "ssa_only_carriers": {
+        "cfg_branch_normalization": {
+          "positive_detected": 390,
+          "positive_n": 400,
+          "rate": 0.975
+        },
+        "container_helper": {
+          "positive_detected": 330,
+          "positive_n": 400,
+          "rate": 0.825
+        },
+        "guard_helper_accumulator": {
+          "positive_detected": 250,
+          "positive_n": 400,
+          "rate": 0.625
+        },
+        "guard_loop_accumulator": {
+          "positive_detected": 330,
+          "positive_n": 400,
+          "rate": 0.825
+        },
+        "multilingual_equivalence": {
+          "positive_detected": 330,
+          "positive_n": 400,
+          "rate": 0.825
+        },
+        "ssa_phi_liveness": {
+          "positive_detected": 330,
+          "positive_n": 400,
+          "rate": 0.825
+        }
+      },
+      "unkeyed_static_family_order": {
+        "cfg_branch_normalization": {
+          "positive_detected": 140,
+          "positive_n": 400,
+          "rate": 0.35
+        },
+        "container_helper": {
+          "positive_detected": 310,
+          "positive_n": 400,
+          "rate": 0.775
+        },
+        "guard_helper_accumulator": {
+          "positive_detected": 310,
+          "positive_n": 400,
+          "rate": 0.775
+        },
+        "guard_loop_accumulator": {
+          "positive_detected": 170,
+          "positive_n": 400,
+          "rate": 0.425
+        },
+        "multilingual_equivalence": {
+          "positive_detected": 390,
+          "positive_n": 400,
+          "rate": 0.975
+        },
+        "ssa_phi_liveness": {
+          "positive_detected": 250,
+          "positive_n": 400,
+          "rate": 0.625
+        }
+      }
+    },
+    "language": {
+      "ast_only_carriers": {
+        "cpp": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "go": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "java": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "javascript": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "python": {
+          "positive_detected": 10,
+          "positive_n": 480,
+          "rate": 0.020833333333333332
+        }
+      },
+      "cfg_only_carriers": {
+        "cpp": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "go": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "java": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "javascript": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "python": {
+          "positive_detected": 140,
+          "positive_n": 480,
+          "rate": 0.2916666666666667
+        }
+      },
+      "drop_ast_carriers": {
+        "cpp": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "go": {
+          "positive_detected": 240,
+          "positive_n": 480,
+          "rate": 0.5
+        },
+        "java": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "javascript": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "python": {
+          "positive_detected": 460,
+          "positive_n": 480,
+          "rate": 0.9583333333333334
+        }
+      },
+      "drop_cfg_carriers": {
+        "cpp": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "go": {
+          "positive_detected": 400,
+          "positive_n": 480,
+          "rate": 0.8333333333333334
+        },
+        "java": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "javascript": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "python": {
+          "positive_detected": 130,
+          "positive_n": 480,
+          "rate": 0.2708333333333333
+        }
+      },
+      "drop_ssa_carriers": {
+        "cpp": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "go": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "java": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "javascript": {
+          "positive_detected": 0,
+          "positive_n": 480,
+          "rate": 0.0
+        },
+        "python": {
+          "positive_detected": 100,
+          "positive_n": 480,
+          "rate": 0.20833333333333334
+        }
+      },
+      "ecc_raw_payload4_no_correction": {
+        "cpp": {
+          "positive_detected": 240,
+          "positive_n": 480,
+          "rate": 0.5
+        },
+        "go": {
+          "positive_detected": 240,
+          "positive_n": 480,
+          "rate": 0.5
+        },
+        "java": {
+          "positive_detected": 400,
+          "positive_n": 480,
+          "rate": 0.8333333333333334
+        },
+        "javascript": {
+          "positive_detected": 400,
+          "positive_n": 480,
+          "rate": 0.8333333333333334
+        },
+        "python": {
+          "positive_detected": 80,
+          "positive_n": 480,
+          "rate": 0.16666666666666666
+        }
+      },
+      "full_ast_cfg_ssa_ecc_keyed": {
+        "cpp": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "go": {
+          "positive_detected": 240,
+          "positive_n": 480,
+          "rate": 0.5
+        },
+        "java": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "javascript": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "python": {
+          "positive_detected": 460,
+          "positive_n": 480,
+          "rate": 0.9583333333333334
+        }
+      },
+      "ssa_only_carriers": {
+        "cpp": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "go": {
+          "positive_detected": 400,
+          "positive_n": 480,
+          "rate": 0.8333333333333334
+        },
+        "java": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "javascript": {
+          "positive_detected": 480,
+          "positive_n": 480,
+          "rate": 1.0
+        },
+        "python": {
+          "positive_detected": 120,
+          "positive_n": 480,
+          "rate": 0.25
+        }
+      },
+      "unkeyed_static_family_order": {
+        "cpp": {
+          "positive_detected": 240,
+          "positive_n": 480,
+          "rate": 0.5
+        },
+        "go": {
+          "positive_detected": 240,
+          "positive_n": 480,
+          "rate": 0.5
+        },
+        "java": {
+          "positive_detected": 400,
+          "positive_n": 480,
+          "rate": 0.8333333333333334
+        },
+        "javascript": {
+          "positive_detected": 400,
+          "positive_n": 480,
+          "rate": 0.8333333333333334
+        },
+        "python": {
+          "positive_detected": 290,
+          "positive_n": 480,
+          "rate": 0.6041666666666666
+        }
+      }
+    }
+  }
+}

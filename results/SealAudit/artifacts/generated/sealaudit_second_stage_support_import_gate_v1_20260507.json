@@ -1,0 +1,44 @@
+{
+  "blocked": false,
+  "blockers": [],
+  "candidate_executable_code_present_count": 320,
+  "case_count": 320,
+  "claim_bearing": false,
+  "claim_boundary": "This closes executable-conjunction support readiness only. It does not relabel old v3 decisions, does not increase decisive coverage, and does not permit a v5 main claim without final row-level v5 evidence.",
+  "conjunction_artifact_role": "executable_adapter_conjunction_materialized_support",
+  "conjunction_claim_role": "executable_adapter_conjunction_subgate_evidence_not_final_claim",
+  "final_conjunction_pass_count": 320,
+  "formal_second_stage_claim_allowed": false,
+  "formal_v5_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T16:58:22+00:00",
+  "inputs": {
+    "conjunction": "results/SealAudit/artifacts/generated/sealaudit_second_stage_executable_conjunction_20260505_remote.json",
+    "readiness": "results/SealAudit/artifacts/generated/sealaudit_second_stage_conjunction_calibration_readiness_gate_20260505_remote.json",
+    "taxonomy": "results/SealAudit/artifacts/generated/sealaudit_needs_review_taxonomy_20260505_remote.json"
+  },
+  "language_counts": {
+    "go": 80,
+    "java": 80,
+    "javascript": 80,
+    "python": 80
+  },
+  "needs_review_taxonomy_record_count": 879,
+  "provider_judge_trace_join_count": 320,
+  "schema_version": "sealaudit_second_stage_support_import_gate_v1",
+  "scheme_kind_counts": {
+    "benign_reference": 80,
+    "latent_trojan": 80,
+    "laundered_scheme": 80,
+    "spoofed_scheme": 80
+  },
+  "subgate_pass_counts": {
+    "baseline_control_evidence": 320,
+    "laundering": 320,
+    "provider_judge": 320,
+    "semantic_drift": 320,
+    "spoofability": 320,
+    "static_safety": 320
+  },
+  "support_ready": true
+}

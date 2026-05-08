@@ -1,0 +1,47 @@
+{
+  "claim_bearing": false,
+  "completed": 20,
+  "elapsed_seconds": 36.789,
+  "env_state": {
+    "env_file": "/root/.codemark_secrets/deepseek.env",
+    "env_file_state": "loaded",
+    "loaded_env_keys": [
+      "DEEPSEEK_API_KEY"
+    ],
+    "secret_values_serialized": false
+  },
+  "input_total": 20,
+  "output": "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_live_results_v1_20260508.jsonl",
+  "provider": {
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "api_key_state": "configured",
+    "base_url_redacted": "deepseek_openai_compatible_endpoint",
+    "model_name": "deepseek-chat",
+    "provider": "deepseek",
+    "provider_kind": "openai_compatible",
+    "secret_values_serialized": false
+  },
+  "run_id": "probetrace_commitment_shortcut_challenge_20260508",
+  "schema_version": "probetrace_multi_owner_deepseek_live_progress_v1",
+  "status": "completed",
+  "summary": {
+    "claim_bearing_rows": 0,
+    "control_role_counts": {
+      "true_owner": 20
+    },
+    "language_counts": {
+      "go": 10,
+      "javascript": 5,
+      "python": 5
+    },
+    "owner_counts": {
+      "owner_alpha": 4,
+      "owner_beta": 4,
+      "owner_delta": 4,
+      "owner_epsilon": 4,
+      "owner_gamma": 4
+    },
+    "row_count": 20
+  },
+  "total": 20
+}

@@ -1,0 +1,69 @@
+\appendixchapter{Code Repository and Artifact Access}{app:repository-access}
+
+This appendix begins with repository access because the dissertation is a design project with implementation artifacts, not only a written report. The primary submitted FYP repository is:
+
+\begin{center}
+\href{https://github.com/Haoyi-Zhang/WatermarkScope}{\textnormal{https://github.com/Haoyi-Zhang/WatermarkScope}}
+\end{center}
+
+This is the repository to inspect for marking. It contains the dissertation source, the final PDF, implementation snapshots for the five stages, result manifests, claim-boundary files, and verification scripts. CodeMarkBench is also listed because it is the earlier benchmark artifact that supplies the executable foundation for the first lifecycle stage:
+
+\begin{center}
+\href{https://github.com/Haoyi-Zhang/CodeMarkBench}{\textnormal{https://github.com/Haoyi-Zhang/CodeMarkBench}}
+\end{center}
+
+\begin{table}[htbp]
+\centering
+\caption{Primary repository entry points for examiner inspection.}
+\label{tab:repository-entry-points}
+\lookuptable
+\begin{tabularx}{\textwidth}{@{}L{2.35cm}YY@{}}
+\toprule
+Entry point & Contents & Examiner use \\
+\midrule
+Overview & Repository layout, headline results, project roles, and quick checks. & Start with the README before inspecting code or results. \\
+Report source & Final PDF, LaTeX source, figures, bibliography, and appendices. & Verify that the submitted report is reproducible from source. \\
+Project code & Code snapshots for CodeMarkBench, SemCodebook, CodeDye, ProbeTrace, and SealAudit. & Inspect implementation rather than relying only on prose. \\
+Result records & Claim-bearing artifacts, compact summaries, and project reproducibility manifests. & Trace reported numbers to preserved evidence. \\
+Claim manifest & Machine-readable claim-to-artifact binding with paths, hashes, denominators, and intervals. & Check whether a paper claim has a concrete artifact source. \\
+Examiner check & Supervisor/examiner verification entry point. & Run local integrity checks without GPU or API access. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The concrete files corresponding to these entries in the primary FYP repository are \artifact{README.md},
+\artifact{dissertation/}, \artifact{projects/}, \artifact{results/},
+\artifact{RESULT\_MANIFEST.jsonl}, and
+\artifact{scripts/examiner\_check.py}. They are named in prose instead of
+being forced into narrow table cells so that the printed appendix remains
+readable.
+
+The WatermarkScope repository is intentionally not a raw dump of every temporary run. Large raw provider outputs and full-scale continuation artifacts are kept out of the review mirror when they are not needed for ordinary marking. Their role is represented by manifests, compact claim-bearing artifacts, and reproducibility notes. This keeps the submitted code package inspectable while preserving the distinction between local integrity checks and full GPU/API reruns. The separate CodeMarkBench repository should be read as public benchmark infrastructure and future publication material; the FYP submission itself is the WatermarkScope repository above.
+
+\begin{table}[htbp]
+\centering
+\caption{Five-stage code layout in the submitted repository.}
+\label{tab:repository-stage-layout}
+\lookuptable
+\begin{tabularx}{\textwidth}{@{}L{2.05cm}L{2.65cm}Y@{}}
+\toprule
+Stage & Code path & Main inspection target \\
+\midrule
+Benchmark & CodeMarkBench & Benchmark harness, release tables, source groups, and baseline adapters. \\
+Provenance & SemCodebook & Structured carrier recovery implementation, scripts, tests, and white-box evidence gates. \\
+Audit & CodeDye & Frozen black-box null-audit protocol, controls, and support-row exclusions. \\
+Attribution & ProbeTrace & Active-owner attribution scripts, control gates, and transfer-binding artifacts. \\
+Triage & SealAudit & Marker-hidden triage resolver, safety-boundary scripts, and coverage-risk artifacts. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+All five stage folders are stored under the top-level \artifact{projects/}
+directory. The table uses stage names rather than full path strings to keep
+the appendix compact; the directory names match the submitted repository.
+
+For a fast local check, run:
+\begin{center}
+\artifact{python scripts/examiner\_check.py}
+\end{center}
+This command checks the repository structure, manifest consistency, preserved-result hashes, headline denominators, confidence-interval metadata, and required project snapshots. It is not a full rerun of all model or provider experiments; full reruns require model weights, GPU resources, or live API access depending on the module.

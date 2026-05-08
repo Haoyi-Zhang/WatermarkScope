@@ -1,0 +1,39 @@
+{
+  "blocked": true,
+  "blockers": [
+    "input_score_vectors_missing"
+  ],
+  "claim_bearing": false,
+  "claim_bearing_requested": false,
+  "formal_multi_owner_claim_allowed": false,
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T17:27:28+00:00",
+  "promotion_condition": "Support-only receipt. A separate promotion gate is required before any multi-owner main claim.",
+  "requested_owners": 5,
+  "required_aggregate_gates": [
+    "owner_count >= requested owners",
+    "wrong/null/random controls >= 4x positives",
+    "owner_heldout and task_heldout rows present",
+    "per-owner TPR/FPR CI present in receipt",
+    "rank/AUC computable",
+    "near-boundary rows retained"
+  ],
+  "required_input_schema": [
+    "task_id",
+    "true_owner_id",
+    "candidate_owner_id",
+    "score",
+    "split",
+    "control_role",
+    "owner_heldout",
+    "task_heldout",
+    "source_record_hash",
+    "output_record_sha256",
+    "owner_id_hat",
+    "false_attribution",
+    "signed_owner_margin",
+    "family",
+    "language"
+  ],
+  "schema_version": "probetrace_multi_owner_support_runner_receipt_v2"
+}

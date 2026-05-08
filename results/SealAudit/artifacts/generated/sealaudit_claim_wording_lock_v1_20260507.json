@@ -1,0 +1,33 @@
+{
+  "allowed_wording": [
+    "DeepSeek-only marker-hidden selective audit/triage",
+    "coverage-risk frontier with high abstention disclosed",
+    "role-based expert support packet reviewed through anonymous project roles",
+    "visible-marker rows are diagnostic-only"
+  ],
+  "claim_bearing": false,
+  "expert_support_boundary": {
+    "allowed_wording": "Role-based experts reviewed the packet and reported no blocking concerns through the project coordinator.",
+    "role_based_support_only": true,
+    "roles": [
+      "curator_01",
+      "curator_02",
+      "adjudicator_01",
+      "seal_expert_01_to_07"
+    ],
+    "source_artifact": "results\\SealAudit\\artifacts\\generated\\sealaudit_expert_review_role_support_gate_v1_20260507.json"
+  },
+  "forbidden_wording": [
+    "security certificate",
+    "harmlessness guarantee",
+    "automatic latent-trojan classifier",
+    "expert-signed gold labels",
+    "named or institutionally certified expert labels",
+    "AI-prefilled expert labels",
+    "visible-marker rows as main evidence"
+  ],
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T21:19:35+00:00",
+  "paper_sentence_required": "Expert review is reported only as anonymous role-based support and packet confirmation; row-level claim evidence comes from machine-verifiable DeepSeek marker-hidden artifacts and stated thresholds.",
+  "schema_version": "sealaudit_claim_wording_lock_v1"
+}

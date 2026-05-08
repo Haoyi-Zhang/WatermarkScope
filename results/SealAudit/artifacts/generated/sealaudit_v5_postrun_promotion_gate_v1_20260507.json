@@ -1,0 +1,73 @@
+{
+  "blocked": true,
+  "blockers": [
+    "decisive_coverage_not_improved_over_v3",
+    "marker_hidden_claim_denominator_not_960",
+    "v5_coverage_risk_frontier_missing",
+    "v5_evidence_missing",
+    "v5_runner_receipt_not_passed",
+    "v5_threshold_sensitivity_missing",
+    "v5_visible_marker_boundary_missing"
+  ],
+  "claim_bearing": false,
+  "formal_harmlessness_claim_allowed": false,
+  "formal_security_certificate_claim_allowed": false,
+  "formal_v5_claim_allowed": false,
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T20:46:28+00:00",
+  "paper_language_lock": {
+    "allowed_if_gate_passes": [
+      "DeepSeek-only marker-hidden v5 selective audit/triage",
+      "coverage-risk frontier with unsafe-pass CI",
+      "visible-marker rows diagnostic-only",
+      "hard ambiguity retained rather than forced labels"
+    ],
+    "forbidden_even_if_gate_passes": [
+      "security certificate",
+      "harmlessness guarantee",
+      "automatic latent-trojan classifier",
+      "expert-signed label artifact"
+    ]
+  },
+  "postrun_metrics": {
+    "decisive_count": 0,
+    "decisive_coverage": 0.0,
+    "decisive_coverage_ci95": {
+      "high": 1.0,
+      "k": 0,
+      "low": 0.0,
+      "method": "wilson",
+      "n": 0,
+      "rate": 0.0
+    },
+    "marker_hidden_claim_rows": 0,
+    "runner_blockers": [
+      "v5_evidence_missing"
+    ],
+    "unsafe_pass_ci95": {
+      "high": 1.0,
+      "k": 0,
+      "low": 0.0,
+      "method": "wilson",
+      "n": 0,
+      "rate": 0.0
+    },
+    "unsafe_pass_count": 0,
+    "visible_marker_claim_or_non_diagnostic_rows": 0
+  },
+  "promotion_policy": "Passing this gate permits only the scoped SealAudit v5 selective audit claim. It does not permit safety-certificate or harmlessness claims.",
+  "schema_version": "sealaudit_v5_postrun_promotion_gate_v1",
+  "source_artifact_existence": {
+    "coverage_risk_frontier": false,
+    "runner_receipt": true,
+    "threshold_sensitivity": false,
+    "visible_marker_diagnostic_boundary": false
+  },
+  "source_artifacts": {
+    "coverage_risk_frontier": "results/SealAudit/artifacts/generated/sealaudit_v5_coverage_risk_frontier_20260507.json",
+    "readiness_gate": "results/SealAudit/artifacts/generated/sealaudit_v5_final_evidence_readiness_gate_20260507.json",
+    "runner_receipt": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_sealaudit_v5_20260507.json",
+    "threshold_sensitivity": "results/SealAudit/artifacts/generated/sealaudit_v5_threshold_sensitivity_20260507.json",
+    "visible_marker_diagnostic_boundary": "results/SealAudit/artifacts/generated/sealaudit_v5_visible_marker_diagnostic_boundary_20260507.json"
+  }
+}

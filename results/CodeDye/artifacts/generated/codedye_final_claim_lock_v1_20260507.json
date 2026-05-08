@@ -1,0 +1,89 @@
+{
+  "allowed_current_claim": "DeepSeek-only curator-side sparse null-audit with hash-bound transcript retention",
+  "bestpaper_ready": false,
+  "bestpaper_ready_reason": "The current DeepSeek evidence supports only a conservative sparse null-audit; positive-control sensitivity and fresh v3 postrun evidence remain insufficient for a best-paper-level detection claim.",
+  "blockers": [],
+  "claim_bearing": false,
+  "forbidden_claims": [
+    "high-recall contamination detector",
+    "contamination prevalence estimate",
+    "provider accusation",
+    "evidence that non-signals prove absence of contamination",
+    "support/public rows as main-denominator evidence",
+    "v3 live claim before the postrun promotion gate passes"
+  ],
+  "formal_contamination_prevalence_claim_allowed": false,
+  "formal_curator_side_null_audit_claim_allowed": true,
+  "formal_high_recall_detection_claim_allowed": false,
+  "formal_provider_accusation_claim_allowed": false,
+  "formal_v3_live_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T21:13:08+00:00",
+  "locked_effect_surface": {
+    "claim_rows": 300,
+    "final_signal": 6,
+    "final_signal_ci95": {
+      "high": 0.042939620817860576,
+      "k": 6,
+      "low": 0.009197631557703617,
+      "method": "wilson",
+      "n": 300,
+      "rate": 0.02
+    },
+    "missing_payload_or_transcript_hash": 0,
+    "negative_control_false_positive": 0,
+    "negative_control_fp_ci95": {
+      "high": 0.012642971224546034,
+      "k": 0,
+      "low": 8.673617379884035e-19,
+      "method": "wilson",
+      "n": 300,
+      "rate": 0.0
+    },
+    "negative_control_rows": 300,
+    "positive_control_denominator": 300,
+    "positive_control_detected": 170,
+    "positive_control_missed": 130,
+    "positive_control_sensitivity_ci95": {
+      "high": 0.6215486818545306,
+      "k": 170,
+      "low": 0.5100989219821965,
+      "method": "wilson",
+      "n": 300,
+      "rate": 0.5666666666666667
+    },
+    "positive_miss_taxonomy": {
+      "witness_ablation_did_not_collapse": 130
+    },
+    "statistics_artifact_positive_count": 4,
+    "support_rows_excluded": 806
+  },
+  "paper_table_requirements": [
+    "Report 6/300 final sparse audit signals with Wilson CI.",
+    "Report 4/300 statistics sub-gate count separately from the 6/300 final signal.",
+    "Report 170/300 positive-control sensitivity and the 130-row miss taxonomy.",
+    "Report 0/300 negative-control false positives with a nonzero Wilson upper bound.",
+    "State that 806 support/public rows are outside the 300-row main denominator."
+  ],
+  "remaining_blockers": [
+    "fresh_v3_live_result_missing",
+    "positive_control_sensitivity_only_170_of_300",
+    "live_signal_only_6_of_300"
+  ],
+  "required_next_evidence": [
+    "Fresh frozen v3 DeepSeek live run with exactly 300 claim rows.",
+    "Complete raw transcript, structured payload, prompt, task, and record hashes.",
+    "Utility admissibility and support-row exclusion pass.",
+    "Sensitivity improvement must come from preregistered protocol invariants, not threshold tuning."
+  ],
+  "schema_version": "codedye_final_claim_lock_v1",
+  "source_artifacts": {
+    "low_signal_boundary": "results/CodeDye/artifacts/generated/codedye_low_signal_claim_boundary_gate_20260505.json",
+    "negative_control_hash_manifest": "results/CodeDye/artifacts/generated/codedye_negative_control_row_hash_manifest_v2_20260507.json",
+    "positive_miss_taxonomy": "results/CodeDye/artifacts/generated/codedye_positive_miss_taxonomy_v2_20260507.json",
+    "v3_postrun_promotion": "results/CodeDye/artifacts/generated/codedye_v3_postrun_promotion_gate_v1_20260507.json",
+    "v3_protocol_freeze": "results/CodeDye/artifacts/generated/codedye_v3_protocol_freeze_gate_20260507.json",
+    "v3_support_exclusion": "results/CodeDye/artifacts/generated/codedye_v3_support_exclusion_gate_20260507.json"
+  },
+  "upgrade_claim_allowed": false
+}

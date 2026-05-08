@@ -1,0 +1,141 @@
+{
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T19:31:26+00:00",
+  "launch_readiness": {
+    "any_provider_execution_ready_now": false,
+    "blockers": [
+      "local_deepseek_env_missing",
+      "remote_js2_requires_interactive_password_or_key"
+    ],
+    "codedye_v3_health_or_full_run_can_start_now": false,
+    "local_api_ready": false,
+    "probetrace_multi_owner_can_start_now": false,
+    "remote_noninteractive_ready": false,
+    "sealaudit_v5_can_start_now": false
+  },
+  "local_provider_environment": {
+    "deepseek_env_name_present": false,
+    "key_like_env_names": [
+      "FLUXCODING_API_KEY"
+    ],
+    "redaction_policy": "Only environment variable names are recorded; secret values are never written.",
+    "secret_values_recorded": false
+  },
+  "policy": "This gate records launch readiness only. A missing key or noninteractive SSH blocker must not be converted into claim-bearing results.",
+  "project_statuses": {
+    "CodeDye": {
+      "blockers": [],
+      "formal_claim_promotion_allowed_now": false,
+      "full_run_launch_allowed_now": true,
+      "reason": "Fresh DeepSeek v3 rerun is allowed by frozen controls, but cannot be promoted until postrun evidence exists.",
+      "required_postrun_outputs": [
+        "raw_provider_transcript_hashes",
+        "structured_payload_hashes",
+        "prompt_hashes",
+        "task_hashes",
+        "dual_evidence_decisions",
+        "threshold_sensitivity",
+        "support_exclusion_join",
+        "positive_negative_control_join"
+      ]
+    },
+    "ProbeTrace": {
+      "blockers": [
+        "comparable_signed_owner_margin_rows_missing",
+        "fresh_multi_owner_multilingual_deepseek_canonical_results_missing",
+        "multi_owner_postrun_audit_missing",
+        "per_owner_per_language_ci_missing",
+        "raw_transcript_and_structured_payload_hash_join_missing",
+        "transfer_artifact_is_single_owner_only"
+      ],
+      "formal_claim_promotion_allowed_now": false,
+      "full_run_launch_allowed_now": false,
+      "reason": "Multi-owner canonical input package exists, but fresh provider score-vector outputs and postrun audits are missing."
+    },
+    "SealAudit": {
+      "blockers": [
+        "decisive_coverage_upgrade_not_admitted",
+        "final_v5_claim_bearing_rows_missing",
+        "fresh_final_row_level_v5_evidence_missing",
+        "v5_coverage_risk_frontier_missing",
+        "v5_threshold_sensitivity_missing",
+        "visible_marker_diagnostic_boundary_missing"
+      ],
+      "formal_claim_promotion_allowed_now": false,
+      "full_run_launch_allowed_now": false,
+      "reason": "Final v5 row-level evidence is missing; support-only v5 material must remain non-claim-bearing."
+    },
+    "SemCodebook": {
+      "claim_upgrade_allowed": true,
+      "current_local_evidence": {
+        "ablation_formal_claim_allowed": true,
+        "admitted_families": 5,
+        "admitted_models": 10,
+        "admitted_records": 72000,
+        "generation_changing_ablation_rows": 43200,
+        "helper_compiler_mock_negative_failures": {
+          "blind_negative_hit_count": 0,
+          "compiler_failures": 0,
+          "helper_failures": 0,
+          "mock_or_fallback_count": 0,
+          "negative_control_hits": 0
+        },
+        "negative_control_hits": {
+          "ci95_high": 8.002398774667768e-05,
+          "ci95_low": 0.0,
+          "k": 0,
+          "method": "wilson_score_interval",
+          "n": 48000,
+          "rate": 0.0
+        },
+        "positive_recovery": {
+          "ci95_high": 0.9745748406649429,
+          "ci95_low": 0.9704405660946408,
+          "k": 23342,
+          "method": "wilson_score_interval",
+          "n": 24000,
+          "rate": 0.9725833333333334
+        },
+        "row_level_miss_bucket_counts": {
+          "detector_abstain_or_reject_on_positive": 10210
+        },
+        "row_level_miss_by_model": {
+          "DeepSeek-Coder-6.7B-Instruct": 10210
+        },
+        "row_level_miss_taxonomy_gate_pass": true,
+        "row_level_positive_misses": 10210,
+        "scale_coverage": [
+          "large",
+          "mid",
+          "small",
+          "tiny"
+        ]
+      },
+      "full_run_launch_allowed_now": false,
+      "reason": "No new white-box full run is needed for the current blocker set; remaining items are paper/claim presentation P2."
+    }
+  },
+  "remote_js2": {
+    "batch_ssh": {
+      "batch_ssh_attempted": true,
+      "batch_ssh_success": false,
+      "returncode": 255,
+      "secret_values_recorded": false,
+      "stderr_summary": "root@js2.blockelite.cn: Permission denied (publickey,password).",
+      "stdout_redacted": ""
+    },
+    "noninteractive_execution_ready": false,
+    "tcp": {
+      "error": null,
+      "host": "js2.blockelite.cn",
+      "port": 22620,
+      "tcp_connectable": true
+    }
+  },
+  "safe_next_commands_if_provider_ready": {
+    "CodeDye_full": "python projects/CodeDye/scripts/run_attack_matrix_live_support.py --provider deepseek --claim-bearing-canonical --run-id codedye_v3_20260507",
+    "CodeDye_health": "python projects/CodeDye/scripts/run_attack_matrix_live_support.py --provider deepseek --claim-bearing-canonical --run-id codedye_v3_health_20260507 --max-records 10 --progress-output results/CodeDye/artifacts/generated/codedye_v3_health_progress_20260507.json"
+  },
+  "schema_version": "provider_launch_readiness_gate_v1",
+  "secret_values_recorded": false
+}

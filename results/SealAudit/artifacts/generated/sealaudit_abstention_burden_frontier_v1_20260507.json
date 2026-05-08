@@ -1,0 +1,46 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "decisive_count": 81,
+  "decisive_coverage_ci95": {
+    "high": 0.10365684661114782,
+    "k": 81,
+    "low": 0.06840615950150586,
+    "method": "wilson",
+    "n": 960,
+    "rate": 0.084375
+  },
+  "formal_classifier_claim_allowed": false,
+  "formal_security_certificate_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T21:19:35+00:00",
+  "hidden_claim_rows": 960,
+  "needs_review_bucket_counts": {
+    "benign_evidence_inconclusive": 36,
+    "minimal_schema_insufficient_evidence": 160,
+    "retained_hard_ambiguity": 440,
+    "risk_evidence_inconclusive": 94,
+    "threshold_boundary_needs_review": 149
+  },
+  "needs_review_ci95": {
+    "high": 0.9315938404984943,
+    "k": 879,
+    "low": 0.8963431533888522,
+    "method": "wilson",
+    "n": 960,
+    "rate": 0.915625
+  },
+  "needs_review_count": 879,
+  "reviewer_boundary": "High abstention is a first-class review-load metric. These rows must not be forced into benign/risk labels to improve apparent accuracy.",
+  "schema_version": "sealaudit_abstention_burden_frontier_v1",
+  "taxonomy_rows": "results\\SealAudit\\artifacts\\generated\\sealaudit_needs_review_row_taxonomy_v2_20260507.jsonl",
+  "unsafe_pass_ci95": {
+    "high": 0.003985571263342763,
+    "k": 0,
+    "low": 0.0,
+    "method": "wilson",
+    "n": 960,
+    "rate": 0.0
+  },
+  "unsafe_pass_count": 0
+}

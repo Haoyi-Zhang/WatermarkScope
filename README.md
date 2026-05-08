@@ -1,18 +1,20 @@
-# WatermarkScope FYP Dissertation Repository
+# WatermarkScope FYP Artifact
 
-**WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models**
+This repository is the submission and inspection artifact for the Final Year Project dissertation:
 
-This repository contains the dissertation, implementation snapshots, reproducibility scripts, and result artifacts for Haoyi Zhang's Final Year Project.
+**WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models**.
 
-The project is organized as one evidence lifecycle rather than five unrelated experiments:
+It contains the submitted dissertation PDF and LaTeX source, implementation snapshots, reproducibility scripts, preserved result manifests, and examiner-facing documentation for the five-stage WatermarkScope framework:
 
-1. **CodeMarkBench** establishes the executable benchmark foundation.
-2. **SemCodebook** studies structured white-box provenance watermarking.
-3. **CodeDye** studies conservative black-box contamination null-audit.
-4. **ProbeTrace** studies active-owner, source-bound attribution.
-5. **SealAudit** studies watermark-as-security-object selective triage.
+1. **CodeMarkBench**: executable benchmark foundation for source-code watermarking.
+1. **SemCodebook**: structured white-box provenance watermarking under semantic rewrite.
+2. **CodeDye**: conservative black-box curator-side contamination null-audit.
+3. **ProbeTrace**: active-owner, source-bound attribution with false-owner controls.
+4. **SealAudit**: watermark-as-security-object selective audit and triage.
 
-The central argument is that reliable source-code watermarking cannot be evaluated with one detector score. It requires executable benchmarks, structured provenance recovery, raw evidence retention, negative controls, scoped attribution, security triage, and explicit abstention boundaries.
+The dissertation-level claim surface is fixed by the submitted PDF and `RESULT_MANIFEST.jsonl`. Research-continuation artifacts are retained for traceability, but they do not broaden the FYP claims unless a new admitted result surface is explicitly created.
+
+The FYP scope is deliberately bounded. It does not license provider-general claims, universal watermarking claims, contamination accusations, or safety certificates.
 
 ## Repository Layout
 
@@ -31,118 +33,82 @@ The central argument is that reliable source-code watermarking cannot be evaluat
 |   |-- SemCodebook/
 |   |-- CodeDye/
 |   |-- ProbeTrace/
-|   `-- SealAudit/
+|   |-- SealAudit/
+|   |-- watermark_strict_reviewer_audit_v8_20260507.json
+|   `-- watermark_submission_gap_diagnosis_v1_20260508.json
 |-- docs/
-|   |-- EXAMINER_GUIDE.md
-|   |-- ENVIRONMENT.md
-|   |-- METHOD_INDEX.md
-|   |-- RESULT_PRESERVATION_POLICY.md
-|   |-- RESULTS_SUMMARY.md
-|   |-- RUBRIC_ALIGNMENT.md
 |   |-- RUNBOOK.md
-|   |-- TRACEABILITY_MATRIX.md
-|   |-- VIVA_PREPARATION.md
+|   |-- RESULTS_SUMMARY.md
 |   `-- SUBMISSION_NOTES.md
 |-- CLAIM_BOUNDARIES.md
 |-- PRESERVED_RESULT_MANIFEST.jsonl
-|-- PRESERVATION_SUMMARY.json
 |-- RESULT_MANIFEST.jsonl
 `-- scripts/
-    |-- check_preserved_results.py
-    |-- examiner_check.py
-    |-- repro_check.py
-    `-- summarize_all.py
 ```
 
-## Headline Results
+For FYP marking, start with `dissertation/WatermarkScope_FYP_Dissertation.pdf`, then use `docs/EXAMINER_GUIDE.md`, `docs/TRACEABILITY_MATRIX.md`, and `RESULT_MANIFEST.jsonl` to connect the printed claims to code and artifacts.
 
-| Module | Main role | Current result surface |
-|---|---|---|
-| CodeMarkBench | Executable benchmark foundation | 140/140 canonical run-completion inventory over 4 baselines, 5 local models, and 7 source groups |
-| SemCodebook | White-box structured provenance | 23,342/24,000 positive recoveries; 0/48,000 negative-control hits, Wilson 95% upper bound 0.008%; 43,200 generation-changing ablation support rows |
-| CodeDye | Black-box null-audit | 6/300 sparse DeepSeek signals, Wilson 95% CI 0.92%-4.29%; 170/300 positive-control hits; 0/300 negative-control hits, upper bound 1.26% |
-| ProbeTrace | Active-owner attribution | 300/300 APIS successes, Wilson 95% lower bound 98.74%; 0/1,200 false-owner controls, upper bound 0.32%; 900 transfer support rows over the scoped source-bound setting |
-| SealAudit | Security triage | 81/960 decisive marker-hidden rows; 879/960 needs-review rows; 0/960 observed unsafe-pass outcomes, upper bound 0.40% |
+## FYP Claim Surface
 
-These results are intentionally scoped. The repository does not claim universal watermarking, contamination prevalence, provider-general authorship attribution, or automatic safety certification.
+| Project | Locked claim | Main evidence surface | Current reviewer risk |
+|---|---|---|---|
+| CodeMarkBench | Executable benchmark foundation | 140/140 canonical model-method-source run inventory | Inventory completion is not a detector success rate |
+| SemCodebook | Structured provenance over admitted white-box cells | 72,000 structured records; 23,342/24,000 positive recoveries; 0/48,000 negative hits; 43,200 ablation rows | Must stay within admitted white-box cells |
+| CodeDye | DeepSeek-only curator-side sparse null-audit | 300 live rows; 6/300 sparse audit signals; 170/300 positive-control hits; 0/300 negative-control hits; 806 support rows excluded | Must not be framed as prevalence or accusation |
+| ProbeTrace | Source-bound single-active-owner attribution | 300/300 APIS success events; 0/1,200 false-owner controls; 900 transfer support rows | Must not become provider-general or multi-owner attribution |
+| SealAudit | Marker-hidden selective security triage | 81/960 decisive outcomes; 879/960 needs review; 0/960 unsafe pass | Must be framed as selective triage, not a safety certificate |
 
-## Quick Checks
+## Primary Artifacts
 
-For a supervisor or examiner, start with:
+| Purpose | Artifact |
+|---|---|
+| Submitted FYP report | `dissertation/WatermarkScope_FYP_Dissertation.pdf` |
+| Result manifest | `RESULT_MANIFEST.jsonl` |
+| Portfolio strict audit | `results/watermark_strict_reviewer_audit_v8_20260507.json` |
+| Submission gap diagnosis | `results/watermark_submission_gap_diagnosis_v1_20260508.json` |
+| Main table source manifest | `results/watermark_submission_main_table_manifest_v1_20260508.json` |
+| SemCodebook final lock | `results/SemCodebook/artifacts/generated/semcodebook_final_claim_lock_v1_20260507.json` |
+| CodeDye final lock | `results/CodeDye/artifacts/generated/codedye_final_claim_lock_v2_20260507.json` |
+| ProbeTrace final lock | `results/ProbeTrace/artifacts/generated/probetrace_final_claim_lock_v2_20260507.json` |
+| SealAudit final lock | `results/SealAudit/artifacts/generated/sealaudit_final_claim_lock_v2_20260507.json` |
+| Preservation policy | `PRESERVED_RESULT_MANIFEST.jsonl` and `docs/RESULT_PRESERVATION_POLICY.md` |
 
-```text
-docs/EXAMINER_GUIDE.md
-```
+One full SemCodebook raw ablation output is larger than the ordinary GitHub single-file limit. It is registered in `EXTERNAL_LARGE_ARTIFACTS.json`; the compact claim-bearing ablation gate and summary remain in the repository and are the examiner-facing artifacts used by the dissertation.
 
-For a compact map from each method to its formulas, algorithms, result denominator, and artifact paths, see:
+## Quick Verification
 
-```text
-docs/METHOD_INDEX.md
-```
-
-Run the repository integrity check:
+Run these from the repository root:
 
 ```bash
-python scripts/examiner_check.py
+python -B scripts/check_watermark_submission_gap_diagnosis_v1.py
+python -B scripts/check_watermark_submission_main_table_manifest_v1.py
+python -B scripts/check_strict_reviewer_audit_v8.py
+python -B scripts/check_probetrace_multi_owner_postrun_promotion_gate_v2.py
+python -B scripts/check_probetrace_final_claim_lock_v2.py
+python -B scripts/check_preserved_results.py
 ```
 
-Or run the underlying checks separately:
+These are integrity and claim-surface checks. They do not rerun GPU or live-provider experiments.
 
-```bash
-python scripts/repro_check.py
-python scripts/check_project_snapshots.py
-python scripts/check_preserved_results.py
-```
+## Rerun Boundary
 
-Print a compact table of result artifacts and verify their hashes:
+The current result set already exceeds a minimal "one white-box model plus DeepSeek-only black-box" check. Additional runs should not be launched blindly:
 
-```bash
-python scripts/summarize_all.py
-```
+- SemCodebook: add only a support-only real-repo witness unless a new formal claim is introduced.
+- CodeDye: freeze a new v4 evidence-enrichment protocol before any further DeepSeek run.
+- ProbeTrace: no new DeepSeek run is needed; future value is mainly non-DeepSeek replication if keys are available.
+- SealAudit: no new DeepSeek run is needed; improve paper framing and failure taxonomy.
 
-These commands verify that the dissertation PDF, code snapshots, result manifests, preserved-result hashes, claim-boundary files, and key artifact summaries are present. They are repository integrity checks, not full GPU/API reruns.
+## Forbidden Claims
 
-Existing result artifacts are protected by `PRESERVED_RESULT_MANIFEST.jsonl`. Continuation work should add versioned artifacts instead of overwriting prior outputs. See `docs/RESULT_PRESERVATION_POLICY.md`.
+The repository does not claim:
 
-Continuation artifacts are kept outside the main FYP claim surface. They document how later experiments can add new denominators without changing the submitted dissertation results.
+- provider-general black-box behavior beyond DeepSeek;
+- universal code watermarking;
+- contamination prevalence or provider wrongdoing;
+- high-recall CodeDye detection;
+- ProbeTrace cross-provider attribution;
+- SealAudit harmlessness guarantee or security certificate;
+- SemCodebook no-retry natural-generation guarantee.
 
-For environment and rerun boundaries, see:
-
-- `docs/ENVIRONMENT.md`
-- `docs/RUNBOOK.md`
-
-For marking-oriented review, see:
-
-- `docs/RUBRIC_ALIGNMENT.md`
-- `docs/TRACEABILITY_MATRIX.md`
-- `docs/VIVA_PREPARATION.md`
-
-## Dissertation Build
-
-The current PDF is included at:
-
-```text
-dissertation/WatermarkScope_FYP_Dissertation.pdf
-```
-
-To rebuild from LaTeX:
-
-```bash
-cd dissertation/latex
-pdflatex report.tex
-bibtex report
-pdflatex report.tex
-pdflatex report.tex
-```
-
-The dissertation uses IEEE references through `IEEEtran.bst`.
-
-## Result Interpretation
-
-The `RESULT_MANIFEST.jsonl` file binds key dissertation claims to concrete result files and SHA-256 hashes. The `CLAIM_BOUNDARIES.md` file records the allowed interpretation and forbidden interpretation for each module.
-
-The dissertation and repository use the following rule:
-
-> A result supports a main claim only if its denominator, detector version, threshold version, control status, and claim-bearing role are fixed before interpretation.
-
-Diagnostic, support-only, canary, and stress rows are preserved when useful, but they do not change the main result denominators.
+Every main result must remain tied to its fixed denominator, control role, threshold/protocol version, and claim-bearing status.

@@ -1,0 +1,19 @@
+{
+  "claim_bearing": false,
+  "claim_policy": "Margin evidence is required to defend against shortcut and threshold-tuning attacks.",
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "required_distributions": [
+    "true_owner_score_cdf",
+    "wrong_owner_score_cdf",
+    "null_owner_score_cdf",
+    "random_owner_score_cdf",
+    "near_boundary_rows",
+    "rank_auc_threshold_free_summary"
+  ],
+  "schema_version": "probetrace_owner_margin_distribution_plan_v1",
+  "source_artifacts": [
+    "apis300_live_attribution_evidence.json",
+    "probetrace_owner_margin_control_audit_gate_20260505.json",
+    "probetrace_abstain_aware_attribution_gate_20260506.json"
+  ]
+}

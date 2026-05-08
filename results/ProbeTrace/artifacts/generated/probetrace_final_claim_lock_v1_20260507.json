@@ -1,0 +1,93 @@
+{
+  "allowed_current_claim": "DeepSeek-only single-active-owner/source-bound attribution protocol",
+  "bestpaper_ready": false,
+  "bestpaper_ready_reason": "Single-active-owner attribution and source-bound transfer evidence are strong, but perfect single-owner results remain shortcut/leakage-vulnerable until fresh multi-owner score-vector evidence passes.",
+  "blockers": [],
+  "claim_bearing": false,
+  "forbidden_claims": [
+    "provider-general attribution",
+    "multi-owner attribution from input package alone",
+    "shortcut-free or leakage-free claim without fresh owner/task-heldout score vectors",
+    "student-transfer generalization outside source-bound receipts",
+    "perfect-score language without the anti-leakage caveat"
+  ],
+  "formal_multi_owner_claim_allowed": false,
+  "formal_provider_general_claim_allowed": false,
+  "formal_single_active_owner_claim_allowed": true,
+  "formal_source_bound_transfer_evidence_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T21:13:08+00:00",
+  "locked_effect_surface": {
+    "apis300_attribution": {
+      "high": 0.9999999999999998,
+      "k": 300,
+      "low": 0.9873570287754538,
+      "method": "wilson",
+      "n": 300,
+      "rate": 1.0
+    },
+    "multi_owner_control_role_counts": {
+      "null_owner": 750,
+      "random_owner": 750,
+      "same_provider_unwrap": 750,
+      "true_owner": 750,
+      "wrong_owner": 3000
+    },
+    "multi_owner_input_rows": 6000,
+    "multi_owner_language_count": 3,
+    "multi_owner_owner_count": 5,
+    "multi_owner_split_counts": {
+      "owner_heldout": 1200,
+      "task_heldout": 1200,
+      "train_dev": 3600
+    },
+    "negative_control_false_attribution": {
+      "high": 0.003191000602734924,
+      "k": 0,
+      "low": 2.168404344971009e-19,
+      "method": "wilson",
+      "n": 1200,
+      "rate": 0.0
+    },
+    "transfer_dataset_sha256": "0adefeff0da33219c4a94565e6073392a69d4a46b56ef184e7fb501191c87073",
+    "transfer_primary_independence_unit": "task_cluster",
+    "transfer_rows": 900,
+    "transfer_validation": {
+      "high": 1.0,
+      "k": 900,
+      "low": 0.9957498532699458,
+      "method": "wilson",
+      "n": 900,
+      "rate": 1.0
+    },
+    "unique_transfer_task_count": 300
+  },
+  "paper_table_requirements": [
+    "Report APIS-300 as 300/300 with Wilson CI and explicit DeepSeek-only scope.",
+    "Report 0/1200 false-owner/abstain controls with nonzero Wilson upper bound.",
+    "Report transfer-900 only as source-bound clean-holdout evidence over 300 task clusters.",
+    "Report latency/query cost in the main result surface.",
+    "List the 6000-row multi-owner package as executable input only unless fresh score vectors pass postrun promotion."
+  ],
+  "remaining_blockers": [
+    "fresh_multi_owner_live_score_vectors_missing",
+    "owner_task_heldout_margin_auc_missing",
+    "perfect_single_owner_result_requires_anti_leakage_confirmation"
+  ],
+  "required_next_evidence": [
+    "Fresh 6000-row DeepSeek score-vector output over 5 owners and 3 languages.",
+    "True/wrong/null/random/same-provider owner margins and threshold-free AUC.",
+    "Owner-heldout and task-heldout splits with all raw/structured/prompt/output/source hashes.",
+    "Per-owner TPR/FPR CI and near-boundary rows retained."
+  ],
+  "schema_version": "probetrace_final_claim_lock_v1",
+  "source_artifacts": {
+    "abstain_aware_gate": "results/ProbeTrace/artifacts/generated/probetrace_abstain_aware_attribution_gate_20260506.json",
+    "apis300_live": "results/ProbeTrace/artifacts/generated/apis300_live_attribution_evidence.json",
+    "multi_owner_input_package": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_package_20260507.json",
+    "multi_owner_postrun_promotion": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_postrun_promotion_gate_v1_20260507.json",
+    "transfer_binding": "results/ProbeTrace/artifacts/generated/probetrace_transfer_row_binding_manifest_gate_20260505.json",
+    "transfer_integrity": "results/ProbeTrace/artifacts/generated/probetrace_transfer_validation_integrity_gate_20260506.json"
+  },
+  "upgrade_claim_allowed": false
+}

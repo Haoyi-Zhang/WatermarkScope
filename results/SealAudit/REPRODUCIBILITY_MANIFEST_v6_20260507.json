@@ -1,0 +1,182 @@
+{
+  "artifact_count": 12,
+  "artifacts": [
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 3804,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_final_claim_lock_v1_20260507.json",
+      "schema_version": "sealaudit_final_claim_lock_v1",
+      "sha256": "697d2faf589049e6df33e9533ee1f3f893dc137f4ae59a5ad276b1de7e3cb378"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 1994,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": null,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_final_claim_lock_v1_20260507.md",
+      "schema_version": null,
+      "sha256": "83ff1a675fa91043d1bf049544330d8d686351a5b4d94347fb5eaa14f9e2fd2f"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 568984,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": null,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_needs_review_row_taxonomy_v2_20260507.jsonl",
+      "schema_version": null,
+      "sha256": "17212c03a9109fbc96684757320a206fb9e4186280ce09eb36f66d92aa678f5e"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 1442,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_abstention_burden_frontier_v1_20260507.json",
+      "schema_version": "sealaudit_abstention_burden_frontier_v1",
+      "sha256": "04dc5835585326c0e9c3f44a82a0db2cbeefbd31752cb3f680d273ac943b32be"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 1436,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_claim_wording_lock_v1_20260507.json",
+      "schema_version": "sealaudit_claim_wording_lock_v1",
+      "sha256": "46fd487567409a2fdf80e8aec21bf2754675995e98aa1785f0c46053bb40f7f4"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 975,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_claim_surface_frontier_join_audit_v1_20260507.json",
+      "schema_version": "sealaudit_claim_surface_frontier_join_audit_v1",
+      "sha256": "1882ae13a76365c4836ee4139f111705676813439661896d471bc3bee7e77639"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 4502,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_v5_fresh_run_preflight_contract_v1_20260507.json",
+      "schema_version": "sealaudit_v5_fresh_run_preflight_contract_v1",
+      "sha256": "27d4a4b2aaf27d345d785439ad0cf4b1e5e92f5af8f2fd31a4e8a4fa521be159"
+    },
+    {
+      "blocked": true,
+      "blockers": [
+        "decisive_coverage_not_improved_over_v3",
+        "marker_hidden_claim_denominator_not_960",
+        "v5_coverage_risk_frontier_missing",
+        "v5_evidence_missing",
+        "v5_runner_receipt_not_passed",
+        "v5_threshold_sensitivity_missing",
+        "v5_visible_marker_boundary_missing"
+      ],
+      "bytes": 2726,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": false,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_v5_postrun_promotion_gate_v1_20260507.json",
+      "schema_version": "sealaudit_v5_postrun_promotion_gate_v1",
+      "sha256": "abc92fa1bb1ffbba464b9fc2df98c759519ec700c28d7fbbb5ca1f36964c5f2e"
+    },
+    {
+      "blocked": null,
+      "blockers": [
+        "decisive_coverage_upgrade_not_admitted",
+        "final_v5_claim_bearing_rows_missing",
+        "fresh_final_row_level_v5_evidence_missing",
+        "v5_coverage_risk_frontier_missing",
+        "v5_threshold_sensitivity_missing",
+        "visible_marker_diagnostic_boundary_missing"
+      ],
+      "bytes": 2896,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": false,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_v5_evidence_classifier_v1_20260507.json",
+      "schema_version": "sealaudit_v5_evidence_classifier_v1",
+      "sha256": "7ad669dc4e51d8dd3915e3a148d541d3edc31a94e579fd8af403951879add201"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 2247041,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/canonical_claim_surface_results.json",
+      "schema_version": "sealaudit_canonical_claim_surface_results_v2_marker_hidden_boundary",
+      "sha256": "8f0ddcde96d5eed7549cbc49925bff9047e4d66c08e1d23400aef9022977a5a8"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 1702,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_coverage_risk_frontier_gate_20260505.json",
+      "schema_version": "sealaudit_coverage_risk_frontier_gate_v2",
+      "sha256": "287550351bed56e30886aeb4d479c64e1561b55f692292ada815f46e4b88c6cf"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 201,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/SealAudit/ANONYMIZATION_AUDIT.json",
+      "schema_version": "watermark_github_progress_anonymization_audit_v1",
+      "sha256": "0a83ffc85dccec8aa279b0dfe4334420c802c38396bbfacc7ef9420cad36cd6e"
+    }
+  ],
+  "boundary": "Additive v6 reviewer index with fresh-run contracts and provider readiness v2.",
+  "claim_bearing": false,
+  "claim_lock": {
+    "allowed_current_claim": "DeepSeek-only marker-hidden selective audit/triage protocol",
+    "bestpaper_ready": false,
+    "forbidden_claims": [
+      "security certificate",
+      "harmlessness guarantee",
+      "automatic latent-trojan classifier",
+      "visible-marker rows as main evidence",
+      "expert-signed gold labels or named/institutional expert certification",
+      "v5 coverage upgrade before final v5 postrun promotion passes"
+    ],
+    "gate_pass": true,
+    "path": "results/SealAudit/artifacts/generated/sealaudit_final_claim_lock_v1_20260507.json",
+    "project": "SealAudit",
+    "remaining_blockers": [
+      "decisive_coverage_only_81_of_960",
+      "v5_final_evidence_not_claim_bearing",
+      "v5_coverage_risk_frontier_missing",
+      "v5_threshold_sensitivity_missing",
+      "v5_visible_marker_boundary_missing"
+    ],
+    "schema_version": "sealaudit_final_claim_lock_v1",
+    "upgrade_claim_allowed": false
+  },
+  "generated_at_utc": "2026-05-06T22:35:52+00:00",
+  "missing_artifacts": [],
+  "project": "SealAudit",
+  "schema_version": "sealaudit_reviewer_reproducibility_manifest_v6"
+}

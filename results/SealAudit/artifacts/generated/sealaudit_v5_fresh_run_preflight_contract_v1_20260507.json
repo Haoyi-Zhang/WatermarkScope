@@ -1,0 +1,95 @@
+{
+  "blockers": [],
+  "canonical_v5_evidence_input": "results/SealAudit/artifacts/generated/sealaudit_v5_final_claim_evidence_rows_20260507.json",
+  "claim_bearing": false,
+  "coverage_risk_frontier_output": "results/SealAudit/artifacts/generated/sealaudit_v5_coverage_risk_frontier_20260507.json",
+  "execution_contract_ready": true,
+  "expected_marker_hidden_claim_rows": 960,
+  "expected_visible_marker_diagnostic_rows": 320,
+  "formal_harmlessness_claim_allowed": false,
+  "formal_security_certificate_claim_allowed": false,
+  "formal_v5_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:14:53+00:00",
+  "launch_command_redacted": "python projects/SealAudit/scripts/run_second_stage_v5_conjunction.py --provider deepseek --run-id sealaudit_v5_20260507 --v5-evidence results/SealAudit/artifacts/generated/sealaudit_v5_final_claim_evidence_rows_20260507.json --output results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_sealaudit_v5_20260507.json",
+  "postrun_promotion_gate": "results/SealAudit/artifacts/generated/sealaudit_v5_postrun_promotion_gate_v1_20260507.json",
+  "prerequisite_artifacts": [
+    {
+      "bytes": 2978,
+      "exists": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_v5_final_evidence_readiness_gate_20260507.json",
+      "sha256": "0ed832a6d2342e69f1d05cc4bd8a29fbe73b6496155c9141ecc1233096668118"
+    },
+    {
+      "bytes": 2726,
+      "exists": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_v5_postrun_promotion_gate_v1_20260507.json",
+      "sha256": "abc92fa1bb1ffbba464b9fc2df98c759519ec700c28d7fbbb5ca1f36964c5f2e"
+    },
+    {
+      "bytes": 1794,
+      "exists": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_second_stage_support_import_gate_v1_20260507.json",
+      "sha256": "b638f198c9cae6637fdd784aed6cd02121df13a3a0881254b96a423cae63ea24"
+    },
+    {
+      "bytes": 2247041,
+      "exists": true,
+      "path": "results/SealAudit/artifacts/generated/canonical_claim_surface_results.json",
+      "sha256": "8f0ddcde96d5eed7549cbc49925bff9047e4d66c08e1d23400aef9022977a5a8"
+    },
+    {
+      "bytes": 568984,
+      "exists": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_needs_review_row_taxonomy_v2_20260507.jsonl",
+      "sha256": "17212c03a9109fbc96684757320a206fb9e4186280ce09eb36f66d92aa678f5e"
+    },
+    {
+      "bytes": 1436,
+      "exists": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_claim_wording_lock_v1_20260507.json",
+      "sha256": "46fd487567409a2fdf80e8aec21bf2754675995e98aa1785f0c46053bb40f7f4"
+    }
+  ],
+  "project": "SealAudit",
+  "promotion_policy": "The v5 input evidence path is fixed here, but the current claim remains the v3 selective triage surface until the v5 postrun promotion gate admits row-level evidence.",
+  "provider": "deepseek",
+  "provider_mode_required": "live",
+  "required_promotion_gates": [
+    "320 unique cases",
+    "960 marker-hidden claim-eligible rows or explicit denominator split",
+    "visible-marker rows marked diagnostic-only",
+    "coverage-risk frontier with unsafe-pass upper bound",
+    "threshold sensitivity table",
+    "hard-ambiguity slice",
+    "confusion matrix with bootstrap CI",
+    "role-based expert support packet retained as support, not signature evidence"
+  ],
+  "required_record_fields": [
+    "case_id",
+    "provider",
+    "scheme_kind",
+    "language",
+    "marker_condition",
+    "candidate_code_hash",
+    "raw_provider_payload_hash",
+    "structured_payload_hash",
+    "static_safety_decision",
+    "semantic_drift_decision",
+    "laundering_decision",
+    "spoofability_decision",
+    "provider_judge_decision",
+    "baseline_control_decision",
+    "final_v5_decision",
+    "abstain_reason",
+    "threshold_version",
+    "claim_bearing",
+    "visible_marker_diagnostic_only"
+  ],
+  "run_id": "sealaudit_v5_20260507",
+  "runner_receipt_output": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_sealaudit_v5_20260507.json",
+  "schema_version": "sealaudit_v5_fresh_run_preflight_contract_v1",
+  "secret_values_recorded": false,
+  "threshold_sensitivity_output": "results/SealAudit/artifacts/generated/sealaudit_v5_threshold_sensitivity_20260507.json",
+  "visible_marker_boundary_output": "results/SealAudit/artifacts/generated/sealaudit_v5_visible_marker_diagnostic_boundary_20260507.json"
+}

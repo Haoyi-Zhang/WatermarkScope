@@ -1,0 +1,26 @@
+{
+  "blockers": [],
+  "causal_contribution_table": "results/SemCodebook/artifacts/generated/semcodebook_causal_contribution_table_v1_20260507.json",
+  "claim_bearing": false,
+  "formal_causal_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T17:16:08+00:00",
+  "negative_false_positive_total": 0,
+  "promotion_policy": "Component-causality language is allowed only for this fixed ablation table and must report paired deltas plus negative-control bounds.",
+  "required_comparisons": [
+    "full_vs_ast_only",
+    "full_vs_cfg_only",
+    "full_vs_ssa_only",
+    "full_vs_drop_ast",
+    "full_vs_drop_cfg",
+    "full_vs_drop_ssa",
+    "full_vs_ecc_off",
+    "full_vs_unkeyed_schedule"
+  ],
+  "required_slices": [
+    "language",
+    "attack_condition",
+    "family"
+  ],
+  "schema_version": "semcodebook_causal_contribution_gate_v2"
+}

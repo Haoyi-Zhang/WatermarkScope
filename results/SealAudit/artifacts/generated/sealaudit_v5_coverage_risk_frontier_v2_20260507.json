@@ -1,0 +1,138 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "claim_boundary": "This frontier can support selective marker-hidden triage. It does not support security certification, harmlessness, or fully automatic classification.",
+  "confirmed_benign_count": 80,
+  "confirmed_latent_risk_count": 240,
+  "coverage_upgrade_claim_allowed": true,
+  "decision_distribution": {
+    "confirmed_benign": 80,
+    "confirmed_latent_risk": 240,
+    "hard_ambiguity_retained": 484,
+    "needs_expert_review": 156
+  },
+  "decisive_count": 320,
+  "decisive_coverage": 0.3333333333333333,
+  "decisive_coverage_bootstrap_ci95": {
+    "confidence": 0.95,
+    "estimate": 0.3333333333333333,
+    "iterations": 1000,
+    "lower": 0.303125,
+    "seed": 1707,
+    "upper": 0.3625
+  },
+  "decisive_coverage_ci95": {
+    "high": 0.3637654259478915,
+    "k": 320,
+    "low": 0.3042297644732227,
+    "method": "wilson",
+    "n": 960,
+    "rate": 0.3333333333333333
+  },
+  "formal_automatic_classifier_claim_allowed": false,
+  "formal_harmlessness_claim_allowed": false,
+  "formal_security_certificate_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:33:48+00:00",
+  "hidden_claim_rows": 960,
+  "materialization_gate_pass": true,
+  "per_family_decision_counts": {
+    "checksum": {
+      "confirmed_benign": 8,
+      "confirmed_latent_risk": 24,
+      "hard_ambiguity_retained": 48,
+      "needs_expert_review": 16
+    },
+    "graph_reachability": {
+      "confirmed_benign": 8,
+      "confirmed_latent_risk": 24,
+      "hard_ambiguity_retained": 52,
+      "needs_expert_review": 12
+    },
+    "map_normalizer": {
+      "confirmed_benign": 8,
+      "confirmed_latent_risk": 24,
+      "hard_ambiguity_retained": 48,
+      "needs_expert_review": 16
+    },
+    "parser_guard": {
+      "confirmed_benign": 8,
+      "confirmed_latent_risk": 24,
+      "hard_ambiguity_retained": 48,
+      "needs_expert_review": 16
+    },
+    "policy_gate": {
+      "confirmed_benign": 8,
+      "confirmed_latent_risk": 24,
+      "hard_ambiguity_retained": 48,
+      "needs_expert_review": 16
+    },
+    "ranker": {
+      "confirmed_benign": 8,
+      "confirmed_latent_risk": 24,
+      "hard_ambiguity_retained": 48,
+      "needs_expert_review": 16
+    },
+    "scheduler": {
+      "confirmed_benign": 8,
+      "confirmed_latent_risk": 24,
+      "hard_ambiguity_retained": 48,
+      "needs_expert_review": 16
+    },
+    "sequence_filter": {
+      "confirmed_benign": 8,
+      "confirmed_latent_risk": 24,
+      "hard_ambiguity_retained": 48,
+      "needs_expert_review": 16
+    },
+    "serializer": {
+      "confirmed_benign": 8,
+      "confirmed_latent_risk": 24,
+      "hard_ambiguity_retained": 48,
+      "needs_expert_review": 16
+    },
+    "window_aggregator": {
+      "confirmed_benign": 8,
+      "confirmed_latent_risk": 24,
+      "hard_ambiguity_retained": 48,
+      "needs_expert_review": 16
+    }
+  },
+  "per_language_decision_counts": {
+    "go": {
+      "confirmed_benign": 20,
+      "confirmed_latent_risk": 60,
+      "hard_ambiguity_retained": 122,
+      "needs_expert_review": 38
+    },
+    "java": {
+      "confirmed_benign": 20,
+      "confirmed_latent_risk": 60,
+      "hard_ambiguity_retained": 122,
+      "needs_expert_review": 38
+    },
+    "javascript": {
+      "confirmed_benign": 20,
+      "confirmed_latent_risk": 60,
+      "hard_ambiguity_retained": 120,
+      "needs_expert_review": 40
+    },
+    "python": {
+      "confirmed_benign": 20,
+      "confirmed_latent_risk": 60,
+      "hard_ambiguity_retained": 120,
+      "needs_expert_review": 40
+    }
+  },
+  "schema_version": "sealaudit_v5_coverage_risk_frontier_v2",
+  "unique_case_count": 320,
+  "unsafe_pass_ci95": {
+    "high": 0.003985571263342763,
+    "k": 0,
+    "low": 0.0,
+    "method": "wilson",
+    "n": 960,
+    "rate": 0.0
+  },
+  "unsafe_pass_count": 0
+}

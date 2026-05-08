@@ -1,0 +1,178 @@
+{
+  "artifact_count": 15,
+  "artifacts": [
+    {
+      "blockers": [],
+      "bytes": 8996,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_low_signal_claim_boundary_gate_20260505.json",
+      "schema_version": "codedye_low_signal_claim_boundary_gate_v1",
+      "sha256": "5bddc0e00c2774e9b1542a3a6a9b068c7f17884a911c5935b8ce5684a5ac1788"
+    },
+    {
+      "blockers": [],
+      "bytes": 651,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_positive_contamination_control_300_gate_20260505.json",
+      "schema_version": "codedye_positive_contamination_control_300_gate_v2",
+      "sha256": "fdca443e06cf430e59ba579cf404a4c19205d7d020356cc16371ee78bcdb7082"
+    },
+    {
+      "blockers": [],
+      "bytes": 601,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_negative_control_300plus_gate_20260505.json",
+      "schema_version": "codedye_negative_control_300plus_gate_v1",
+      "sha256": "f37db71ebcd4cddeb38abaca77f053edb8fc155174a163b251831b365560866a"
+    },
+    {
+      "blockers": [],
+      "bytes": 1563,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_positive_miss_taxonomy_v2_20260507.json",
+      "schema_version": "codedye_positive_control_taxonomy_v2",
+      "sha256": "f028ed0e85e3d2c2037e14ef3023121fbbae98dfc8f4f538699edb2043f72d84"
+    },
+    {
+      "blockers": null,
+      "bytes": 1144,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": null,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_protocol_freeze_gate_20260507.json",
+      "schema_version": "codedye_v3_protocol_freeze_gate",
+      "sha256": "40e70179739e1681eaceaee81676cf1ba0913b3806f64c6c79567ff1f610eaaa"
+    },
+    {
+      "blockers": [],
+      "bytes": 922,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": false,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_positive_negative_control_gate_20260507.json",
+      "schema_version": "codedye_v3_positive_negative_control_gate_v1",
+      "sha256": "65392f3a653e86297481196e2ba9c3ec8e62e308a35b5f10694a09ad1d3b48c8"
+    },
+    {
+      "blockers": [],
+      "bytes": 2798,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": false,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_live_claim_boundary_gate_20260507.json",
+      "schema_version": "codedye_v3_live_claim_boundary_gate_v1",
+      "sha256": "6955a582d38cfae117ed056a55ac2d87ff3a96adf62c9bf382c3bbd748156acd"
+    },
+    {
+      "blockers": [],
+      "bytes": 1043,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": false,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_support_exclusion_gate_20260507.json",
+      "schema_version": "codedye_v3_support_exclusion_gate_v1",
+      "sha256": "0d1449f1d0b77e963aed95e652b7f3e09a6ef5e8edf2bb3548fd9d6b3ba6212d"
+    },
+    {
+      "blockers": [],
+      "bytes": 637,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_support_exclusion_row_ledger_gate_20260507.json",
+      "schema_version": "codedye_support_exclusion_row_ledger_gate_v1",
+      "sha256": "2e9851c5fe3b27a9a2297fb59815486f3e4fcd7a733c17ee7699f43de715eb5a"
+    },
+    {
+      "blockers": null,
+      "bytes": 101079,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": null,
+      "path": "results/CodeDye/artifacts/generated/codedye_positive_control_row_hash_manifest_20260507.json",
+      "schema_version": "codedye_positive_control_row_hash_manifest_v1",
+      "sha256": "18e3fc295ed382168b6067046ec3b28be86390c3a58a06389a0a17db4365068a"
+    },
+    {
+      "blockers": [
+        "negative_control_row_level_source_not_in_local_compact_bundle"
+      ],
+      "bytes": 1183,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": null,
+      "path": "results/CodeDye/artifacts/generated/codedye_negative_control_row_source_manifest_20260507.json",
+      "schema_version": "codedye_negative_control_row_source_manifest_v1",
+      "sha256": "2f231a2bd803d9a0db1b34550b8d93c72c64f2c63556971aafa6e5d85b720f5c"
+    },
+    {
+      "blockers": [],
+      "bytes": 857119,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/null_calibration_negative_controls_300_20260505_remote.json",
+      "schema_version": "codedye_null_calibration_negative_controls_v2",
+      "sha256": "3d6caffac78f77687c80811c11958da774f1780fdcc173b673a0b605effac163"
+    },
+    {
+      "blockers": [],
+      "bytes": 138626,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_negative_control_row_hash_manifest_v2_20260507.json",
+      "schema_version": "codedye_negative_control_row_hash_manifest_v2",
+      "sha256": "be4dec83b0ca0957ad80d96c932cee1a6f6537979f10c9170bf60f69d4506e40"
+    },
+    {
+      "blockers": [],
+      "bytes": 1351,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_reused_control_bridge_20260507.json",
+      "schema_version": "codedye_v3_reused_control_bridge_v1",
+      "sha256": "d06372dd2fc289a4ceab7126acbff7a0534b29d77f0001ea8575503626bc162a"
+    },
+    {
+      "blockers": [],
+      "bytes": 34303,
+      "claim_bearing": true,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/statistics_repro_gate.json",
+      "schema_version": "codedye_statistics_repro_gate_v2",
+      "sha256": "29780ec069fc46919b8b67d6d6a7c48689e6ee88fbcfcaca4f1b98c49e3a44fb"
+    }
+  ],
+  "boundary": "Additive reviewer manifest. Locked original result artifacts and v1 manifests are not overwritten.",
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T18:24:17+00:00",
+  "missing_artifacts": [],
+  "project": "CodeDye",
+  "schema_version": "codedye_reviewer_reproducibility_manifest_v2"
+}

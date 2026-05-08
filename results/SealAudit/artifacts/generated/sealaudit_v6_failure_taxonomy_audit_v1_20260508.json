@@ -1,0 +1,349 @@
+{
+  "blockers": [],
+  "by_abstain_reason": {
+    "benign_support_trace_not_promoted_without_marker_hidden_decision": {
+      "decision_counts": {
+        "needs_expert_review": 156
+      },
+      "decisive_ci95": {
+        "high": 0.024032931437414938,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 156,
+        "rate": 0.0
+      },
+      "decisive_count": 0,
+      "rows": 156,
+      "unsafe_pass_ci95": {
+        "high": 0.024032931437414938,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 156,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    },
+    "decisive_no_abstain": {
+      "decision_counts": {
+        "confirmed_benign": 80,
+        "confirmed_latent_risk": 240
+      },
+      "decisive_ci95": {
+        "high": 1.0,
+        "k": 320,
+        "low": 0.9881378411686904,
+        "method": "wilson",
+        "n": 320,
+        "rate": 1.0
+      },
+      "decisive_count": 320,
+      "rows": 320,
+      "unsafe_pass_ci95": {
+        "high": 0.011862158831309737,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 320,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    },
+    "insufficient_conjunction_for_decisive_claim": {
+      "decision_counts": {
+        "hard_ambiguity_retained": 484
+      },
+      "decisive_ci95": {
+        "high": 0.007874400076574983,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 484,
+        "rate": 0.0
+      },
+      "decisive_count": 0,
+      "rows": 484,
+      "unsafe_pass_ci95": {
+        "high": 0.007874400076574983,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 484,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    }
+  },
+  "by_language": {
+    "go": {
+      "decision_counts": {
+        "confirmed_benign": 20,
+        "confirmed_latent_risk": 60,
+        "hard_ambiguity_retained": 122,
+        "needs_expert_review": 38
+      },
+      "decisive_ci95": {
+        "high": 0.39518537565287887,
+        "k": 80,
+        "low": 0.27673259766097397,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.3333333333333333
+      },
+      "decisive_count": 80,
+      "rows": 240,
+      "unsafe_pass_ci95": {
+        "high": 0.015753919941558815,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    },
+    "java": {
+      "decision_counts": {
+        "confirmed_benign": 20,
+        "confirmed_latent_risk": 60,
+        "hard_ambiguity_retained": 122,
+        "needs_expert_review": 38
+      },
+      "decisive_ci95": {
+        "high": 0.39518537565287887,
+        "k": 80,
+        "low": 0.27673259766097397,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.3333333333333333
+      },
+      "decisive_count": 80,
+      "rows": 240,
+      "unsafe_pass_ci95": {
+        "high": 0.015753919941558815,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    },
+    "javascript": {
+      "decision_counts": {
+        "confirmed_benign": 20,
+        "confirmed_latent_risk": 60,
+        "hard_ambiguity_retained": 120,
+        "needs_expert_review": 40
+      },
+      "decisive_ci95": {
+        "high": 0.39518537565287887,
+        "k": 80,
+        "low": 0.27673259766097397,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.3333333333333333
+      },
+      "decisive_count": 80,
+      "rows": 240,
+      "unsafe_pass_ci95": {
+        "high": 0.015753919941558815,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    },
+    "python": {
+      "decision_counts": {
+        "confirmed_benign": 20,
+        "confirmed_latent_risk": 60,
+        "hard_ambiguity_retained": 120,
+        "needs_expert_review": 40
+      },
+      "decisive_ci95": {
+        "high": 0.39518537565287887,
+        "k": 80,
+        "low": 0.27673259766097397,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.3333333333333333
+      },
+      "decisive_count": 80,
+      "rows": 240,
+      "unsafe_pass_ci95": {
+        "high": 0.015753919941558815,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    }
+  },
+  "by_scheme_kind": {
+    "benign_reference": {
+      "decision_counts": {
+        "confirmed_benign": 80,
+        "hard_ambiguity_retained": 4,
+        "needs_expert_review": 156
+      },
+      "decisive_ci95": {
+        "high": 0.39518537565287887,
+        "k": 80,
+        "low": 0.27673259766097397,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.3333333333333333
+      },
+      "decisive_count": 80,
+      "rows": 240,
+      "unsafe_pass_ci95": {
+        "high": 0.015753919941558815,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    },
+    "latent_trojan": {
+      "decision_counts": {
+        "confirmed_latent_risk": 240
+      },
+      "decisive_ci95": {
+        "high": 1.0,
+        "k": 240,
+        "low": 0.9842460800584412,
+        "method": "wilson",
+        "n": 240,
+        "rate": 1.0
+      },
+      "decisive_count": 240,
+      "rows": 240,
+      "unsafe_pass_ci95": {
+        "high": 0.015753919941558815,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    },
+    "laundered_scheme": {
+      "decision_counts": {
+        "hard_ambiguity_retained": 240
+      },
+      "decisive_ci95": {
+        "high": 0.015753919941558815,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.0
+      },
+      "decisive_count": 0,
+      "rows": 240,
+      "unsafe_pass_ci95": {
+        "high": 0.015753919941558815,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    },
+    "spoofed_scheme": {
+      "decision_counts": {
+        "hard_ambiguity_retained": 240
+      },
+      "decisive_ci95": {
+        "high": 0.015753919941558815,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.0
+      },
+      "decisive_count": 0,
+      "rows": 240,
+      "unsafe_pass_ci95": {
+        "high": 0.015753919941558815,
+        "k": 0,
+        "low": 0.0,
+        "method": "wilson",
+        "n": 240,
+        "rate": 0.0
+      },
+      "unsafe_pass_count": 0
+    }
+  },
+  "claim_bearing": false,
+  "confirmed_benign_count": 80,
+  "confirmed_latent_risk_count": 240,
+  "date": "20260508",
+  "decision_counts": {
+    "confirmed_benign": 80,
+    "confirmed_latent_risk": 240,
+    "hard_ambiguity_retained": 484,
+    "needs_expert_review": 156
+  },
+  "decisive_ci95": {
+    "high": 0.3637654259478915,
+    "k": 320,
+    "low": 0.3042297644732227,
+    "method": "wilson",
+    "n": 960,
+    "rate": 0.3333333333333333
+  },
+  "decisive_count": 320,
+  "formal_full_classifier_claim_allowed": false,
+  "formal_harmlessness_claim_allowed": false,
+  "formal_security_certificate_claim_allowed": false,
+  "gate_pass": true,
+  "hard_ambiguity_retained_count": 484,
+  "hash_missing_rows": 0,
+  "hidden_claim_rows": 960,
+  "needs_expert_review_count": 156,
+  "nondecisive_conjunction_patterns_top30": {
+    "static=pass_support|drift=pass_support|launder=pass_support|spoof=pass_support|judge=pass_support|baseline=pass_support|abstain=benign_support_trace_not_promoted_without_marker_hidden_decision": 156,
+    "static=pass_support|drift=pass_support|launder=pass_support|spoof=pass_support|judge=pass_support|baseline=pass_support|abstain=insufficient_conjunction_for_decisive_claim": 484
+  },
+  "paper_claim_boundary": {
+    "allowed": [
+      "Selective marker-hidden triage with coverage-risk frontier.",
+      "Needs-review and hard-ambiguity are explicit abstentions.",
+      "Unsafe-pass count is reported as zero with Wilson upper bound."
+    ],
+    "forbidden": [
+      "Watermark harmlessness certificate.",
+      "General security certificate.",
+      "Automatic full classifier over all security outcomes.",
+      "Visible-marker diagnostic rows as main claim evidence."
+    ]
+  },
+  "project": "SealAudit",
+  "schema_missing_rows": 0,
+  "schema_version": "sealaudit_v6_failure_taxonomy_audit_v1",
+  "source_artifact": "results/SealAudit/artifacts/generated/sealaudit_v5_final_claim_evidence_rows_v2_20260507.json",
+  "source_formal_v5_claim_allowed": true,
+  "source_schema_version": "sealaudit_v5_final_claim_evidence_rows_v2",
+  "support_audit_admitted": true,
+  "unsafe_pass_ci95": {
+    "high": 0.003985571263342763,
+    "k": 0,
+    "low": 0.0,
+    "method": "wilson",
+    "n": 960,
+    "rate": 0.0
+  },
+  "unsafe_pass_count": 0,
+  "visible_marker_non_diagnostic_rows": 0
+}

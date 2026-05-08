@@ -1,0 +1,47 @@
+{
+  "blocked": false,
+  "blockers": [],
+  "claim_bearing": false,
+  "composite_validity_pass": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T16:55:23+00:00",
+  "input": "results/CodeDye/artifacts/generated/positive_control_contamination_result_20260505_remote.json",
+  "miss_bucket_counts": {
+    "witness_ablation_did_not_collapse": 130
+  },
+  "miss_by_control_arm": {
+    "hidden_family_visible": 19,
+    "literal_output_visible": 19,
+    "mixed_channel_echo": 46,
+    "structured_identifier_echo": 46
+  },
+  "miss_by_hidden_family_diagnostic_only": {
+    "False": 111,
+    "True": 19
+  },
+  "miss_by_subset": {
+    "canary_preserving_rewrites": 10,
+    "cross_language_variants": 12,
+    "fresh_unseen_tasks": 92,
+    "prompt_chronology": 10,
+    "semantic_canaries": 6
+  },
+  "positive_control_denominator": 300,
+  "positive_control_detected": 170,
+  "positive_control_family_coverage_pass": true,
+  "positive_control_missed": 130,
+  "positive_control_power_pass": true,
+  "positive_control_sensitivity_ci95": {
+    "high": 0.6215486818545306,
+    "k": 170,
+    "low": 0.5100989219821965,
+    "method": "wilson",
+    "n": 300,
+    "rate": 0.5666666666666667
+  },
+  "schema_version": "codedye_positive_control_taxonomy_v2",
+  "source_schema_version": "codedye_positive_control_v6",
+  "study_kind": "controlled_positive_control_contamination",
+  "taxonomy_policy": "Misses are explanatory failure-boundary evidence only; thresholds and denominators are unchanged.",
+  "unclassified_miss_count": 0
+}

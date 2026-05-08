@@ -1,0 +1,43 @@
+{
+  "files": [
+    {
+      "bytes": 237543393,
+      "local": "results/SemCodebook/artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_semcodebook/artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json",
+      "status": "downloaded"
+    },
+    {
+      "bytes": 2708572,
+      "local": "results/CodeDye/artifacts/generated/positive_control_contamination_result_20260505_remote.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/artifacts/generated/positive_control_contamination_result.json",
+      "status": "downloaded"
+    },
+    {
+      "bytes": 24300,
+      "local": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_registry_20260505_remote.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_probetrace/artifacts/generated/probetrace_multi_owner_registry_20260505.json",
+      "status": "downloaded"
+    },
+    {
+      "bytes": 1857,
+      "local": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_multilingual_deepseek_rerun_manifest_20260505_remote.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_probetrace/artifacts/generated/probetrace_multi_owner_multilingual_deepseek_rerun_manifest_20260505.json",
+      "status": "downloaded"
+    },
+    {
+      "bytes": 3559,
+      "local": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_generalization_gate_20260505_remote.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_probetrace/artifacts/generated/probetrace_multi_owner_generalization_gate_20260505.json",
+      "status": "downloaded"
+    },
+    {
+      "bytes": 1887,
+      "local": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_live_results_20260505_remote.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_probetrace/artifacts/generated/probetrace_multi_owner_live_results_20260505.json",
+      "status": "downloaded"
+    }
+  ],
+  "host": "js2.blockelite.cn",
+  "port": 22620,
+  "schema_version": "remote_import_manifest_v1"
+}

@@ -1,0 +1,57 @@
+{
+  "blocked": true,
+  "blockers": [
+    "fresh_v3_live_result_missing"
+  ],
+  "checked_candidate_paths": [
+    "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507.json",
+    "projects/CodeDye/artifacts/generated/codedye_v3_live_results_20260507.json",
+    "projects/CodeDye/artifacts/generated/attack_matrix_live_support.json"
+  ],
+  "claim_bearing": false,
+  "formal_contamination_prevalence_claim_allowed": false,
+  "formal_high_recall_detection_claim_allowed": false,
+  "formal_v3_live_claim_allowed": false,
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T20:37:10+00:00",
+  "prerequisite_gates": {
+    "positive_negative_control_gate_pass": true,
+    "protocol_freeze_gate_pass": true,
+    "support_exclusion_gate_pass": true
+  },
+  "promotion_policy": "A fresh v3 live result can only upgrade the scoped null-audit claim after row-level hashes, utility admissibility, support exclusion, controls, and fixed-denominator statistics all pass. This gate never permits high-recall detection or prevalence claims.",
+  "required_live_result_schema": {
+    "payload": [
+      "schema_version",
+      "status",
+      "run_id",
+      "claim_bearing",
+      "formal_claim_allowed",
+      "summary",
+      "records"
+    ],
+    "records": [
+      "task_id",
+      "attack_id",
+      "run_id",
+      "provider_name",
+      "provider_mode_resolved",
+      "provider_or_backbone",
+      "prompt_hash",
+      "attack_prompt_hash",
+      "raw_payload_hash",
+      "raw_provider_transcript_hash",
+      "structured_payload_hash",
+      "task_hash",
+      "record_hash",
+      "claim_bearing",
+      "claim_bearing_attack_evidence",
+      "support_only_not_claim_bearing",
+      "utility_admissible_for_attack_claim",
+      "selected_utility_score",
+      "decision",
+      "threshold_version"
+    ]
+  },
+  "schema_version": "codedye_v3_postrun_promotion_gate_v1"
+}

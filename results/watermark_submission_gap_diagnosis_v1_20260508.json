@@ -1,0 +1,425 @@
+{
+  "claim_bearing": false,
+  "execution_policy": {
+    "blackbox_minimal_rerun_note": "CodeDye/ProbeTrace/SealAudit already have DeepSeek-only locked claims; do not spend API on duplicate DeepSeek runs without a frozen new protocol.",
+    "do_not_rerun_blindly": true,
+    "optimization_priority": [
+      "paper_claim_alignment",
+      "main_table_and_failure_analysis",
+      "anonymous_repro_package",
+      "optional support-only real-repo SemCodebook witness",
+      "future non-DeepSeek provider replication if keys are available"
+    ],
+    "whitebox_minimal_rerun_note": "SemCodebook already exceeds one-model minimal run; any new run should be support-only real-repo witness unless a new formal claim is introduced."
+  },
+  "generated_at_utc": "2026-05-08T10:44:20+00:00",
+  "portfolio_current_state": {
+    "formal_full_experiment_allowed_for_locked_scopes": true,
+    "mean_score": 4.78,
+    "remaining_p1": 0,
+    "remaining_p2": 0,
+    "verdict": "bestpaper_ready_by_strict_artifact_gate"
+  },
+  "projects": [
+    {
+      "best_paper_gap": [
+        {
+          "axis": "method_theory",
+          "fix": "Add formal definitions, recovery sufficient conditions, and component necessity lemmas tied directly to the generation-changing ablation.",
+          "issue": "The mechanism is strong, but the paper must make AST/CFG/SSA/ECC/keyed schedule read as a compact theory of structured provenance rather than an artifact-heavy system.",
+          "requires_new_experiment": false,
+          "severity": "medium"
+        },
+        {
+          "axis": "baseline_positioning",
+          "fix": "Add a baseline-role table and a fairness paragraph that separates runnable official baselines, citation-only baselines, and non-equivalent comparators.",
+          "issue": "Reviewers may question whether official watermark baselines are fully comparable to structured provenance under semantic rewrite.",
+          "requires_new_experiment": false,
+          "severity": "medium"
+        },
+        {
+          "axis": "external_validity",
+          "fix": "Add one non-main-table real-repo walkthrough with compile/test witness and failure-boundary discussion.",
+          "issue": "72k records cover model/family/scale breadth, but real-repo workflow examples would make the claim more memorable.",
+          "requires_new_experiment": "optional_support_only",
+          "severity": "low_medium"
+        }
+      ],
+      "current_status": "strong_submission_ready_for_scoped_whitebox_claim",
+      "effect_snapshot": {
+        "admitted_families": 5,
+        "admitted_models": 10,
+        "admitted_records": 72000,
+        "generation_changing_ablation_rows": 43200,
+        "negative_control_ci95": {
+          "high": 8.002398774667768e-05,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 48000,
+          "rate": 0.0
+        },
+        "positive_recovery_ci95": {
+          "high": 0.9745748406649429,
+          "k": 23342,
+          "low": 0.9704405660946408,
+          "method": "wilson",
+          "n": 24000,
+          "rate": 0.9725833333333334
+        },
+        "scale_coverage": [
+          "large",
+          "mid",
+          "small",
+          "tiny"
+        ],
+        "zero_failure_metrics": {
+          "blind_negative_hit_count": 0,
+          "compiler_failures": 0,
+          "helper_failures": 0,
+          "mock_or_fallback_count": 0,
+          "negative_control_hits": 0
+        }
+      },
+      "locked_claim": "structured provenance watermark over admitted white-box model cells",
+      "next_execution": "Do not rerun whitebox until paper/theory tables are aligned; if adding evidence, run support-only real-repo witness, not another broad sweep.",
+      "project": "SemCodebook",
+      "strict_score": 4.62
+    },
+    {
+      "best_paper_gap": [
+        {
+          "axis": "effect_size",
+          "fix": "Frame sparse yield as the point of a low-false-positive audit protocol; add utility and query-budget curves instead of inflating recall.",
+          "issue": "Main DeepSeek signal is sparse: 4/300. This is acceptable for a conservative null-audit paper but weak for a best-paper-style detection narrative.",
+          "requires_new_experiment": "optional_deepseek_support",
+          "severity": "high_for_award_low_for_scoped_acceptance"
+        },
+        {
+          "axis": "positive_control_sensitivity",
+          "fix": "Add miss taxonomy examples and a frozen v4 evidence-enrichment design; rerun only if thresholds are preregistered before execution.",
+          "issue": "Positive-control sensitivity is 170/300, with 130 witness-ablation misses. Reviewers will ask whether the protocol misses known contamination too often.",
+          "requires_new_experiment": "only_if_v4_protocol_frozen_first",
+          "severity": "medium"
+        },
+        {
+          "axis": "claim_boundary",
+          "fix": "Keep the title/abstract as curator-side null-audit; report non-signals as non-accusatory outcomes, not absence proof.",
+          "issue": "The paper can be rejected if it sounds like a provider contamination accusation or high-recall detector.",
+          "requires_new_experiment": false,
+          "severity": "medium"
+        }
+      ],
+      "current_status": "strong_submission_ready_only_for_sparse_null_audit",
+      "effect_snapshot": {
+        "claim_rows": 300,
+        "final_signal": 4,
+        "final_signal_ci95": {
+          "high": 0.03377553025253262,
+          "k": 4,
+          "low": 0.005196961739358857,
+          "method": "wilson",
+          "n": 300,
+          "rate": 0.013333333333333334
+        },
+        "missing_hash_rows": 0,
+        "mock_or_replay_rows": 0,
+        "negative_control_false_positive": 0,
+        "negative_control_rows": 300,
+        "null_not_rejected": 296,
+        "positive_control_denominator": 300,
+        "positive_control_detected": 170,
+        "positive_control_missed": 130,
+        "positive_miss_taxonomy": {
+          "witness_ablation_did_not_collapse": 130
+        },
+        "support_rows_in_candidate": 0,
+        "utility_topup_policy": {
+          "contamination_score_used_for_selection": false,
+          "enabled": true,
+          "failed_attempts_enter_main_denominator": false,
+          "failed_attempts_retained": true,
+          "repaired_claim_records": 4,
+          "selection_signal": "utility_validation_only",
+          "source_claim_records": 296,
+          "source_failure_records": 4,
+          "target_records": 300
+        }
+      },
+      "locked_claim": "DeepSeek-only curator-side sparse null-audit with frozen v3 protocol and hash-complete 300-task live evidence",
+      "next_execution": "No immediate rerun. First write the sparse-audit narrative and tables; then decide whether a preregistered v4 support run is worth the API cost.",
+      "project": "CodeDye",
+      "strict_score": 4.75
+    },
+    {
+      "best_paper_gap": [
+        {
+          "axis": "too_perfect_result_risk",
+          "fix": "Make anti-leakage evidence prominent: hidden owner IDs, wrong/null/random/same-provider controls, owner/task-heldout splits, and near-boundary examples.",
+          "issue": "AUC=1.0, APIS=300/300, transfer=900/900 are strong but invite leakage/shortcut skepticism.",
+          "requires_new_experiment": false,
+          "severity": "medium_high"
+        },
+        {
+          "axis": "provider_scope",
+          "fix": "Do not claim provider-general. If future keys are available, prioritize GPT/Claude replication for this project first.",
+          "issue": "The locked claim is DeepSeek-only. This is acceptable for a scoped paper but weaker than a provider-general award narrative.",
+          "requires_new_experiment": "future_non_deepseek_key",
+          "severity": "medium_for_best_paper"
+        },
+        {
+          "axis": "cost_usability",
+          "fix": "Move latency/query frontier into main results instead of appendix.",
+          "issue": "Latency/query overhead can become a practical objection even when attribution is accurate.",
+          "requires_new_experiment": false,
+          "severity": "low_medium"
+        }
+      ],
+      "current_status": "closest_to_best_paper_ready_for_scoped_deepseek_claim",
+      "effect_snapshot": {
+        "anti_leakage_gate_pass": true,
+        "apis300_attribution": {
+          "high": 0.9999999999999998,
+          "k": 300,
+          "low": 0.9873570287754538,
+          "method": "wilson",
+          "n": 300,
+          "rate": 1.0
+        },
+        "latency_query_frontier_gate_pass": true,
+        "multi_owner_claim_bearing_rows": 6000,
+        "multi_owner_control_role_counts": {
+          "null_owner": 750,
+          "random_owner": 750,
+          "same_provider_unwrap": 750,
+          "true_owner": 750,
+          "wrong_owner": 3000
+        },
+        "multi_owner_control_rows": 5250,
+        "multi_owner_control_to_positive_ratio": 7.0,
+        "multi_owner_global_fpr_ci95": {
+          "high": 0.0007311714391846915,
+          "k": 0,
+          "low": 5.421010862427522e-20,
+          "method": "wilson",
+          "n": 5250,
+          "rate": 0.0
+        },
+        "multi_owner_global_tpr_ci95": {
+          "high": 1.0,
+          "k": 750,
+          "low": 0.9949041555412677,
+          "method": "wilson",
+          "n": 750,
+          "rate": 1.0
+        },
+        "multi_owner_language_count": 3,
+        "multi_owner_margin_auc": 1.0,
+        "multi_owner_missing_hash_rows": 0,
+        "multi_owner_owner_count": 5,
+        "multi_owner_owner_heldout_rows": 1200,
+        "multi_owner_per_owner_ci95": {
+          "owner_alpha": {
+            "control_rows": 1050,
+            "fpr_ci95": {
+              "high": 0.0036451961426844284,
+              "k": 0,
+              "low": 0.0,
+              "method": "wilson",
+              "n": 1050,
+              "rate": 0.0
+            },
+            "positive_rows": 150,
+            "tpr_ci95": {
+              "high": 1.0,
+              "k": 150,
+              "low": 0.9750297556319235,
+              "method": "wilson",
+              "n": 150,
+              "rate": 1.0
+            }
+          },
+          "owner_beta": {
+            "control_rows": 1050,
+            "fpr_ci95": {
+              "high": 0.0036451961426844284,
+              "k": 0,
+              "low": 0.0,
+              "method": "wilson",
+              "n": 1050,
+              "rate": 0.0
+            },
+            "positive_rows": 150,
+            "tpr_ci95": {
+              "high": 1.0,
+              "k": 150,
+              "low": 0.9750297556319235,
+              "method": "wilson",
+              "n": 150,
+              "rate": 1.0
+            }
+          },
+          "owner_delta": {
+            "control_rows": 1050,
+            "fpr_ci95": {
+              "high": 0.0036451961426844284,
+              "k": 0,
+              "low": 0.0,
+              "method": "wilson",
+              "n": 1050,
+              "rate": 0.0
+            },
+            "positive_rows": 150,
+            "tpr_ci95": {
+              "high": 1.0,
+              "k": 150,
+              "low": 0.9750297556319235,
+              "method": "wilson",
+              "n": 150,
+              "rate": 1.0
+            }
+          },
+          "owner_epsilon": {
+            "control_rows": 1050,
+            "fpr_ci95": {
+              "high": 0.0036451961426844284,
+              "k": 0,
+              "low": 0.0,
+              "method": "wilson",
+              "n": 1050,
+              "rate": 0.0
+            },
+            "positive_rows": 150,
+            "tpr_ci95": {
+              "high": 1.0,
+              "k": 150,
+              "low": 0.9750297556319235,
+              "method": "wilson",
+              "n": 150,
+              "rate": 1.0
+            }
+          },
+          "owner_gamma": {
+            "control_rows": 1050,
+            "fpr_ci95": {
+              "high": 0.0036451961426844284,
+              "k": 0,
+              "low": 0.0,
+              "method": "wilson",
+              "n": 1050,
+              "rate": 0.0
+            },
+            "positive_rows": 150,
+            "tpr_ci95": {
+              "high": 1.0,
+              "k": 150,
+              "low": 0.9750297556319235,
+              "method": "wilson",
+              "n": 150,
+              "rate": 1.0
+            }
+          }
+        },
+        "multi_owner_positive_rows": 750,
+        "multi_owner_row_count": 6000,
+        "multi_owner_schema_missing_rows": 0,
+        "multi_owner_split_counts": {
+          "owner_heldout": 1200,
+          "task_heldout": 1200,
+          "train_dev": 3600
+        },
+        "multi_owner_task_heldout_rows": 1200,
+        "single_owner_negative_control_false_attribution": {
+          "high": 0.003191000602734924,
+          "k": 0,
+          "low": 2.168404344971009e-19,
+          "method": "wilson",
+          "n": 1200,
+          "rate": 0.0
+        },
+        "transfer_dataset_sha256": "0adefeff0da33219c4a94565e6073392a69d4a46b56ef184e7fb501191c87073",
+        "transfer_primary_independence_unit": "task_cluster",
+        "transfer_rows": 900,
+        "transfer_validation": {
+          "high": 1.0,
+          "k": 900,
+          "low": 0.9957498532699458,
+          "method": "wilson",
+          "n": 900,
+          "rate": 1.0
+        },
+        "unique_transfer_task_count": 300
+      },
+      "locked_claim": "DeepSeek-only five-owner source-bound active-owner attribution with owner/task-heldout margin evidence",
+      "next_execution": "No new DeepSeek run needed. Next work is writing: anti-leakage section, near-boundary rows, and cost frontier in the main text.",
+      "project": "ProbeTrace",
+      "strict_score": 5.0
+    },
+    {
+      "best_paper_gap": [
+        {
+          "axis": "coverage",
+          "fix": "Make coverage-risk frontier the core contribution; explicitly treat retained ambiguity as safety-preserving abstention.",
+          "issue": "Decisive coverage is 320/960. This is a selective triage result, not a full classifier.",
+          "requires_new_experiment": false,
+          "severity": "medium_high"
+        },
+        {
+          "axis": "human_support_boundary",
+          "fix": "Use only anonymous role-based support and row-level packet confirmation wording.",
+          "issue": "Expert review can help credibility but becomes a liability if described as signed/named gold labels.",
+          "requires_new_experiment": false,
+          "severity": "medium"
+        },
+        {
+          "axis": "security_overclaim",
+          "fix": "Write watermark-as-security-object audit/triage, not automatic safety classification.",
+          "issue": "Reviewers will reject any harmlessness guarantee or security certificate claim.",
+          "requires_new_experiment": false,
+          "severity": "high_if_written_wrong"
+        }
+      ],
+      "current_status": "strong_submission_ready_only_for_selective_triage",
+      "effect_snapshot": {
+        "case_count": 320,
+        "confirmed_benign_count": 80,
+        "confirmed_latent_risk_count": 240,
+        "decision_distribution": {
+          "confirmed_benign": 80,
+          "confirmed_latent_risk": 240,
+          "hard_ambiguity_retained": 484,
+          "needs_expert_review": 156
+        },
+        "decisive_count": 320,
+        "decisive_coverage_ci95": {
+          "high": 0.3637654259478915,
+          "k": 320,
+          "low": 0.3042297644732227,
+          "method": "wilson",
+          "n": 960,
+          "rate": 0.3333333333333333
+        },
+        "expert_review_role_support_only": true,
+        "marker_hidden_claim_rows": 960,
+        "marker_visible_diagnostic_rows": 320,
+        "threshold_sweep_count": 6,
+        "unsafe_pass_ci95": {
+          "high": 0.003985571263342763,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 960,
+          "rate": 0.0
+        },
+        "unsafe_pass_count": 0,
+        "visible_marker_claim_rows": 0
+      },
+      "locked_claim": "DeepSeek-only marker-hidden v5 selective audit/triage with support-evidence binding",
+      "next_execution": "No new DeepSeek run needed. Next work is paper framing: coverage-risk frontier, unsafe-pass bound, and failure taxonomy.",
+      "project": "SealAudit",
+      "strict_score": 4.75
+    }
+  ],
+  "schema_version": "watermark_submission_gap_diagnosis_v1",
+  "source_audit": "results/watermark_strict_reviewer_audit_v8_20260507.json"
+}

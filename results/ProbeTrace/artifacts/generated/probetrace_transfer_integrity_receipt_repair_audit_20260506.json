@@ -1,0 +1,13 @@
+{
+  "claim_bearing": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:27Z",
+  "missing_family_values": [],
+  "receipt_jsonl": "codemark_probetrace\\artifacts\\generated\\probetrace_transfer_row_integrity_receipts_20260506.jsonl",
+  "repair_role": "receipt_schema_completion_not_new_transfer_result",
+  "row_count": 900,
+  "rows_repaired_or_confirmed": 900,
+  "rows_with_training_run_hash": 900,
+  "schema_version": "probetrace_transfer_integrity_receipt_repair_audit_v1",
+  "training_receipt_hash_manifest": "codemark_probetrace\\artifacts\\generated\\probetrace_student_training_receipt_hash_manifest_20260506.json"
+}

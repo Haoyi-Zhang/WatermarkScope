@@ -1,0 +1,81 @@
+{
+  "artifact_role": "pre_run_transfer_integrity_gate",
+  "blockers": [],
+  "claim_bearing": false,
+  "current_dataset_integrity_rows": 900,
+  "current_transfer_rows": 900,
+  "dataset_sha256": "0adefeff0da33219c4a94565e6073392a69d4a46b56ef184e7fb501191c87073",
+  "formal_source_bound_transfer_evidence_allowed": true,
+  "formal_transfer_generalization_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:46.818129Z",
+  "integrity_receipt_jsonl": "codemark_probetrace/artifacts/generated/probetrace_transfer_row_integrity_receipts_20260506.jsonl",
+  "integrity_receipt_sha256": "902c7ec8293b2d68d0ec2532e94e2fb304b23747fda1302358c31d97c34caf4f",
+  "receipt_rows_with_all_required_fields": 900,
+  "required_receipt_fields": [
+    "dataset_sha256",
+    "dataset_integrity",
+    "owner_id",
+    "source_split_id",
+    "hidden_validation_split_id",
+    "student_type",
+    "training_run_hash",
+    "validation_output_hash"
+  ],
+  "schema_version": "probetrace_transfer_validation_integrity_gate_v1",
+  "source_artifacts": [
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/probetrace_transfer_row_integrity_receipts_20260506.jsonl",
+      "sha256": "902c7ec8293b2d68d0ec2532e94e2fb304b23747fda1302358c31d97c34caf4f",
+      "size_bytes": 1013650
+    },
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/probetrace_student_training_receipt_hash_manifest_20260506.json",
+      "sha256": "fcfeb25809bac097eab39248b7b5c175c39c23fee4b85e40300306ce20cea3eb",
+      "size_bytes": 1166
+    },
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/probetrace_transfer_integrity_receipt_repair_audit_20260506.json",
+      "sha256": "d24759de5f44218ead4b39c06c16e30824b4c0d37d0964ca65ae83bc7aff9960",
+      "size_bytes": 651
+    },
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/probetrace_transfer_row_binding_manifest_gate_20260505.json",
+      "sha256": "551016d0138d136937abf4db19464112d0f319f737c964a909e4d760799aaeee",
+      "size_bytes": 2093
+    },
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/apis300_live_attribution_evidence.json",
+      "sha256": "3e710eda4c03426b153710330b6fb11ecff702ca5af9ab1c9857f8d487102712",
+      "size_bytes": 3302721
+    },
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/probetrace_owner_margin_control_audit_rows_20260505.jsonl",
+      "sha256": "f15223bdf341f843f24fe37370720b4ba50b7b3b458e1340302168237185e1ac",
+      "size_bytes": 483949
+    },
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/student_transfer_live_validation_outputs.owner_witness_v6_clean_holdout.jsonl",
+      "sha256": "4f3fc49f7142fa6a9efd56ada04aba1c8b901cb9c507c23d531bbea83f6019f2",
+      "size_bytes": 1062156
+    },
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/student_transfer_live_validation_results.owner_witness_v6_clean_holdout.json",
+      "sha256": "dee8b57674d13a0b4fbe851d4838e381bc8287baa2d1c7a90e5052fe0e5ac3c2",
+      "size_bytes": 1717539
+    }
+  ],
+  "warnings": [
+    "APIS rows lack explicit margin fields",
+    "latency high and must be reported",
+    "multi-owner claim remains forbidden"
+  ]
+}

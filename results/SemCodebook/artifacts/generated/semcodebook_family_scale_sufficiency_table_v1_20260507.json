@@ -1,0 +1,214 @@
+{
+  "bestpaper_relevance": "This closes the reviewer question about whether the 72k result is concentrated in one family or one scale bucket.",
+  "claim_bearing": false,
+  "family_table": {
+    "codegen": {
+      "models": 1,
+      "negative": 4800,
+      "negative_detected": 0,
+      "negative_fp_rate": 0.0,
+      "positive": 2400,
+      "positive_detected": 2307,
+      "positive_rate": 0.96125,
+      "records": 7200
+    },
+    "deepseek": {
+      "models": 2,
+      "negative": 9600,
+      "negative_detected": 0,
+      "negative_fp_rate": 0.0,
+      "positive": 4800,
+      "positive_detected": 4700,
+      "positive_rate": 0.9791666666666666,
+      "records": 14400
+    },
+    "phi": {
+      "models": 1,
+      "negative": 4800,
+      "negative_detected": 0,
+      "negative_fp_rate": 0.0,
+      "positive": 2400,
+      "positive_detected": 2312,
+      "positive_rate": 0.9633333333333334,
+      "records": 7200
+    },
+    "qwen": {
+      "models": 4,
+      "negative": 19200,
+      "negative_detected": 0,
+      "negative_fp_rate": 0.0,
+      "positive": 9600,
+      "positive_detected": 9419,
+      "positive_rate": 0.9811458333333334,
+      "records": 28800
+    },
+    "starcoder2": {
+      "models": 2,
+      "negative": 9600,
+      "negative_detected": 0,
+      "negative_fp_rate": 0.0,
+      "positive": 4800,
+      "positive_detected": 4604,
+      "positive_rate": 0.9591666666666666,
+      "records": 14400
+    }
+  },
+  "generated_at_utc": "2026-05-06T16:26:51+00:00",
+  "model_rows": [
+    {
+      "compiler_failure_count": 0,
+      "family": "qwen",
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "model": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+      "negative_fp_rate": 0.0,
+      "positive_rate": 0.9666666666666667,
+      "scale_group": "tiny",
+      "validator_repair_dependency_count": 0
+    },
+    {
+      "compiler_failure_count": 0,
+      "family": "codegen",
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "model": "Salesforce/codegen-350M-mono",
+      "negative_fp_rate": 0.0,
+      "positive_rate": 0.96125,
+      "scale_group": "tiny",
+      "validator_repair_dependency_count": 0
+    },
+    {
+      "compiler_failure_count": 0,
+      "family": "deepseek",
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "model": "deepseek-ai/deepseek-coder-1.3b-instruct",
+      "negative_fp_rate": 0.0,
+      "positive_rate": 0.9666666666666667,
+      "scale_group": "small",
+      "validator_repair_dependency_count": 0
+    },
+    {
+      "compiler_failure_count": 0,
+      "family": "qwen",
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "negative_fp_rate": 0.0,
+      "positive_rate": 0.9666666666666667,
+      "scale_group": "small",
+      "validator_repair_dependency_count": 0
+    },
+    {
+      "compiler_failure_count": 0,
+      "family": "starcoder2",
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "model": "bigcode/starcoder2-3b",
+      "negative_fp_rate": 0.0,
+      "positive_rate": 0.95875,
+      "scale_group": "small",
+      "validator_repair_dependency_count": 0
+    },
+    {
+      "compiler_failure_count": 0,
+      "family": "deepseek",
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "model": "deepseek-ai/deepseek-coder-6.7b-instruct",
+      "negative_fp_rate": 0.0,
+      "positive_rate": 0.9916666666666667,
+      "scale_group": "mid",
+      "validator_repair_dependency_count": 0
+    },
+    {
+      "compiler_failure_count": 0,
+      "family": "qwen",
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "model": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "negative_fp_rate": 0.0,
+      "positive_rate": 0.9958333333333333,
+      "scale_group": "mid",
+      "validator_repair_dependency_count": 0
+    },
+    {
+      "compiler_failure_count": 0,
+      "family": "starcoder2",
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "model": "bigcode/starcoder2-7b",
+      "negative_fp_rate": 0.0,
+      "positive_rate": 0.9595833333333333,
+      "scale_group": "mid",
+      "validator_repair_dependency_count": 0
+    },
+    {
+      "compiler_failure_count": 0,
+      "family": "phi",
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "model": "microsoft/phi-1",
+      "negative_fp_rate": 0.0,
+      "positive_rate": 0.9633333333333334,
+      "scale_group": "small",
+      "validator_repair_dependency_count": 0
+    },
+    {
+      "compiler_failure_count": 0,
+      "family": "qwen",
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "model": "Qwen/Qwen2.5-Coder-14B-Instruct",
+      "negative_fp_rate": 0.0,
+      "positive_rate": 0.9954166666666666,
+      "scale_group": "large",
+      "validator_repair_dependency_count": 0
+    }
+  ],
+  "remaining_gap": "Row-level positive-miss attribution still requires the raw full-eval result rows referenced by the manifest.",
+  "scale_table": {
+    "large": {
+      "models": 1,
+      "negative": 4800,
+      "negative_detected": 0,
+      "negative_fp_rate": 0.0,
+      "positive": 2400,
+      "positive_detected": 2389,
+      "positive_rate": 0.9954166666666666,
+      "records": 7200
+    },
+    "mid": {
+      "models": 3,
+      "negative": 14400,
+      "negative_detected": 0,
+      "negative_fp_rate": 0.0,
+      "positive": 7200,
+      "positive_detected": 7073,
+      "positive_rate": 0.9823611111111111,
+      "records": 21600
+    },
+    "small": {
+      "models": 4,
+      "negative": 19200,
+      "negative_detected": 0,
+      "negative_fp_rate": 0.0,
+      "positive": 9600,
+      "positive_detected": 9253,
+      "positive_rate": 0.9638541666666667,
+      "records": 28800
+    },
+    "tiny": {
+      "models": 2,
+      "negative": 9600,
+      "negative_detected": 0,
+      "negative_fp_rate": 0.0,
+      "positive": 4800,
+      "positive_detected": 4627,
+      "positive_rate": 0.9639583333333334,
+      "records": 14400
+    }
+  },
+  "schema_version": "semcodebook_family_scale_sufficiency_table_v1",
+  "source_artifact": "semcodebook_whitebox_main_denominator_source_manifest_20260505.json"
+}

@@ -1,0 +1,96 @@
+{
+  "anti_overfit_controls": [
+    "No threshold lowering after seeing natural-generation results.",
+    "No failed first samples may be deleted.",
+    "No validator repair can count as success.",
+    "Failures stay in the ledger by model, family, language, and attack."
+  ],
+  "artifact_role": "pre_run_admission_gate_not_new_result",
+  "blockers": [],
+  "claim_bearing": false,
+  "effect_surface": {
+    "admitted_family_count": 5,
+    "admitted_model_count": 10,
+    "fresh_generation_changing_ablation_rows": 43200,
+    "negative_control_ci95": {
+      "high": 8.002398774667768e-05,
+      "k": 0,
+      "low": 0.0,
+      "n": 48000,
+      "rate": 0.0
+    },
+    "positive_detection_ci95": {
+      "high": 0.9745748406649429,
+      "k": 23342,
+      "low": 0.9704405660946408,
+      "n": 24000,
+      "rate": 0.9725833333333334
+    },
+    "whitebox_records": 72000
+  },
+  "failure_taxonomy_required": [
+    "syntax_or_compile_failure",
+    "helper_dependency_closure_failure",
+    "semantic_witness_failure",
+    "ecc_recovery_failure",
+    "carrier_quorum_failure",
+    "keyed_margin_failure"
+  ],
+  "formal_no_retry_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:46.808944Z",
+  "natural_generation_ladder_rerun_allowed_after_gate": true,
+  "pre_registered_denominators": {
+    "bounded_retry_k3": {
+      "claim_eligible_now": false,
+      "role": "support_or_sensitivity_only"
+    },
+    "first_sample_no_retry": {
+      "claim_eligible_now": false,
+      "role": "failure_boundary_until_fresh_ladder_run"
+    },
+    "materialized_admitted_main_denominator": {
+      "claim_eligible_now": true,
+      "role": "current whitebox main denominator; not support-only"
+    },
+    "materialized_support": {
+      "claim_eligible_now": false,
+      "role": "superseded alias; retained only to prevent support/main denominator confusion"
+    },
+    "validator_repair": {
+      "claim_eligible_now": false,
+      "role": "diagnostic_only"
+    }
+  },
+  "schema_version": "semcodebook_natural_generation_ladder_gate_v1",
+  "source_artifacts": [
+    {
+      "exists": true,
+      "path": "codemark_semcodebook/artifacts/generated/semcodebook_whitebox_model_sufficiency_gate_20260505.json",
+      "sha256": "a33d707c89b18562865a7c6a41dd0c7fe1a6fb2c36711a1b25d8702d15bb38d6",
+      "size_bytes": 11203
+    },
+    {
+      "exists": true,
+      "path": "codemark_semcodebook/artifacts/generated/semcodebook_whitebox_effect_authenticity_gate_20260505.json",
+      "sha256": "4d2093150be34f7324e5876f6c4bc9db847b6c1284a258311a487fd43a3010d7",
+      "size_bytes": 3261
+    },
+    {
+      "exists": true,
+      "path": "codemark_semcodebook/artifacts/generated/semcodebook_generation_changing_ablation_promotion_gate_20260505.json",
+      "sha256": "876708b575da7ab0780259ed9fd8646f331f82ae005d52dde9cd2320d785b729",
+      "size_bytes": 8332
+    },
+    {
+      "exists": true,
+      "path": "codemark_semcodebook/artifacts/generated/semcodebook_no_retry_canonical_run_contract_20260505.json",
+      "sha256": "426fd750d9912f447bd4a3b2f90e9b7ae8fba1b6a0c0697adc0eadccf418f349",
+      "size_bytes": 6401
+    }
+  ],
+  "warnings": [
+    "no_retry remains failure-boundary, not main claim",
+    "promotion gate rerun after result completes"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "needs_review_count": 879,
+  "policy": "Needs-review rows are explicit abstentions, not hidden successes; v5 may split them but must not relabel old v3/v4 artifacts.",
+  "required_buckets": [
+    "hard_ambiguity_retained",
+    "insufficient_execution_evidence",
+    "semantic_drift_conflict",
+    "laundering_sensitive",
+    "spoofability_sensitive",
+    "expert_review_required"
+  ],
+  "schema_version": "sealaudit_needs_review_taxonomy_v1",
+  "source_artifact": "sealaudit_coverage_risk_frontier_gate_20260505.json",
+  "taxonomy_status": "requires_row_level_join"
+}

@@ -1,0 +1,75 @@
+{
+  "attack_record_counts": {
+    "ast_canonicalization": 21,
+    "canary_preserving_rewrite": 22,
+    "chronology_shuffle": 22,
+    "comment_whitespace_normalize": 22,
+    "cross_language_reexpression": 22,
+    "query_budget_drop": 22,
+    "rename_identifiers": 22
+  },
+  "blockers": [],
+  "claim_bearing": false,
+  "claim_rows_present": 0,
+  "decision_counts": {
+    "contamination_signal_detected": 11,
+    "null_not_rejected": 142
+  },
+  "formal_contamination_prevalence_claim_allowed": false,
+  "formal_high_recall_detection_claim_allowed": false,
+  "formal_main_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-08T13:51:05+00:00",
+  "main_denominator_policy": {
+    "enters_any_main_claim_denominator": false,
+    "enters_v3_300_main_denominator": false,
+    "failure_rows_deleted_or_relabelled": false,
+    "threshold_adjusted_after_result": false
+  },
+  "missing_hash_rows": 0,
+  "non_deepseek_rows": 0,
+  "non_live_rows": 0,
+  "non_support_rows": 0,
+  "project": "CodeDye",
+  "record_count": 153,
+  "schema_missing_rows": 0,
+  "schema_version": "codedye_v4_full_attack_matrix_support_22x_gate_v1",
+  "signal_ci95": {
+    "high": 0.1241450492198033,
+    "k": 11,
+    "low": 0.04061660892210966,
+    "method": "wilson",
+    "n": 153,
+    "rate": 0.0718954248366013
+  },
+  "source_result": "results/CodeDye/artifacts/generated/codedye_v4_full_attack_matrix_support_22x_results_20260508.json",
+  "source_status": "support_only_passed",
+  "support_experiment_admitted": true,
+  "support_utility_admissible_by_attack": {
+    "ast_canonicalization": 21,
+    "canary_preserving_rewrite": 22,
+    "chronology_shuffle": 21,
+    "comment_whitespace_normalize": 22,
+    "cross_language_reexpression": 21,
+    "query_budget_drop": 22,
+    "rename_identifiers": 22
+  },
+  "support_utility_admissible_record_count": 151,
+  "utility_failure_boundary_record_count": 2,
+  "utility_failure_ledger": [
+    {
+      "attack_id": "chronology_shuffle",
+      "language": "typescript",
+      "record_hash": "e605a423af2ae3f11e53a731a06d91b4aeaaa0056045b24f09f3ba015bf650e2",
+      "selected_utility_score": 0.0,
+      "task_id": "codedyebench300_typescript_062_dedupe_words"
+    },
+    {
+      "attack_id": "cross_language_reexpression",
+      "language": "cpp",
+      "record_hash": "28549a04361922371e648abbb396c53d26db5806499c45ac45bb920310bd11f5",
+      "selected_utility_score": 0.0,
+      "task_id": "codedyebench300_cpp_182_dedupe_words"
+    }
+  ]
+}

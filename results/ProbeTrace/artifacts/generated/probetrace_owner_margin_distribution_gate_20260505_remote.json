@@ -1,0 +1,93 @@
+{
+  "apis300_margin_summary": {
+    "confidence_field_present_count": 0,
+    "false_positive_wilson95": {
+      "high": 0.003191000602734924,
+      "k": 0,
+      "low": 2.168404344971009e-19,
+      "n": 1200,
+      "rate": 0.0
+    },
+    "margin_field_present_count": 0,
+    "median_margin": null,
+    "min_margin": null,
+    "near_zero_margin_count_at_0_05": 0,
+    "near_zero_task_ids_sample": [],
+    "record_count": 300,
+    "true_positive_wilson95": {
+      "high": 0.9999999999999998,
+      "k": 300,
+      "low": 0.9873570287754538,
+      "n": 300,
+      "rate": 1.0
+    }
+  },
+  "blockers": [],
+  "claim_bearing": false,
+  "claim_boundary": "Supports current single-active-owner/source-bound DeepSeek attribution. Multi-owner generalization remains support/future until fresh live outputs and audits exist.",
+  "formal_multi_owner_claim_allowed": false,
+  "formal_single_owner_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T14:00:59Z",
+  "harddecoy_per_class_survival": {
+    "class_curve_count": 4,
+    "curves": [
+      {
+        "attack": "clean",
+        "decoy_class": "near_collision_owner",
+        "final_survival_rate": 0.0,
+        "final_survivor_count": 0,
+        "provider_call_count": 24
+      },
+      {
+        "attack": "clean",
+        "decoy_class": "rehosted_student_owner",
+        "final_survival_rate": 0.0,
+        "final_survivor_count": 0,
+        "provider_call_count": 24
+      },
+      {
+        "attack": "clean",
+        "decoy_class": "same_style_wrong_owner",
+        "final_survival_rate": 0.0,
+        "final_survivor_count": 0,
+        "provider_call_count": 24
+      },
+      {
+        "attack": "clean",
+        "decoy_class": "session_drift_owner",
+        "final_survival_rate": 0.0,
+        "final_survivor_count": 0,
+        "provider_call_count": 24
+      }
+    ],
+    "final_survivor_total": 0
+  },
+  "latency_boundary_artifact": "codemark_probetrace/artifacts/generated/probetrace_latency_frontier_gate_20260505.json",
+  "negative_control_scope": {
+    "false_positive_count": 0,
+    "multi_owner_claim_currently_forbidden": true,
+    "negative_records": 1200,
+    "wrong_null_random_same_provider_controls_required_for_broad_claim": true
+  },
+  "overfit_response": "Perfect APIS-300 point estimates are accompanied by 1200 negatives, transfer row binding, hard decoy per-class survival, and explicit single-owner scope; they are not provider-general or multi-owner claims.",
+  "schema_version": "probetrace_owner_margin_distribution_gate_v2",
+  "transfer_margin_summary": {
+    "aggregate_result_count": 3,
+    "confidence_values": [
+      0.6356,
+      0.6679,
+      0.7119
+    ],
+    "margin_values": [
+      0.3023,
+      0.3346,
+      0.3786
+    ],
+    "median_confidence": 0.6679,
+    "median_margin": 0.3346,
+    "min_confidence": 0.6356,
+    "min_margin": 0.3023,
+    "transfer_output_rows": 900
+  }
+}

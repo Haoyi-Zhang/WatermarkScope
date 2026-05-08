@@ -1,0 +1,98 @@
+{
+  "blockers": [],
+  "canonical_input_rows": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_rows_20260507.jsonl",
+  "canonical_output": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl",
+  "claim_bearing": false,
+  "execution_contract_ready": true,
+  "expected_language_count_minimum": 3,
+  "expected_owner_count_minimum": 5,
+  "expected_record_count": 6000,
+  "formal_multi_owner_claim_allowed": false,
+  "formal_provider_general_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:14:53+00:00",
+  "launch_command_redacted": "python projects/ProbeTrace/scripts/run_multi_owner_deepseek_live.py --provider deepseek --claim-bearing-canonical --run-id probetrace_multi_owner_20260507 --input results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_rows_20260507.jsonl --output results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl --progress-output results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_progress_20260507.json",
+  "postrun_promotion_gate": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_postrun_promotion_gate_v1_20260507.json",
+  "prerequisite_artifacts": [
+    {
+      "bytes": 1818,
+      "exists": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_package_20260507.json",
+      "sha256": "e11134716696ea9d3d032f702fa642e9474bd0ddf603623897aaf3395693192a"
+    },
+    {
+      "bytes": 6255900,
+      "exists": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_rows_20260507.jsonl",
+      "sha256": "997d4b78252a8a4d6000424cd1c2c32a76e0d608dab2b88717eeb1b035ba1edc"
+    },
+    {
+      "bytes": 1364,
+      "exists": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_prerun_gate_20260507.json",
+      "sha256": "4617a40aa6565a2e866b2e4254467eddad019149b8e23d71c49318bdd2b76f00"
+    },
+    {
+      "bytes": 24300,
+      "exists": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_registry_20260505_remote.json",
+      "sha256": "6b13b9efda92831183c1a15aa7e95081b61be6f9858aad7c802c87105bd1ff92"
+    },
+    {
+      "bytes": 1857,
+      "exists": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_multilingual_deepseek_rerun_manifest_20260505_remote.json",
+      "sha256": "818bfd810ea0c40e8b4b49daf8ff6ca7feee0f6c23950e06c5ce340f2bfea035"
+    },
+    {
+      "bytes": 2020,
+      "exists": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_postrun_promotion_gate_v1_20260507.json",
+      "sha256": "3244cc1eeb55f530de3c7afe346bfbe2a6656966203c678c2a31498bd87862ad"
+    }
+  ],
+  "project": "ProbeTrace",
+  "promotion_policy": "The input package and support receipt are not claim evidence. Only the fresh score-vector JSONL can be evaluated by the postrun promotion gate.",
+  "provider": "deepseek",
+  "provider_mode_required": "live",
+  "required_aggregate_gates": [
+    "row_count == 6000",
+    "owner_count >= 5",
+    "language_count >= 3",
+    "wrong/null/random/same-provider controls present",
+    "control_to_positive_ratio >= 4",
+    "owner-heldout and task-heldout rows present",
+    "raw/structured/prompt/output/source hashes complete",
+    "per-owner TPR/FPR Wilson CI",
+    "threshold-free rank/AUC computable",
+    "near-boundary rows retained"
+  ],
+  "required_record_fields": [
+    "task_id",
+    "true_owner_id",
+    "candidate_owner_id",
+    "candidate_owner_count",
+    "score",
+    "score_space",
+    "split",
+    "control_role",
+    "owner_heldout",
+    "task_heldout",
+    "source_record_hash",
+    "output_record_sha256",
+    "raw_provider_transcript_hash",
+    "structured_payload_hash",
+    "prompt_hash",
+    "owner_id_hat",
+    "false_attribution",
+    "signed_owner_margin",
+    "best_wrong_owner_id",
+    "best_wrong_owner_score",
+    "family",
+    "language",
+    "claim_bearing"
+  ],
+  "run_id": "probetrace_multi_owner_20260507",
+  "schema_version": "probetrace_multi_owner_fresh_run_preflight_contract_v1",
+  "secret_values_recorded": false
+}

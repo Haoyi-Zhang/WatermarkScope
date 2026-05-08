@@ -25,6 +25,8 @@ python scripts/summarize_all.py
 
 The first command verifies required files, key artifacts, result hashes, numerator/denominator values, stale wording, cache files, and secret-like tokens. The second command verifies that advertised project snapshots are present. The third command verifies that earlier result files have not been deleted or overwritten. The fourth command prints the result manifest with hash status and rates.
 
+If the repository is inspected through GitHub rather than the local submission folder, one raw SemCodebook ablation file may be represented by `EXTERNAL_LARGE_ARTIFACTS.json` because it exceeds the ordinary GitHub single-file limit. This does not affect the dissertation claim surface: the compact ablation gate and summary remain in the repository and are the files used for examiner-facing verification.
+
 ## Thirty-Minute Review Path
 
 Inspect the five implementation snapshots:

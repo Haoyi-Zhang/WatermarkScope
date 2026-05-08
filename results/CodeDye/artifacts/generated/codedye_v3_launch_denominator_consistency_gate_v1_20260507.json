@@ -1,0 +1,61 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "contract_path": "results/CodeDye/artifacts/generated/codedye_v3_fresh_run_preflight_contract_v1_20260507.json",
+  "formal_v3_live_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:05:48+00:00",
+  "policy": "The canonical v3 launch must be able to materialize exactly 300 claim-denominator rows before any live full run starts.",
+  "runner_probe": {
+    "attack_min_quota": {
+      "ast_canonicalization": 20,
+      "canary_preserving_rewrite": 20,
+      "chronology_shuffle": 20,
+      "comment_whitespace_normalize": 20,
+      "cross_language_reexpression": 20,
+      "rename_identifiers": 20
+    },
+    "claim_attack_ids": [
+      "ast_canonicalization",
+      "canary_preserving_rewrite",
+      "chronology_shuffle",
+      "comment_whitespace_normalize",
+      "cross_language_reexpression",
+      "rename_identifiers"
+    ],
+    "declared_attack_ids": [
+      "ast_canonicalization",
+      "canary_preserving_rewrite",
+      "chronology_shuffle",
+      "comment_whitespace_normalize",
+      "cross_language_reexpression",
+      "query_budget_drop",
+      "rename_identifiers"
+    ],
+    "minimum_claim_records_per_attack": 20,
+    "post_target_by_attack": {
+      "ast_canonicalization": 21,
+      "canary_preserving_rewrite": 70,
+      "chronology_shuffle": 54,
+      "comment_whitespace_normalize": 70,
+      "cross_language_reexpression": 60,
+      "rename_identifiers": 25
+    },
+    "post_target_row_count": 300,
+    "pre_target_task_count": 300,
+    "support_attack_excluded_for_main_denominator": [
+      "query_budget_drop"
+    ],
+    "support_attack_ids": [
+      "query_budget_drop"
+    ],
+    "target_policy": "CodeDye v3 canonical live evidence uses exactly one claim-bearing row per frozen task. Support-only query-budget evidence remains outside the 300-row main denominator.",
+    "target_records": 300,
+    "target_records_enabled": true,
+    "target_records_mode": "one_claim_row_per_task_balanced_by_attack",
+    "task_count": 300,
+    "unused_task_count": 0,
+    "unused_task_ids": []
+  },
+  "schema_version": "codedye_v3_launch_denominator_consistency_gate_v1"
+}

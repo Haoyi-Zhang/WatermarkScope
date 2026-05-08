@@ -1,0 +1,27 @@
+{
+  "artifact_role": "pre_run_promotion_stability_gate",
+  "baseline_v3_surface": {
+    "decisive": 81,
+    "hidden_rows": 960,
+    "needs_review": 879,
+    "unsafe_pass": 0,
+    "unsafe_pass_upper95": 0.003985571263342763
+  },
+  "blockers": [],
+  "claim_bearing": false,
+  "formal_v4_claim_promotion_allowed_now": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:46.833471Z",
+  "required_fresh_rerun_checks": [
+    "same 320 cases and 960 marker-hidden rows",
+    "visible-marker rows diagnostic-only",
+    "v3 immutable and v4 new resolver_version",
+    "unsafe_pass_count does not increase",
+    "unsafe-pass UCB95 does not materially worsen",
+    "coverage increase reported as coverage-risk frontier not accuracy"
+  ],
+  "schema_version": "sealaudit_second_stage_claim_promotion_stability_gate_v1",
+  "warnings": [
+    "fresh v4 provider side-by-side rerun required before promotion"
+  ]
+}

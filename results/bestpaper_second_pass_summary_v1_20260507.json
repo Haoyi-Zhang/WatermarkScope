@@ -1,0 +1,29 @@
+{
+  "artifacts": {
+    "CodeDye": "codedye_audit_utility_second_pass_v1_20260507.json",
+    "ProbeTrace": "probetrace_margin_second_pass_audit_v1_20260507.json",
+    "SealAudit": "sealaudit_needs_review_second_pass_taxonomy_v1_20260507.json",
+    "SemCodebook": "semcodebook_family_scale_sufficiency_table_v1_20260507.json"
+  },
+  "claim_bearing": false,
+  "closure_effect": {
+    "CodeDye": "Sparse-yield utility and positive-control weakness are explicitly separated.",
+    "ProbeTrace": "Current anti-leakage evidence is summarized from row-level controls.",
+    "SealAudit": "Needs-review load is split by family/language/variant and provisional routing.",
+    "SemCodebook": "Family/scale concentration risk is now auditable from manifest rows."
+  },
+  "counts": {
+    "codedye_live_rows": 300,
+    "probe_rows": 300,
+    "seal_needs_review": 879,
+    "sem_families": 5
+  },
+  "generated_at_utc": "2026-05-06T16:26:51+00:00",
+  "remaining_p1": [
+    "SemCodebook row-level positive-miss attribution from raw full-eval rows.",
+    "CodeDye v3 control rerun to improve or explain positive-control sensitivity.",
+    "ProbeTrace fresh multi-owner score-vector run.",
+    "SealAudit fresh v5 claim-bearing second-stage run."
+  ],
+  "schema_version": "bestpaper_second_pass_summary_v1"
+}

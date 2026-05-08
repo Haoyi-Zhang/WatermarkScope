@@ -1,0 +1,27 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "formal_multi_owner_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T21:19:35+00:00",
+  "latency_summary": {
+    "count": 300,
+    "max": 23298.633,
+    "mean": 6609.1172,
+    "median": 5511.272,
+    "min": 3625.9914
+  },
+  "missing_latency_count": 0,
+  "missing_query_count": 300,
+  "paper_requirement": "Main text must report query/latency overhead as a cost frontier. Missing latency fields are a disclosure item, not a reason to infer zero cost.",
+  "query_summary": {
+    "count": 300,
+    "max": 0.0,
+    "mean": 0.0,
+    "median": 0.0,
+    "min": 0.0
+  },
+  "record_count": 300,
+  "schema_version": "probetrace_latency_query_frontier_v1",
+  "source_artifact": "results\\ProbeTrace\\artifacts\\generated\\apis300_live_attribution_evidence.json"
+}

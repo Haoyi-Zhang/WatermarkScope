@@ -1,0 +1,9 @@
+[
+  {
+    "path": "results/SemCodebook/artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json",
+    "bytes": 237543393,
+    "sha256": "82f6ec1d7fd375973620c204775fab2489a8a82c706326eac81fb4a066aad0a0",
+    "reason": "Full raw generation-changing ablation output exceeds the ordinary GitHub single-file limit. The compact claim-bearing gate and summary remain in the repository; this raw artifact is preserved locally and should be attached through a release, Git LFS, or institutional storage if a full rerun audit is requested.",
+    "repository_substitute": "results/SemCodebook/artifacts/generated/semcodebook_ablation_compact_summary_fyp.json"
+  }
+]

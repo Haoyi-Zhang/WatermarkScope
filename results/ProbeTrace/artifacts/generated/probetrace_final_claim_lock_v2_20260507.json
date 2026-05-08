@@ -1,0 +1,218 @@
+{
+  "allowed_current_claim": "DeepSeek-only five-owner source-bound active-owner attribution with owner/task-heldout margin evidence",
+  "bestpaper_ready": true,
+  "bestpaper_ready_reason": "ProbeTrace now has APIS-300, 1200 single-owner controls, transfer-900, and fresh 6000-row DeepSeek five-owner score-vector evidence with owner-heldout/task-heldout margins. The allowed claim is still scoped to DeepSeek and source-bound active-owner attribution.",
+  "blockers": [],
+  "claim_bearing": false,
+  "forbidden_claims": [
+    "provider-general attribution",
+    "cross-provider attribution without non-DeepSeek evidence",
+    "unbounded student-transfer generalization beyond source-bound receipts",
+    "claim that perfect single-owner results alone prove no shortcut",
+    "multi-owner claim from input package without fresh live score vectors",
+    "claim that controls prove zero false positives rather than an upper-bounded rate"
+  ],
+  "formal_cross_provider_claim_allowed": false,
+  "formal_multi_owner_claim_allowed": true,
+  "formal_provider_general_claim_allowed": false,
+  "formal_single_active_owner_claim_allowed": true,
+  "formal_source_bound_transfer_evidence_allowed": true,
+  "formal_unbounded_student_transfer_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-08T08:55:01+00:00",
+  "locked_effect_surface": {
+    "anti_leakage_gate_pass": true,
+    "apis300_attribution": {
+      "high": 0.9999999999999998,
+      "k": 300,
+      "low": 0.9873570287754538,
+      "method": "wilson",
+      "n": 300,
+      "rate": 1.0
+    },
+    "latency_query_frontier_gate_pass": true,
+    "multi_owner_claim_bearing_rows": 6000,
+    "multi_owner_control_role_counts": {
+      "null_owner": 750,
+      "random_owner": 750,
+      "same_provider_unwrap": 750,
+      "true_owner": 750,
+      "wrong_owner": 3000
+    },
+    "multi_owner_control_rows": 5250,
+    "multi_owner_control_to_positive_ratio": 7.0,
+    "multi_owner_global_fpr_ci95": {
+      "high": 0.0007311714391846915,
+      "k": 0,
+      "low": 5.421010862427522e-20,
+      "method": "wilson",
+      "n": 5250,
+      "rate": 0.0
+    },
+    "multi_owner_global_tpr_ci95": {
+      "high": 1.0,
+      "k": 750,
+      "low": 0.9949041555412677,
+      "method": "wilson",
+      "n": 750,
+      "rate": 1.0
+    },
+    "multi_owner_language_count": 3,
+    "multi_owner_margin_auc": 1.0,
+    "multi_owner_missing_hash_rows": 0,
+    "multi_owner_owner_count": 5,
+    "multi_owner_owner_heldout_rows": 1200,
+    "multi_owner_per_owner_ci95": {
+      "owner_alpha": {
+        "control_rows": 1050,
+        "fpr_ci95": {
+          "high": 0.0036451961426844284,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 1050,
+          "rate": 0.0
+        },
+        "positive_rows": 150,
+        "tpr_ci95": {
+          "high": 1.0,
+          "k": 150,
+          "low": 0.9750297556319235,
+          "method": "wilson",
+          "n": 150,
+          "rate": 1.0
+        }
+      },
+      "owner_beta": {
+        "control_rows": 1050,
+        "fpr_ci95": {
+          "high": 0.0036451961426844284,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 1050,
+          "rate": 0.0
+        },
+        "positive_rows": 150,
+        "tpr_ci95": {
+          "high": 1.0,
+          "k": 150,
+          "low": 0.9750297556319235,
+          "method": "wilson",
+          "n": 150,
+          "rate": 1.0
+        }
+      },
+      "owner_delta": {
+        "control_rows": 1050,
+        "fpr_ci95": {
+          "high": 0.0036451961426844284,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 1050,
+          "rate": 0.0
+        },
+        "positive_rows": 150,
+        "tpr_ci95": {
+          "high": 1.0,
+          "k": 150,
+          "low": 0.9750297556319235,
+          "method": "wilson",
+          "n": 150,
+          "rate": 1.0
+        }
+      },
+      "owner_epsilon": {
+        "control_rows": 1050,
+        "fpr_ci95": {
+          "high": 0.0036451961426844284,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 1050,
+          "rate": 0.0
+        },
+        "positive_rows": 150,
+        "tpr_ci95": {
+          "high": 1.0,
+          "k": 150,
+          "low": 0.9750297556319235,
+          "method": "wilson",
+          "n": 150,
+          "rate": 1.0
+        }
+      },
+      "owner_gamma": {
+        "control_rows": 1050,
+        "fpr_ci95": {
+          "high": 0.0036451961426844284,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 1050,
+          "rate": 0.0
+        },
+        "positive_rows": 150,
+        "tpr_ci95": {
+          "high": 1.0,
+          "k": 150,
+          "low": 0.9750297556319235,
+          "method": "wilson",
+          "n": 150,
+          "rate": 1.0
+        }
+      }
+    },
+    "multi_owner_positive_rows": 750,
+    "multi_owner_row_count": 6000,
+    "multi_owner_schema_missing_rows": 0,
+    "multi_owner_split_counts": {
+      "owner_heldout": 1200,
+      "task_heldout": 1200,
+      "train_dev": 3600
+    },
+    "multi_owner_task_heldout_rows": 1200,
+    "single_owner_negative_control_false_attribution": {
+      "high": 0.003191000602734924,
+      "k": 0,
+      "low": 2.168404344971009e-19,
+      "method": "wilson",
+      "n": 1200,
+      "rate": 0.0
+    },
+    "transfer_dataset_sha256": "0adefeff0da33219c4a94565e6073392a69d4a46b56ef184e7fb501191c87073",
+    "transfer_primary_independence_unit": "task_cluster",
+    "transfer_rows": 900,
+    "transfer_validation": {
+      "high": 1.0,
+      "k": 900,
+      "low": 0.9957498532699458,
+      "method": "wilson",
+      "n": 900,
+      "rate": 1.0
+    },
+    "unique_transfer_task_count": 300
+  },
+  "paper_table_requirements": [
+    "Report APIS-300, single-owner controls, transfer-900, and multi-owner 6000-row evidence as separate surfaces.",
+    "Report multi-owner true/wrong/null/random/same-provider roles with CIs and threshold-free rank/AUC.",
+    "Report owner-heldout and task-heldout splits explicitly; do not merge them into training/dev rows.",
+    "Report latency/query frontier in the main evidence surface.",
+    "Keep DeepSeek-only and source-bound scope in title/abstract-level claims."
+  ],
+  "remaining_blockers": [],
+  "schema_version": "probetrace_final_claim_lock_v2",
+  "source_artifacts": {
+    "anti_leakage_scan": "results/ProbeTrace/artifacts/generated/probetrace_anti_leakage_scan_v1_20260507.json",
+    "apis300_live": "results/ProbeTrace/artifacts/generated/apis300_live_attribution_evidence.json",
+    "latency_query_frontier": "results/ProbeTrace/artifacts/generated/probetrace_latency_query_frontier_v1_20260507.json",
+    "multi_owner_input_package": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_package_20260507.json",
+    "multi_owner_live_score_vectors": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl",
+    "multi_owner_postrun_promotion": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_postrun_promotion_gate_v2_20260507.json",
+    "transfer_integrity": "results/ProbeTrace/artifacts/generated/probetrace_transfer_validation_integrity_gate_20260506.json",
+    "v1_claim_lock": "results/ProbeTrace/artifacts/generated/probetrace_final_claim_lock_v1_20260507.json"
+  },
+  "supersedes_for_continuation_planning": "results/ProbeTrace/artifacts/generated/probetrace_final_claim_lock_v1_20260507.json",
+  "upgrade_claim_allowed": true
+}

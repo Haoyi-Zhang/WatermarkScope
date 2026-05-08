@@ -1,0 +1,80 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T22:32:45+00:00",
+  "policy": "Fresh-run contracts, canonical output names, and postrun promotion gates must stay aligned. Canonical outputs may be absent before provider execution.",
+  "project_rows": [
+    {
+      "canonical_output": "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507.json",
+      "canonical_output_bound_to_postrun": true,
+      "canonical_output_exists_now": false,
+      "contract_claim_bearing": false,
+      "contract_gate_pass": true,
+      "contract_path": "results/CodeDye/artifacts/generated/codedye_v3_fresh_run_preflight_contract_v1_20260507.json",
+      "contract_schema_version": "codedye_v3_fresh_run_preflight_contract_v1",
+      "expected_auxiliary_outputs": {},
+      "postrun_checked_candidate_paths": [
+        "projects/CodeDye/artifacts/generated/attack_matrix_live_support.json",
+        "projects/CodeDye/artifacts/generated/codedye_v3_live_results_20260507.json",
+        "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507.json"
+      ],
+      "postrun_claim_bearing": false,
+      "postrun_gate_pass": false,
+      "postrun_path": "results/CodeDye/artifacts/generated/codedye_v3_postrun_promotion_gate_v1_20260507.json",
+      "postrun_schema_version": "codedye_v3_postrun_promotion_gate_v1",
+      "postrun_source_artifacts": {},
+      "project": "CodeDye"
+    },
+    {
+      "canonical_output": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl",
+      "canonical_output_bound_to_postrun": true,
+      "canonical_output_exists_now": false,
+      "contract_claim_bearing": false,
+      "contract_gate_pass": true,
+      "contract_path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_fresh_run_preflight_contract_v1_20260507.json",
+      "contract_schema_version": "probetrace_multi_owner_fresh_run_preflight_contract_v1",
+      "expected_auxiliary_outputs": {},
+      "postrun_checked_candidate_paths": [
+        "projects/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl",
+        "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_apis_deepseek_results_20260507.json",
+        "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl"
+      ],
+      "postrun_claim_bearing": false,
+      "postrun_gate_pass": false,
+      "postrun_path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_postrun_promotion_gate_v1_20260507.json",
+      "postrun_schema_version": "probetrace_multi_owner_postrun_promotion_gate_v1",
+      "postrun_source_artifacts": {},
+      "project": "ProbeTrace"
+    },
+    {
+      "canonical_output": "results/SealAudit/artifacts/generated/sealaudit_v5_final_claim_evidence_rows_20260507.json",
+      "canonical_output_bound_to_postrun": true,
+      "canonical_output_exists_now": false,
+      "contract_claim_bearing": false,
+      "contract_gate_pass": true,
+      "contract_path": "results/SealAudit/artifacts/generated/sealaudit_v5_fresh_run_preflight_contract_v1_20260507.json",
+      "contract_schema_version": "sealaudit_v5_fresh_run_preflight_contract_v1",
+      "expected_auxiliary_outputs": {
+        "coverage_risk_frontier": "results/SealAudit/artifacts/generated/sealaudit_v5_coverage_risk_frontier_20260507.json",
+        "runner_receipt": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_sealaudit_v5_20260507.json",
+        "threshold_sensitivity": "results/SealAudit/artifacts/generated/sealaudit_v5_threshold_sensitivity_20260507.json",
+        "visible_marker_boundary": "results/SealAudit/artifacts/generated/sealaudit_v5_visible_marker_diagnostic_boundary_20260507.json"
+      },
+      "postrun_checked_candidate_paths": [],
+      "postrun_claim_bearing": false,
+      "postrun_gate_pass": false,
+      "postrun_path": "results/SealAudit/artifacts/generated/sealaudit_v5_postrun_promotion_gate_v1_20260507.json",
+      "postrun_schema_version": "sealaudit_v5_postrun_promotion_gate_v1",
+      "postrun_source_artifacts": {
+        "coverage_risk_frontier": "results/SealAudit/artifacts/generated/sealaudit_v5_coverage_risk_frontier_20260507.json",
+        "readiness_gate": "results/SealAudit/artifacts/generated/sealaudit_v5_final_evidence_readiness_gate_20260507.json",
+        "runner_receipt": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_sealaudit_v5_20260507.json",
+        "threshold_sensitivity": "results/SealAudit/artifacts/generated/sealaudit_v5_threshold_sensitivity_20260507.json",
+        "visible_marker_diagnostic_boundary": "results/SealAudit/artifacts/generated/sealaudit_v5_visible_marker_diagnostic_boundary_20260507.json"
+      },
+      "project": "SealAudit"
+    }
+  ],
+  "schema_version": "blackbox_artifact_naming_consistency_v1"
+}

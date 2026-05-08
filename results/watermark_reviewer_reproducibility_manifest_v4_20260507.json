@@ -1,0 +1,121 @@
+{
+  "claim_bearing": false,
+  "full_experiment_policy": "Provider-backed full runs remain blocked unless project gates and provider launch readiness both pass.",
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T20:59:23+00:00",
+  "global_artifacts": [
+    {
+      "blockers": null,
+      "bytes": 5536,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": null,
+      "path": "results/provider_launch_readiness_gate_v1_20260507.json",
+      "schema_version": "provider_launch_readiness_gate_v1",
+      "sha256": "90c33a4e6f34efa6b0b2c07e0ffd616e6e8330899f46b51bd24a917553e819cb"
+    },
+    {
+      "blockers": null,
+      "bytes": 16534,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": null,
+      "path": "results/watermark_strict_reviewer_audit_v2_20260507.json",
+      "schema_version": "watermark_strict_reviewer_audit_v2",
+      "sha256": "4a499991367dee6578936482d1b61e484d4d6cad3d4f80a0e6bed999e4f2ca52"
+    },
+    {
+      "blockers": null,
+      "bytes": 2711,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": null,
+      "path": "results/watermark_strict_reviewer_audit_v2_20260507.md",
+      "schema_version": null,
+      "sha256": "8e7d2b7a90cac012b4a9dcbf8fb25b89b50601a9a6f3517a46bf4e73226a8c3b"
+    },
+    {
+      "blockers": null,
+      "bytes": 16537,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": null,
+      "path": "results/watermark_strict_reviewer_audit_v3_20260507.json",
+      "schema_version": "watermark_strict_reviewer_audit_v3",
+      "sha256": "33d3f50f0ea886286a42d5db4acf7d48e48c6b631532f0b54950f7bcb5cc52fb"
+    },
+    {
+      "blockers": null,
+      "bytes": 2518,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": null,
+      "path": "results/watermark_strict_reviewer_audit_v3_20260507.md",
+      "schema_version": null,
+      "sha256": "4f7eb6804283428da9b0df63bb0f844db89831a37e061f2659f224cb000b12c4"
+    },
+    {
+      "blockers": null,
+      "bytes": 647,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/watermark_reviewer_reproducibility_manifest_v3_20260507.json",
+      "schema_version": "reviewer_reproducibility_manifest_v3",
+      "sha256": "f364095deecba958ac188f7914297ef79c03f43df3b8e2587a98eefb0492edc3"
+    },
+    {
+      "blockers": null,
+      "bytes": 3744,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": null,
+      "path": "CLAIM_BOUNDARIES.md",
+      "schema_version": null,
+      "sha256": "5026769fe427b869bd38f4b45ad311ca5915adaf7133f4fd2c3b451cb53635af"
+    },
+    {
+      "blockers": null,
+      "bytes": 11612,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": null,
+      "path": "RESULT_MANIFEST.jsonl",
+      "schema_version": null,
+      "sha256": "28e5bfe2dfa2d47f31d55e381bbf221b0e6861074ed31967ba0dc6f230a9b686"
+    }
+  ],
+  "manifest_role": "single_reviewer_entrypoint_for_claim_bearing_results_support_boundaries_and_blocked_run_receipts",
+  "missing_artifacts": [],
+  "project_manifests": {
+    "CodeDye": "results/CodeDye/REPRODUCIBILITY_MANIFEST_v4_20260507.json",
+    "ProbeTrace": "results/ProbeTrace/REPRODUCIBILITY_MANIFEST_v4_20260507.json",
+    "SealAudit": "results/SealAudit/REPRODUCIBILITY_MANIFEST_v4_20260507.json",
+    "SemCodebook": "results/SemCodebook/REPRODUCIBILITY_MANIFEST_v4_20260507.json"
+  },
+  "schema_version": "watermark_reviewer_reproducibility_manifest_v4"
+}

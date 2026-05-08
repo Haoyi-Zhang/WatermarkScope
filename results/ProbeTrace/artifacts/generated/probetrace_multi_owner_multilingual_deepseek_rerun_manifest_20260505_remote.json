@@ -1,0 +1,35 @@
+{
+  "artifact_role": "future_deepseek_canonical_rerun_manifest_not_results",
+  "claim_bearing": false,
+  "claim_boundary": "future rerun contract only; does not upgrade the current single active-owner/source-bound claim",
+  "current_single_owner_floor_preserved": true,
+  "formal_claim_allowed": false,
+  "generated_at_utc": "2026-05-05T11:16:20Z",
+  "promotion_rules": [
+    "fresh DeepSeek canonical records only; no replay/mock/support-only rows in the main denominator",
+    "per-owner TPR/FPR and per-language TPR/FPR confidence intervals required",
+    "wrong-owner false attribution rate must be reported even if zero",
+    "owner-held-out split cannot be merged with train/dev owners without a table note",
+    "single-owner floor and multi-owner expansion must remain separate in tables"
+  ],
+  "provider": "DeepSeek",
+  "registry": "artifacts/generated/probetrace_multi_owner_registry_20260505.json",
+  "registry_sha256_after_write": "6b13b9efda92831183c1a15aa7e95081b61be6f9858aad7c802c87105bd1ff92",
+  "required_live_outputs_before_any_new_claim": [
+    "artifacts/generated/probetrace_multi_owner_apis_deepseek_results_20260505.json",
+    "artifacts/generated/probetrace_multi_owner_apis_raw_transcript_hashes_20260505.json",
+    "artifacts/generated/probetrace_multi_owner_statistics_ci_20260505.json",
+    "artifacts/generated/probetrace_multi_owner_postrun_audit_gate_20260505.json"
+  ],
+  "schema_version": "probetrace_multi_owner_multilingual_deepseek_rerun_manifest_v1",
+  "target_denominators": {
+    "language_count": 3,
+    "null_owner_negative_records": 750,
+    "owner_count": 5,
+    "positive_records": 750,
+    "random_owner_negative_records": 750,
+    "same_provider_unwrap_control_records": 750,
+    "wrong_owner_negative_records": 3000
+  },
+  "target_run_id": "probetrace_multi_owner_multilingual_deepseek_canonical_20260505"
+}

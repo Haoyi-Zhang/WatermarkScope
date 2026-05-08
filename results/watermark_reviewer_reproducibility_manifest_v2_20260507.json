@@ -1,0 +1,14 @@
+{
+  "claim_bearing": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T18:24:17+00:00",
+  "manifest_role": "additive_reviewer_visible_index_not_replacing_locked_v1_manifests",
+  "missing_artifacts": [],
+  "project_manifests": {
+    "CodeDye": "results/CodeDye/REPRODUCIBILITY_MANIFEST_v2_20260507.json",
+    "ProbeTrace": "results/ProbeTrace/REPRODUCIBILITY_MANIFEST_v2_20260507.json",
+    "SealAudit": "results/SealAudit/REPRODUCIBILITY_MANIFEST_v2_20260507.json",
+    "SemCodebook": "results/SemCodebook/REPRODUCIBILITY_MANIFEST_v2_20260507.json"
+  },
+  "schema_version": "reviewer_reproducibility_manifest_v2"
+}

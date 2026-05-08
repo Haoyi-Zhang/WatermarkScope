@@ -1,0 +1,37 @@
+{
+  "bestpaper_gap": "Sparse yield is acceptable only if the paper emphasizes audit protocol value and improves or explains known-control misses.",
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "interpretation": "Utility is measured as evidence-preserving null-audit value, not as contamination detection accuracy.",
+  "metrics": {
+    "known_control_sensitivity": {
+      "high": 0.6215496625310637,
+      "k": 170,
+      "low": 0.5100978801359048,
+      "n": 300,
+      "rate": 0.5666666666666667
+    },
+    "live_audit_yield": {
+      "high": 0.042939620817860576,
+      "k": 6,
+      "low": 0.009197631557703617,
+      "method": "wilson",
+      "n": 300,
+      "rate": 0.02
+    },
+    "negative_control_fp_upper_bound": {
+      "high": 0.012643429997735661,
+      "k": 0,
+      "low": 0.0,
+      "n": 300,
+      "rate": 0.0
+    },
+    "payload_hash_completeness": {
+      "denominator": 300,
+      "missing_payload_or_transcript_hash": 0
+    },
+    "support_exclusion_count": 806
+  },
+  "schema_version": "codedye_null_audit_utility_framework_v1",
+  "source_artifact": "codedye_low_signal_claim_boundary_gate_20260505.json"
+}

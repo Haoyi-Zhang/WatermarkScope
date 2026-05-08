@@ -1,0 +1,23 @@
+{
+  "blocked": false,
+  "blockers": [],
+  "claim_bearing": false,
+  "formal_v3_live_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T16:55:23+00:00",
+  "negative_control_status": "unchanged_clean_controls_preserved_from_source_artifact",
+  "positive_control_denominator": 300,
+  "positive_control_detected": 170,
+  "positive_control_missed": 130,
+  "positive_control_sensitivity_ci95": {
+    "high": 0.6215486818545306,
+    "k": 170,
+    "low": 0.5100989219821965,
+    "method": "wilson",
+    "n": 300,
+    "rate": 0.5666666666666667
+  },
+  "positive_control_taxonomy": "results/CodeDye/artifacts/generated/codedye_positive_miss_taxonomy_v2_20260507.json",
+  "promotion_policy": "This gate admits the positive-control taxonomy as support for sensitivity, not a high-recall live contamination claim.",
+  "schema_version": "codedye_v3_positive_negative_control_gate_v1"
+}

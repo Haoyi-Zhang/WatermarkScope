@@ -1,0 +1,50 @@
+{
+  "blockers": [],
+  "canonical_output": "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_live_results_v1_20260508.jsonl",
+  "challenge_input_rows": "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_input_rows_v1_20260508.jsonl",
+  "claim_bearing": false,
+  "corrupted_registry": "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_corrupted_registry_v1_20260508.json",
+  "date": "20260508",
+  "execution_allowed": true,
+  "experiment_role": "support_only_commitment_shortcut_negative_control",
+  "gate_pass": true,
+  "language_count": 3,
+  "language_counts": {
+    "go": 10,
+    "javascript": 5,
+    "python": 5
+  },
+  "launch_command_redacted": "python projects/ProbeTrace/scripts/run_multi_owner_deepseek_live.py --provider deepseek --run-id probetrace_commitment_shortcut_challenge_20260508 --input results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_input_rows_v1_20260508.jsonl --registry results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_corrupted_registry_v1_20260508.json --output results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_live_results_v1_20260508.jsonl --progress-output results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_progress_v1_20260508.json",
+  "main_claim_policy": {
+    "formal_multi_owner_claim_upgrade_allowed_by_this_artifact": false,
+    "formal_provider_general_claim_allowed": false,
+    "support_rows_enter_main_denominator": false,
+    "threshold_adjustment_allowed": false
+  },
+  "minimum_live_records": 20,
+  "owner_count": 5,
+  "owner_counts": {
+    "owner_alpha": 4,
+    "owner_beta": 4,
+    "owner_delta": 4,
+    "owner_epsilon": 4,
+    "owner_gamma": 4
+  },
+  "postrun_gate": "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_postrun_gate_v1_20260508.json",
+  "progress_output": "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_progress_v1_20260508.json",
+  "project": "ProbeTrace",
+  "provider": "deepseek",
+  "provider_mode_required": "live",
+  "schema_version": "probetrace_commitment_shortcut_challenge_protocol_v1",
+  "secret_values_recorded": false,
+  "source_artifacts": {
+    "input_rows": {
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_rows_20260507.jsonl",
+      "sha256": "997d4b78252a8a4d6000424cd1c2c32a76e0d608dab2b88717eeb1b035ba1edc"
+    },
+    "registry": {
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_registry_20260505_remote.json",
+      "sha256": "6b13b9efda92831183c1a15aa7e95081b61be6f9858aad7c802c87105bd1ff92"
+    }
+  }
+}

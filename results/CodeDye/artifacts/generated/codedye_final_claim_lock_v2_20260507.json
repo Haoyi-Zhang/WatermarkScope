@@ -1,0 +1,74 @@
+{
+  "allowed_current_claim": "DeepSeek-only curator-side sparse null-audit with frozen v3 protocol and hash-complete 300-task live evidence",
+  "bestpaper_ready": true,
+  "bestpaper_ready_reason": "CodeDye now has a fresh DeepSeek v3 300-task live postrun with complete hashes and no support rows in the main denominator. The effect remains intentionally sparse, so the paper claim is a conservative curator-side null-audit, not a high-recall detector.",
+  "blockers": [],
+  "claim_bearing": false,
+  "forbidden_claims": [
+    "high-recall contamination detector",
+    "contamination prevalence estimate",
+    "provider accusation",
+    "claim that non-signals imply no contamination",
+    "support/public rows as main-denominator evidence"
+  ],
+  "formal_contamination_prevalence_claim_allowed": false,
+  "formal_curator_side_null_audit_claim_allowed": true,
+  "formal_high_recall_detection_claim_allowed": false,
+  "formal_provider_accusation_claim_allowed": false,
+  "formal_v3_live_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:49:53+00:00",
+  "locked_effect_surface": {
+    "claim_rows": 300,
+    "final_signal": 4,
+    "final_signal_ci95": {
+      "high": 0.03377553025253262,
+      "k": 4,
+      "low": 0.005196961739358857,
+      "method": "wilson",
+      "n": 300,
+      "rate": 0.013333333333333334
+    },
+    "missing_hash_rows": 0,
+    "mock_or_replay_rows": 0,
+    "negative_control_false_positive": 0,
+    "negative_control_rows": 300,
+    "null_not_rejected": 296,
+    "positive_control_denominator": 300,
+    "positive_control_detected": 170,
+    "positive_control_missed": 130,
+    "positive_miss_taxonomy": {
+      "witness_ablation_did_not_collapse": 130
+    },
+    "support_rows_in_candidate": 0,
+    "utility_topup_policy": {
+      "contamination_score_used_for_selection": false,
+      "enabled": true,
+      "failed_attempts_enter_main_denominator": false,
+      "failed_attempts_retained": true,
+      "repaired_claim_records": 4,
+      "selection_signal": "utility_validation_only",
+      "source_claim_records": 296,
+      "source_failure_records": 4,
+      "target_records": 300
+    }
+  },
+  "paper_table_requirements": [
+    "Report 4/300 sparse audit signals with Wilson CI.",
+    "Report 296/300 null-not-rejected as non-accusatory outcomes, not absence proof.",
+    "Report positive-control sensitivity and miss taxonomy separately.",
+    "Report 0/300 negative-control false positives.",
+    "Disclose utility-only top-up and keep failed attempts in the repair ledger."
+  ],
+  "remaining_blockers": [],
+  "schema_version": "codedye_final_claim_lock_v2",
+  "source_artifacts": {
+    "negative_control": "results/CodeDye/artifacts/generated/codedye_negative_control_row_hash_manifest_v2_20260507.json",
+    "positive_control": "results/CodeDye/artifacts/generated/codedye_positive_miss_taxonomy_v2_20260507.json",
+    "support_exclusion": "results/CodeDye/artifacts/generated/codedye_v3_support_exclusion_gate_20260507.json",
+    "v3_live_topup": "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507_topup_v5.json",
+    "v3_postrun": "results/CodeDye/artifacts/generated/codedye_v3_postrun_promotion_gate_v1_20260507_deepseek300_topup_v5_postrun.json"
+  },
+  "supersedes_for_continuation_planning": "results/CodeDye/artifacts/generated/codedye_final_claim_lock_v1_20260507.json",
+  "upgrade_claim_allowed": true
+}

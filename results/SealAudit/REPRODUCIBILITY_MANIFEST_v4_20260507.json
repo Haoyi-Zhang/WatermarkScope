@@ -1,0 +1,135 @@
+{
+  "artifact_count": 8,
+  "artifacts": [
+    {
+      "blockers": [],
+      "bytes": 2247041,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/canonical_claim_surface_results.json",
+      "schema_version": "sealaudit_canonical_claim_surface_results_v2_marker_hidden_boundary",
+      "sha256": "8f0ddcde96d5eed7549cbc49925bff9047e4d66c08e1d23400aef9022977a5a8"
+    },
+    {
+      "blockers": [],
+      "bytes": 1702,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_coverage_risk_frontier_gate_20260505.json",
+      "schema_version": "sealaudit_coverage_risk_frontier_gate_v2",
+      "sha256": "287550351bed56e30886aeb4d479c64e1561b55f692292ada815f46e4b88c6cf"
+    },
+    {
+      "blockers": [],
+      "bytes": 1794,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": false,
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_second_stage_support_import_gate_v1_20260507.json",
+      "schema_version": "sealaudit_second_stage_support_import_gate_v1",
+      "sha256": "b638f198c9cae6637fdd784aed6cd02121df13a3a0881254b96a423cae63ea24"
+    },
+    {
+      "blockers": [
+        "fresh_final_row_level_v5_evidence_missing",
+        "decisive_coverage_upgrade_not_admitted"
+      ],
+      "bytes": 2978,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": false,
+      "gate_pass": false,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_v5_final_evidence_readiness_gate_20260507.json",
+      "schema_version": "sealaudit_v5_final_evidence_readiness_gate_v1",
+      "sha256": "0ed832a6d2342e69f1d05cc4bd8a29fbe73b6496155c9141ecc1233096668118"
+    },
+    {
+      "blockers": [
+        "decisive_coverage_upgrade_not_admitted",
+        "final_v5_claim_bearing_rows_missing",
+        "fresh_final_row_level_v5_evidence_missing",
+        "v5_coverage_risk_frontier_missing",
+        "v5_threshold_sensitivity_missing",
+        "visible_marker_diagnostic_boundary_missing"
+      ],
+      "bytes": 2896,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": false,
+      "gate_pass": false,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_v5_evidence_classifier_v1_20260507.json",
+      "schema_version": "sealaudit_v5_evidence_classifier_v1",
+      "sha256": "7ad669dc4e51d8dd3915e3a148d541d3edc31a94e579fd8af403951879add201"
+    },
+    {
+      "blockers": [
+        "decisive_coverage_not_improved_over_v3",
+        "marker_hidden_claim_denominator_not_960",
+        "v5_coverage_risk_frontier_missing",
+        "v5_evidence_missing",
+        "v5_runner_receipt_not_passed",
+        "v5_threshold_sensitivity_missing",
+        "v5_visible_marker_boundary_missing"
+      ],
+      "bytes": 2726,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": false,
+      "gate_pass": false,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_v5_postrun_promotion_gate_v1_20260507.json",
+      "schema_version": "sealaudit_v5_postrun_promotion_gate_v1",
+      "sha256": "abc92fa1bb1ffbba464b9fc2df98c759519ec700c28d7fbbb5ca1f36964c5f2e"
+    },
+    {
+      "blockers": [
+        "v5_evidence_is_support_only_not_final_claim"
+      ],
+      "bytes": 725,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": false,
+      "gate_pass": false,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_remote_support_guard_20260507.json",
+      "schema_version": "sealaudit_second_stage_v5_runner_receipt_v1",
+      "sha256": "d9e449091e4d00a3c87f40e9d7be0fb6c04918d3246abdca4beceec743ca7013"
+    },
+    {
+      "blockers": null,
+      "bytes": 662,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": null,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_expert_review_role_support_gate_v1_20260507.json",
+      "schema_version": "sealaudit_expert_review_role_support_gate_v1",
+      "sha256": "5ee2164dc46db9ad348f3dff89228faf7f98d62c1c401748f5616492a9d32163"
+    }
+  ],
+  "boundary": "Additive v4 reviewer index. It includes fail-closed gates and launch readiness; it does not replace preserved results.",
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T20:59:23+00:00",
+  "missing_artifacts": [],
+  "project": "SealAudit",
+  "schema_version": "sealaudit_reviewer_reproducibility_manifest_v4"
+}

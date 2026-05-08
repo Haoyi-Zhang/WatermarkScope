@@ -1,0 +1,91 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:33:48+00:00",
+  "main_resolver_policy": "The main v2 resolver uses categorical live-provider verdict support plus marker-hidden decisions; numeric thresholds are reported as sensitivity, not as the main decision rule.",
+  "schema_version": "sealaudit_v5_threshold_sensitivity_v2",
+  "score_key": "provider_positive_score",
+  "threshold_policy": "Frozen sensitivity analysis only; thresholds are not selected post hoc to maximize the main claim.",
+  "threshold_sweep": [
+    {
+      "accuracy": 0.5,
+      "evaluation_policy": "threshold sensitivity over posthoc benign_reference vs latent_trojan rows only; not a tuning rule",
+      "f1": 0.6667,
+      "false_negative": 0,
+      "false_positive": 240,
+      "missing_score": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "threshold": 0.0,
+      "true_negative": 0,
+      "true_positive": 240
+    },
+    {
+      "accuracy": 0.5,
+      "evaluation_policy": "threshold sensitivity over posthoc benign_reference vs latent_trojan rows only; not a tuning rule",
+      "f1": 0.6667,
+      "false_negative": 0,
+      "false_positive": 240,
+      "missing_score": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "threshold": 0.1,
+      "true_negative": 0,
+      "true_positive": 240
+    },
+    {
+      "accuracy": 0.9875,
+      "evaluation_policy": "threshold sensitivity over posthoc benign_reference vs latent_trojan rows only; not a tuning rule",
+      "f1": 0.9877,
+      "false_negative": 0,
+      "false_positive": 6,
+      "missing_score": 0,
+      "precision": 0.9756,
+      "recall": 1.0,
+      "threshold": 0.15,
+      "true_negative": 234,
+      "true_positive": 240
+    },
+    {
+      "accuracy": 0.9875,
+      "evaluation_policy": "threshold sensitivity over posthoc benign_reference vs latent_trojan rows only; not a tuning rule",
+      "f1": 0.9877,
+      "false_negative": 0,
+      "false_positive": 6,
+      "missing_score": 0,
+      "precision": 0.9756,
+      "recall": 1.0,
+      "threshold": 0.5,
+      "true_negative": 234,
+      "true_positive": 240
+    },
+    {
+      "accuracy": 0.6062,
+      "evaluation_policy": "threshold sensitivity over posthoc benign_reference vs latent_trojan rows only; not a tuning rule",
+      "f1": 0.3505,
+      "false_negative": 189,
+      "false_positive": 0,
+      "missing_score": 0,
+      "precision": 1.0,
+      "recall": 0.2125,
+      "threshold": 0.85,
+      "true_negative": 240,
+      "true_positive": 51
+    },
+    {
+      "accuracy": 0.6062,
+      "evaluation_policy": "threshold sensitivity over posthoc benign_reference vs latent_trojan rows only; not a tuning rule",
+      "f1": 0.3505,
+      "false_negative": 189,
+      "false_positive": 0,
+      "missing_score": 0,
+      "precision": 1.0,
+      "recall": 0.2125,
+      "threshold": 0.9,
+      "true_negative": 240,
+      "true_positive": 51
+    }
+  ],
+  "threshold_sweep_count": 6
+}

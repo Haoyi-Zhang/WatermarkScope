@@ -1,0 +1,21 @@
+{
+  "claim_bearing": false,
+  "formal_multi_owner_claim_allowed": false,
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "planned_support_matrix": {
+    "active_owners": 5,
+    "control_ratio": "wrong/null/random owners >= 4x positives",
+    "required_outputs": [
+      "owner_margin_distribution",
+      "per_owner_tpr_fpr_ci",
+      "near_boundary_examples",
+      "latency_query_frontier"
+    ],
+    "split_requirements": [
+      "owner_heldout",
+      "task_heldout"
+    ]
+  },
+  "promotion_policy": "The existing main claim remains single-active-owner. Multi-owner evidence is support-only unless all per-owner controls and heldout gates pass.",
+  "schema_version": "probetrace_multi_owner_support_gate_v1"
+}

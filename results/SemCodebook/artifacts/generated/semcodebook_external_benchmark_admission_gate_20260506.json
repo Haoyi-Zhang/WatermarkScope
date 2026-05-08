@@ -1,0 +1,36 @@
+{
+  "admission_requirements": [
+    "official source or documented checkout hash",
+    "adapter records task_id, prompt_hash, language, oracle/test witness",
+    "no benchmark-specific threshold tuning",
+    "external rows stay support-only unless same-denominator protocol completes"
+  ],
+  "artifact_role": "external_benchmark_pre_run_admission_gate",
+  "blockers": [],
+  "claim_bearing": false,
+  "existing_resource_hints": [
+    {
+      "exists": false,
+      "path": "codemark_semcodebook/external_checkout/evalplus",
+      "sha256": "",
+      "size_bytes": 0
+    },
+    {
+      "exists": false,
+      "path": "codemark_semcodebook/external_checkout/human-eval",
+      "sha256": "",
+      "size_bytes": 0
+    },
+    {
+      "exists": false,
+      "path": "codemark_semcodebook/benchmarks",
+      "sha256": "",
+      "size_bytes": 0
+    }
+  ],
+  "formal_external_generalization_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:46.809228Z",
+  "schema_version": "semcodebook_external_benchmark_admission_gate_v1",
+  "warnings": []
+}

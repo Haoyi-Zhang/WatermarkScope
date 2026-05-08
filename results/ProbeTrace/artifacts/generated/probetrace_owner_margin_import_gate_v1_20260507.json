@@ -1,0 +1,72 @@
+{
+  "blocked": false,
+  "blockers": [],
+  "claim_bearing": false,
+  "comparable_signed_owner_margin_rows": 0,
+  "control_false_attribution_ci95": {
+    "high": 0.012642971224546034,
+    "k": 0,
+    "low": 8.673617379884035e-19,
+    "method": "wilson",
+    "n": 300,
+    "rate": 0.0
+  },
+  "control_false_attribution_rows": 0,
+  "control_owner_emission_ci95": {
+    "high": 0.012642971224546034,
+    "k": 0,
+    "low": 8.673617379884035e-19,
+    "method": "wilson",
+    "n": 300,
+    "rate": 0.0
+  },
+  "control_owner_id_emission_rows": 0,
+  "family_count": 10,
+  "formal_multi_owner_claim_allowed": false,
+  "formal_owner_separability_margin_claim_allowed": false,
+  "formal_single_owner_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T16:56:14+00:00",
+  "high_control_score_without_owner_emission_rows": 300,
+  "inputs": {
+    "distribution_gate": "results/ProbeTrace/artifacts/generated/probetrace_owner_margin_distribution_gate_20260505_remote.json",
+    "remote_gate": "results/ProbeTrace/artifacts/generated/probetrace_owner_margin_control_audit_gate_20260505_remote.json",
+    "rows": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_score_vectors_20260507.jsonl"
+  },
+  "languages": {
+    "python": 300
+  },
+  "near_boundary_rows": 150,
+  "reviewer_defense": [
+    "The perfect APIS-300 point estimate is not presented as multi-owner separability.",
+    "Control scores are explicitly marked non-comparable to owner verification confidence.",
+    "Near-boundary rows are retained as anti-overfit evidence rather than removed."
+  ],
+  "row_count": 300,
+  "schema_version": "probetrace_owner_margin_import_gate_v1",
+  "top_families": {
+    "adversarial_instruction_blending": 30,
+    "budget_control": 30,
+    "cross_provider_format_control": 30,
+    "multi_turn_probe_prompts": 30,
+    "neutralization_after_distillation": 30,
+    "neutralization_before_distillation": 30,
+    "probe_prompts": 30,
+    "rehosted_student": 30,
+    "session_replay_control": 30,
+    "wrapper_stripping": 30
+  },
+  "true_owner_verification_ci95": {
+    "high": 0.9999999999999998,
+    "k": 300,
+    "low": 0.9873570287754538,
+    "method": "wilson",
+    "n": 300,
+    "rate": 1.0
+  },
+  "verified_owner_rows": 300,
+  "warnings": [
+    "multi_owner_score_vectors_missing_so_no_multi_owner_claim",
+    "signed_owner_margin_not_available_for_current_single_owner_artifact"
+  ]
+}

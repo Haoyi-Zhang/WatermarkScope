@@ -1,0 +1,79 @@
+{
+  "blockers": [
+    "current_multi_owner_promotion_gate_not_passed",
+    "fresh_multi_owner_score_vectors_missing",
+    "signed_owner_margin_rows_missing",
+    "owner_count_below_5",
+    "positive_multi_owner_rows_missing",
+    "multi_owner_control_rows_missing"
+  ],
+  "claim_bearing": false,
+  "current_evidence_summary": {
+    "multi_owner_current_control_rows": 0,
+    "multi_owner_current_owner_count": 0,
+    "multi_owner_current_positive_rows": 0,
+    "multi_owner_promotion_gate_pass": false,
+    "single_owner_control_false_attribution_rows": 0,
+    "single_owner_near_boundary_rows": 150,
+    "single_owner_verified_rows": 300
+  },
+  "formal_multi_owner_claim_allowed": false,
+  "formal_single_owner_claim_allowed": true,
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T17:22:01+00:00",
+  "minimum_rerun_contract": {
+    "active_owner_count": 5,
+    "control_roles": [
+      "wrong_owner",
+      "null_owner",
+      "random_owner",
+      "same_provider_unwrap"
+    ],
+    "control_to_positive_ratio_minimum": 4,
+    "near_boundary_policy": "retain_and_report_not_delete",
+    "splits": [
+      "owner_heldout",
+      "task_heldout"
+    ],
+    "threshold_policy": "freeze_before_live_scoring"
+  },
+  "required_aggregate_gates_for_promotion": [
+    "owner_count >= 5",
+    "candidate_owner_score_vectors_present",
+    "positive_rows_per_owner_reported",
+    "wrong/null/random owner controls >= 4x positives",
+    "owner-heldout and task-heldout integrity receipts",
+    "per-owner TPR/FPR Wilson CI",
+    "threshold-free rank/AUC summary",
+    "near-boundary rows retained",
+    "latency/query CI"
+  ],
+  "required_row_schema_for_claim_bearing_rerun": [
+    "task_id",
+    "source_id",
+    "true_owner_id",
+    "candidate_owner_id",
+    "score",
+    "rank",
+    "split",
+    "control_role",
+    "owner_heldout",
+    "task_heldout",
+    "provider",
+    "prompt_hash",
+    "raw_payload_hash",
+    "structured_payload_hash",
+    "threshold_version",
+    "claim_bearing"
+  ],
+  "reviewer_attack_closed_by_this_gate": [
+    "Prevents the current perfect single-owner APIS result from being written as multi-owner generalization.",
+    "Defines the exact score-vector schema required for a future multi-owner claim-bearing rerun.",
+    "Keeps near-boundary rows as anti-overfit evidence instead of filtering them out."
+  ],
+  "schema_version": "probetrace_multi_owner_rerun_readiness_gate_v1",
+  "source_artifacts": {
+    "multi_owner_promotion_gate": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_promotion_gate_20260507.json",
+    "owner_margin_import_gate": "results/ProbeTrace/artifacts/generated/probetrace_owner_margin_import_gate_v1_20260507.json"
+  }
+}

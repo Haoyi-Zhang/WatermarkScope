@@ -1,0 +1,76 @@
+{
+  "bestpaper_ready": false,
+  "claim_bearing": false,
+  "claim_policy": "Do not delete weak results; report them as boundary evidence with CI and scoped claims.",
+  "formal_full_experiment_allowed": false,
+  "generated_at_utc": "2026-05-06T17:00:45+00:00",
+  "new_real_closures_this_round": [
+    "Imported js2 SemCodebook 43,200-row generation-changing ablation full eval and fixed positive-row detection in miss attribution.",
+    "Imported js2 CodeDye 300-row positive-control result and built row-level v2 taxonomy.",
+    "Imported js2 ProbeTrace owner-margin audit rows and promoted them only to single-owner anti-overfit support.",
+    "Imported js2 SealAudit 320-case executable conjunction and added a support-only import gate plus v5 support-only guard."
+  ],
+  "remaining_non_key_blockers": [
+    "CodeDye cannot be written as high-recall detection; only null-audit is defensible unless v3 improves sensitivity under frozen thresholds.",
+    "ProbeTrace broad multi-owner claim is still blocked by absence of comparable multi-owner score vectors.",
+    "SealAudit v5 decisive-coverage upgrade is blocked by lack of final row-level v5 evidence; current second-stage artifact is support-only."
+  ],
+  "schema_version": "watermark_bestpaper_current_state_20260507_v1",
+  "status_summary": {
+    "CodeDye": {
+      "gate_pass": true,
+      "positive_control_sensitivity_ci95": {
+        "high": 0.6215486818545306,
+        "k": 170,
+        "low": 0.5100989219821965,
+        "method": "wilson",
+        "n": 300,
+        "rate": 0.5666666666666667
+      },
+      "positive_controls": "170/300",
+      "primary_failure_boundary": {
+        "witness_ablation_did_not_collapse": 130
+      },
+      "remaining_bestpaper_gap": "DeepSeek live result remains sparse 6/300; acceptable only as conservative null-audit, not high-recall detection.",
+      "status": "real_positive_control_taxonomy_complete"
+    },
+    "ProbeTrace": {
+      "multi_owner_claim_allowed": false,
+      "multi_owner_promotion_gate_pass": false,
+      "near_boundary_rows": 150,
+      "owner_margin_gate_pass": true,
+      "remaining_bestpaper_gap": "Multi-owner generalization still requires fresh score-vector live rerun; current claim must stay single-owner/source-bound.",
+      "single_owner_claim_allowed": true,
+      "status": "single_owner_anti_overfit_margin_import_complete"
+    },
+    "SealAudit": {
+      "case_count": 320,
+      "formal_v5_claim_allowed": false,
+      "remaining_bestpaper_gap": "Fresh final row-level v5 evidence is still required before decisive coverage can be upgraded beyond 8.44%.",
+      "status": "second_stage_executable_conjunction_support_ready_but_v5_claim_blocked",
+      "subgate_pass_counts": {
+        "baseline_control_evidence": 320,
+        "laundering": 320,
+        "provider_judge": 320,
+        "semantic_drift": 320,
+        "spoofability": 320,
+        "static_safety": 320
+      },
+      "support_import_gate_pass": true,
+      "v5_guard_blockers": [
+        "v5_evidence_is_support_only_not_final_claim"
+      ]
+    },
+    "SemCodebook": {
+      "gate_pass": true,
+      "positive_count": 21600,
+      "positive_miss_count": 10210,
+      "primary_failure_boundary": {
+        "detector_abstain_or_reject_on_positive": 10210
+      },
+      "records": 43200,
+      "remaining_bestpaper_gap": "Causal contribution table and paper claim wording must foreground abstention boundary; no no-retry natural-generation claim.",
+      "status": "real_row_level_ablation_miss_attribution_complete"
+    }
+  }
+}

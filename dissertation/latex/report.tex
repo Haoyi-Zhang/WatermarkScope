@@ -26,17 +26,22 @@
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
-\captionsetup{font=small,labelfont=bf,skip=3pt}
-\captionsetup[table]{font=small,labelfont=bf,skip=2pt}
+\captionsetup{font=small,labelfont=bf,skip=2pt}
+\captionsetup[figure]{font=small,labelfont=bf,skip=2pt}
+\captionsetup[table]{font=small,labelfont=bf,skip=1pt}
 \newcommand{\compacttable}{\small\renewcommand{\arraystretch}{0.90}\setlength{\tabcolsep}{1.60pt}}
 \newcommand{\tighttable}{\footnotesize\renewcommand{\arraystretch}{0.86}\setlength{\tabcolsep}{1.15pt}}
 \newcommand{\lookuptable}{\scriptsize\renewcommand{\arraystretch}{0.84}\setlength{\tabcolsep}{0.95pt}}
 \AtBeginEnvironment{algorithmic}{\scriptsize}
 \floatstyle{ruled}
 \restylefloat{algorithm}
-\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
-\setlength{\floatsep}{6pt plus 2pt minus 2pt}
-\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{5pt plus 1pt minus 1pt}
+\setlength{\floatsep}{4pt plus 1pt minus 1pt}
+\setlength{\intextsep}{4pt plus 1pt minus 1pt}
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.82}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.86}
 \setlist[itemize]{leftmargin=*, itemsep=1.5pt, topsep=2pt}
 \setlist[enumerate]{leftmargin=*, itemsep=1.5pt, topsep=2pt}
 \sisetup{detect-all=true}
@@ -163,6 +168,7 @@
 \addcontentsline{toc}{chapter}{Appendices}
 \appendix
 \suppressappendixsubtoc
+\input{appendix/A_repository_access}
 \input{appendix/A_codemarkbench}
 \input{appendix/F_reproducibility}
 \input{appendix/G_publication_plan}

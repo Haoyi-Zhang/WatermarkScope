@@ -1,0 +1,20 @@
+{
+  "allowed_wording": "Role-based experts reviewed the packet and reported no blocking concerns through the project coordinator.",
+  "claim_bearing": false,
+  "forbidden_wording": [
+    "signed gold labels",
+    "named expert identities",
+    "institutional certification",
+    "timestamped legal attestation",
+    "expert-created row labels without completed row-level packet"
+  ],
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "role_based_support_only": true,
+  "roles": [
+    "curator_01",
+    "curator_02",
+    "adjudicator_01",
+    "seal_expert_01_to_07"
+  ],
+  "schema_version": "sealaudit_expert_review_role_support_gate_v1"
+}

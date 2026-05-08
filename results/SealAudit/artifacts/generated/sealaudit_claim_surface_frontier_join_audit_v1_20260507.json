@@ -1,0 +1,26 @@
+{
+  "blockers": [],
+  "canonical_record_count": 960,
+  "claim_bearing": false,
+  "decision_distribution_from_frontier": {
+    "benign": 80,
+    "latent_trojan": 1,
+    "needs_review": 879
+  },
+  "decision_distribution_from_rows": {
+    "benign": 80,
+    "latent_trojan": 1,
+    "needs_review": 879
+  },
+  "frontier_hidden_claim_rows": 960,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T21:19:35+00:00",
+  "needs_review_hash_gap_count": 0,
+  "needs_review_taxonomy_row_count": 879,
+  "schema_version": "sealaudit_claim_surface_frontier_join_audit_v1",
+  "source_artifacts": {
+    "canonical_claim_surface": "results\\SealAudit\\artifacts\\generated\\canonical_claim_surface_results.json",
+    "coverage_risk_frontier": "results\\SealAudit\\artifacts\\generated\\sealaudit_coverage_risk_frontier_gate_20260505.json",
+    "taxonomy_rows": "results\\SealAudit\\artifacts\\generated\\sealaudit_needs_review_row_taxonomy_v2_20260507.jsonl"
+  }
+}

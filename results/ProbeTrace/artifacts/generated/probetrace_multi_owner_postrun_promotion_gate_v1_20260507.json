@@ -1,0 +1,61 @@
+{
+  "blocked": true,
+  "blockers": [
+    "fresh_multi_owner_live_score_vectors_missing"
+  ],
+  "checked_candidate_paths": [
+    "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl",
+    "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_apis_deepseek_results_20260507.json",
+    "projects/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl"
+  ],
+  "claim_bearing": false,
+  "formal_multi_owner_claim_allowed": false,
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T20:41:37+00:00",
+  "input_package_status": {
+    "claim_bearing": false,
+    "formal_multi_owner_claim_allowed": false,
+    "language_count": 3,
+    "owner_count": 5,
+    "row_count": 6000
+  },
+  "promotion_policy": "No multi-owner claim may be made from input packages, single-owner transfer, or incomplete score vectors.",
+  "required_aggregate_gates": [
+    "row_count == 6000",
+    "owner_count >= 5",
+    "language_count >= 3",
+    "wrong/null/random/same-provider controls present",
+    "control_to_positive_ratio >= 4",
+    "owner-heldout and task-heldout rows present",
+    "raw/structured/prompt/output/source hashes complete",
+    "per-owner TPR/FPR Wilson CI",
+    "threshold-free rank/AUC computable",
+    "near-boundary rows retained"
+  ],
+  "required_row_schema": [
+    "task_id",
+    "true_owner_id",
+    "candidate_owner_id",
+    "candidate_owner_count",
+    "score",
+    "score_space",
+    "split",
+    "control_role",
+    "owner_heldout",
+    "task_heldout",
+    "source_record_hash",
+    "output_record_sha256",
+    "raw_provider_transcript_hash",
+    "structured_payload_hash",
+    "prompt_hash",
+    "owner_id_hat",
+    "false_attribution",
+    "signed_owner_margin",
+    "best_wrong_owner_id",
+    "best_wrong_owner_score",
+    "family",
+    "language",
+    "claim_bearing"
+  ],
+  "schema_version": "probetrace_multi_owner_postrun_promotion_gate_v1"
+}

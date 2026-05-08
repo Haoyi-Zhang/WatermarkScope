@@ -1,0 +1,28 @@
+{
+  "artifact_role": "pre_run_attack_matrix_admission_gate",
+  "blockers": [],
+  "claim_bearing": false,
+  "formal_attack_matrix_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:46.811363Z",
+  "join_requirements": [
+    "task_id",
+    "family",
+    "raw_transcript_hash",
+    "structured_payload_hash",
+    "attack_condition",
+    "negative_control_flag",
+    "claim_bearing"
+  ],
+  "minimum_per_family_claim_rows": 50,
+  "required_attack_families": [
+    "chronology_shuffle",
+    "canary_preserving_rewrite",
+    "cross_language_reexpression",
+    "query_budget_drop",
+    "retrieval_nearest_confound",
+    "metadata_stripping"
+  ],
+  "schema_version": "codedye_canonical_attack_matrix_claim_gate_v1",
+  "warnings": []
+}

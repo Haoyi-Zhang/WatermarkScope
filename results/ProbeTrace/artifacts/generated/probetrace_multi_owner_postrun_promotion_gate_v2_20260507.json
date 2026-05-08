@@ -1,0 +1,175 @@
+{
+  "blocked": false,
+  "blockers": [],
+  "candidate_artifact": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_merged_v1.jsonl",
+  "claim_bearing": false,
+  "formal_multi_owner_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-08T08:54:40+00:00",
+  "input_package_status": {
+    "claim_bearing": false,
+    "formal_multi_owner_claim_allowed": false,
+    "language_count": 3,
+    "owner_count": 5,
+    "row_count": 6000
+  },
+  "paper_language_lock": {
+    "allowed_if_gate_passes": [
+      "DeepSeek-only five-owner source-bound attribution",
+      "owner-heldout and task-heldout multi-owner margins",
+      "wrong/null/random/same-provider control rates with CI"
+    ],
+    "forbidden_even_if_gate_passes": [
+      "provider-general attribution",
+      "owner attribution from input package alone",
+      "student-transfer generalization beyond source-bound receipts"
+    ]
+  },
+  "postrun_metrics": {
+    "claim_bearing_rows": 6000,
+    "control_role_counts": {
+      "null_owner": 750,
+      "random_owner": 750,
+      "same_provider_unwrap": 750,
+      "true_owner": 750,
+      "wrong_owner": 3000
+    },
+    "control_rows": 5250,
+    "control_to_positive_ratio": 7.0,
+    "global_fpr_ci95": {
+      "high": 0.0007311714391846915,
+      "k": 0,
+      "low": 5.421010862427522e-20,
+      "method": "wilson",
+      "n": 5250,
+      "rate": 0.0
+    },
+    "global_tpr_ci95": {
+      "high": 1.0,
+      "k": 750,
+      "low": 0.9949041555412677,
+      "method": "wilson",
+      "n": 750,
+      "rate": 1.0
+    },
+    "language_count": 3,
+    "margin_auc": 1.0,
+    "missing_hash_rows": 0,
+    "owner_count": 5,
+    "owner_heldout_rows": 1200,
+    "per_owner_ci95": {
+      "owner_alpha": {
+        "control_rows": 1050,
+        "fpr_ci95": {
+          "high": 0.0036451961426844284,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 1050,
+          "rate": 0.0
+        },
+        "positive_rows": 150,
+        "tpr_ci95": {
+          "high": 1.0,
+          "k": 150,
+          "low": 0.9750297556319235,
+          "method": "wilson",
+          "n": 150,
+          "rate": 1.0
+        }
+      },
+      "owner_beta": {
+        "control_rows": 1050,
+        "fpr_ci95": {
+          "high": 0.0036451961426844284,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 1050,
+          "rate": 0.0
+        },
+        "positive_rows": 150,
+        "tpr_ci95": {
+          "high": 1.0,
+          "k": 150,
+          "low": 0.9750297556319235,
+          "method": "wilson",
+          "n": 150,
+          "rate": 1.0
+        }
+      },
+      "owner_delta": {
+        "control_rows": 1050,
+        "fpr_ci95": {
+          "high": 0.0036451961426844284,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 1050,
+          "rate": 0.0
+        },
+        "positive_rows": 150,
+        "tpr_ci95": {
+          "high": 1.0,
+          "k": 150,
+          "low": 0.9750297556319235,
+          "method": "wilson",
+          "n": 150,
+          "rate": 1.0
+        }
+      },
+      "owner_epsilon": {
+        "control_rows": 1050,
+        "fpr_ci95": {
+          "high": 0.0036451961426844284,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 1050,
+          "rate": 0.0
+        },
+        "positive_rows": 150,
+        "tpr_ci95": {
+          "high": 1.0,
+          "k": 150,
+          "low": 0.9750297556319235,
+          "method": "wilson",
+          "n": 150,
+          "rate": 1.0
+        }
+      },
+      "owner_gamma": {
+        "control_rows": 1050,
+        "fpr_ci95": {
+          "high": 0.0036451961426844284,
+          "k": 0,
+          "low": 0.0,
+          "method": "wilson",
+          "n": 1050,
+          "rate": 0.0
+        },
+        "positive_rows": 150,
+        "tpr_ci95": {
+          "high": 1.0,
+          "k": 150,
+          "low": 0.9750297556319235,
+          "method": "wilson",
+          "n": 150,
+          "rate": 1.0
+        }
+      }
+    },
+    "positive_rows": 750,
+    "row_count": 6000,
+    "schema_missing_field_counts": {},
+    "schema_missing_rows": 0,
+    "split_counts": {
+      "owner_heldout": 1200,
+      "task_heldout": 1200,
+      "train_dev": 3600
+    },
+    "task_heldout_rows": 1200
+  },
+  "promotion_policy": "Passing this gate permits only the scoped DeepSeek multi-owner attribution claim surface.",
+  "schema_version": "probetrace_multi_owner_postrun_promotion_gate_v2"
+}

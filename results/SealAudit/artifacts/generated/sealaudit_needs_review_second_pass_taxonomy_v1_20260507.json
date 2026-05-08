@@ -1,0 +1,59 @@
+{
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T16:26:51+00:00",
+  "needs_review_by_family": {
+    "checksum": 88,
+    "graph_reachability": 88,
+    "map_normalizer": 88,
+    "parser_guard": 88,
+    "policy_gate": 88,
+    "ranker": 88,
+    "scheduler": 88,
+    "sequence_filter": 88,
+    "serializer": 88,
+    "window_aggregator": 87
+  },
+  "needs_review_by_language": {
+    "go": 220,
+    "java": 220,
+    "javascript": 219,
+    "python": 220
+  },
+  "needs_review_by_prompt_variant": {
+    "marker_hidden_neutral_rubric": 320,
+    "marker_hidden_schema_only": 320,
+    "v3_label_hidden_no_precedence": 239
+  },
+  "needs_review_count": 879,
+  "provisional_taxonomy": {
+    "expert_review_required": 144,
+    "hard_ambiguity_retained": 619,
+    "insufficient_context_schema_only": 3,
+    "latent_risk_evidence_below_confirmation": 113
+  },
+  "record_count": 960,
+  "remaining_gap": "A claim-bearing coverage increase requires a fresh v5 run with the preregistered conjunction gate.",
+  "schema_version": "sealaudit_needs_review_second_pass_taxonomy_v1",
+  "score_quantiles_all_rows": {
+    "count": 960,
+    "max": 0.8,
+    "median": 0.5,
+    "min": 0.1,
+    "q05": 0.2,
+    "q25": 0.5,
+    "q75": 0.5,
+    "q95": 0.7
+  },
+  "score_quantiles_needs_review": {
+    "count": 879,
+    "max": 0.8,
+    "median": 0.5,
+    "min": 0.3,
+    "q05": 0.4,
+    "q25": 0.5,
+    "q75": 0.5,
+    "q95": 0.7
+  },
+  "source_artifact": "canonical_claim_surface_results.json",
+  "taxonomy_policy": "This is a second-pass routing taxonomy derived from existing row fields. It does not relabel old v3/v4 results and does not certify safety."
+}

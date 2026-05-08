@@ -1,0 +1,121 @@
+{
+  "artifact_count": 9,
+  "artifacts": [
+    {
+      "blockers": [],
+      "bytes": 3372996,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/apis300_live_attribution_evidence.json",
+      "schema_version": "probetrace_apis300_live_attribution_evidence_v1",
+      "sha256": "2b3b73877962819309a284e71638f2d346beecc5605d97684d41e1b3f589c3e2"
+    },
+    {
+      "blockers": [],
+      "bytes": 1597,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": false,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_abstain_aware_attribution_gate_20260506.json",
+      "schema_version": "probetrace_abstain_aware_attribution_gate_v1",
+      "sha256": "6b3fa37eef45da871f49631bf61e5bfcd9d3877dfa4874cfa04d498d27e48cef"
+    },
+    {
+      "blockers": [],
+      "bytes": 2477,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": false,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_owner_margin_import_gate_v1_20260507.json",
+      "schema_version": "probetrace_owner_margin_import_gate_v1",
+      "sha256": "20d78e3432da1ce0e76f0ac6c571ec735b7677151330dfa004979bc0bf26a6b9"
+    },
+    {
+      "blockers": [
+        "multi_owner_support_contract_not_satisfied"
+      ],
+      "bytes": 525,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": false,
+      "gate_pass": false,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_promotion_gate_20260507.json",
+      "schema_version": "probetrace_multi_owner_support_runner_receipt_v1",
+      "sha256": "735d0958cfe9793edc11d9534062638d5945f67bc086735b66ede6bc56f11e64"
+    },
+    {
+      "blockers": [
+        "current_multi_owner_promotion_gate_not_passed",
+        "fresh_multi_owner_score_vectors_missing",
+        "signed_owner_margin_rows_missing",
+        "owner_count_below_5",
+        "positive_multi_owner_rows_missing",
+        "multi_owner_control_rows_missing"
+      ],
+      "bytes": 2770,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": false,
+      "gate_pass": false,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_rerun_readiness_gate_20260507.json",
+      "schema_version": "probetrace_multi_owner_rerun_readiness_gate_v1",
+      "sha256": "046db86a9a58b1903706ee0d92b26e0be916fc4920ccde715e5f3816be661dc5"
+    },
+    {
+      "blockers": [],
+      "bytes": 1818,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": false,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_package_20260507.json",
+      "schema_version": "probetrace_multi_owner_deepseek_canonical_input_package_v1",
+      "sha256": "e11134716696ea9d3d032f702fa642e9474bd0ddf603623897aaf3395693192a"
+    },
+    {
+      "blockers": [],
+      "bytes": 1364,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": false,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_prerun_gate_20260507.json",
+      "schema_version": "probetrace_multi_owner_deepseek_prerun_gate_v1",
+      "sha256": "4617a40aa6565a2e866b2e4254467eddad019149b8e23d71c49318bdd2b76f00"
+    },
+    {
+      "blockers": [
+        "input_score_vectors_missing"
+      ],
+      "bytes": 1139,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": false,
+      "gate_pass": false,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_promotion_gate_probetrace_multi_owner_strict_smoke_20260507.json",
+      "schema_version": "probetrace_multi_owner_support_runner_receipt_v2",
+      "sha256": "748d30dda2089e724f62bafeb4d89e5da24c0ae2121c42eb54728305a1c9f122"
+    },
+    {
+      "blockers": [],
+      "bytes": 2155,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_transfer_row_binding_manifest_gate_20260505.json",
+      "schema_version": "probetrace_transfer_row_binding_manifest_gate_v1",
+      "sha256": "8189b4c685cb28889d3ff35977d46a9d25ecb4612539f51852dfe145b60d3092"
+    }
+  ],
+  "boundary": "Additive reviewer manifest. Locked original result artifacts and v1 manifests are not overwritten.",
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T18:26:09+00:00",
+  "missing_artifacts": [],
+  "project": "ProbeTrace",
+  "schema_version": "probetrace_reviewer_reproducibility_manifest_v2"
+}

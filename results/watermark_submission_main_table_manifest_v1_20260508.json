@@ -1,0 +1,144 @@
+{
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-08T10:51:08+00:00",
+  "purpose": "Bind current submission-facing main tables to final claim-lock artifacts and prevent stale result reuse.",
+  "rows": [
+    {
+      "artifacts": [
+        {
+          "bytes": 5990,
+          "path": "results/SemCodebook/artifacts/generated/semcodebook_final_claim_lock_v1_20260507.json",
+          "sha256": "1e3c11a979d5764205c42af2984901bb41e856fefb11c8658f30f1adb545d8c2"
+        },
+        {
+          "bytes": 11368,
+          "path": "results/SemCodebook/artifacts/generated/semcodebook_whitebox_model_sufficiency_gate_20260505.json",
+          "sha256": "5e3803b7987f4c10bfda3e4b89d98433fd64dd35d3e00c42b41601afd314cd16"
+        },
+        {
+          "bytes": 8569,
+          "path": "results/SemCodebook/artifacts/generated/semcodebook_generation_changing_ablation_promotion_gate_20260505.json",
+          "sha256": "b0bdea87e692df45e3732b9982c8b43f8a9d5c3571c8ba0e0bd33d48f6cbdc33"
+        }
+      ],
+      "claim_bearing": true,
+      "forbidden_table_uses": [
+        "no-retry natural-generation guarantee",
+        "validator-repair main claim"
+      ],
+      "primary_result": "23342/24000 positive recoveries; 0/48000 negative-control hits; 72000 admitted records",
+      "project": "SemCodebook",
+      "table_role": "whitebox_main_and_ablation"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 3469,
+          "path": "results/CodeDye/artifacts/generated/codedye_final_claim_lock_v2_20260507.json",
+          "sha256": "d59fd3efc08fa2102a153aab41224f27f52834948f85de957ca83835fe93de44"
+        },
+        {
+          "bytes": 2526,
+          "path": "results/CodeDye/artifacts/generated/codedye_v3_postrun_promotion_gate_v1_20260507_deepseek300_topup_v5_postrun.json",
+          "sha256": "aaf30223998623a55891b2c516e4e6e68a4f61bf604a472cb130e1d9dc40531c"
+        },
+        {
+          "bytes": 1563,
+          "path": "results/CodeDye/artifacts/generated/codedye_positive_miss_taxonomy_v2_20260507.json",
+          "sha256": "f028ed0e85e3d2c2037e14ef3023121fbbae98dfc8f4f538699edb2043f72d84"
+        },
+        {
+          "bytes": 138626,
+          "path": "results/CodeDye/artifacts/generated/codedye_negative_control_row_hash_manifest_v2_20260507.json",
+          "sha256": "be4dec83b0ca0957ad80d96c932cee1a6f6537979f10c9170bf60f69d4506e40"
+        }
+      ],
+      "claim_bearing": true,
+      "forbidden_table_uses": [
+        "high-recall detection",
+        "provider accusation",
+        "contamination prevalence"
+      ],
+      "primary_result": "4/300 sparse DeepSeek audit signals; 170/300 positive-control hits; 0/300 negative-control hits",
+      "project": "CodeDye",
+      "table_role": "deepseek_sparse_null_audit"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 7518,
+          "path": "results/ProbeTrace/artifacts/generated/probetrace_final_claim_lock_v2_20260507.json",
+          "sha256": "df97e2b78bb014815f3734d9babd7ac3bce0865299442121816c3e8c08ebbe87"
+        },
+        {
+          "bytes": 4517,
+          "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_postrun_promotion_gate_v2_20260507.json",
+          "sha256": "4409ebef88907691e3e0b616d742534351314296c3bdf7e1a1849ac0c5dc27e7"
+        },
+        {
+          "bytes": 3967,
+          "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507_merged_v1_manifest.json",
+          "sha256": "25c23a9b923acc93f4106840696de9524c41892e8928fb9378d97e256678cead"
+        },
+        {
+          "bytes": 857,
+          "path": "results/ProbeTrace/artifacts/generated/probetrace_latency_query_frontier_v1_20260507.json",
+          "sha256": "aafbf6836665c0f567add97e0aba068d6cc8ceb1204062cedc3a41025865ddd2"
+        },
+        {
+          "bytes": 2554,
+          "path": "results/ProbeTrace/artifacts/generated/probetrace_anti_leakage_scan_v1_20260507.json",
+          "sha256": "f24108f1da5d66c9db64a0ad97e4eda4c2ea34a5169cd55a6b1641eea716e544"
+        }
+      ],
+      "claim_bearing": true,
+      "forbidden_table_uses": [
+        "provider-general attribution",
+        "cross-provider attribution",
+        "unbounded transfer"
+      ],
+      "primary_result": "6000 multi-owner rows; 750/750 positives; 0/5250 false-attribution controls; AUC 1.0",
+      "project": "ProbeTrace",
+      "table_role": "deepseek_multi_owner_attribution"
+    },
+    {
+      "artifacts": [
+        {
+          "bytes": 3664,
+          "path": "results/SealAudit/artifacts/generated/sealaudit_final_claim_lock_v2_20260507.json",
+          "sha256": "5dff83f592ba86fad1e767fa55f044f87834f27c77194d65c6718093fbd93941"
+        },
+        {
+          "bytes": 2514,
+          "path": "results/SealAudit/artifacts/generated/sealaudit_v5_postrun_promotion_gate_v2_20260507.json",
+          "sha256": "87ed948d514ad201bd970fb7ad16a9cb691c8f732d8f3c91f98662443b2f8185"
+        },
+        {
+          "bytes": 3953,
+          "path": "results/SealAudit/artifacts/generated/sealaudit_v5_coverage_risk_frontier_v2_20260507.json",
+          "sha256": "eacd164462947e2ae35900f27955312d2b025fa29c7c25329f63676495ed3e62"
+        },
+        {
+          "bytes": 3056,
+          "path": "results/SealAudit/artifacts/generated/sealaudit_v5_threshold_sensitivity_v2_20260507.json",
+          "sha256": "e390d564cc33172e09427ad386c9e193bd40ee01fb9f26e79311b0cbcaf9feb9"
+        },
+        {
+          "bytes": 544,
+          "path": "results/SealAudit/artifacts/generated/sealaudit_v5_visible_marker_diagnostic_boundary_v2_20260507.json",
+          "sha256": "34df91d30d8a2d3985b916f04e5304a5422e5ebf55465a2d9aaefa61e99a59f7"
+        }
+      ],
+      "claim_bearing": true,
+      "forbidden_table_uses": [
+        "security certificate",
+        "harmlessness guarantee",
+        "automatic safety classifier"
+      ],
+      "primary_result": "320/960 decisive marker-hidden rows; 0/960 unsafe-pass rows; 320 visible-marker rows diagnostic-only",
+      "project": "SealAudit",
+      "table_role": "deepseek_marker_hidden_selective_triage"
+    }
+  ],
+  "schema_version": "watermark_submission_main_table_manifest_v1"
+}

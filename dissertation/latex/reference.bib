@@ -1,245 +1,481 @@
-@article{chen2021codex,
-  author = {Mark Chen and Jerry Tworek and Heewoo Jun and Qiming Yuan and Henrique Ponde de Oliveira Pinto and Jared Kaplan and Harri Edwards and Yuri Burda and Nicholas Joseph and Greg Brockman and Alex Ray and Raul Puri and Gretchen Krueger and Michael Petrov and Heidy Khlaaf and Girish Sastry and Pamela Mishkin and Brooke Chan and Scott Gray and Nick Ryder and Mikhail Pavlov and Alethea Power and Lukasz Kaiser and Mohammad Bavarian and Clemens Winter and Philippe Tillet and Felipe Petroski Such and Dave Cummings and Matthias Plappert and Fotios Chantzis and Elizabeth Barnes and Ariel Herbert-Voss and William Hebgen Guss and Alex Nichol and Alex Paino and Nikolas Tezak and Jie Tang and Igor Babuschkin and Suchir Balaji and Shantanu Jain and William Saunders and Christopher Hesse and Andrew N. Carr and Jan Leike and Josh Achiam and Vedant Misra and Evan Morikawa and Alec Radford and Matthew Knight and Miles Brundage and Mira Murati and Katie Mayer and Peter Welinder and Bob McGrew and Dario Amodei and Sam McCandlish and Ilya Sutskever and Wojciech Zaremba},
-  title = {Evaluating Large Language Models Trained on Code},
-  journal = {arXiv preprint arXiv:2107.03374},
-  year = {2021},
-  doi = {10.48550/arXiv.2107.03374},
-  url = {https://arxiv.org/abs/2107.03374}
-}
-@article{roziere2023codellama,
-  author = {Baptiste Roziere and Jonas Gehring and Fabian Gloeckle and Sten Sootla and Itai Gat and Xiaoqing Ellen Tan and Yossi Adi and Jingyu Liu and Romain Sauvestre and Tal Remez and J{\'{e}}r{\'{e}}my Rapin and Artyom Kozhevnikov and Ivan Evtimov and Joanna Bitton and Manish Bhatt and Cristian Canton Ferrer and Aaron Grattafiori and Wenhan Xiong and Alexandre D{\'{e}}fossez and Jade Copet and Faisal Azhar and Hugo Touvron and Louis Martin and Nicolas Usunier and Thomas Scialom and Gabriel Synnaeve},
-  title = {{Code Llama}: Open Foundation Models for Code},
-  journal = {arXiv preprint arXiv:2308.12950},
-  year = {2023},
-  doi = {10.48550/arXiv.2308.12950},
-  url = {https://arxiv.org/abs/2308.12950}
-}
-@article{lu2021codexglue,
-  author = {Shuai Lu and Daya Guo and Shuo Ren and Junjie Huang and Alexey Svyatkovskiy and Ambrosio Blanco and Colin Clement and Dawn Drain and Daxin Jiang and Duyu Tang and Ge Li and Lidong Zhou and Linjun Shou and Long Zhou and Michele Tufano and Ming Gong and Ming Zhou and Nan Duan and Neel Sundaresan and Shao Kun Deng and Shengyu Fu and Shujie Liu},
-  title = {{CodeXGLUE}: A Machine Learning Benchmark Dataset for Code Understanding and Generation},
-  journal = {arXiv preprint arXiv:2102.04664},
-  year = {2021},
-  doi = {10.48550/arXiv.2102.04664},
-  url = {https://arxiv.org/abs/2102.04664}
-}
-@article{austin2021mbpp,
-  author = {Jacob Austin and Augustus Odena and Maxwell Nye and Maarten Bosma and Henryk Michalewski and David Dohan and Ellen Jiang and Carrie Cai and Michael Terry and Quoc Le and Charles Sutton},
-  title = {Program Synthesis with Large Language Models},
-  journal = {arXiv preprint arXiv:2108.07732},
-  year = {2021},
-  doi = {10.48550/arXiv.2108.07732},
-  url = {https://arxiv.org/abs/2108.07732}
-}
-@inproceedings{hendrycks2021apps,
-  author = {Dan Hendrycks and Steven Basart and Saurav Kadavath and Mantas Mazeika and Akul Arora and Ethan Guo and Collin Burns and Samir Puranik and Horace He and Dawn Song and Jacob Steinhardt},
-  title = {Measuring Coding Challenge Competence With {APPS}},
-  booktitle = {NeurIPS Datasets and Benchmarks},
-  year = {2021},
-  url = {https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/c24cd76e1ce41366a4bbe8a49b02a028-Abstract-round2.html}
-}
-@article{cassano2022multiple,
-  author = {Federico Cassano and John Gouwar and Daniel Nguyen and Sydney Nguyen and Luna Phipps-Costin and Donald Pinckney and Ming-Ho Yee and Yangtian Zi and Carolyn Jane Anderson and Molly Q. Feldman and Arjun Guha and Michael Greenberg and Abhinav Jangda},
-  title = {{MultiPL-E}: A Scalable and Polyglot Approach to Benchmarking Neural Code Generation},
-  journal = {IEEE Transactions on Software Engineering},
-  year = {2023},
-  volume = {49},
-  number = {7},
-  pages = {3675--3691},
-  doi = {10.1109/TSE.2023.3267446},
-  url = {https://doi.org/10.1109/TSE.2023.3267446}
-}
-@inproceedings{lai2023ds1000,
-  author = {Yiming Lai and Chengxi Li and Yiming Wang and Tianyi Zhang and Ruiqi Zhong and Luke Zettlemoyer and Wen-tau Yih and Daniel Fried and Sida Wang and Tao Yu},
-  title = {{DS-1000}: A Natural and Reliable Benchmark for Data Science Code Generation},
-  booktitle = {Proceedings of ICML},
-  year = {2023},
-  url = {https://proceedings.mlr.press/v202/lai23b.html}
-}
-@inproceedings{jimenez2024swebench,
-  author = {Carlos E. Jimenez and John Yang and Alexander Wettig and Shunyu Yao and Kexin Pei and Ofir Press and Karthik Narasimhan},
-  title = {{SWE-bench}: Can Language Models Resolve Real-World GitHub Issues?},
-  booktitle = {Proceedings of ICLR},
-  year = {2024},
-  url = {https://openreview.net/forum?id=VTF8yNQM66}
-}
-@inproceedings{jain2024livecodebench,
-  author = {Naman Jain and King Han and Alex Gu and Wen-Ding Li and Fanjia Yan and Tianjun Zhang and Sida Wang and Armando Solar-Lezama and Koushik Sen and Ion Stoica},
-  title = {{LiveCodeBench}: Holistic and Contamination Free Evaluation of Large Language Models for Code},
-  booktitle = {Proceedings of ICLR},
-  year = {2025},
-  url = {https://proceedings.iclr.cc/paper_files/paper/2025/hash/94074dd5a072d28ff75a76dabed43767-Abstract-Conference.html}
-}
-@inproceedings{kirchenbauer2023watermark,
-  author = {John Kirchenbauer and Jonas Geiping and Yuxin Wen and Jonathan Katz and Ian Miers and Tom Goldstein},
-  title = {A Watermark for Large Language Models},
-  booktitle = {Proceedings of ICML},
-  year = {2023},
-  url = {https://proceedings.mlr.press/v202/kirchenbauer23a.html}
-}
-@inproceedings{zhao2024provable,
-  author = {Xuandong Zhao and Prabhanjan Vijendra Ananth and Lei Li and Yu-Xiang Wang},
-  title = {Provable Robust Watermarking for {AI}-Generated Text},
-  booktitle = {Proceedings of ICLR},
-  year = {2024},
-  url = {https://openreview.net/forum?id=SsmT8aO45L}
-}
-@inproceedings{li2023protecting,
-  author = {Zongjie Li and Chaozheng Wang and Shuai Wang and Cuiyun Gao},
-  title = {Protecting Intellectual Property of Large Language Model-Based Code Generation APIs via Watermarks},
-  booktitle = {Proceedings of ACM CCS},
-  year = {2023},
-  pages = {2336--2350},
-  doi = {10.1145/3576915.3623120},
-  url = {https://doi.org/10.1145/3576915.3623120}
-}
-@inproceedings{lee2024who,
-  author = {Taehyun Lee and Seonghyeon Ye and Jooyoung Park and Soyeon Caren Han and Alice Oh and Juho Kim},
-  title = {Who Wrote this Code? Watermarking for Code Generation},
-  booktitle = {Proceedings of ACL},
-  year = {2024},
-  url = {https://aclanthology.org/2024.acl-long.268/}
-}
-@article{suresh2024robust,
-  author = {Tarun Suresh and Karthik Valmeekam and Rishabh Bhardwaj and Matthew Marge and Subbarao Kambhampati},
-  title = {Is the Watermarking of {LLM}-Generated Code Robust?},
-  journal = {arXiv preprint arXiv:2403.17983},
-  year = {2024},
-  doi = {10.48550/arXiv.2403.17983},
-  url = {https://arxiv.org/abs/2403.17983}
-}
-@inproceedings{carlini2021extracting,
-  author = {Nicholas Carlini and Florian Tram{\`e}r and Eric Wallace and Matthew Jagielski and Ariel Herbert-Voss and Katherine Lee and Adam Roberts and Tom Brown and Dawn Song and {\'{U}}lfar Erlingsson and Alina Oprea and Colin Raffel},
-  title = {Extracting Training Data from Large Language Models},
-  booktitle = {Proceedings of USENIX Security},
-  year = {2021},
-  url = {https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-extracting}
-}
-@inproceedings{carlini2023quantifying,
-  author = {Nicholas Carlini and Daphne Ippolito and Matthew Jagielski and Katherine Lee and Florian Tram{\`e}r and Chiyuan Zhang},
-  title = {Quantifying Memorization Across Neural Language Models},
-  booktitle = {Proceedings of ICLR},
-  year = {2023},
-  url = {https://openreview.net/forum?id=TatRHT_1cK}
-}
-@inproceedings{shi2023detecting,
-  author = {Weijia Shi and Anirudh Ajith and Mengzhou Xia and Yangsibo Huang and Daogao Liu and Terra Blevins and Danqi Chen and Luke Zettlemoyer},
-  title = {Detecting Pretraining Data from Large Language Models},
-  booktitle = {Proceedings of ICLR},
-  year = {2024},
-  url = {https://openreview.net/forum?id=zWqr3MQuNs}
-}
-@article{xu2024contamination,
-  author = {Yiheng Xu and Minghao Wu and Yao Fu and Shizhu He and Kang Liu and Jun Zhao},
-  title = {Benchmark Data Contamination of Large Language Models: A Survey},
-  journal = {arXiv preprint arXiv:2406.04244},
-  year = {2024},
-  doi = {10.48550/arXiv.2406.04244},
-  url = {https://arxiv.org/abs/2406.04244}
-}
-@article{bender2018data,
-  author = {Emily M. Bender and Batya Friedman},
-  title = {Data Statements for Natural Language Processing: Toward Mitigating System Bias and Enabling Better Science},
-  journal = {Transactions of the Association for Computational Linguistics},
-  year = {2018},
-  volume = {6},
-  pages = {587--604},
-  doi = {10.1162/tacl_a_00041},
-  url = {https://doi.org/10.1162/tacl_a_00041}
-}
-@inproceedings{pearce2022asleep,
-  author = {Hammond Pearce and Baleegh Ahmad and Benjamin Tan and Brendan Dolan-Gavitt and Ramesh Karri},
-  title = {Asleep at the Keyboard? Assessing the Security of {GitHub Copilot}'s Code Contributions},
-  booktitle = {Proceedings of IEEE Symposium on Security and Privacy},
-  year = {2022},
-  pages = {754--768},
-  doi = {10.1109/SP46214.2022.9833571},
-  url = {https://ieeexplore.ieee.org/document/9833571}
-}
-@inproceedings{perry2023users,
-  author = {Neil Perry and Megha Srivastava and Deepak Kumar and Dan Boneh},
-  title = {Do Users Write More Insecure Code with {AI} Assistants?},
-  booktitle = {Proceedings of ACM CCS},
-  year = {2023},
-  pages = {2785--2799},
-  doi = {10.1145/3576915.3623157},
-  url = {https://doi.org/10.1145/3576915.3623157}
-}
-@inproceedings{siddiq2023llmseceval,
-  author = {Catherine Tony and Markus Mutas and Nicol{\'{a}}s E. D{\'{i}}az Ferreyra and Riccardo Scandariato},
-  title = {{LLMSecEval}: A Dataset of Natural Language Prompts for Security Evaluations},
-  booktitle = {Proceedings of the 20th IEEE/ACM International Conference on Mining Software Repositories (MSR)},
-  year = {2023},
-  pages = {588--592},
-  doi = {10.1109/MSR59073.2023.00084},
-  url = {https://arxiv.org/abs/2303.09384}
-}
-@misc{mitre2025cwe,
-  author = {{MITRE}},
-  title = {{CWE Top 25 Most Dangerous Software Weaknesses}},
-  year = {2025},
-  howpublished = {\url{https://cwe.mitre.org/top25/archive/2025/2025_cwe_top25.html}},
-  note = {Accessed: 2026-05-06}
+@misc{chen2021codex,
+      title={Evaluating Large Language Models Trained on Code}, 
+      author={Mark Chen and Jerry Tworek and Heewoo Jun and Qiming Yuan and Henrique Ponde de Oliveira Pinto and Jared Kaplan and Harri Edwards and Yuri Burda and Nicholas Joseph and Greg Brockman and Alex Ray and Raul Puri and Gretchen Krueger and Michael Petrov and Heidy Khlaaf and Girish Sastry and Pamela Mishkin and Brooke Chan and Scott Gray and Nick Ryder and Mikhail Pavlov and Alethea Power and Lukasz Kaiser and Mohammad Bavarian and Clemens Winter and Philippe Tillet and Felipe Petroski Such and Dave Cummings and Matthias Plappert and Fotios Chantzis and Elizabeth Barnes and Ariel Herbert-Voss and William Hebgen Guss and Alex Nichol and Alex Paino and Nikolas Tezak and Jie Tang and Igor Babuschkin and Suchir Balaji and Shantanu Jain and William Saunders and Christopher Hesse and Andrew N. Carr and Jan Leike and Josh Achiam and Vedant Misra and Evan Morikawa and Alec Radford and Matthew Knight and Miles Brundage and Mira Murati and Katie Mayer and Peter Welinder and Bob McGrew and Dario Amodei and Sam McCandlish and Ilya Sutskever and Wojciech Zaremba},
+      year={2021},
+      eprint={2107.03374},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2107.03374}, 
 }
 
-@misc{zhang2026codemarkbench,
-  author = {Haoyi Zhang},
-  title = {{CodeMarkBench}: Source-Code Watermarking Benchmark},
-  year = {2026},
-  howpublished = {\url{https://github.com/Haoyi-Zhang/CodeMarkBench}},
-  note = {Software artifact and submitted FYP code snapshot; accessed 2026-05-07}
+@misc{roziere2023codellama,
+      title={Code Llama: Open Foundation Models for Code}, 
+      author={Baptiste Rozière and Jonas Gehring and Fabian Gloeckle and Sten Sootla and Itai Gat and Xiaoqing Ellen Tan and Yossi Adi and Jingyu Liu and Romain Sauvestre and Tal Remez and Jérémy Rapin and Artyom Kozhevnikov and Ivan Evtimov and Joanna Bitton and Manish Bhatt and Cristian Canton Ferrer and Aaron Grattafiori and Wenhan Xiong and Alexandre Défossez and Jade Copet and Faisal Azhar and Hugo Touvron and Louis Martin and Nicolas Usunier and Thomas Scialom and Gabriel Synnaeve},
+      year={2024},
+      eprint={2308.12950},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2308.12950}, 
+}
+
+@inproceedings{feng2020codebert,
+    title = "{C}ode{BERT}: A Pre-Trained Model for Programming and Natural Languages",
+    author = "Feng, Zhangyin  and
+      Guo, Daya  and
+      Tang, Duyu  and
+      Duan, Nan  and
+      Feng, Xiaocheng  and
+      Gong, Ming  and
+      Shou, Linjun  and
+      Qin, Bing  and
+      Liu, Ting  and
+      Jiang, Daxin  and
+      Zhou, Ming",
+    editor = "Cohn, Trevor  and
+      He, Yulan  and
+      Liu, Yang",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2020",
+    month = nov,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2020.findings-emnlp.139/",
+    doi = "10.18653/v1/2020.findings-emnlp.139",
+    pages = "1536--1547",
+    abstract = "We present CodeBERT, a bimodal pre-trained model for programming language (PL) and natural language (NL). CodeBERT learns general-purpose representations that support downstream NL-PL applications such as natural language code search, code documentation generation, etc. We develop CodeBERT with Transformer-based neural architecture, and train it with a hybrid objective function that incorporates the pre-training task of replaced token detection, which is to detect plausible alternatives sampled from generators. This enables us to utilize both ``bimodal'' data of NL-PL pairs and ``unimodal data, where the former provides input tokens for model training while the latter helps to learn better generators. We evaluate CodeBERT on two NL-PL applications by fine-tuning model parameters. Results show that CodeBERT achieves state-of-the-art performance on both natural language code search and code documentation generation. Furthermore, to investigate what type of knowledge is learned in CodeBERT, we construct a dataset for NL-PL probing, and evaluate in a zero-shot setting where parameters of pre-trained models are fixed. Results show that CodeBERT performs better than previous pre-trained models on NLPL probing."
+}
+
+@inproceedings{ahmad2021plbart,
+    title = "Unified Pre-training for Program Understanding and Generation",
+    author = "Ahmad, Wasi  and
+      Chakraborty, Saikat  and
+      Ray, Baishakhi  and
+      Chang, Kai-Wei",
+    editor = "Toutanova, Kristina  and
+      Rumshisky, Anna  and
+      Zettlemoyer, Luke  and
+      Hakkani-Tur, Dilek  and
+      Beltagy, Iz  and
+      Bethard, Steven  and
+      Cotterell, Ryan  and
+      Chakraborty, Tanmoy  and
+      Zhou, Yichao",
+    booktitle = "Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+    month = jun,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.naacl-main.211/",
+    doi = "10.18653/v1/2021.naacl-main.211",
+    pages = "2655--2668",
+    abstract = "Code summarization and generation empower conversion between programming language (PL) and natural language (NL), while code translation avails the migration of legacy code from one PL to another. This paper introduces PLBART, a sequence-to-sequence model capable of performing a broad spectrum of program and language understanding and generation tasks. PLBART is pre-trained on an extensive collection of Java and Python functions and associated NL text via denoising autoencoding. Experiments on code summarization in the English language, code generation, and code translation in seven programming languages show that PLBART outperforms or rivals state-of-the-art models. Moreover, experiments on discriminative tasks, e.g., program repair, clone detection, and vulnerable code detection, demonstrate PLBART{'}s effectiveness in program understanding. Furthermore, analysis reveals that PLBART learns program syntax, style (e.g., identifier naming convention), logical flow (e.g., ``if{``} block inside an ``else{``} block is equivalent to ``else if{``} block) that are crucial to program semantics and thus excels even with limited annotations."
+}
+
+@inproceedings{wang2021codet5,
+    title = "{C}ode{T}5: Identifier-aware Unified Pre-trained Encoder-Decoder Models for Code Understanding and Generation",
+    author = "Wang, Yue  and
+      Wang, Weishi  and
+      Joty, Shafiq  and
+      Hoi, Steven C.H.",
+    editor = "Moens, Marie-Francine  and
+      Huang, Xuanjing  and
+      Specia, Lucia  and
+      Yih, Scott Wen-tau",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "Online and Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.685/",
+    doi = "10.18653/v1/2021.emnlp-main.685",
+    pages = "8696--8708",
+    abstract = "Pre-trained models for Natural Languages (NL) like BERT and GPT have been recently shown to transfer well to Programming Languages (PL) and largely benefit a broad set of code-related tasks. Despite their success, most current methods either rely on an encoder-only (or decoder-only) pre-training that is suboptimal for generation (resp. understanding) tasks or process the code snippet in the same way as NL, neglecting the special characteristics of PL such as token types. We present CodeT5, a unified pre-trained encoder-decoder Transformer model that better leverages the code semantics conveyed from the developer-assigned identifiers. Our model employs a unified framework to seamlessly support both code understanding and generation tasks and allows for multi-task learning. Besides, we propose a novel identifier-aware pre-training task that enables the model to distinguish which code tokens are identifiers and to recover them when they are masked. Furthermore, we propose to exploit the user-written code comments with a bimodal dual generation task for better NL-PL alignment. Comprehensive experiments show that CodeT5 significantly outperforms prior methods on understanding tasks such as code defect detection and clone detection, and generation tasks across various directions including PL-NL, NL-PL, and PL-PL. Further analysis reveals that our model can better capture semantic information from code. Our code and pre-trained models are released at \url{https://github.com/salesforce/CodeT5}."
+}
+
+@inproceedings{fried2023incoder,
+  added-at = {2024-07-24T00:00:00.000+0200},
+  author = {Fried, Daniel and Aghajanyan, Armen and Lin, Jessy and Wang, Sida and Wallace, Eric and Shi, Freda and Zhong, Ruiqi and Yih, Scott and Zettlemoyer, Luke and Lewis, Mike},
+  biburl = {https://www.bibsonomy.org/bibtex/27d8c553247cf442801f23c39d8b08ea8/dblp},
+  booktitle = {ICLR},
+  ee = {https://openreview.net/forum?id=hQwb-lbM6EL},
+  interhash = {f429d50bc2b2c1a15617bcc59b54fef0},
+  intrahash = {7d8c553247cf442801f23c39d8b08ea8},
+  keywords = {dblp},
+  publisher = {OpenReview.net},
+  timestamp = {2024-07-29T07:27:25.000+0200},
+  title = {InCoder: A Generative Model for Code Infilling and Synthesis.},
+  url = {http://dblp.uni-trier.de/db/conf/iclr/iclr2023.html#FriedAL0WSZYZL23},
+  year = 2023
+}
+
+@misc{lu2021codexglue,
+      title={CodeXGLUE: A Machine Learning Benchmark Dataset for Code Understanding and Generation}, 
+      author={Shuai Lu and Daya Guo and Shuo Ren and Junjie Huang and Alexey Svyatkovskiy and Ambrosio Blanco and Colin Clement and Dawn Drain and Daxin Jiang and Duyu Tang and Ge Li and Lidong Zhou and Linjun Shou and Long Zhou and Michele Tufano and Ming Gong and Ming Zhou and Nan Duan and Neel Sundaresan and Shao Kun Deng and Shengyu Fu and Shujie Liu},
+      year={2021},
+      eprint={2102.04664},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2102.04664}, 
+}
+
+@misc{austin2021mbpp,
+      title={Program Synthesis with Large Language Models}, 
+      author={Jacob Austin and Augustus Odena and Maxwell Nye and Maarten Bosma and Henryk Michalewski and David Dohan and Ellen Jiang and Carrie Cai and Michael Terry and Quoc Le and Charles Sutton},
+      year={2021},
+      eprint={2108.07732},
+      archivePrefix={arXiv},
+      primaryClass={cs.PL},
+      url={https://arxiv.org/abs/2108.07732}, 
+}
+
+@inproceedings{hendrycks2021apps,
+ author = {Hendrycks, Dan and Basart, Steven and Kadavath, Saurav and Mazeika, Mantas and Arora, Akul and Guo, Ethan and Burns, Collin and Puranik, Samir and He, Horace and Song, Dawn and Steinhardt, Jacob},
+ booktitle = {Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks},
+ editor = {J. Vanschoren and S. Yeung},
+ pages = {},
+ title = {Measuring Coding Challenge Competence With APPS},
+ url = {https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/file/c24cd76e1ce41366a4bbe8a49b02a028-Paper-round2.pdf},
+ volume = {1},
+ year = {2021}
+}
+
+@article{cassano2022multiple,
+author = {Cassano, Federico and Gouwar, John and Nguyen, Daniel and Nguyen, Sydney and Phipps-Costin, Luna and Pinckney, Donald and Yee, Ming-Ho and Zi, Yangtian and Anderson, Carolyn Jane and Feldman, Molly Q and Guha, Arjun and Greenberg, Michael and Jangda, Abhinav},
+title = {MultiPL-E: A Scalable and Polyglot Approach to Benchmarking Neural Code Generation},
+year = {2023},
+issue_date = {July 2023},
+publisher = {IEEE Press},
+volume = {49},
+number = {7},
+issn = {0098-5589},
+url = {https://doi.org/10.1109/TSE.2023.3267446},
+doi = {10.1109/TSE.2023.3267446},
+abstract = {Large language models have demonstrated the ability to generate both natural language and programming language text. Although contemporary code generation models are trained on corpora with several programming languages, they are tested using benchmarks that are typically monolingual. The most widely used code generation benchmarks only target Python, so there is little quantitative evidence of how code generation models perform on other programming languages. We propose MultiPL-E, a system for translating unit test-driven code generation benchmarks to new languages. We create the first massively multilingual code generation benchmark by using MultiPL-E to translate two popular Python code generation benchmarks to 18 additional programming languages. We use MultiPL-E to extend the HumanEval benchmark (Chen et al., 2021) and MBPP benchmark (Austin et al., 2021) to 18 languages that encompass a range of programming paradigms and popularity. Using these new parallel benchmarks, we evaluate the multi-language performance of three state-of-the-art code generation models: Codex (Chen et al., 2021), CodeGen (Nijkamp et al., 2022) and InCoder (Fried et al., 2022). We find that Codex matches or even exceeds its performance on Python for several other languages. The range of programming languages represented in MultiPL-E allow us to explore the impact of language frequency and language features on model performance. Finally, the MultiPL-E approach of compiling code generation benchmarks to new programming languages is both scalable and extensible, making it straightforward to evaluate new models, benchmarks, and languages.},
+journal = {IEEE Trans. Softw. Eng.},
+month = jul,
+pages = {3675–3691},
+numpages = {17}
+}
+
+@inproceedings{lai2023ds1000,
+author = {Lai, Yuhang and Li, Chengxi and Wang, Yiming and Zhang, Tianyi and Zhong, Ruiqi and Zettlemoyer, Luke and Yih, Wen-tau and Fried, Daniel and Wang, Sida and Yu, Tao},
+title = {DS-1000: a natural and reliable benchmark for data science code generation},
+year = {2023},
+publisher = {JMLR.org},
+abstract = {We introduce DS-1000, a code generation benchmark with a thousand data science problems spanning seven Python libraries, such as NumPy and Pandas. Compared to prior works, DS- 1000 incorporates three core features. First, our problems reflect diverse, realistic, and practical use cases since we collected them from Stack-Overflow. Second, our automatic evaluation is highly specific (reliable) - across all Codex-002- predicted solutions that our evaluation accepts, only 1.8\% of them are incorrect; we achieve this with multi-criteria metrics, checking both functional correctness by running test cases and surface-form constraints by restricting API usages or keywords. Finally, we proactively defend against memorization by slightly modifying our problems to be different from the original Stack-Overflow source; consequently, models cannot answer them correctly by memorizing the solutions from pre-training. The current best public system (Codex-002) achieves 43.3\% accuracy, leaving ample room for improvement. We release our benchmark at https://ds1000-code-gen.github.io.},
+booktitle = {Proceedings of the 40th International Conference on Machine Learning},
+articleno = {756},
+numpages = {27},
+location = {Honolulu, Hawaii, USA},
+series = {ICML'23}
+}
+
+@inproceedings{jimenez2024swebench,
+    title={{SWE}-bench: Can Language Models Resolve Real-world Github Issues?},
+    author={Carlos E Jimenez and John Yang and Alexander Wettig and Shunyu Yao and Kexin Pei and Ofir Press and Karthik R Narasimhan},
+    booktitle={The Twelfth International Conference on Learning Representations},
+    year={2024},
+    url={https://openreview.net/forum?id=VTF8yNQM66}
+}
+
+@article{jain2024livecodebench,
+    title={LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code},
+    author={Jain, Naman and Han, King and Gu, Alex and Li, Wen-Ding and Yan, Fanjia and Zhang, Tianjun and Wang, Sida and Solar-Lezama, Armando and Sen, Koushik and Stoica, Ion},
+    journal={arXiv preprint arXiv:2403.07974},
+    year={2024}
+}
+
+@article{zhuo2025bigcodebench,
+  title={BigCodeBench: Benchmarking Code Generation with Diverse Function Calls and Complex Instructions},
+  author={Zhuo, Terry Yue and Vu, Minh Chien and Chim, Jenny and Hu, Han and Yu, Wenhao and Widyasari, Ratnadira and Yusuf, Imam Nur Bani and Zhan, Haolan and He, Junda and Paul, Indraneil and others},
+  journal={arXiv preprint arXiv:2406.15877},
+  year={2024}
+}
+
+@InProceedings{kirchenbauer2023watermark,
+  title = 	 {A Watermark for Large Language Models},
+  author =       {Kirchenbauer, John and Geiping, Jonas and Wen, Yuxin and Katz, Jonathan and Miers, Ian and Goldstein, Tom},
+  booktitle = 	 {Proceedings of the 40th International Conference on Machine Learning},
+  pages = 	 {17061--17084},
+  year = 	 {2023},
+  editor = 	 {Krause, Andreas and Brunskill, Emma and Cho, Kyunghyun and Engelhardt, Barbara and Sabato, Sivan and Scarlett, Jonathan},
+  volume = 	 {202},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {23--29 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v202/kirchenbauer23a/kirchenbauer23a.pdf},
+  url = 	 {https://proceedings.mlr.press/v202/kirchenbauer23a.html},
+  abstract = 	 {Potential harms of large language models can be mitigated by watermarking model output, i.e., embedding signals into generated text that are invisible to humans but algorithmically detectable from a short span of tokens. We propose a watermarking framework for proprietary language models. The watermark can be embedded with negligible impact on text quality, and can be detected using an efficient open-source algorithm without access to the language model API or parameters. The watermark works by selecting a randomized set of "green" tokens before a word is generated, and then softly promoting use of green tokens during sampling. We propose a statistical test for detecting the watermark with interpretable p-values, and derive an information-theoretic framework for analyzing the sensitivity of the watermark. We test the watermark using a multi-billion parameter model from the Open Pretrained Transformer (OPT) family, and discuss robustness and security.}
+}
+
+@misc{kirchenbauer2024reliability,
+      title={On the Reliability of Watermarks for Large Language Models}, 
+      author={John Kirchenbauer and Jonas Geiping and Yuxin Wen and Manli Shu and Khalid Saifullah and Kezhi Kong and Kasun Fernando and Aniruddha Saha and Micah Goldblum and Tom Goldstein},
+      year={2024},
+      eprint={2306.04634},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2306.04634}, 
+}
+
+@misc{zhao2024provable,
+      title={Provable Robust Watermarking for AI-Generated Text}, 
+      author={Xuandong Zhao and Prabhanjan Ananth and Lei Li and Yu-Xiang Wang},
+      year={2023},
+      eprint={2306.17439},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2306.17439}, 
+}
+
+@InProceedings{christ2024undetectable,
+  title = 	 {Undetectable Watermarks for Language Models},
+  author =       {Christ, Miranda and Gunn, Sam and Zamir, Or},
+  booktitle = 	 {Proceedings of Thirty Seventh Conference on Learning Theory},
+  pages = 	 {1125--1139},
+  year = 	 {2024},
+  editor = 	 {Agrawal, Shipra and Roth, Aaron},
+  volume = 	 {247},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {30 Jun--03 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v247/christ24a/christ24a.pdf},
+  url = 	 {https://proceedings.mlr.press/v247/christ24a.html},
+  abstract = 	 {Recent advances in the capabilities of large language models such as GPT-4 have spurred increasing concern about our ability to detect AI-generated text.  Prior works have suggested methods of embedding watermarks in model outputs, by *noticeably* altering the output distribution. We ask: Is it possible to introduce a watermark without incurring *any detectable* change to the output distribution? To this end, we introduce a cryptographically-inspired notion of undetectable watermarks for language models.  That is, watermarks can be detected only with the knowledge of a secret key; without the secret key, it is computationally intractable to distinguish watermarked outputs from those of the original model. In particular, it is impossible for a user to observe any degradation in the quality of the text. Crucially, watermarks remain undetectable even when the user is allowed to adaptively query the model with arbitrarily chosen prompts. We construct undetectable watermarks based on the existence of one-way functions, a standard assumption in cryptography.}
+}
+
+@inproceedings{li2023protecting,
+author = {Li, Zongjie and Wang, Chaozheng and Wang, Shuai and Gao, Cuiyun},
+title = {Protecting Intellectual Property of Large Language Model-Based Code Generation APIs via Watermarks},
+year = {2023},
+isbn = {9798400700507},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3576915.3623120},
+doi = {10.1145/3576915.3623120},
+abstract = {The rise of large language model-based code generation (LLCG) has enabled various commercial services and APIs. Training LLCG models is often expensive and time-consuming, and the training data are often large-scale and even inaccessible to the public. As a result, the risk of intellectual property (IP) theft over the LLCG models (e.g., via imitation attacks) has been a serious concern. In this paper, we propose the first watermark (WM) technique to protect LLCG APIs from remote imitation attacks. Our proposed technique is based on replacing tokens in an LLCG output with their "synonyms" available in the programming language. A WM is thus defined as the stealthily tweaked distribution among token synonyms in LLCG outputs. We design six WM schemes (instantiated into over 30 WM passes) which rely on conceptually distinct token synonyms available in programming languages. Moreover, to check the IP of a suspicious model (decide if it is stolen from our protected LLCG API), we propose a statistical tests-based procedure that can directly check a remote, suspicious LLCG API.We evaluate our WM technique on LLCG models fine-tuned from two popular large language models, CodeT5 and CodeBERT. The evaluation shows that our approach is effective in both WM injection and IP check. The inserted WMs do not undermine the usage of normal users (i.e., high fidelity) and incur negligible extra cost. Moreover, our injected WMs exhibit high stealthiness and robustness against powerful attackers; even if they know all WM schemes, they can hardly remove WMs without largely undermining the accuracy of their stolen models.},
+booktitle = {Proceedings of the 2023 ACM SIGSAC Conference on Computer and Communications Security},
+pages = {2336–2350},
+numpages = {15},
+keywords = {code generation, large language model, watermark},
+location = {Copenhagen, Denmark},
+series = {CCS '23}
+}
+
+@inproceedings{lee2024who,
+    title = "Who Wrote this Code? Watermarking for Code Generation",
+    author = "Lee, Taehyun  and
+      Hong, Seokhee  and
+      Ahn, Jaewoo  and
+      Hong, Ilgee  and
+      Lee, Hwaran  and
+      Yun, Sangdoo  and
+      Shin, Jamin  and
+      Kim, Gunhee",
+    editor = "Ku, Lun-Wei  and
+      Martins, Andre  and
+      Srikumar, Vivek",
+    booktitle = "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = aug,
+    year = "2024",
+    address = "Bangkok, Thailand",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.acl-long.268/",
+    doi = "10.18653/v1/2024.acl-long.268",
+    pages = "4890--4911",
+    abstract = "Since the remarkable generation performance of large language models raised ethical and legal concerns, approaches to detect machine-generated text by embedding watermarks are being developed.However, we discover that the existing works fail to function appropriately in code generation tasks due to the task{'}s nature of having low entropy.Extending a logit-modifying watermark method, we propose Selective WatErmarking via Entropy Thresholding (SWEET), which enhances detection ability and mitigates code quality degeneration by removing low-entropy segments at generating and detecting watermarks.Our experiments show that SWEET significantly improves code quality preservation while outperforming all baselines, including post-hoc detection methods, in detecting machine-generated code text.Our code is available inhttps://github.com/hongcheki/sweet-watermark."
+}
+
+@misc{suresh2024robust,
+      title={Is The Watermarking Of LLM-Generated Code Robust?}, 
+      author={Tarun Suresh and Shubham Ugare and Gagandeep Singh and Sasa Misailovic},
+      year={2025},
+      eprint={2403.17983},
+      archivePrefix={arXiv},
+      primaryClass={cs.CR},
+      url={https://arxiv.org/abs/2403.17983}, 
+}
+
+@inproceedings {carlini2021extracting,
+author = {Nicholas Carlini and Florian Tram{\`e}r and Eric Wallace and Matthew Jagielski and Ariel Herbert-Voss and Katherine Lee and Adam Roberts and Tom Brown and Dawn Song and {\'U}lfar Erlingsson and Alina Oprea and Colin Raffel},
+title = {Extracting Training Data from Large Language Models},
+booktitle = {30th USENIX Security Symposium (USENIX Security 21)},
+year = {2021},
+isbn = {978-1-939133-24-3},
+pages = {2633--2650},
+url = {https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-extracting},
+publisher = {USENIX Association},
+month = aug
+}
+
+@misc{carlini2023quantifying,
+      title={Quantifying Memorization Across Neural Language Models}, 
+      author={Nicholas Carlini and Daphne Ippolito and Matthew Jagielski and Katherine Lee and Florian Tramer and Chiyuan Zhang},
+      year={2023},
+      eprint={2202.07646},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2202.07646}, 
+}
+
+@misc{shi2023detecting,
+      title={Detecting Pretraining Data from Large Language Models}, 
+      author={Weijia Shi and Anirudh Ajith and Mengzhou Xia and Yangsibo Huang and Daogao Liu and Terra Blevins and Danqi Chen and Luke Zettlemoyer},
+      year={2024},
+      eprint={2310.16789},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2310.16789}, 
+}
+
+@misc{xu2024contamination,
+      title={Benchmark Data Contamination of Large Language Models: A Survey}, 
+      author={Cheng Xu and Shuhao Guan and Derek Greene and M-Tahar Kechadi},
+      year={2024},
+      eprint={2406.04244},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2406.04244}, 
+}
+
+@article{bender2018data,
+    author = {Bender, Emily M. and Friedman, Batya},
+    title = {Data Statements for Natural Language Processing: Toward Mitigating System Bias and Enabling Better Science},
+    journal = {Transactions of the Association for Computational Linguistics},
+    volume = {6},
+    pages = {587-604},
+    year = {2018},
+    month = {12},
+    abstract = {In this paper, we propose data statements as a design solution and professional practice for natural language processing technologists, in both research and development. Through the adoption and widespread use of data statements, the field can begin to address critical scientific and ethical issues that result from the use of data from certain populations in the development of technology for other populations. We present a form that data statements can take and explore the implications of adopting them as part of regular practice. We argue that data statements will help alleviate issues related to exclusion and bias in language technology, lead to better precision in claims about how natural language processing research can generalize and thus better engineering results, protect companies from public embarrassment, and ultimately lead to language technology that meets its users in their own preferred linguistic style and furthermore does not misrepresent them to others.},
+    issn = {2307-387X},
+    doi = {10.1162/tacl_a_00041},
+    url = {https://doi.org/10.1162/tacl_a_00041},
+    eprint = {https://direct.mit.edu/tacl/article-pdf/doi/10.1162/tacl_a_00041/1567666/tacl_a_00041.pdf},
+}
+
+@INPROCEEDINGS{pearce2022asleep,
+  author={Pearce, Hammond and Ahmad, Baleegh and Tan, Benjamin and Dolan-Gavitt, Brendan and Karri, Ramesh},
+  booktitle={2022 IEEE Symposium on Security and Privacy (SP)}, 
+  title={Asleep at the Keyboard? Assessing the Security of GitHub Copilot’s Code Contributions}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={754-768},
+  keywords={Privacy;Codes;Computational modeling;Keyboards;Computer crime;Open source software;Software development management;Cybersecurity;Artificial Intelligence (AI);code generation;Common Weakness Enumerations (CWEs)},
+  doi={10.1109/SP46214.2022.9833571}}
+
+@inproceedings{perry2023users,
+author = {Perry, Neil and Srivastava, Megha and Kumar, Deepak and Boneh, Dan},
+title = {Do Users Write More Insecure Code with AI Assistants?},
+year = {2023},
+isbn = {9798400700507},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3576915.3623157},
+doi = {10.1145/3576915.3623157},
+abstract = {AI code assistants have emerged as powerful tools that can aid in the software development life-cycle and can improve developer productivity. Unfortunately, such assistants have also been found to produce insecure code in lab environments, raising significant concerns about their usage in practice. In this paper, we conduct a user study to examine how users interact with AI code assistants to solve a variety of security related tasks. Overall, we find that participants who had access to an AI assistant wrote significantly less secure code than those without access to an assistant. Participants with access to an AI assistant were also more likely to believe they wrote secure code, suggesting that such tools may lead users to be overconfident about security flaws in their code. To better inform the design of future AI-based code assistants, we release our user-study apparatus to researchers seeking to build on our work.},
+booktitle = {Proceedings of the 2023 ACM SIGSAC Conference on Computer and Communications Security},
+pages = {2785–2799},
+numpages = {15},
+keywords = {language models, machine learning, programming assistants, usable security},
+location = {Copenhagen, Denmark},
+series = {CCS '23}
+}
+
+@INPROCEEDINGS{siddiq2023llmseceval,
+  author={Tony, Catherine and Mutas, Markus and Ferreyra, Nicolás E. Díaz and Scandariato, Riccardo},
+  booktitle={2023 IEEE/ACM 20th International Conference on Mining Software Repositories (MSR)}, 
+  title={LLMSecEval: A Dataset of Natural Language Prompts for Security Evaluations}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={588-592},
+  keywords={Computer languages;Codes;Natural languages;Programming;Software;Security;Data mining;LLMs;code security;NL prompts;CWE},
+  doi={10.1109/MSR59073.2023.00084}}
+
+@misc{mitre2025cwe,
+
+  author = {{MITRE}},
+
+  title = {{CWE Top 25 Most Dangerous Software Weaknesses}},
+
+  year = {2025},
+
+  howpublished = {\url{https://cwe.mitre.org/top25/archive/2025/2025_cwe_top25.html}},
+
+  note = {Accessed: 2026-05-06}
+
 }
 
 @inproceedings{liu2023evalplus,
-  author = {Jiawei Liu and Chunqiu Steven Xia and Yuyao Wang and Lingming Zhang},
-  title = {Is Your Code Generated by {ChatGPT} Really Correct? Rigorous Evaluation of Large Language Models for Code Generation},
-  booktitle = {Advances in Neural Information Processing Systems 36},
-  year = {2023},
-  url = {https://proceedings.neurips.cc/paper_files/paper/2023/hash/43e9d647ccd3e4b7b5baab53f0368686-Abstract-Conference.html}
+author = {Liu, Jiawei and Xia, Chunqiu Steven and Wang, Yuyao and Zhang, Lingming},
+title = {Is your code generated by ChatGPT really correct? rigorous evaluation of large language models for code generation},
+year = {2023},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {Program synthesis has been long studied with recent approaches focused on directly using the power of Large Language Models (LLMs) to generate code. Programming benchmarks, with curated synthesis problems and test-cases, are used to measure the performance of various LLMs on code synthesis. However, these test-cases can be limited in both quantity and quality for fully assessing the functional correctness of the generated code. Such limitation in the existing benchmarks begs the following question: In the era of LLMs, is the code generated really correct? To answer this, we propose EvalPlus - a code synthesis evaluation framework to rigorously benchmark the functional correctness of LLM-synthesized code. EvalPlus augments a given evaluation dataset with large amounts of test-cases newly produced by an automatic test input generator, powered by both LLM- and mutation-based strategies. While EvalPlus is general, we extend the test-cases of the popular HUMANEVAL benchmark by 80 \texttimes{} to build HUMANEVAL+. Our extensive evaluation across 26 popular LLMs (e.g., GPT-4 and ChatGPT) demonstrates that HUMANEVAL+ is able to catch significant amounts of previously undetected wrong code synthesized by LLMs, reducing the pass@k by up-to 19.3-28.9\%. We also surprisingly found that test insufficiency can lead to mis-ranking. For example, both WizardCoder-CodeLlama and Phind-CodeLlama now outperform ChatGPT on HUMANEVAL+, while none of them could on HUMANEVAL. Our work not only indicates that prior popular code synthesis evaluation results do not accurately reflect the true performance of LLMs for code synthesis, but also opens up a new direction to improve such programming benchmarks through automated testing. We have open-sourced our tools, enhanced datasets as well as all LLM-generated code at https://github.com/evalplus/evalplus to facilitate and accelerate future LLM-for-code research.},
+booktitle = {Proceedings of the 37th International Conference on Neural Information Processing Systems},
+articleno = {943},
+numpages = {15},
+location = {New Orleans, LA, USA},
+series = {NIPS '23}
 }
 
-@article{zheng2023codegeex,
-  author = {Qinkai Zheng and Xiao Xia and Xu Zou and Yuxiao Dong and Shan Wang and Yufei Xue and Zihan Wang and Lei Shen and Andi Wang and Yang Li and Teng Su and Zhilin Yang and Jie Tang},
-  title = {{CodeGeeX}: A Pre-Trained Model for Code Generation with Multilingual Benchmarking on {HumanEval-X}},
-  journal = {arXiv preprint arXiv:2303.17568},
-  year = {2023},
-  doi = {10.48550/arXiv.2303.17568},
-  url = {https://arxiv.org/abs/2303.17568}
+@inproceedings{zheng2023codegeex,
+author = {Zheng, Qinkai and Xia, Xiao and Zou, Xu and Dong, Yuxiao and Wang, Shan and Xue, Yufei and Shen, Lei and Wang, Zihan and Wang, Andi and Li, Yang and Su, Teng and Yang, Zhilin and Tang, Jie},
+title = {CodeGeeX: A Pre-Trained Model for Code Generation with Multilingual Benchmarking on HumanEval-X},
+year = {2023},
+isbn = {9798400701030},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3580305.3599790},
+doi = {10.1145/3580305.3599790},
+abstract = {Large pre-trained code generation models, such as OpenAI Codex, can generate syntax-and function-correct code, making the coding of programmers more productive. In this paper, we introduce CodeGeeX, a multilingual model with 13 billion parameters for code generation. CodeGeeX is pre-trained on 850 billion tokens of 23 programming languages as of June 2022. Our extensive experiments suggest that CodeGeeX outperforms multilingual code models of similar scale for both the tasks of code generation and translation on HumanEval-X. Building upon HumanEval (Python only), we develop the HumanEval-X benchmark for evaluating multilingual models by hand-writing the solutions in C++, Java, JavaScript, and Go. In addition, we build CodeGeeX-based extensions on Visual Studio Code, JetBrains, and Cloud Studio, generating 8 billion tokens for tens of thousands of active users per week. Our user study demonstrates that CodeGeeX can help to increase coding efficiency for 83.4\% of its users. Finally, CodeGeeX is publicly accessible since Sep. 2022, we open-sourced its code, model weights, API, extensions, and HumanEval-X at https://github.com/THUDM/CodeGeeX.},
+booktitle = {Proceedings of the 29th ACM SIGKDD Conference on Knowledge Discovery and Data Mining},
+pages = {5673–5684},
+numpages = {12},
+keywords = {pre-trained model, large language model, code generation},
+location = {Long Beach, CA, USA},
+series = {KDD '23}
 }
 
-@article{hui2024qwen25coder,
-  author = {Binyuan Hui and Jian Yang and Zeyu Cui and Jiaxi Yang and Dayiheng Liu and Lei Zhang and Tianyu Liu and Jiajun Zhang and Bowen Yu and Keming Lu and Kai Dang and Yang Fan and Yichang Zhang and An Yang and Rui Men and Fei Huang and Bo Zheng and Yibo Miao and Shanghaoran Quan and Yunlong Feng and Xingzhang Ren and Xuancheng Ren and Jingren Zhou and Junyang Lin},
-  title = {{Qwen2.5-Coder} Technical Report},
-  journal = {arXiv preprint arXiv:2409.12186},
-  year = {2024},
-  doi = {10.48550/arXiv.2409.12186},
-  url = {https://arxiv.org/abs/2409.12186}
+@misc{hui2024qwen25coder,
+      title={Qwen2.5-Coder Technical Report}, 
+      author={Binyuan Hui and Jian Yang and Zeyu Cui and Jiaxi Yang and Dayiheng Liu and Lei Zhang and Tianyu Liu and Jiajun Zhang and Bowen Yu and Keming Lu and Kai Dang and Yang Fan and Yichang Zhang and An Yang and Rui Men and Fei Huang and Bo Zheng and Yibo Miao and Shanghaoran Quan and Yunlong Feng and Xingzhang Ren and Xuancheng Ren and Jingren Zhou and Junyang Lin},
+      year={2024},
+      eprint={2409.12186},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2409.12186}, 
 }
 
-@article{bigcode2024starcoder2,
-  author = {Anton Lozhkov and Raymond Li and Loubna Ben Allal and Federico Cassano and others},
-  title = {{StarCoder 2} and {The Stack v2}: The Next Generation},
-  journal = {arXiv preprint arXiv:2402.19173},
-  year = {2024},
-  doi = {10.48550/arXiv.2402.19173},
-  url = {https://arxiv.org/abs/2402.19173}
+@misc{bigcode2024starcoder2,
+      title={StarCoder 2 and The Stack v2: The Next Generation}, 
+      author={Anton Lozhkov and Raymond Li and Loubna Ben Allal and Federico Cassano and Joel Lamy-Poirier and Nouamane Tazi and Ao Tang and Dmytro Pykhtar and Jiawei Liu and Yuxiang Wei and Tianyang Liu and Max Tian and Denis Kocetkov and Arthur Zucker and Younes Belkada and Zijian Wang and Qian Liu and Dmitry Abulkhanov and Indraneil Paul and Zhuang Li and Wen-Ding Li and Megan Risdal and Jia Li and Jian Zhu and Terry Yue Zhuo and Evgenii Zheltonozhskii and Nii Osae Osae Dade and Wenhao Yu and Lucas Krauß and Naman Jain and Yixuan Su and Xuanli He and Manan Dey and Edoardo Abati and Yekun Chai and Niklas Muennighoff and Xiangru Tang and Muhtasham Oblokulov and Christopher Akiki and Marc Marone and Chenghao Mou and Mayank Mishra and Alex Gu and Binyuan Hui and Tri Dao and Armel Zebaze and Olivier Dehaene and Nicolas Patry and Canwen Xu and Julian McAuley and Han Hu and Torsten Scholak and Sebastien Paquet and Jennifer Robinson and Carolyn Jane Anderson and Nicolas Chapados and Mostofa Patwary and Nima Tajbakhsh and Yacine Jernite and Carlos Muñoz Ferrandis and Lingming Zhang and Sean Hughes and Thomas Wolf and Arjun Guha and Leandro von Werra and Harm de Vries},
+      year={2024},
+      eprint={2402.19173},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2402.19173}, 
 }
 
-@article{guo2024deepseekcoder,
-  author = {Daya Guo and Qihao Zhu and Dejian Yang and Zhenda Xie and Kai Dong and Wentao Zhang and Guanting Chen and Xiao Bi and Y. Wu and Y. K. Li and Fuli Luo and Yingfei Xiong and Wenfeng Liang},
-  title = {{DeepSeek-Coder}: When the Large Language Model Meets Programming -- The Rise of Code Intelligence},
-  journal = {arXiv preprint arXiv:2401.14196},
-  year = {2024},
-  doi = {10.48550/arXiv.2401.14196},
-  url = {https://arxiv.org/abs/2401.14196}
+@misc{guo2024deepseekcoder,
+      title={DeepSeek-Coder: When the Large Language Model Meets Programming -- The Rise of Code Intelligence}, 
+      author={Daya Guo and Qihao Zhu and Dejian Yang and Zhenda Xie and Kai Dong and Wentao Zhang and Guanting Chen and Xiao Bi and Y. Wu and Y. K. Li and Fuli Luo and Yingfei Xiong and Wenfeng Liang},
+      year={2024},
+      eprint={2401.14196},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2401.14196}, 
 }
 
 @article{wilson1927probable,
-  author = {Edwin B. Wilson},
-  title = {Probable Inference, the Law of Succession, and Statistical Inference},
-  journal = {Journal of the American Statistical Association},
-  volume = {22},
-  number = {158},
-  pages = {209--212},
-  year = {1927},
-  doi = {10.1080/01621459.1927.10502953}
+    author = "Wilson, Edwin B.",
+    title = "{Probable Inference, the Law of Succession, and Statistical Inference}",
+    doi = "10.1080/01621459.1927.10502953",
+    journal = "J. Am. Statist. Assoc.",
+    volume = "22",
+    number = "158",
+    pages = "209--212",
+    year = "1927"
 }

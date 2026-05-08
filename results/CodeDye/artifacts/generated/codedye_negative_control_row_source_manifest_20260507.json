@@ -1,0 +1,25 @@
+{
+  "blockers": [
+    "negative_control_row_level_source_not_in_local_compact_bundle"
+  ],
+  "claim_bearing": false,
+  "false_positive_count_from_gate": 0,
+  "false_positive_rate_ci95": {
+    "high": 0.012642971224546029,
+    "low": 0.0
+  },
+  "gate_artifact": "results/CodeDye/artifacts/generated/codedye_negative_control_300plus_gate_20260505.json",
+  "gate_sha256": "f37db71ebcd4cddeb38abaca77f053edb8fc155174a163b251831b365560866a",
+  "generated_at_utc": "2026-05-06T17:27:28+00:00",
+  "record_count_from_gate": 300,
+  "remote_or_source_artifact": {
+    "exists": true,
+    "path": "codemark_codedye/artifacts/generated/null_calibration_negative_controls_300_20260505.json",
+    "sha256": "3d6caffac78f77687c80811c11958da774f1780fdcc173b673a0b605effac163",
+    "size_bytes": 857119
+  },
+  "reviewer_boundary": "The negative-control gate preserves the 300-row count and source hash. A sanitized row-level ledger should be added before claiming row-level inspectability in the anonymous bundle.",
+  "row_level_ledger_available_in_local_bundle": false,
+  "schema_version": "codedye_negative_control_row_source_manifest_v1",
+  "source_local_exists": false
+}

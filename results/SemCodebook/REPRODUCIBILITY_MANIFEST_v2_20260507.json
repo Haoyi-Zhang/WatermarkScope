@@ -1,0 +1,88 @@
+{
+  "artifact_count": 7,
+  "artifacts": [
+    {
+      "blockers": [],
+      "bytes": 24506,
+      "claim_bearing": true,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/SemCodebook/artifacts/generated/semcodebook_whitebox_main_denominator_source_manifest_20260505.json",
+      "schema_version": "semcodebook_whitebox_main_denominator_source_manifest_v3_cell_derived",
+      "sha256": "32bcbbfa6297637efb4e49edf613b57d41708145d730ad8ac20ae270d962d1b7"
+    },
+    {
+      "blockers": [],
+      "bytes": 11368,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/SemCodebook/artifacts/generated/semcodebook_whitebox_model_sufficiency_gate_20260505.json",
+      "schema_version": "semcodebook_whitebox_family_scale_sufficiency_gate_v1",
+      "sha256": "5e3803b7987f4c10bfda3e4b89d98433fd64dd35d3e00c42b41601afd314cd16"
+    },
+    {
+      "blockers": [],
+      "bytes": 3359,
+      "claim_bearing": true,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/SemCodebook/artifacts/generated/semcodebook_whitebox_effect_authenticity_gate_20260505.json",
+      "schema_version": "semcodebook_whitebox_effect_authenticity_gate_v1",
+      "sha256": "531a62b7486a61399b7566a20d0efc06413fb5c47f0b41d57bbab5ee631adacb"
+    },
+    {
+      "blockers": [],
+      "bytes": 1174,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/SemCodebook/artifacts/generated/semcodebook_row_level_miss_attribution_v3_20260507.json",
+      "schema_version": "semcodebook_row_level_miss_attribution_v1",
+      "sha256": "cf8bfe07567a5d6e35bfdb3f635a31f96e65fbe5556d605636216bee0620d22e"
+    },
+    {
+      "blockers": [],
+      "bytes": 40242,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/SemCodebook/artifacts/generated/semcodebook_causal_contribution_table_v1_20260507.json",
+      "schema_version": "semcodebook_causal_contribution_table_v1",
+      "sha256": "badb2b7855d560adac7461fb69a6307e2ed2f5a80518678082ae52ff43e47fe0"
+    },
+    {
+      "blockers": [],
+      "bytes": 886,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_claim_allowed": true,
+      "gate_pass": true,
+      "path": "results/SemCodebook/artifacts/generated/semcodebook_causal_contribution_gate_v2_20260507.json",
+      "schema_version": "semcodebook_causal_contribution_gate_v2",
+      "sha256": "807f9e59317f0b4d92071fa7ec015366344043ab749b3252363c0dcf4b40a352"
+    },
+    {
+      "blockers": null,
+      "bytes": 1407,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_claim_allowed": null,
+      "gate_pass": null,
+      "path": "results/SemCodebook/artifacts/generated/semcodebook_structural_recoverability_theorem_v1_20260507.md",
+      "schema_version": null,
+      "sha256": "2d63a46018d78a1dac87e68c98f78695b65f08deadaf7aa676b65cd359f9b98b"
+    }
+  ],
+  "boundary": "Additive reviewer manifest. Locked original result artifacts and v1 manifests are not overwritten.",
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T18:26:11+00:00",
+  "missing_artifacts": [],
+  "project": "SemCodebook",
+  "schema_version": "semcodebook_reviewer_reproducibility_manifest_v2"
+}

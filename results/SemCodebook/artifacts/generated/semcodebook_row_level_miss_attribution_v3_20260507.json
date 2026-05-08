@@ -1,0 +1,37 @@
+{
+  "blocked": false,
+  "blockers": [],
+  "claim_bearing": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T17:16:08+00:00",
+  "input": "results/SemCodebook/artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json",
+  "miss_bucket_counts": {
+    "detector_abstain_or_reject_on_positive": 10210
+  },
+  "miss_by_attack": {
+    "comment_whitespace_normalize": 1300,
+    "control_flow_rewrite": 1300,
+    "cross_language_translation": 1300,
+    "dataflow_rewrite": 1170,
+    "dead_code_add_remove": 1320,
+    "helper_extract_inline": 1220,
+    "rename": 1300,
+    "unperturbed": 1300
+  },
+  "miss_by_language": {
+    "cpp": 1920,
+    "go": 2560,
+    "java": 1600,
+    "javascript": 1600,
+    "python": 2530
+  },
+  "miss_by_model": {
+    "DeepSeek-Coder-6.7B-Instruct": 10210
+  },
+  "positive_count": 21600,
+  "positive_miss_count": 10210,
+  "promotion_condition": "Every positive miss must map to exactly one primary failure bucket; no threshold or denominator changes.",
+  "record_count": 43200,
+  "schema_version": "semcodebook_row_level_miss_attribution_v1",
+  "source_shape": "records"
+}

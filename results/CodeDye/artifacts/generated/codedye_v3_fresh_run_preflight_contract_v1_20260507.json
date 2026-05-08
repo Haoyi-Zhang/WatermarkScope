@@ -1,0 +1,95 @@
+{
+  "blockers": [],
+  "canonical_output": "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507.json",
+  "claim_bearing": false,
+  "execution_contract_ready": true,
+  "expected_claim_denominator_record_count": 300,
+  "expected_record_count": 300,
+  "expected_result_schema_version": "codedye_attack_matrix_live_canonical_v1",
+  "formal_high_recall_detection_claim_allowed": false,
+  "formal_v3_live_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:14:53+00:00",
+  "launch_command_redacted": "python projects/CodeDye/scripts/run_attack_matrix_live_support.py --provider deepseek --claim-bearing-canonical --target-records 300 --run-id codedye_v3_20260507 --output results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507.json --progress-output results/CodeDye/artifacts/generated/codedye_v3_live_progress_20260507.json",
+  "postrun_promotion_gate": "results/CodeDye/artifacts/generated/codedye_v3_postrun_promotion_gate_v1_20260507.json",
+  "prerequisite_artifacts": [
+    {
+      "bytes": 1185,
+      "exists": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_run_readiness_classifier_v1_20260507.json",
+      "sha256": "31e02ebb5b357601384ed99a9dc7d7822bc4bf69c7fe2636112aa24190ce58df"
+    },
+    {
+      "bytes": 1936,
+      "exists": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_postrun_promotion_gate_v1_20260507.json",
+      "sha256": "3c6a506c56daf4b7992cd584fd565dc76489b7a6b20575052cb312a5a9b41ba6"
+    },
+    {
+      "bytes": 1144,
+      "exists": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_protocol_freeze_gate_20260507.json",
+      "sha256": "40e70179739e1681eaceaee81676cf1ba0913b3806f64c6c79567ff1f610eaaa"
+    },
+    {
+      "bytes": 922,
+      "exists": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_positive_negative_control_gate_20260507.json",
+      "sha256": "65392f3a653e86297481196e2ba9c3ec8e62e308a35b5f10694a09ad1d3b48c8"
+    },
+    {
+      "bytes": 1043,
+      "exists": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_support_exclusion_gate_20260507.json",
+      "sha256": "0d1449f1d0b77e963aed95e652b7f3e09a6ef5e8edf2bb3548fd9d6b3ba6212d"
+    },
+    {
+      "bytes": 138626,
+      "exists": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_negative_control_row_hash_manifest_v2_20260507.json",
+      "sha256": "be4dec83b0ca0957ad80d96c932cee1a6f6537979f10c9170bf60f69d4506e40"
+    }
+  ],
+  "progress_output": "results/CodeDye/artifacts/generated/codedye_v3_live_progress_20260507.json",
+  "project": "CodeDye",
+  "promotion_policy": "This contract permits only a fresh DeepSeek v3 execution attempt. A paper claim upgrade remains blocked until the postrun promotion gate passes.",
+  "provider": "deepseek",
+  "provider_mode_required": "live",
+  "required_payload_fields": [
+    "schema_version",
+    "status",
+    "run_id",
+    "claim_bearing",
+    "formal_claim_allowed",
+    "summary",
+    "records"
+  ],
+  "required_record_fields": [
+    "task_id",
+    "attack_id",
+    "run_id",
+    "provider_name",
+    "provider_mode_resolved",
+    "provider_or_backbone",
+    "prompt_hash",
+    "attack_prompt_hash",
+    "raw_payload_hash",
+    "raw_provider_transcript_hash",
+    "structured_payload_hash",
+    "task_hash",
+    "record_hash",
+    "claim_bearing",
+    "claim_bearing_attack_evidence",
+    "support_only_not_claim_bearing",
+    "utility_admissible_for_attack_claim",
+    "selected_utility_score",
+    "decision",
+    "threshold_version"
+  ],
+  "run_id": "codedye_v3_20260507",
+  "schema_version": "codedye_v3_fresh_run_preflight_contract_v1",
+  "secret_values_recorded": false,
+  "support_only_attack_conditions_excluded_from_main_denominator": [
+    "query_budget_drop"
+  ]
+}

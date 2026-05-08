@@ -1,0 +1,62 @@
+{
+  "schema_version": "codedye_attack_matrix_live_support_progress_v1",
+  "status": "blocked",
+  "completed": 140,
+  "total": 140,
+  "output": "results/CodeDye/artifacts/generated/codedye_v4_full_attack_matrix_support_results_20260508.json",
+  "claim_bearing": false,
+  "blockers": [
+    "declared_attack_live_records_missing",
+    "attack_admissible_records_below_20:ast_canonicalization:0/20",
+    "attack_admissible_records_below_20:canary_preserving_rewrite:0/20",
+    "attack_admissible_records_below_20:chronology_shuffle:0/20",
+    "attack_admissible_records_below_20:comment_whitespace_normalize:0/20",
+    "attack_admissible_records_below_20:cross_language_reexpression:0/20",
+    "attack_admissible_records_below_20:rename_identifiers:0/20",
+    "attack_admissible_rate_below_0.90:0.0000"
+  ],
+  "canonical_promotion_blockers": [
+    "declared_attack_live_records_missing",
+    "attack_admissible_records_below_20:ast_canonicalization:0/20",
+    "attack_admissible_records_below_20:canary_preserving_rewrite:0/20",
+    "attack_admissible_records_below_20:chronology_shuffle:0/20",
+    "attack_admissible_records_below_20:comment_whitespace_normalize:0/20",
+    "attack_admissible_records_below_20:cross_language_reexpression:0/20",
+    "attack_admissible_records_below_20:rename_identifiers:0/20",
+    "attack_admissible_rate_below_0.90:0.0000"
+  ],
+  "support_blockers": [
+    "support_attack_records_below_20:canary_preserving_rewrite:19/20",
+    "support_attack_records_below_20:cross_language_reexpression:19/20",
+    "support_attack_records_below_20:rename_identifiers:19/20"
+  ],
+  "support_gate_pass": false,
+  "targeted_repair_health": {
+    "mode": "full_attack_matrix_contract",
+    "repair_health_pass": false,
+    "claim_bearing": false,
+    "formal_claim_allowed": false,
+    "coverage_blockers_allowed": [
+      "required_attack_live_records_missing",
+      "declared_attack_live_records_missing"
+    ],
+    "record_count": 140,
+    "expected_record_count": 140,
+    "blockers": [
+      "targeted_repair_health_requires_filter",
+      "selected_utility_failures:3"
+    ],
+    "policy": "Filtered launches may pass only as targeted repair-health evidence. They remain support-only and never satisfy the canonical full attack-matrix claim gate."
+  },
+  "run_filter": {
+    "task_filter_enabled": false,
+    "attack_filter_enabled": false,
+    "task_ids": [],
+    "attack_ids": [],
+    "input_row_count": 140,
+    "filtered_row_count": 140,
+    "missing_task_ids": [],
+    "missing_attack_ids": [],
+    "claim_policy_note": "Filters are permitted for repair-health/support-only launches. A filtered canonical run is never sufficient for a full main-table claim."
+  }
+}

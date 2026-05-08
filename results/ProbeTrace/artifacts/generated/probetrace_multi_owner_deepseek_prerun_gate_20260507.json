@@ -1,0 +1,26 @@
+{
+  "allowed_next_step": "DeepSeek provider execution may start only as a fresh canonical run that writes raw/structured hashes and non-claim-bearing receipts until postrun promotion passes.",
+  "blockers": [],
+  "claim_bearing": false,
+  "formal_multi_owner_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T18:21:28+00:00",
+  "input_package": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_package_20260507.json",
+  "input_rows": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_rows_20260507.jsonl",
+  "required_postrun_artifacts": [
+    "artifacts/generated/probetrace_multi_owner_apis_deepseek_results_20260505.json",
+    "artifacts/generated/probetrace_multi_owner_apis_raw_transcript_hashes_20260505.json",
+    "artifacts/generated/probetrace_multi_owner_statistics_ci_20260505.json",
+    "artifacts/generated/probetrace_multi_owner_postrun_audit_gate_20260505.json"
+  ],
+  "schema_version": "probetrace_multi_owner_deepseek_prerun_gate_v1",
+  "target_denominators": {
+    "language_count": 3,
+    "null_owner_negative_records": 750,
+    "owner_count": 5,
+    "positive_records": 750,
+    "random_owner_negative_records": 750,
+    "same_provider_unwrap_control_records": 750,
+    "wrong_owner_negative_records": 3000
+  }
+}

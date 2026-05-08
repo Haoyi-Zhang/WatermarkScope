@@ -1,0 +1,154 @@
+{
+  "artifact_count": 10,
+  "artifacts": [
+    {
+      "bestpaper_ready": false,
+      "blockers": [],
+      "bytes": 4241,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_final_claim_lock_v1_20260507.json",
+      "schema_version": "probetrace_final_claim_lock_v1",
+      "sha256": "c10bbd94a6b6e30087ce39bf257f52f58ced0c2f60fef6dada1bf860eed393b7",
+      "upgrade_claim_allowed": false
+    },
+    {
+      "bestpaper_ready": null,
+      "blockers": null,
+      "bytes": 2206,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": null,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_final_claim_lock_v1_20260507.md",
+      "schema_version": null,
+      "sha256": "4a7246d20cd4a9c3467ef1d6380da770dc3eebb04204cb98cf16dc50585f8f05",
+      "upgrade_claim_allowed": null
+    },
+    {
+      "bestpaper_ready": null,
+      "blockers": [],
+      "bytes": 2554,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_anti_leakage_scan_v1_20260507.json",
+      "schema_version": "probetrace_anti_leakage_scan_v1",
+      "sha256": "f24108f1da5d66c9db64a0ad97e4eda4c2ea34a5169cd55a6b1641eea716e544",
+      "upgrade_claim_allowed": null
+    },
+    {
+      "bestpaper_ready": null,
+      "blockers": null,
+      "bytes": 210090,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": null,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_anti_leakage_row_receipts_v1_20260507.jsonl",
+      "schema_version": null,
+      "sha256": "4fba20e01c593baaa28d2f00c5efbd42c42649e3453e78eefb3dc490f46b56a7",
+      "upgrade_claim_allowed": null
+    },
+    {
+      "bestpaper_ready": null,
+      "blockers": [],
+      "bytes": 857,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_latency_query_frontier_v1_20260507.json",
+      "schema_version": "probetrace_latency_query_frontier_v1",
+      "sha256": "aafbf6836665c0f567add97e0aba068d6cc8ceb1204062cedc3a41025865ddd2",
+      "upgrade_claim_allowed": null
+    },
+    {
+      "bestpaper_ready": null,
+      "blockers": [],
+      "bytes": 3372996,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/apis300_live_attribution_evidence.json",
+      "schema_version": "probetrace_apis300_live_attribution_evidence_v1",
+      "sha256": "2b3b73877962819309a284e71638f2d346beecc5605d97684d41e1b3f589c3e2",
+      "upgrade_claim_allowed": null
+    },
+    {
+      "bestpaper_ready": null,
+      "blockers": [],
+      "bytes": 3487,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_transfer_validation_integrity_gate_20260506.json",
+      "schema_version": "probetrace_transfer_validation_integrity_gate_v1",
+      "sha256": "6f3f15c10eaf8507641fff4192f79b8953023a949b943a45a3e35eb903fa9c23",
+      "upgrade_claim_allowed": null
+    },
+    {
+      "bestpaper_ready": null,
+      "blockers": [],
+      "bytes": 1818,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_package_20260507.json",
+      "schema_version": "probetrace_multi_owner_deepseek_canonical_input_package_v1",
+      "sha256": "e11134716696ea9d3d032f702fa642e9474bd0ddf603623897aaf3395693192a",
+      "upgrade_claim_allowed": null
+    },
+    {
+      "bestpaper_ready": null,
+      "blockers": [
+        "fresh_multi_owner_live_score_vectors_missing"
+      ],
+      "bytes": 2020,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": false,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_postrun_promotion_gate_v1_20260507.json",
+      "schema_version": "probetrace_multi_owner_postrun_promotion_gate_v1",
+      "sha256": "3244cc1eeb55f530de3c7afe346bfbe2a6656966203c678c2a31498bd87862ad",
+      "upgrade_claim_allowed": null
+    },
+    {
+      "bestpaper_ready": null,
+      "blockers": null,
+      "bytes": 201,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/ANONYMIZATION_AUDIT.json",
+      "schema_version": "watermark_github_progress_anonymization_audit_v1",
+      "sha256": "df9670a8c51cef807134c8b712d8c1513b87c30e98f51d4621d0be33c13fb0eb",
+      "upgrade_claim_allowed": null
+    }
+  ],
+  "boundary": "Additive v5 reviewer index. Preserved v4 artifacts are not modified.",
+  "claim_bearing": false,
+  "claim_lock": {
+    "allowed_current_claim": "DeepSeek-only single-active-owner/source-bound attribution protocol",
+    "bestpaper_ready": false,
+    "forbidden_claims": [
+      "provider-general attribution",
+      "multi-owner attribution from input package alone",
+      "shortcut-free or leakage-free claim without fresh owner/task-heldout score vectors",
+      "student-transfer generalization outside source-bound receipts",
+      "perfect-score language without the anti-leakage caveat"
+    ],
+    "gate_pass": true,
+    "path": "results/ProbeTrace/artifacts/generated/probetrace_final_claim_lock_v1_20260507.json",
+    "project": "ProbeTrace",
+    "remaining_blockers": [
+      "fresh_multi_owner_live_score_vectors_missing",
+      "owner_task_heldout_margin_auc_missing",
+      "perfect_single_owner_result_requires_anti_leakage_confirmation"
+    ],
+    "schema_version": "probetrace_final_claim_lock_v1",
+    "upgrade_claim_allowed": false
+  },
+  "generated_at_utc": "2026-05-06T21:26:06+00:00",
+  "missing_artifacts": [],
+  "project": "ProbeTrace",
+  "schema_version": "probetrace_reviewer_reproducibility_manifest_v5"
+}

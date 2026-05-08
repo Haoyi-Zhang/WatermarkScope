@@ -1,0 +1,318 @@
+{
+  "bestpaper_ready": false,
+  "claim_bearing": false,
+  "entry_conditions_for_full_experiments": [
+    "No preserved result file changed.",
+    "Project-specific preregistered protocol gate exists.",
+    "Support-only rows cannot enter main denominator.",
+    "Thresholds and claim boundaries are frozen before rerun."
+  ],
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "portfolio_blockers": [
+    "SemCodebook: row-level positive-miss taxonomy and causal contribution table.",
+    "CodeDye: positive-control sensitivity and v3 control rerun before any claim upgrade.",
+    "ProbeTrace: anti-leakage and threshold-free margin evidence.",
+    "SealAudit: low decisive coverage and needs-review taxonomy."
+  ],
+  "preservation_policy": "Existing result artifacts are immutable; this scorecard adds reviewer-facing closure artifacts only.",
+  "projects": [
+    {
+      "claim_upgrade_allowed": false,
+      "current_state": {
+        "ablation_rows": 43200,
+        "admitted_families": 5,
+        "admitted_models": 10,
+        "negative_hits": "0/48000",
+        "positive_recovery": "23342/24000",
+        "scale_coverage": [
+          "large",
+          "mid",
+          "small",
+          "tiny"
+        ],
+        "whitebox_records": 72000
+      },
+      "gaps": [
+        {
+          "area": "causal_method",
+          "closure_action": "Build component contribution table with paired CI and family/language splits.",
+          "closure_artifact": "semcodebook_causal_contribution_gate_v1_20260507.json",
+          "issue": "Ablation evidence exists but is not yet distilled into a decisive per-component causal table.",
+          "priority": "P1",
+          "status": "planned"
+        },
+        {
+          "area": "failure_boundary",
+          "closure_action": "Join row outcomes and assign every miss to one primary failure bucket.",
+          "closure_artifact": "semcodebook_failure_taxonomy_v1_20260507.json",
+          "issue": "658 headline positive misses need row-level attribution.",
+          "priority": "P1",
+          "status": "partial_artifact_created"
+        },
+        {
+          "area": "theory",
+          "closure_action": "Publish structural recoverability theorem and connect variables to measured artifacts.",
+          "closure_artifact": "semcodebook_structural_recoverability_theorem_v1_20260507.md",
+          "issue": "Recoverability condition is implicit in current docs.",
+          "priority": "P2",
+          "status": "artifact_created"
+        }
+      ],
+      "next_experiment_allowed": "Only after row-level miss taxonomy and causal contribution gate pass.",
+      "project": "SemCodebook",
+      "scores": {
+        "attack_negative_control_coverage": {
+          "rationale": "48,000 negative controls with zero hits and multiple attack conditions.",
+          "score_1_to_5": 5
+        },
+        "baseline_control_strength": {
+          "rationale": "Official baseline bridge exists; reviewer-facing role table should remain explicit.",
+          "score_1_to_5": 4
+        },
+        "claim_discipline": {
+          "rationale": "No universal or no-retry claim is made.",
+          "score_1_to_5": 5
+        },
+        "evidence_scale": {
+          "rationale": "72,000 rows, 10 admitted models, 5 families, and full scale buckets are best-paper scale.",
+          "score_1_to_5": 5
+        },
+        "innovation": {
+          "rationale": "Structured AST/CFG/SSA provenance with keyed scheduling and ECC is strong, but the theorem must be linked more directly to per-carrier row outcomes.",
+          "score_1_to_5": 4
+        },
+        "method_rigor": {
+          "rationale": "Negative controls and ablations are strong; row-level failure attribution remains the main rigor gap.",
+          "score_1_to_5": 4
+        },
+        "reproducibility": {
+          "rationale": "Artifacts and scripts are present; full rerun remains GPU/model dependent.",
+          "score_1_to_5": 4
+        },
+        "statistical_trust": {
+          "rationale": "CI and denominators exist; missed-positive taxonomy needs row-level CI.",
+          "score_1_to_5": 4
+        }
+      }
+    },
+    {
+      "claim_upgrade_allowed": false,
+      "current_state": {
+        "deepseek_live_rows": 300,
+        "negative_controls": "0/300",
+        "positive_controls": "170/300",
+        "signal_rate": 0.02,
+        "signals": 6,
+        "support_rows_excluded": 806
+      },
+      "gaps": [
+        {
+          "area": "effect",
+          "closure_action": "Improve known-control sensitivity through preregistered v3 dual-evidence protocol, not threshold tuning.",
+          "closure_artifact": "codedye_v3_protocol_freeze_gate_20260507.json",
+          "issue": "6/300 live signals and 170/300 positive controls are too weak for detection claims.",
+          "priority": "P1",
+          "status": "artifact_created"
+        },
+        {
+          "area": "failure_analysis",
+          "closure_action": "Assign misses to canary/provenance/chronology/retrieval/budget/payload buckets.",
+          "closure_artifact": "codedye_positive_miss_taxonomy_v1_20260507.json",
+          "issue": "130 positive-control misses lack row-level taxonomy.",
+          "priority": "P1",
+          "status": "partial_artifact_created"
+        },
+        {
+          "area": "paper_framing",
+          "closure_action": "Add null-audit utility table: FP bound, sensitivity, evidence completeness, cost per signal.",
+          "closure_artifact": "codedye_null_audit_utility_framework_v1_20260507.json",
+          "issue": "Reviewer may ask why sparse evidence matters.",
+          "priority": "P2",
+          "status": "planned"
+        }
+      ],
+      "next_experiment_allowed": "v3 controls first; live DeepSeek rerun only after freeze gate and control gate pass.",
+      "project": "CodeDye",
+      "scores": {
+        "attack_negative_control_coverage": {
+          "rationale": "Negative controls are clean; attack matrix must remain joined to claim records.",
+          "score_1_to_5": 4
+        },
+        "baseline_control_strength": {
+          "rationale": "Controls and official baseline direction are documented.",
+          "score_1_to_5": 4
+        },
+        "claim_discipline": {
+          "rationale": "The package correctly avoids contamination/prevalence/high-recall claims.",
+          "score_1_to_5": 5
+        },
+        "evidence_scale": {
+          "rationale": "300 live rows plus controls is acceptable but not dominant for best-paper unless protocol contribution is emphasized.",
+          "score_1_to_5": 3
+        },
+        "innovation": {
+          "rationale": "Evidence-preserving null-audit framing is defensible and useful.",
+          "score_1_to_5": 4
+        },
+        "method_rigor": {
+          "rationale": "Protocol discipline is good, but positive-control misses need row-level diagnosis.",
+          "score_1_to_5": 3
+        },
+        "reproducibility": {
+          "rationale": "Hash retention and manifests are strong; provider rerun remains API-dependent.",
+          "score_1_to_5": 4
+        },
+        "statistical_trust": {
+          "rationale": "CI and support exclusion are explicit.",
+          "score_1_to_5": 4
+        }
+      }
+    },
+    {
+      "claim_upgrade_allowed": false,
+      "current_state": {
+        "apis_success": "300/300",
+        "false_owner_controls": "0/1200",
+        "primary_independence_unit": "300 task clusters",
+        "scope": "single active owner/source-bound split",
+        "transfer_support_rows": "900/900"
+      },
+      "gaps": [
+        {
+          "area": "anti_leakage",
+          "closure_action": "Add leakage scan, same-provider unwrap, owner/task heldout checks.",
+          "closure_artifact": "probetrace_anti_leakage_gate_v1_20260507.json",
+          "issue": "300/300 can be attacked as shortcut or owner leakage.",
+          "priority": "P1",
+          "status": "artifact_created"
+        },
+        {
+          "area": "margin_evidence",
+          "closure_action": "Generate owner margin CDF and rank/AUC summary.",
+          "closure_artifact": "probetrace_owner_margin_distribution_v1_20260507.json",
+          "issue": "Threshold-free separation evidence is not yet main-surface.",
+          "priority": "P1",
+          "status": "artifact_created"
+        },
+        {
+          "area": "scope",
+          "closure_action": "Run 5-owner support experiment; keep support-only unless full promotion passes.",
+          "closure_artifact": "probetrace_multi_owner_support_gate_v1_20260507.json",
+          "issue": "Single-owner scope is narrow for best-paper.",
+          "priority": "P2",
+          "status": "planned"
+        }
+      ],
+      "next_experiment_allowed": "Anti-leakage and margin gates first; multi-owner only as support until promotion.",
+      "project": "ProbeTrace",
+      "scores": {
+        "attack_negative_control_coverage": {
+          "rationale": "False-owner controls are clean; leakage controls need formal gate.",
+          "score_1_to_5": 4
+        },
+        "baseline_control_strength": {
+          "rationale": "Wrong/null controls exist; multi-owner support is still missing.",
+          "score_1_to_5": 4
+        },
+        "claim_discipline": {
+          "rationale": "Single-owner and task-cluster boundaries are correctly preserved.",
+          "score_1_to_5": 5
+        },
+        "evidence_scale": {
+          "rationale": "300 APIS, 1,200 controls, and 900 transfer rows are substantial but single-owner scoped.",
+          "score_1_to_5": 4
+        },
+        "innovation": {
+          "rationale": "Active-owner attribution with semantic witness and transfer receipts is strong.",
+          "score_1_to_5": 4
+        },
+        "method_rigor": {
+          "rationale": "Perfect APIS result requires stronger anti-leakage and margin evidence.",
+          "score_1_to_5": 3
+        },
+        "reproducibility": {
+          "rationale": "Receipts and hashes exist; live provider rerun remains external.",
+          "score_1_to_5": 4
+        },
+        "statistical_trust": {
+          "rationale": "Wilson intervals and independence boundaries are explicit.",
+          "score_1_to_5": 4
+        }
+      }
+    },
+    {
+      "claim_upgrade_allowed": false,
+      "current_state": {
+        "cases": 320,
+        "decisive": 81,
+        "decisive_coverage": 0.084375,
+        "marker_hidden_rows": 960,
+        "needs_review": 879,
+        "unsafe_pass": 0
+      },
+      "gaps": [
+        {
+          "area": "coverage",
+          "closure_action": "Run v5 second-stage conjunction to improve coverage without increasing unsafe-pass risk.",
+          "closure_artifact": "sealaudit_second_stage_v5_conjunction_gate_20260507.json",
+          "issue": "8.44% decisive coverage is too low for a strong utility claim.",
+          "priority": "P1",
+          "status": "artifact_created"
+        },
+        {
+          "area": "abstention_taxonomy",
+          "closure_action": "Create row-level needs-review taxonomy.",
+          "closure_artifact": "sealaudit_needs_review_taxonomy_v1_20260507.json",
+          "issue": "879 needs-review rows are not yet split into reviewer-useful categories.",
+          "priority": "P1",
+          "status": "partial_artifact_created"
+        },
+        {
+          "area": "human_review",
+          "closure_action": "Lock role-based support wording and forbidden claims.",
+          "closure_artifact": "sealaudit_expert_review_role_support_gate_v1_20260507.json",
+          "issue": "Expert support wording can be attacked if overstated.",
+          "priority": "P2",
+          "status": "artifact_created"
+        }
+      ],
+      "next_experiment_allowed": "v5 prerun gate exists; claim-bearing v5 run only after row schema and unsafe-pass policy are locked.",
+      "project": "SealAudit",
+      "scores": {
+        "attack_negative_control_coverage": {
+          "rationale": "Marker-hidden boundary and unsafe-pass tracking are strong; v5 attack conjunction should be main-surface.",
+          "score_1_to_5": 4
+        },
+        "baseline_control_strength": {
+          "rationale": "Controls and citation-only boundaries are present.",
+          "score_1_to_5": 4
+        },
+        "claim_discipline": {
+          "rationale": "No safety certificate or automatic classifier claim is made.",
+          "score_1_to_5": 5
+        },
+        "evidence_scale": {
+          "rationale": "320 cases and 960 hidden rows are solid.",
+          "score_1_to_5": 4
+        },
+        "innovation": {
+          "rationale": "Watermark-as-security-object audit framing is strong.",
+          "score_1_to_5": 4
+        },
+        "method_rigor": {
+          "rationale": "Explicit abstention is rigorous, but needs-review rows require finer taxonomy.",
+          "score_1_to_5": 3
+        },
+        "reproducibility": {
+          "rationale": "Artifacts and tests are present; human review is role-based support.",
+          "score_1_to_5": 4
+        },
+        "statistical_trust": {
+          "rationale": "Coverage-risk CI exists; coverage remains low.",
+          "score_1_to_5": 4
+        }
+      }
+    }
+  ],
+  "schema_version": "bestpaper_review_scorecard_v1"
+}

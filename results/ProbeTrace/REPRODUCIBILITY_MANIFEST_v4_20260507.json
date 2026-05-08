@@ -1,0 +1,134 @@
+{
+  "artifact_count": 8,
+  "artifacts": [
+    {
+      "blockers": [],
+      "bytes": 3372996,
+      "claim_bearing": null,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/apis300_live_attribution_evidence.json",
+      "schema_version": "probetrace_apis300_live_attribution_evidence_v1",
+      "sha256": "2b3b73877962819309a284e71638f2d346beecc5605d97684d41e1b3f589c3e2"
+    },
+    {
+      "blockers": [],
+      "bytes": 1597,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": false,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_abstain_aware_attribution_gate_20260506.json",
+      "schema_version": "probetrace_abstain_aware_attribution_gate_v1",
+      "sha256": "6b3fa37eef45da871f49631bf61e5bfcd9d3877dfa4874cfa04d498d27e48cef"
+    },
+    {
+      "blockers": [],
+      "bytes": 2155,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": null,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_transfer_row_binding_manifest_gate_20260505.json",
+      "schema_version": "probetrace_transfer_row_binding_manifest_gate_v1",
+      "sha256": "8189b4c685cb28889d3ff35977d46a9d25ecb4612539f51852dfe145b60d3092"
+    },
+    {
+      "blockers": [],
+      "bytes": 1818,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": false,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_package_20260507.json",
+      "schema_version": "probetrace_multi_owner_deepseek_canonical_input_package_v1",
+      "sha256": "e11134716696ea9d3d032f702fa642e9474bd0ddf603623897aaf3395693192a"
+    },
+    {
+      "blockers": [],
+      "bytes": 1364,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": false,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_prerun_gate_20260507.json",
+      "schema_version": "probetrace_multi_owner_deepseek_prerun_gate_v1",
+      "sha256": "4617a40aa6565a2e866b2e4254467eddad019149b8e23d71c49318bdd2b76f00"
+    },
+    {
+      "blockers": [
+        "comparable_signed_owner_margin_rows_missing",
+        "fresh_multi_owner_multilingual_deepseek_canonical_results_missing",
+        "multi_owner_postrun_audit_missing",
+        "per_owner_per_language_ci_missing",
+        "raw_transcript_and_structured_payload_hash_join_missing",
+        "transfer_artifact_is_single_owner_only"
+      ],
+      "bytes": 2434,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": false,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": false,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_evidence_classifier_v1_20260507.json",
+      "schema_version": "probetrace_multi_owner_evidence_classifier_v1",
+      "sha256": "1267a8a05b96d201ab1447f4364b333ad92395e0ac588f05e8f6b87e0bdc654d"
+    },
+    {
+      "blockers": [
+        "fresh_multi_owner_live_score_vectors_missing"
+      ],
+      "bytes": 2020,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": false,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": false,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_postrun_promotion_gate_v1_20260507.json",
+      "schema_version": "probetrace_multi_owner_postrun_promotion_gate_v1",
+      "sha256": "3244cc1eeb55f530de3c7afe346bfbe2a6656966203c678c2a31498bd87862ad"
+    },
+    {
+      "blockers": [
+        "required_row_schema_missing",
+        "claim_row_schema_missing",
+        "owner_count_below_requested",
+        "positive_rows_missing",
+        "control_to_positive_ratio_below_4x",
+        "wrong_null_random_controls_not_all_present",
+        "owner_heldout_rows_missing",
+        "task_heldout_rows_missing",
+        "rank_auc_not_computable"
+      ],
+      "bytes": 1770,
+      "claim_bearing": false,
+      "exists": true,
+      "formal_multi_owner_claim_allowed": false,
+      "formal_v3_live_claim_allowed": null,
+      "formal_v5_claim_allowed": null,
+      "gate_pass": false,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_promotion_gate_strict_recheck_20260507.json",
+      "schema_version": "probetrace_multi_owner_support_runner_receipt_v2",
+      "sha256": "45b6b5d8802c09de7c7f0e7a8fc3f5d05d58090006c438c5d21361992695929a"
+    }
+  ],
+  "boundary": "Additive v4 reviewer index. It includes fail-closed gates and launch readiness; it does not replace preserved results.",
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T20:59:23+00:00",
+  "missing_artifacts": [],
+  "project": "ProbeTrace",
+  "schema_version": "probetrace_reviewer_reproducibility_manifest_v4"
+}

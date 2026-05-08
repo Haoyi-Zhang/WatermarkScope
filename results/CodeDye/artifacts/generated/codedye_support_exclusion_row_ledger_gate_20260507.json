@@ -1,0 +1,13 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T17:27:28+00:00",
+  "ledger": "results/CodeDye/artifacts/generated/codedye_support_exclusion_row_ledger_20260507.jsonl",
+  "ledger_row_count": 806,
+  "ledger_sha256": "49fad68353c703eeecc41bd59f6a7bec037eee95978a7deb14ad70cdd37d4a32",
+  "main_denominator_unchanged": 300,
+  "reviewer_boundary": "This ledger enumerates exclusion predicates and row hashes only; it is not support-row claim evidence.",
+  "schema_version": "codedye_support_exclusion_row_ledger_gate_v1",
+  "support_rows_excluded_from_main_denominator": 806
+}

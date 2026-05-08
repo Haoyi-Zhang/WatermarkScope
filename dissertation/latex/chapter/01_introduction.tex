@@ -61,20 +61,19 @@ Triage & Safety gap & Marker-hidden triage row & Selective audit \\
 The dissertation makes five connected contributions. These are contribution points along the same evidence chain, not standalone objectives.
 
 \begin{itemize}
-  \item[\stagebullet] \textbf{Benchmark contract}: CodeMarkBench provides an executable benchmark foundation with four pinned runtime baselines, five local code models, seven benchmark source groups, and a canonical 140/140 run-completion matrix~\cite{zhang2026codemarkbench}.
+  \item[\stagebullet] \textbf{Benchmark contract}: CodeMarkBench provides an executable benchmark foundation with four pinned runtime baselines, five local code models, seven benchmark source groups, and a canonical 140/140 run-completion matrix. The repository entry points are recorded in Appendix~\ref{app:repository-access}.
   \item[\stagebullet] \textbf{White-box provenance}: SemCodebook uses AST, CFG, and SSA carrier families with keyed scheduling and error-correcting recovery for admitted white-box model cells.
   \item[\stagebullet] \textbf{Black-box audit}: CodeDye preserves hash-bound raw-response and structured evidence while refusing to infer contamination prevalence from sparse signals.
   \item[\stagebullet] \textbf{Source attribution}: ProbeTrace uses owner registries, semantic witnesses, decoys, and false-owner controls for active-owner, source-bound attribution.
   \item[\stagebullet] \textbf{Security triage}: SealAudit reports marker-hidden selective triage, explicit needs-review outcomes, and unsafe-pass boundaries.
 \end{itemize}
 
-\begin{figure}[htbp]
+\begin{figure}[!t]
   \centering
-  \includegraphics[width=0.96\textwidth]{fig/watermarkscope_framework_map.pdf}
+  \includegraphics[width=\textwidth]{fig/watermarkscope_framework_map.pdf}
   \caption{WatermarkScope evidence lifecycle. A new access model creates a new evidence object and claim boundary; claims do not transfer across stages without a new admitted surface.}
   \label{fig:watermarkscope-pipeline}
 \end{figure}
-\FloatBarrier
 
 \section{Threat Model and Evaluation View}
 
@@ -84,6 +83,14 @@ The threat model assumes that generated code may be transformed by normal develo
 
 The dissertation is careful about scope. CodeMarkBench does not prove that all source-code watermarking fails; it evaluates the included runtime baselines under the included models, source groups, and stress conditions. SemCodebook does not claim universal semantic watermarking; it claims structured provenance recovery within admitted white-box family and scale cells. CodeDye does not accuse a model provider of contamination and does not estimate contamination prevalence. ProbeTrace does not claim provider-general or multi-owner attribution. SealAudit does not certify watermark harmlessness or provide an automatic safety classifier. These limits are not apologies for the work. They are the boundaries that make the results checkable.
 
+This scoping also defines how the implementation should be inspected. The submitted WatermarkScope repository is the FYP artifact: it contains the dissertation source, method snapshots, result manifests, preserved evidence summaries, and examiner-facing verification scripts. CodeMarkBench is separately listed because it is an earlier benchmark artifact that supplies the executable foundation for the first stage. It should be read as supporting infrastructure for the lifecycle, not as a second dissertation. Appendix~\ref{app:repository-access} lists both access points and explains which repository should be used for marking.
+
+The distinction matters for assessment. A design project is not complete when a PDF describes an idea; it must expose enough implementation structure for an examiner to inspect how the evidence was generated, which files bind to the printed claims, and which checks can be rerun without private keys or GPUs. For this reason, the report treats code and manifests as part of the argument rather than as optional supplementary material. The writing names the evidence surfaces, but the repository supplies the artifact paths, hashes, and scripts that make those surfaces auditable.
+
 The remaining chapters follow the same lifecycle order: background, executable benchmark foundation, white-box and black-box evidence protocols, attribution and security triage, and finally a synthesis of confidence intervals, claim boundaries, and future work. This order is part of the argument. Each chapter changes the evidence object only when the previous access model can no longer support the next claim, and the report avoids a single portfolio score because recovery, audit yield, attribution, and triage coverage are different events rather than interchangeable measurements.
 
 The reader should therefore track two threads at the same time. The first thread is technical: how to build benchmark rows, structured carriers, transcript-bound audit records, owner witnesses, and marker-hidden triage rows. The second thread is evidential: how each row becomes admissible, which denominator it enters, and which interpretation is deliberately blocked. A strong result in this dissertation is not simply the largest numerator. It is a result whose numerator is tied to a stable denominator, whose controls make the failure modes visible, and whose wording does not move beyond the access model that produced the evidence. The following chapter therefore reviews benchmarks, watermarking, provenance, and security as evidence problems rather than as isolated literatures.
+
+This reading lens is also the standard used to judge the submitted design artifact. A technically strong implementation is not enough if the written claim moves faster than the evidence; a carefully scoped claim is not enough if the repository cannot show how the row was produced. WatermarkScope is intended to satisfy both requirements at once. The chapters therefore alternate between method design and evidence accounting: each protocol is introduced through the access assumption that makes it possible, the records that make it auditable, and the boundary that stops it from becoming a broader claim than the experiment supports.
+
+This also explains the report's treatment of negative results and abstentions. The benchmark chapter does not hide baseline tradeoffs; the white-box chapter keeps misses inside the recovery denominator; the black-box chapter reports sparse signals as sparse; the attribution chapter writes a perfect scoped result as scoped; and the triage chapter treats review load as an outcome rather than a nuisance. These choices make the dissertation less sensational, but they make it more inspectable. A reader should be able to ask, for every number in the report, four questions: what was counted, what was excluded before the outcome was known, what control surface was used, and what conclusion is forbidden. The rest of the dissertation is organized to answer those questions in the same order as the lifecycle.

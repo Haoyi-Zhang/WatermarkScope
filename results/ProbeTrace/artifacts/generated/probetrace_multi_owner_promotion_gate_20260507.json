@@ -1,0 +1,16 @@
+{
+  "blocked": false,
+  "blockers": [
+    "multi_owner_support_contract_not_satisfied"
+  ],
+  "claim_bearing": false,
+  "control_rows": 0,
+  "formal_multi_owner_claim_allowed": false,
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T16:55:43+00:00",
+  "owner_count": 0,
+  "positive_rows": 0,
+  "promotion_condition": "Support-only unless a separate promotion gate admits multi-owner claim-bearing evidence.",
+  "row_count": 300,
+  "schema_version": "probetrace_multi_owner_support_runner_receipt_v1"
+}

@@ -1,0 +1,149 @@
+{
+  "artifact_role": "second_stage_conjunction_calibration_readiness_gate",
+  "artifacts": {
+    "attack_statistics_gate": {
+      "bytes": 24801,
+      "exists": true,
+      "path": "artifacts/generated/attack_statistics_gate.json",
+      "sha256": "8df0e48f8a356ad49c50597a36ec146392f2057d23367b54032bbdb96de84e84"
+    },
+    "claim_surface": {
+      "bytes": 2209574,
+      "exists": true,
+      "path": "artifacts/generated/canonical_claim_surface_results.json",
+      "sha256": "09b3a58e710b0b665c5f89d7c49e775dc61e1c1a02b0b03dae10b87ce86fd11c"
+    },
+    "existing_executable_adapter_conjunction": {
+      "bytes": 3026164,
+      "exists": true,
+      "path": "artifacts/generated/sealaudit_second_stage_executable_conjunction_20260505.json",
+      "sha256": "0c1c9d772e98bc24bc9a41d4a860ac8ac5286b4873224cbfaac01ea96fa18faa"
+    },
+    "needs_review_taxonomy": {
+      "bytes": 2192642,
+      "exists": true,
+      "path": "artifacts/generated/sealaudit_needs_review_taxonomy_20260505.json",
+      "sha256": "4395bfa60085672e53ba806151c48d1fe2bd8a19bf2c28f33c8a7d568845c829"
+    },
+    "statistics_repro_gate": {
+      "bytes": 13191,
+      "exists": true,
+      "path": "artifacts/generated/statistics_repro_gate.json",
+      "sha256": "04b0833e043b362d31e914ff4ac0b0cff75797e4dea34f7517f969efd5fcd3dd"
+    },
+    "threshold_freeze_report": {
+      "bytes": 27112,
+      "exists": true,
+      "path": "artifacts/generated/threshold_freeze_report.json",
+      "sha256": "70f1d0793e1045e4dfcb082f49d58c0f05593ae542ed3dbe78ca13f900f4a683"
+    }
+  },
+  "blockers": [],
+  "claim_bearing": false,
+  "claim_role": "support_only_pre_registration_for_future_canonical_rerun",
+  "current_canonical_results_modified": false,
+  "current_floor": {
+    "claim_surface_record_count": 960,
+    "decision_counts": {
+      "benign": 80,
+      "latent_trojan": 1,
+      "needs_review": 879
+    },
+    "needs_review_rate": 0.915625,
+    "needs_review_record_count": 879
+  },
+  "current_labels_preserved": true,
+  "existing_conjunction_summary": {
+    "all_required_signals_detected_in_existing_artifact": true,
+    "detected_signal_presence": {
+      "human_adjudication_join": true,
+      "laundering_signal": true,
+      "provider_judge_signal": true,
+      "semantic_drift_signal": true,
+      "spoofability_signal": true,
+      "static_safety_signal": true
+    },
+    "note": "Existing conjunction artifact is treated as current support. Future canonical rerun must materialize explicit per-row signal fields for all required second-stage signals.",
+    "top_level_keys": [
+      "artifact_role",
+      "baseline_controls",
+      "benchmark",
+      "case_analysis",
+      "claim_role",
+      "conjunction_policy",
+      "evidence_requirements",
+      "execution_mode",
+      "guardrails",
+      "provider_judge_trace_join",
+      "schema_version",
+      "summary"
+    ]
+  },
+  "frozen_primary_threshold": 0.5,
+  "future_canonical_rerun_protocol": {
+    "calibration_outputs_required": [
+      "abstention_rate_by_score_bucket",
+      "needs_review_resolution_rate_by_taxonomy_code",
+      "false_positive_guardrail_on_negative_controls",
+      "hard_ambiguity_slice_retention",
+      "bootstrap_ci_for_resolution_and_error_bounds"
+    ],
+    "input_population": "same frozen 320-case / 960 marker-hidden claim surface unless a new benchmark version is declared",
+    "join_keys": [
+      "case_id",
+      "task_id",
+      "prompt_variant_id",
+      "record_hash",
+      "source_record_sha256"
+    ],
+    "per_row_required_outputs": [
+      "taxonomy_codes",
+      "static_safety_signal",
+      "semantic_drift_signal",
+      "laundering_signal",
+      "spoofability_signal",
+      "provider_judge_signal",
+      "second_stage_decision",
+      "second_stage_confidence",
+      "second_stage_evidence_hash",
+      "calibration_bin",
+      "abstention_reason"
+    ],
+    "promotion_constraints": [
+      "Do not overwrite current canonical decision fields.",
+      "Do not tune thresholds on current result labels.",
+      "Do not convert needs_review rows to benign/latent_trojan without explicit second-stage evidence and a new versioned canonical artifact.",
+      "Report old and new denominators side by side.",
+      "Keep marker-visible rows diagnostic-only."
+    ]
+  },
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T11:17:45Z",
+  "non_mutation_checks": {
+    "canonical_claim_surface_output_path": "artifacts/generated/canonical_claim_surface_results.json",
+    "taxonomy_input_hash_matches_claim_surface": true,
+    "taxonomy_rows_match_current_needs_review_rows": true,
+    "taxonomy_rows_only_needs_review": true,
+    "this_script_does_not_write_canonical_claim_surface": true
+  },
+  "project": "SealAudit",
+  "readiness_criteria": {
+    "frozen_current_labels": "Current canonical decisions and labels are preserved; no relabeling is permitted.",
+    "second_stage_protocol_preregistered": "Second-stage signal names, join keys, and promotion constraints are recorded before a future canonical rerun.",
+    "support_only_current_artifact": "This gate is readiness/planning only, not current claim-bearing evidence.",
+    "taxonomy_materialized": "Every current needs_review row has a taxonomy record and stable source hash.",
+    "threshold_calibration_versioned": "Any future threshold/calibration update must use a new version and cannot overwrite the v3 frozen threshold."
+  },
+  "readiness_verdict": "ready_for_future_canonical_rerun_protocol",
+  "relabeling_allowed": false,
+  "required_second_stage_signals": [
+    "static_safety_signal",
+    "semantic_drift_signal",
+    "laundering_signal",
+    "spoofability_signal",
+    "provider_judge_signal",
+    "human_adjudication_join"
+  ],
+  "schema_version": "sealaudit_second_stage_conjunction_calibration_readiness_gate_v1",
+  "threshold_refit_allowed_on_current_results": false
+}

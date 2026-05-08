@@ -1,0 +1,170 @@
+{
+  "attack_ids": [
+    "query_budget_drop"
+  ],
+  "blockers": [],
+  "claim_bearing": false,
+  "date": "20260508",
+  "decision_counts": {
+    "contamination_signal_detected": 2,
+    "null_not_rejected": 18
+  },
+  "formal_contamination_prevalence_claim_allowed": false,
+  "formal_high_recall_detection_claim_allowed": false,
+  "formal_v4_main_claim_allowed": false,
+  "gate_pass": true,
+  "main_claim_boundary": {
+    "support_rows_enter_main_table": false,
+    "threshold_adjusted_after_result": false,
+    "v3_main_denominator_unchanged": true,
+    "v4_rows_support_only": true
+  },
+  "missing_hash_rows": 0,
+  "project": "CodeDye",
+  "protocol": "results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_protocol_v1_20260508.json",
+  "provider_modes": [
+    "live"
+  ],
+  "query_budget_signal_ci95": {
+    "high": 0.3010336452284873,
+    "k": 2,
+    "low": 0.027866481213768224,
+    "method": "wilson",
+    "n": 20,
+    "rate": 0.1
+  },
+  "record_count": 20,
+  "required_record_fields": [
+    "task_id",
+    "attack_id",
+    "run_id",
+    "provider_name",
+    "provider_mode_resolved",
+    "provider_or_backbone",
+    "prompt_hash",
+    "attack_prompt_hash",
+    "raw_payload_hash",
+    "raw_provider_transcript_hash",
+    "structured_payload_hash",
+    "task_hash",
+    "record_hash",
+    "claim_bearing",
+    "claim_bearing_attack_evidence",
+    "support_only_not_claim_bearing",
+    "utility_admissible_for_attack_claim",
+    "selected_utility_score",
+    "decision",
+    "threshold_version"
+  ],
+  "result_path": "results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_results_20260508.json",
+  "schema_missing_rows": 0,
+  "schema_version": "codedye_v4_query_budget_support_postrun_gate_v1",
+  "source_summary": {
+    "admissible_by_attack": {},
+    "admissible_rate": 0.0,
+    "blockers": [
+      "required_attack_live_records_missing",
+      "declared_attack_live_records_missing",
+      "attack_admissible_rate_below_0.90:0.0000"
+    ],
+    "by_attack": {
+      "query_budget_drop": 20
+    },
+    "canonical_promotion_blockers": [
+      "required_attack_live_records_missing",
+      "declared_attack_live_records_missing",
+      "attack_admissible_rate_below_0.90:0.0000"
+    ],
+    "claim_bearing_admissible_record_count": 0,
+    "claim_boundary": "Main attack-matrix claims use only utility-admissible claim-required live records. Query-budget-drop is retained as a required support-only budget-stress condition with raw live payloads. Utility failures remain in the artifact as failure-boundary records and are not relabeled or deleted.",
+    "claim_denominator_record_count": 0,
+    "claim_required_attack_ids": [
+      "canary_preserving_rewrite",
+      "chronology_shuffle",
+      "cross_language_reexpression"
+    ],
+    "declared_attack_ids": [
+      "ast_canonicalization",
+      "canary_preserving_rewrite",
+      "chronology_shuffle",
+      "comment_whitespace_normalize",
+      "cross_language_reexpression",
+      "query_budget_drop",
+      "rename_identifiers"
+    ],
+    "gate_pass": false,
+    "minimum_admissible_rate": 0.9,
+    "minimum_admissible_records_per_attack": 20,
+    "missing_declared_attack_ids": [
+      "ast_canonicalization",
+      "canary_preserving_rewrite",
+      "chronology_shuffle",
+      "comment_whitespace_normalize",
+      "cross_language_reexpression",
+      "rename_identifiers"
+    ],
+    "missing_declared_support_attack_ids": [
+      "ast_canonicalization",
+      "canary_preserving_rewrite",
+      "chronology_shuffle",
+      "comment_whitespace_normalize",
+      "cross_language_reexpression",
+      "rename_identifiers"
+    ],
+    "missing_required_attack_ids": [
+      "canary_preserving_rewrite",
+      "chronology_shuffle",
+      "cross_language_reexpression"
+    ],
+    "missing_support_required_attack_ids": [],
+    "mock_or_replay_record_count": 0,
+    "observed_attack_ids": [
+      "query_budget_drop"
+    ],
+    "payload_hash_missing_count": 0,
+    "record_count": 20,
+    "required_attack_ids": [
+      "canary_preserving_rewrite",
+      "chronology_shuffle",
+      "cross_language_reexpression"
+    ],
+    "selected_utility_failure_count": 0,
+    "shared_blockers": [],
+    "support_admissible_by_attack": {
+      "query_budget_drop": 20
+    },
+    "support_admissible_rate": 1.0,
+    "support_blockers": [
+      "required_attack_live_records_missing",
+      "declared_support_attack_live_records_missing"
+    ],
+    "support_denominator_record_count": 20,
+    "support_gate_pass": false,
+    "support_only_required_attack_record_count": 0,
+    "support_only_required_attack_sample": [],
+    "support_required_attack_ids": [
+      "query_budget_drop"
+    ],
+    "support_required_valid_record_count": 20,
+    "support_utility_admissible_record_count": 20,
+    "utility_failure_boundary_record_count": 0,
+    "utility_failure_by_attack": {},
+    "utility_failure_ledger_sample": []
+  },
+  "support_experiment_admitted": true,
+  "targeted_repair_health": {
+    "blockers": [],
+    "claim_bearing": false,
+    "coverage_blockers_allowed": [
+      "required_attack_live_records_missing",
+      "declared_attack_live_records_missing"
+    ],
+    "expected_record_count": 20,
+    "formal_claim_allowed": false,
+    "mode": "targeted_repair_health",
+    "policy": "Filtered launches may pass only as targeted repair-health evidence. They remain support-only and never satisfy the canonical full attack-matrix claim gate.",
+    "record_count": 20,
+    "repair_health_pass": true
+  },
+  "utility_inadmissible_rows": 0
+}

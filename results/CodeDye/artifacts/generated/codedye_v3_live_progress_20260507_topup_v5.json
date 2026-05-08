@@ -1,0 +1,9 @@
+{
+  "schema_version": "codedye_v3_canonical_topup_progress_v1",
+  "status": "passed",
+  "completed": 300,
+  "target_records": 300,
+  "output": "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507_topup_v5.json",
+  "claim_bearing": true,
+  "blockers": []
+}

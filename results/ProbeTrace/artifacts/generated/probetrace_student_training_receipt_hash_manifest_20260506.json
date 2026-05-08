@@ -1,0 +1,21 @@
+﻿{
+  "claim_bearing": false,
+  "generated_at_utc": "2026-05-06T03:20:00Z",
+  "hash_role": "training_run_hash_source_for_transfer_integrity_receipts",
+  "schema_version": "probetrace_student_training_receipt_hash_manifest_v1",
+  "student_training_receipts": {
+    "lora": {
+      "receipt_relpath": "artifacts/generated/student_transfer_runs_owner_witness_v5/lora/training_receipt.json",
+      "training_run_hash": "8d568bffe728013bdddb6ef787e556c4efbd2cee836fcd51dd8f750dbadc1269"
+    },
+    "quantized": {
+      "receipt_relpath": "artifacts/generated/student_transfer_runs_owner_witness_v5/quantized/training_receipt.json",
+      "training_run_hash": "9c824386a78a7a934c81a5224ccd1eefadd7451f923d037b8b267ec6394a7379"
+    },
+    "sft": {
+      "receipt_relpath": "artifacts/generated/student_transfer_runs_owner_witness_v5/sft/training_receipt.json",
+      "training_run_hash": "25b82ddb14f436f35ee01f77b49b3ccdcf91fb95628a24ed215fb528b5ac9429"
+    }
+  },
+  "verification_note": "Hashes are SHA-256 digests of the retained training_receipt.json files for the active owner-witness-v5 student-transfer runs. They are receipt hashes, not model-weight uploads."
+}

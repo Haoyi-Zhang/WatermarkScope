@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "PRESERVED_RESULT_MANIFEST.jsonl"
+EXTERNAL_LARGE_ARTIFACTS = ROOT / "EXTERNAL_LARGE_ARTIFACTS.json"
 
 MUTABLE_PRESENTATION_SCOPES = {
     "dissertation_output",
@@ -34,11 +35,16 @@ def main() -> int:
     rows = [json.loads(line) for line in MANIFEST.read_text(encoding="utf-8").splitlines() if line.strip()]
     if not rows:
         fail("PRESERVED_RESULT_MANIFEST.jsonl is empty.")
+    external_rows = {}
+    if EXTERNAL_LARGE_ARTIFACTS.exists():
+        for row in json.loads(EXTERNAL_LARGE_ARTIFACTS.read_text(encoding="utf-8")):
+            external_rows[row["path"]] = row
 
     missing: list[str] = []
     changed: list[str] = []
     checked = 0
     skipped = 0
+    external_missing = 0
     for row in rows:
         if row.get("preservation_scope") in MUTABLE_PRESENTATION_SCOPES:
             skipped += 1
@@ -46,6 +52,10 @@ def main() -> int:
         rel = row["path"]
         path = ROOT / rel
         if not path.exists():
+            external = external_rows.get(rel)
+            if external and external.get("bytes") == row.get("bytes") and external.get("sha256") == row.get("sha256"):
+                external_missing += 1
+                continue
             missing.append(rel)
             continue
         checked += 1
@@ -63,6 +73,8 @@ def main() -> int:
         fail("\n".join(lines))
 
     print(f"[OK] Preserved result manifest verified: {checked} result files unchanged.")
+    if external_missing:
+        print(f"[OK] External large artifacts registered but not stored in this checkout: {external_missing}.")
     print(f"[OK] Presentation/documentation rows skipped: {skipped}.")
     print("[OK] New additive result files are allowed; existing preserved result files remain immutable.")
     return 0

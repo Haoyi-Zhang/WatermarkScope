@@ -1,0 +1,66 @@
+{
+  "blocked": false,
+  "blockers": [],
+  "candidate_artifact": "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507_topup_v5.json",
+  "checked_candidate_paths": [
+    "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507_topup_v5.json"
+  ],
+  "claim_bearing": false,
+  "formal_contamination_prevalence_claim_allowed": false,
+  "formal_high_recall_detection_claim_allowed": false,
+  "formal_v3_live_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:48:57+00:00",
+  "paper_language_lock": {
+    "allowed_if_gate_passes": [
+      "DeepSeek-only v3 curator-side null-audit postrun",
+      "fixed-denominator sparse signal yield with CI",
+      "positive-control sensitivity remains separately reported",
+      "support rows remain excluded from the 300-row denominator"
+    ],
+    "forbidden_even_if_gate_passes": [
+      "high-recall contamination detector",
+      "contamination prevalence estimate",
+      "provider accusation",
+      "claim that non-signals imply no contamination"
+    ]
+  },
+  "postrun_metrics": {
+    "claim_denominator": 300,
+    "decision_counts": {
+      "contamination_signal_detected": 4,
+      "null_not_rejected": 296
+    },
+    "live_rows": 300,
+    "missing_hash_rows": 0,
+    "mock_or_replay_rows": 0,
+    "record_count": 300,
+    "schema_missing_rows": 0,
+    "signal_ci95": {
+      "high": 0.03377553025253262,
+      "k": 4,
+      "low": 0.005196961739358857,
+      "method": "wilson",
+      "n": 300,
+      "rate": 0.013333333333333334
+    },
+    "summary_blockers": [],
+    "summary_canonical_promotion_blockers": [],
+    "summary_gate_pass": true,
+    "summary_support_gate_pass": false,
+    "support_gate_required_for_v3_main_denominator": false,
+    "support_rows_in_candidate": 0,
+    "utility_admissible_claim_rows": 300
+  },
+  "prerequisite_gates": {
+    "negative_control_status": "unchanged_clean_controls_preserved_from_source_artifact",
+    "positive_control_denominator": 300,
+    "positive_control_detected": 170,
+    "positive_negative_control_gate_pass": true,
+    "protocol_freeze_gate_pass": true,
+    "support_exclusion_gate_pass": true,
+    "support_rows_excluded_from_main_denominator": 806
+  },
+  "promotion_policy": "Passing this gate permits only the scoped v3 DeepSeek null-audit claim surface. It does not permit high-recall detection, prevalence, or provider-general claims.",
+  "schema_version": "codedye_v3_postrun_promotion_gate_v1"
+}

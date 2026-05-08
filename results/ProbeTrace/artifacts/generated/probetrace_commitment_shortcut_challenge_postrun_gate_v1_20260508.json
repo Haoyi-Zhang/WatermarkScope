@@ -1,0 +1,71 @@
+{
+  "abstain_or_noncandidate_ci95": {
+    "high": 1.0,
+    "k": 20,
+    "low": 0.8388748419471806,
+    "method": "wilson",
+    "n": 20,
+    "rate": 1.0
+  },
+  "blockers": [],
+  "candidate_owner_emit_rows": 0,
+  "claim_bearing": false,
+  "claim_bearing_rows": 0,
+  "commitment_match_rows": 0,
+  "date": "20260508",
+  "decision_counts": {
+    "abstain_or_noncandidate": 20
+  },
+  "formal_multi_owner_claim_allowed": false,
+  "formal_provider_general_claim_allowed": false,
+  "gate_pass": true,
+  "high_score_rows": 0,
+  "languages": [
+    "go",
+    "javascript",
+    "python"
+  ],
+  "main_claim_boundary": {
+    "challenge_rows_support_only": true,
+    "main_multi_owner_score_vectors_unchanged": true,
+    "threshold_adjusted_after_result": false
+  },
+  "non_live_rows": 0,
+  "owners": [
+    "owner_alpha",
+    "owner_beta",
+    "owner_delta",
+    "owner_epsilon",
+    "owner_gamma"
+  ],
+  "project": "ProbeTrace",
+  "protocol": "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_protocol_v1_20260508.json",
+  "provider_modes": [
+    "live"
+  ],
+  "record_count": 20,
+  "required_record_fields": [
+    "task_id",
+    "true_owner_id",
+    "candidate_owner_id",
+    "provider",
+    "provider_mode_resolved",
+    "provider_or_backbone",
+    "score",
+    "owner_id_hat",
+    "abstain",
+    "commitment_match",
+    "source_witness_commitment_hash",
+    "candidate_owner_commitment_hash",
+    "raw_provider_transcript_hash",
+    "structured_payload_hash",
+    "prompt_hash",
+    "output_record_sha256",
+    "record_hash",
+    "claim_bearing"
+  ],
+  "result_path": "results/ProbeTrace/artifacts/generated/probetrace_commitment_shortcut_challenge_live_results_v1_20260508.jsonl",
+  "schema_missing_rows": 0,
+  "schema_version": "probetrace_commitment_shortcut_challenge_postrun_gate_v1",
+  "support_experiment_admitted": true
+}

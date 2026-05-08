@@ -1,0 +1,82 @@
+{
+  "claim_bearing": false,
+  "formal_claim_policy": "This gate can allow provider execution only. It never promotes a paper claim; project-specific postrun promotion gates must pass after fresh outputs exist.",
+  "fresh_run_contracts_gate": "results/blackbox_fresh_run_preflight_contracts_v1_20260507.json",
+  "generated_at_utc": "2026-05-06T22:42:37+00:00",
+  "launch_order_if_ready": [
+    "CodeDye",
+    "ProbeTrace",
+    "SealAudit"
+  ],
+  "local_provider_environment": {
+    "deepseek_env_name_present": false,
+    "deepseek_env_names": [],
+    "key_like_env_names": [
+      "FLUXCODING_API_KEY"
+    ],
+    "redaction_policy": "Only environment variable names are recorded; secret values are never written.",
+    "secret_values_recorded": false
+  },
+  "project_launch_readiness": {
+    "CodeDye": {
+      "blockers": [],
+      "can_start_provider_run_now": true,
+      "canonical_output": "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507.json",
+      "execution_contract_ready": true,
+      "formal_claim_promotion_allowed_now": false,
+      "launch_command_redacted": "python projects/CodeDye/scripts/run_attack_matrix_live_support.py --provider deepseek --claim-bearing-canonical --run-id codedye_v3_20260507 --output results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507.json --progress-output results/CodeDye/artifacts/generated/codedye_v3_live_progress_20260507.json",
+      "postrun_promotion_gate": "results/CodeDye/artifacts/generated/codedye_v3_postrun_promotion_gate_v1_20260507.json",
+      "provider_execution_ready": true
+    },
+    "ProbeTrace": {
+      "blockers": [],
+      "can_start_provider_run_now": true,
+      "canonical_output": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl",
+      "execution_contract_ready": true,
+      "formal_claim_promotion_allowed_now": false,
+      "launch_command_redacted": "python projects/ProbeTrace/scripts/run_multi_owner_support.py --owners 5 --claim-bearing false --run-id probetrace_multi_owner_20260507 --input-score-vectors results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl --output results/ProbeTrace/artifacts/generated/probetrace_multi_owner_promotion_gate_probetrace_multi_owner_20260507.json",
+      "postrun_promotion_gate": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_postrun_promotion_gate_v1_20260507.json",
+      "provider_execution_ready": true
+    },
+    "SealAudit": {
+      "blockers": [],
+      "can_start_provider_run_now": true,
+      "canonical_output": "results/SealAudit/artifacts/generated/sealaudit_v5_final_claim_evidence_rows_20260507.json",
+      "execution_contract_ready": true,
+      "formal_claim_promotion_allowed_now": false,
+      "launch_command_redacted": "python projects/SealAudit/scripts/run_second_stage_v5_conjunction.py --provider deepseek --run-id sealaudit_v5_20260507 --v5-evidence results/SealAudit/artifacts/generated/sealaudit_v5_final_claim_evidence_rows_20260507.json --output results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_sealaudit_v5_20260507.json",
+      "postrun_promotion_gate": "results/SealAudit/artifacts/generated/sealaudit_v5_postrun_promotion_gate_v1_20260507.json",
+      "provider_execution_ready": true
+    }
+  },
+  "provider_execution_readiness": {
+    "any_provider_execution_ready_now": true,
+    "blockers": [
+      "local_deepseek_env_missing"
+    ],
+    "local_api_ready": false,
+    "remote_noninteractive_ready": true
+  },
+  "remote_js2": {
+    "batch_ssh": {
+      "batch_ssh_attempted": true,
+      "batch_ssh_success": true,
+      "identity_file_path_recorded": false,
+      "identity_file_present": true,
+      "returncode": 0,
+      "secret_values_recorded": false,
+      "stderr_summary": "",
+      "stdout_redacted": "/root"
+    },
+    "noninteractive_execution_ready": true,
+    "tcp": {
+      "error": null,
+      "host": "js2.blockelite.cn",
+      "port": 22620,
+      "tcp_connectable": true
+    }
+  },
+  "schema_version": "provider_launch_readiness_gate_v2",
+  "secret_values_recorded": false,
+  "supersedes_for_launch_planning": "results/provider_launch_readiness_gate_v1_20260507.json"
+}

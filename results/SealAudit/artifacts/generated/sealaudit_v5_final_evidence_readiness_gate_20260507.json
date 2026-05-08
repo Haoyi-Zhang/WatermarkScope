@@ -1,0 +1,82 @@
+{
+  "blockers": [
+    "fresh_final_row_level_v5_evidence_missing",
+    "decisive_coverage_upgrade_not_admitted"
+  ],
+  "claim_bearing": false,
+  "current_final_claim_boundary": {
+    "decisive_coverage_locked": "81/960 = 8.44% until fresh final v5 row-level evidence is admitted",
+    "human_review": "anonymous role-based support and row-level packet confirmation only; not a signed external label artifact",
+    "visible_marker_rows": "diagnostic_only"
+  },
+  "formal_security_certificate_claim_allowed": false,
+  "formal_v5_claim_allowed": false,
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T17:22:01+00:00",
+  "required_promotion_gates": [
+    "320 unique cases",
+    "960 marker-hidden claim-eligible rows or explicit denominator split",
+    "visible-marker rows marked diagnostic-only",
+    "coverage-risk frontier with unsafe-pass upper bound",
+    "threshold sensitivity table",
+    "hard-ambiguity slice",
+    "confusion matrix with bootstrap CI",
+    "role-based expert support packet retained as support, not signature evidence"
+  ],
+  "required_row_schema_for_final_v5": [
+    "case_id",
+    "provider",
+    "scheme_kind",
+    "language",
+    "marker_condition",
+    "candidate_code_hash",
+    "raw_provider_payload_hash",
+    "structured_payload_hash",
+    "static_safety_decision",
+    "semantic_drift_decision",
+    "laundering_decision",
+    "spoofability_decision",
+    "provider_judge_decision",
+    "baseline_control_decision",
+    "final_v5_decision",
+    "abstain_reason",
+    "threshold_version",
+    "claim_bearing",
+    "visible_marker_diagnostic_only"
+  ],
+  "reviewer_attack_closed_by_this_gate": [
+    "Support-only executable conjunction cannot be silently promoted into a main result.",
+    "Coverage can only improve through fresh row-level v5 evidence with unsafe-pass bounds.",
+    "Expert review language is scoped to role-based support, avoiding unverifiable signature claims."
+  ],
+  "schema_version": "sealaudit_v5_final_evidence_readiness_gate_v1",
+  "source_artifacts": {
+    "second_stage_support_import_gate": "results/SealAudit/artifacts/generated/sealaudit_second_stage_support_import_gate_v1_20260507.json",
+    "support_only_guard": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_remote_support_guard_20260507.json"
+  },
+  "support_ready": true,
+  "support_summary": {
+    "case_count": 320,
+    "language_counts": {
+      "go": 80,
+      "java": 80,
+      "javascript": 80,
+      "python": 80
+    },
+    "needs_review_taxonomy_record_count": 879,
+    "scheme_kind_counts": {
+      "benign_reference": 80,
+      "latent_trojan": 80,
+      "laundered_scheme": 80,
+      "spoofed_scheme": 80
+    },
+    "subgate_pass_counts": {
+      "baseline_control_evidence": 320,
+      "laundering": 320,
+      "provider_judge": 320,
+      "semantic_drift": 320,
+      "spoofability": 320,
+      "static_safety": 320
+    }
+  }
+}

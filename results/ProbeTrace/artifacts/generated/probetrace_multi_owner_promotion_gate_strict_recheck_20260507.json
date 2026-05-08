@@ -1,0 +1,71 @@
+{
+  "blocked": true,
+  "blockers": [
+    "required_row_schema_missing",
+    "claim_row_schema_missing",
+    "owner_count_below_requested",
+    "positive_rows_missing",
+    "control_to_positive_ratio_below_4x",
+    "wrong_null_random_controls_not_all_present",
+    "owner_heldout_rows_missing",
+    "task_heldout_rows_missing",
+    "rank_auc_not_computable"
+  ],
+  "claim_bearing": false,
+  "claim_bearing_requested": false,
+  "claim_schema_missing_rows": 300,
+  "control_role_counts": {
+    "missing": 300
+  },
+  "control_rows": 0,
+  "control_to_positive_ratio": 0.0,
+  "formal_multi_owner_claim_allowed": false,
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T19:31:58+00:00",
+  "global_fpr_ci95": {
+    "high": 1.0,
+    "k": 0,
+    "low": 0.0,
+    "method": "wilson",
+    "n": 0,
+    "rate": 0.0
+  },
+  "global_tpr_ci95": {
+    "high": 1.0,
+    "k": 0,
+    "low": 0.0,
+    "method": "wilson",
+    "n": 0,
+    "rate": 0.0
+  },
+  "margin_auc": null,
+  "owner_count": 0,
+  "owner_heldout_rows": 0,
+  "per_owner_ci95": {},
+  "positive_rows": 0,
+  "promotion_condition": "Support-only unless a separate promotion gate admits multi-owner claim-bearing evidence.",
+  "required_input_schema": [
+    "task_id",
+    "true_owner_id",
+    "candidate_owner_id",
+    "score",
+    "split",
+    "control_role",
+    "owner_heldout",
+    "task_heldout",
+    "source_record_hash",
+    "output_record_sha256",
+    "owner_id_hat",
+    "false_attribution",
+    "signed_owner_margin",
+    "family",
+    "language"
+  ],
+  "row_count": 300,
+  "schema_missing_rows": 300,
+  "schema_version": "probetrace_multi_owner_support_runner_receipt_v2",
+  "split_counts": {
+    "missing": 300
+  },
+  "task_heldout_rows": 0
+}

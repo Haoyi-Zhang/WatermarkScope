@@ -32,7 +32,7 @@ Here $s_{\mathrm{second}}(x)$ is the second-largest score over a simultaneous re
 
 The compact decision sketch is included in Appendix~\ref{app:reproducibility}, Table~\ref{tab:protocol-sketches}. The main-body claim is that a row succeeds only when the active owner passes and all same-task owner controls stay below their frozen thresholds. If either side of that conjunction fails, the protocol rejects or abstains inside the APIS denominator. This is closer to a controlled audit protocol than to open-world authorship attribution.
 
-The current ProbeTrace claim-bearing surface contains 300 APIS attribution records in the scoped active-owner setting and 1,200 false-owner controls. It observes 300/300 promoted active-owner decisions under the scoped APIS protocol and 0/1,200 false-owner hits. Separately, 900 source-bound transfer rows are support-only receipt/source-binding evidence over 300 task clusters. Within the APIS-300 denominator, no insufficient-evidence abstention is counted as a success; an abstention would have entered the denominator as a non-attribution outcome. The transfer rows are reported with task-cluster sensitivity: the primary independence unit is the task identifier rather than treating all 900 rows as fully independent tasks. Table~\ref{tab:probetrace-results} summarizes the result.
+The current ProbeTrace claim-bearing surface contains 300 APIS attribution records in the scoped active-owner setting and 1,200 false-owner controls. It observes 300/300 APIS success events under the scoped APIS protocol and 0/1,200 false-owner hits. Separately, 900 source-bound transfer rows are support-only receipt/source-binding evidence over 300 task clusters. Within the APIS-300 denominator, no insufficient-evidence abstention is counted as a success; an abstention would have entered the denominator as a non-attribution outcome. The transfer rows are reported with task-cluster sensitivity: the primary independence unit is the task identifier rather than treating all 900 rows as fully independent tasks. Table~\ref{tab:probetrace-results} summarizes the result.
 
 \begin{table}[htbp]
 \centering
@@ -43,7 +43,7 @@ The current ProbeTrace claim-bearing surface contains 300 APIS attribution recor
 \toprule
 Quantity & Value & Interpretation \\
 \midrule
-Scoped APIS decisions & 300/300 promoted & Active-owner decisions under frozen single-owner protocol; Wilson 95\% lower bound about 98.74\% \\
+Scoped APIS decisions & 300/300 attributed & APIS success events under frozen single-owner protocol; Wilson 95\% lower bound about 98.74\% \\
 False-owner controls & 0/1,200 & 0 observed; 95\% upper bound about 0.32\% \\
 \addlinespace[2pt]
 \multicolumn{3}{@{}l}{\emph{Support-only evidence}}\\
@@ -52,7 +52,7 @@ Transfer support rows & 900 support-only & Receipt-complete source-binding suppo
 \end{tabularx}
 \end{table}
 
-The three ProbeTrace evidence surfaces have different meanings. APIS-300 measures the promoted active-owner decision. The 1,200 controls measure whether wrong, null, or random owner evidence falsely passes. The 900 transfer rows are support-only: they check receipt completeness and source binding under student-transfer variants, with 300 task clusters as the primary independence unit, but they do not enlarge the main attribution denominator. This separation matters because a single large number would make the result look stronger but less honest. The intervals reported for ProbeTrace are row-level Wilson intervals over admitted rows and are conditional on this scoped protocol.
+The three ProbeTrace evidence surfaces have different meanings. APIS-300 measures attribution under the frozen active-owner protocol. The 1,200 controls measure whether wrong, null, or random owner evidence falsely passes. The 900 transfer rows are support-only: they check receipt completeness and source binding under student-transfer variants, with 300 task clusters as the primary independence unit, but they do not enlarge the main attribution denominator. This separation matters because a single large number would make the result look stronger but less honest. The intervals reported for ProbeTrace are row-level Wilson intervals over admitted rows and are conditional on this scoped protocol.
 
 The result is strong for the scoped setting, but the perfect observed rate requires careful writing. The dissertation does not claim multi-owner generalization, provider-general attribution, broad authorship detection, or validated margin separability. The current result also has practical caveats: some positives are near-boundary or low-confidence under diagnostic margin analysis, and the protocol has nontrivial query and latency cost. The claim is that active-owner and source-bound evidence can be useful under the evaluated protocol and controls, not that every attribution instance is equally strong.
 
@@ -86,7 +86,7 @@ Coverage and safety are reported separately over the marker-hidden row denominat
   \mathcal{Y}^{\ast}_{block}=\{\mathrm{latent\_risk},\mathrm{needs\_review}\}.
 \end{equation}
 \begin{align}
-  \mathrm{Coverage} &= \frac{1}{n}\sum_i \mathbf{1}[\hat{y}_i\in\{\mathrm{benign},\mathrm{latent\_trojan}\}],\\
+  \mathrm{Coverage} &= \frac{1}{n}\sum_i \mathbf{1}[\hat{y}_i\in\{\mathrm{benign},\mathrm{latent\_risk}\}],\\
   \mathrm{NeedsReviewRate} &= \frac{1}{n}\sum_i \mathbf{1}[\hat{y}_i=\mathrm{needs\_review}],\\
   \mathrm{UnsafePassRate} &=
   \frac{1}{n}\sum_i
@@ -138,3 +138,11 @@ The deployment lesson is that a watermarking system should produce reviewable ev
 This completes the lifecycle needed for the final synthesis. CodeMarkBench evaluates the denominator, SemCodebook embeds recoverable structure, CodeDye traces black-box evidence, ProbeTrace binds source ownership under a registry, and SealAudit audits marker-hidden risk. Chapter~\ref{cpt:discussion} compares these evidence surfaces without turning them into one misleading accuracy score.
 
 The deployment framing is therefore intentionally two-handed. ProbeTrace shows how a strong owner-bound result can be made defensible by narrowing the registry and control assumptions. SealAudit shows how a weak-looking coverage result can still be useful when the objective is to avoid unsafe automatic pass-through. Both results would be easier to advertise if their boundaries were removed, but they would become much harder to defend. The final chapter keeps the boundaries visible and treats them as part of the contribution.
+
+This is also where the lifecycle becomes practically useful for a future deployment or paper submission. ProbeTrace says which owner-bound evidence is strong enough to support a source claim under a fixed registry. SealAudit says whether the same evidence should be acted on automatically, escalated, or retained for review. A deployment system needs both decisions because the cost of an unsupported source claim and the cost of an unsafe benign decision are different. The chapter therefore closes with a separation of duties: attribution can bind evidence to a source, but triage decides whether the evidence is safe to use. That separation is the reason the final synthesis compares result surfaces by access contract rather than by one shared accuracy score.
+
+For the FYP implementation, this separation is reflected in the artifacts. ProbeTrace rows bind an active witness, owner-control evidence, and transfer-support manifests. SealAudit rows bind marker-hidden decisions, visible-marker diagnostics, and unsafe-pass events. The two modules are stored together in the lifecycle because both are deployment-facing, but their denominators are intentionally not merged. A merged denominator would make the project look tidier while destroying the meaning of both results: attribution rows do not measure safety, and triage rows do not measure source ownership.
+
+This is the main design lesson before the synthesis chapter. Watermark evidence becomes more useful as it moves toward deployment only when the system also becomes more explicit about what it refuses to decide. ProbeTrace refuses open-world authorship, and SealAudit refuses automatic classification under ambiguity. The next chapter uses that refusal as a positive criterion for comparing the five stages.
+
+The practical effect is that WatermarkScope separates two decisions that are often conflated in provenance discussions. The first decision is evidential: whether a row supports a bounded source or audit claim under a fixed registry, transcript, or marker-hidden record. The second decision is operational: whether the evidence should be accepted automatically, escalated, or retained for review. ProbeTrace mainly answers the first question; SealAudit mainly answers the second. This separation makes the deployment story more cautious, but it also makes it harder for a reviewer to attack the work as a detector pretending to be an end-to-end governance system.

@@ -1,0 +1,78 @@
+{
+  "artifact_role": "pre_run_second_stage_evidence_gate",
+  "blockers": [],
+  "claim_bearing": false,
+  "current_v3_surface": {
+    "decisive_ci95": {
+      "high": 0.10365684661114782,
+      "k": 81,
+      "low": 0.06840615950150586,
+      "n": 960,
+      "rate": 0.084375
+    },
+    "hidden_claim_rows": 960,
+    "needs_review_ci95": {
+      "high": 0.9315938404984943,
+      "k": 879,
+      "low": 0.8963431533888522,
+      "n": 960,
+      "rate": 0.915625
+    },
+    "unsafe_pass_ci95": {
+      "high": 0.003985571263342763,
+      "k": 0,
+      "low": 0.0,
+      "n": 960,
+      "rate": 0.0
+    }
+  },
+  "formal_second_stage_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:46.831958Z",
+  "required_v4_fields": [
+    "case_id",
+    "v3_decision_immutable",
+    "static_safety_evidence",
+    "semantic_drift_evidence",
+    "laundering_evidence",
+    "spoofability_evidence",
+    "provider_judge_perturbation_evidence",
+    "marker_hidden_stress_evidence",
+    "counterevidence",
+    "conflict_flags",
+    "resolver_decision",
+    "resolver_abstain_reason",
+    "unsafe_pass_flag"
+  ],
+  "route_labels": [
+    "confirmed_benign",
+    "confirmed_latent_risk",
+    "hard_ambiguity_retained",
+    "needs_expert_review"
+  ],
+  "schema_version": "sealaudit_evidence_enriched_second_stage_gate_v1",
+  "source_artifacts": [
+    {
+      "exists": true,
+      "path": "codemark_sealaudit/artifacts/generated/canonical_claim_surface_results.json",
+      "sha256": "09b3a58e710b0b665c5f89d7c49e775dc61e1c1a02b0b03dae10b87ce86fd11c",
+      "size_bytes": 2209574
+    },
+    {
+      "exists": true,
+      "path": "codemark_sealaudit/artifacts/generated/sealaudit_coverage_risk_frontier_gate_20260505.json",
+      "sha256": "40dd569e3c7d33c3cc7204d30f31e65de3af06f07daf2824b5ddddfcc3197f3d",
+      "size_bytes": 1652
+    },
+    {
+      "exists": true,
+      "path": "codemark_sealaudit/artifacts/generated/sealaudit_second_stage_v4_side_by_side_resolver_gate_20260505.json",
+      "sha256": "20a72862e9b16cc29699525bb3860f56b5408bc860f9633d66ee537ab508ae08",
+      "size_bytes": 2880
+    }
+  ],
+  "warnings": [
+    "second-stage is support-only until fresh provider rerun",
+    "current coverage remains 8.44%"
+  ]
+}

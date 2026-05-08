@@ -1,0 +1,66 @@
+{
+  "claim_bearing": false,
+  "formal_experiment_allowed": false,
+  "generated_at_utc": "2026-05-06T17:51:41+00:00",
+  "portfolio_stop_condition": "Do not mark bestpaper_ready or launch unscoped formal claims until every project-specific promotion gate passes without support-only evidence.",
+  "preservation_policy": "Do not overwrite locked v1 receipts or previous results; all reruns write versioned outputs.",
+  "projects": {
+    "CodeDye": {
+      "command": "python projects/CodeDye/scripts/run_attack_matrix_live_support.py --provider deepseek --claim-bearing-canonical --run-id codedye_v3_20260507",
+      "missing_for_stronger_claim": [
+        "fresh DeepSeek v3 live rerun output with raw/structured hashes",
+        "sanitized negative-control row-level source ledger"
+      ],
+      "pre_run_gate": "results/CodeDye/artifacts/generated/codedye_v3_protocol_freeze_gate_20260507.json",
+      "readiness_gates": [
+        "results/CodeDye/artifacts/generated/codedye_v3_live_claim_boundary_gate_20260507.json",
+        "results/CodeDye/artifacts/generated/codedye_v3_support_exclusion_gate_20260507.json",
+        "results/CodeDye/artifacts/generated/codedye_v3_reused_control_bridge_20260507.json"
+      ],
+      "status": "v3 protocol frozen; live promotion still blocked"
+    },
+    "ProbeTrace": {
+      "command": "python projects/ProbeTrace/scripts/run_multi_owner_support.py --owners 5 --claim-bearing false --run-id probetrace_multi_owner_20260507 --input-score-vectors <score_vectors.jsonl>",
+      "pre_run_gate": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_rerun_readiness_gate_20260507.json",
+      "required_input_schema": [
+        "task_id",
+        "true_owner_id",
+        "candidate_owner_id",
+        "score",
+        "split",
+        "control_role",
+        "owner_heldout",
+        "task_heldout",
+        "source_record_hash",
+        "output_record_sha256",
+        "owner_id_hat",
+        "false_attribution",
+        "signed_owner_margin",
+        "family",
+        "language"
+      ],
+      "status": "single-owner claim safe; multi-owner rerun fail-closed",
+      "strict_smoke_receipt": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_promotion_gate_probetrace_multi_owner_strict_smoke_20260507.json"
+    },
+    "SealAudit": {
+      "command": "python projects/SealAudit/scripts/run_second_stage_v5_conjunction.py --provider deepseek --run-id sealaudit_v5_20260507 --v5-evidence <final_v5_rows.json>",
+      "pre_run_gate": "results/SealAudit/artifacts/generated/sealaudit_v5_final_evidence_readiness_gate_20260507.json",
+      "required_output": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_sealaudit_v5_20260507.json",
+      "required_postrun_artifacts": [
+        "results/SealAudit/artifacts/generated/sealaudit_v5_coverage_risk_frontier_20260507.json",
+        "results/SealAudit/artifacts/generated/sealaudit_v5_visible_marker_diagnostic_boundary_20260507.json",
+        "results/SealAudit/artifacts/generated/sealaudit_v5_threshold_sensitivity_20260507.json"
+      ],
+      "status": "support-ready; v5 final evidence fail-closed",
+      "strict_smoke_receipt": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_strict_smoke_20260507.json"
+    },
+    "SemCodebook": {
+      "local_ready": true,
+      "next_action": "Paper/table integration and failure-boundary wording; no formal rerun needed for causal table.",
+      "pre_run_gate": "results/SemCodebook/artifacts/generated/semcodebook_causal_contribution_gate_v2_20260507.json",
+      "status": "causal contribution gate now passed; no no-retry claim"
+    }
+  },
+  "role": "additive_v2_execution_contract_not_replacing_locked_v1",
+  "schema_version": "bestpaper_p1_execution_package_v2"
+}

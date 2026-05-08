@@ -1,0 +1,30 @@
+{
+  "claim_bearing": false,
+  "current_status": "prerun_analysis_contract_created",
+  "formal_causal_claim_allowed": false,
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "promotion_policy": "A component may be claimed causal only after paired CI is computed without changing denominators or thresholds.",
+  "required_comparisons": [
+    "full_vs_ast_only",
+    "full_vs_cfg_only",
+    "full_vs_ssa_only",
+    "full_vs_ecc_off",
+    "full_vs_unkeyed_schedule",
+    "full_vs_drop_ast",
+    "full_vs_drop_cfg",
+    "full_vs_drop_ssa"
+  ],
+  "required_slices": [
+    "model_family",
+    "model_scale",
+    "language",
+    "attack_condition"
+  ],
+  "required_statistics": [
+    "paired_delta",
+    "bootstrap_ci95",
+    "negative_control_fp_bound"
+  ],
+  "schema_version": "semcodebook_causal_contribution_gate_v1",
+  "source_artifact": "semcodebook_generation_changing_ablation_promotion_gate_20260505.json"
+}

@@ -1,0 +1,66 @@
+{
+  "blocked": false,
+  "blockers": [],
+  "claim_bearing": false,
+  "formal_contamination_prevalence_claim_allowed": false,
+  "formal_curator_side_null_audit_claim_allowed": true,
+  "formal_high_recall_detection_claim_allowed": false,
+  "formal_v3_live_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T17:22:01+00:00",
+  "legacy_live_denominator": 300,
+  "legacy_live_final_signal": 6,
+  "legacy_live_final_signal_ci95": {
+    "high": 0.042940186730055147,
+    "k": 6,
+    "low": 0.009197506067771082,
+    "n": 300,
+    "rate": 0.02
+  },
+  "legacy_statistics_artifact_signal": 4,
+  "negative_control_false_positive_ci95": {
+    "high": 0.012643429997735661,
+    "k": 0,
+    "low": 0.0,
+    "n": 300,
+    "rate": 0.0
+  },
+  "paper_language_lock": {
+    "allowed": [
+      "DeepSeek-only curator-side null-audit",
+      "sparse high-confidence signal yield with CI",
+      "positive-control sensitivity is moderate",
+      "negative-control upper bound is reported rather than treated as zero risk"
+    ],
+    "forbidden": [
+      "high-recall contamination detector",
+      "contamination prevalence estimate",
+      "provider accusation",
+      "claim that non-signals imply clean training",
+      "use of support/public rows in the 300-row denominator"
+    ]
+  },
+  "payload_transcript_hash_missing_rows": 0,
+  "positive_control_sensitivity_ci95": {
+    "high": 0.6215486818545306,
+    "k": 170,
+    "low": 0.5100989219821965,
+    "method": "wilson",
+    "n": 300,
+    "rate": 0.5666666666666667
+  },
+  "promotion_policy": "This gate only admits the existing DeepSeek 300-row result as a scoped null-audit boundary. A fresh v3 live rerun is still required before any v3 live claim promotion.",
+  "schema_version": "codedye_v3_live_claim_boundary_gate_v1",
+  "source_artifacts": {
+    "legacy_live_boundary_gate": "results/CodeDye/artifacts/generated/codedye_low_signal_claim_boundary_gate_20260505.json",
+    "v3_positive_negative_control_gate": "results/CodeDye/artifacts/generated/codedye_v3_positive_negative_control_gate_20260507.json",
+    "v3_protocol_freeze_gate": "results/CodeDye/artifacts/generated/codedye_v3_protocol_freeze_gate_20260507.json"
+  },
+  "statistics_vs_final_signal_boundary": {
+    "final_conservative_signal_count": 6,
+    "interpretation": "The statistics artifact positive count is a reproducibility sub-gate count, not a replacement for the final conservative signal count from aggregate_results.accused_asset_count.",
+    "statistics_artifact_positive_count": 4,
+    "table_note_required": "4/300 statistics artifact vs 6/300 final signal; public rows are 806 support-only rows and are outside the denominator"
+  },
+  "support_rows_excluded_from_main_denominator": 806
+}

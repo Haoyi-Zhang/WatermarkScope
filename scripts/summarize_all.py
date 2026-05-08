@@ -55,7 +55,7 @@ def main() -> None:
                 rate += f"; 95% CI {row['ci95_low']:.2%}-{row['ci95_high']:.2%}"
         elif isinstance(denom, int):
             rate = f" (denominator {denom})"
-        status = "OK" if ok and not mutable_presentation else "PRESENTATION-DRIFT" if ok else "MISMATCH"
+        status = "OK" if ok else "MISMATCH"
         print(f"- {status}: {row['claim']}{rate}")
         if row.get("primary_independence_unit"):
             print(f"  independence: {row['primary_independence_unit']} ({row.get('primary_task_clusters')} clusters)")

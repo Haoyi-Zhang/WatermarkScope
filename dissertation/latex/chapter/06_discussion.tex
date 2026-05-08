@@ -34,7 +34,7 @@ A single scalar would be misleading. It would either reward CodeDye for sparse s
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.96\textwidth]{fig/blackbox_outcomes.pdf}
+  \includegraphics[width=\textwidth]{fig/blackbox_outcomes.pdf}
   \caption{Deployment-facing evidence contracts for sparse audit, scoped attribution, and selective triage. These are access-specific result surfaces, not comparable detector accuracies.}
   \label{fig:blackbox-outcomes}
 \end{figure}
@@ -43,13 +43,15 @@ Figure~\ref{fig:blackbox-outcomes} makes the deployment contrast visible. CodeDy
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.96\textwidth]{fig/claim_boundary_matrix.pdf}
+  \includegraphics[width=\textwidth]{fig/claim_boundary_matrix.pdf}
   \caption{Claim boundaries across the lifecycle. The blocked-overclaim column is part of the method, not a footnote.}
   \label{fig:claim-boundary-matrix}
 \end{figure}
 \FloatBarrier
 
 Figure~\ref{fig:claim-boundary-matrix} states the same rule visually. Every stage has an evidence object, an allowed reading, and a blocked overclaim. If later work adds a model family, provider, owner setting, or triage rule, it should create a new denominator rather than silently expanding the old one.
+
+The two figures should therefore be read as complements rather than as repeated summaries. Figure~\ref{fig:blackbox-outcomes} shows why the three deployment-facing modules are not comparable by raw success rate: their rows represent different events. Figure~\ref{fig:claim-boundary-matrix} then records the stronger governance rule: a claim is admissible only inside the stage whose evidence object produced it. This is the synthesis contribution of WatermarkScope. The framework is not a weighted average of five systems; it is a set of constraints for deciding which result is allowed to mean what.
 
 \section{Lessons Across Access Models}
 
@@ -67,8 +69,12 @@ The principal internal-validity risk is outcome-dependent selection. The dissert
 
 The submitted code package supports this interpretation. The examiner-facing scripts verify that written claims are traceable to preserved result manifests, canonical artifacts, and claim-boundary files. They do not require a full GPU/API rerun inside the dissertation build. The report therefore separates three reproducibility layers: executable reruns for benchmark and local code, artifact reconstruction for preserved experiment outputs, and audit traceability for black-box transcripts or adjudicated rows.
 
+The same separation explains the future-work plan. A new SemCodebook model family should not modify the reported 24,000-positive denominator; it should create a new admitted-cell surface. A new CodeDye provider should not be merged into the 300 DeepSeek rows; it should receive a provider-specific frozen audit surface and control suite. A future ProbeTrace multi-owner setting should add simultaneous-owner margins and owner-heldout controls before claiming broader attribution. A future SealAudit resolver should improve coverage only if it preserves the unsafe-pass event definition. These continuation rules are operational safeguards against overfitting because they prevent a later successful slice from rewriting the original denominator.
+
 \section{Conclusion}
 
 The research question asked how source-code watermarking can be evaluated, embedded, traced, and audited under realistic code-generation conditions. WatermarkScope answers it as an evidence chain: executable benchmarks expose reliability gaps, structured carriers support white-box provenance, black-box and owner-bound protocols preserve traceable evidence, and security triage audits marker-hidden risk. The completed FYP contribution is a benchmark-to-audit framework with code, artifacts, reproducible manifests, and conservative statistical reporting. Its central result is the evidence contract: as access weakens and risk changes, the claim must change with the evidence object.
 
 The practical standard left by the dissertation is simple: future experiments should add denominators rather than quietly broadening old claims. A benchmark paper can expand CodeMarkBench with a new versioned matrix; a SemCodebook paper can admit new model cells; CodeDye can add provider-specific frozen controls; ProbeTrace can broaden registered owner surfaces; and SealAudit can improve coverage while preserving unsafe-pass accounting. These continuations are separated in Appendix~\ref{app:publication-plan}, but they share one rule: source-code watermarking becomes scientifically useful only when evidence, access, risk, and abstention are reported together.
+
+For that reason, the final artifact should be judged as an evidence framework rather than as a collection of isolated prototypes. Its contribution is the combination of executable benchmarking, structured provenance, black-box audit preservation, source-bound attribution, and selective security triage under one reproducibility discipline. The strongest future version of the work is not obtained by making every number look larger; it is obtained by admitting new surfaces before measuring them, keeping weak or ambiguous outcomes visible, and letting the claim boundary change whenever access or risk changes.

@@ -41,7 +41,7 @@ Evidence function & Include in examiner reading & Keep out of main claims \\
 \midrule
 Executable benchmark contract & Run/task denominator distinction, metric vector, negative controls, release stability. & Full leaderboard dumps or unsupported winner-takes-all ranking. \\
 Structured provenance & AST/CFG/SSA-style carrier summary, adaptive schedule commitments, ECC-style recovery, admission rules, failure accounting. & Raw 72,000-row listings or no-retry overclaims. \\
-Black-box audit & Hash-retention record, 6/300 versus 4/300 boundary, support-row exclusion. & Provider transcript raw text or prevalence estimates. \\
+Black-box audit & Hash-retention record, sparse live-signal boundary, support-row exclusion. & Provider transcript raw text or prevalence estimates. \\
 Source attribution & Registry object, APIS denominator, false-owner controls, transfer-cluster rule. & Treating 900 transfer rows as 900 primary tasks. \\
 Selective triage & Marker-hidden denominator, needs-review semantics, unsafe-pass event definition. & Marker-visible diagnostics as the main result. \\
 \bottomrule
@@ -57,25 +57,33 @@ For a fixed method, model, and source group, utility is reported over the execut
   \frac{1}{|\mathcal{T}_s|}
   \sum_{t\in\mathcal{T}_s} U(G(m,t,w)).
 \end{equation}
-For a fixed watermark method and attack, the finite-sample robustness estimator is
+For a fixed watermark method and attack, a primitive finite-sample robustness event is
 computed over the released admitted watermarked set $\mathcal{X}_w$ and the matched
 admitted unwatermarked control set $\mathcal{X}_0$:
 \begin{equation}
   \widehat{\mathrm{RobustTPR}}(w,a)=
   \frac{\sum_{x\in\mathcal{X}_w}\mathbf{1}[V_{\mathrm{attack}}(A_a(x))=1\wedge D_w(A_a(x))=1]}
        {\sum_{x\in\mathcal{X}_w}\mathbf{1}[V_{\mathrm{attack}}(A_a(x))=1]}.
+  \label{eq:robust-tpr-app}
 \end{equation}
+The public scorecard aggregates several primitive events rather than treating
+Eq.~\eqref{eq:robust-tpr-app} as the single printed robustness component. In the
+release table, $q_{\mathrm{robust}}$ summarizes watermark retention, attacked
+semantic detection, and attacked pass preservation over the released attack
+families, while raw negative-control rates are reported from their own control
+families. The formulas therefore define the counting contract behind the
+components; they are not a replacement for the scorecard artifact.
 The corresponding control estimator is computed over unwatermarked rows:
 \begin{equation}
   \widehat{\mathrm{FPR}}(w,a)=
   \frac{\sum_{x_0\in\mathcal{X}_0}\mathbf{1}[V_{\mathrm{attack}}(A_a(x_0))=1\wedge D_w(A_a(x_0))=1]}
        {\sum_{x_0\in\mathcal{X}_0}\mathbf{1}[V_{\mathrm{attack}}(A_a(x_0))=1]}.
 \end{equation}
-Generation overhead is reported as a matched aggregate over the same admitted task slice:
+Generation overhead is reported as a matched aggregate over the same admitted task slice $\mathcal{I}_{admit}$:
 \begin{equation}
   \mathrm{Overhead} =
-  \frac{\sum_i \mathrm{time}_{\mathrm{watermarked}}(i)-\sum_i \mathrm{time}_{\mathrm{baseline}}(i)}
-       {\sum_i \mathrm{time}_{\mathrm{baseline}}(i)}.
+  \frac{\sum_{i\in\mathcal{I}_{admit}} \mathrm{time}_{\mathrm{watermarked}}(i)-\sum_{i\in\mathcal{I}_{admit}} \mathrm{time}_{\mathrm{baseline}}(i)}
+       {\sum_{i\in\mathcal{I}_{admit}} \mathrm{time}_{\mathrm{baseline}}(i)}.
 \end{equation}
 
 \begin{table}[htbp]
@@ -201,10 +209,12 @@ The submitted repository preserves the dissertation PDF, code snapshots, result 
   \item \artifact{RESULT\_MANIFEST.jsonl}: claim-to-artifact binding with hashes;
   \item \artifact{CLAIM\_BOUNDARIES.md}: allowed and forbidden interpretations;
   \item \artifact{scripts/repro\_check.py}: repository integrity, stale wording, hash, and denominator checks;
-  \item \artifact{scripts/examiner\_check.py}: one-command examiner-facing check;
-  \item \href{https://github.com/Haoyi-Zhang/WatermarkScope}{WatermarkScope}: submitted FYP repository with dissertation source, method snapshots, manifests, and verification scripts;
-  \item \href{https://github.com/Haoyi-Zhang/CodeMarkBench}{CodeMarkBench}: public benchmark repository and software artifact snapshot.
+  \item \artifact{scripts/examiner\_check.py}: one-command examiner-facing check.
 \end{itemize}
+
+The repository URLs are listed at the start of the appendices in
+Appendix~\ref{app:repository-access}. They are treated as artifact access
+points rather than academic references.
 
 The local verification layer has a narrow examination purpose: it checks that the submitted claims still bind to preserved artifacts, that support-only rows are not promoted, and that no stale internal material has entered the examiner-facing package.
 
@@ -264,7 +274,7 @@ SCB recovery & 23,342/24k & 97.26\% recovered. & Admitted white-box positive den
 SemCodebook negative & 0/48,000 & No observed negative-control hit. & Nonzero upper bound still governs risk. \\
 CodeDye live audit & 6/300 & Sparse 2.00\% live signal. & Null-audit signal, not prevalence. \\
 CodeDye controls & 170/300; 0/300 & Positive sensitivity and clean negatives. & Calibration, not live denominator expansion. \\
-ProbeTrace APIS & 300/300 & Scoped active-owner decisions promoted. & Single active owner only. \\
+ProbeTrace APIS & 300/300 & APIS success events under frozen active-owner protocol. & Single active owner only. \\
 ProbeTrace controls & 0/1,200 & No observed false-owner hit. & Wrong/null/random controls only. \\
 SealAudit triage & 81/960; 879/960 & Decisive and needs-review split. & Selective triage, not automatic classification. \\
 SealAudit unsafe pass & 0/960 & No observed unsafe pass. & Marker-hidden rows only. \\

@@ -1,0 +1,32 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "deepseek_v3_rerun_allowed": true,
+  "formal_high_recall_detection_claim_allowed": false,
+  "formal_v3_live_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T19:12:05+00:00",
+  "promotion_policy": "This classifier may allow a fresh DeepSeek v3 rerun. It cannot promote a v3 live claim until fresh postrun outputs improve or explain sensitivity without inflating false positives.",
+  "readiness_inputs": {
+    "legacy_live_denominator": 300,
+    "legacy_live_signal": 6,
+    "negative_control_false_positive_count": 0,
+    "negative_control_rows": 300,
+    "positive_control_denominator": 300,
+    "positive_control_detected": 170,
+    "positive_control_missed": 130,
+    "support_rows_excluded": 806,
+    "thresholds_frozen": true
+  },
+  "required_v3_postrun_outputs": [
+    "raw_provider_transcript_hashes",
+    "structured_payload_hashes",
+    "prompt_hashes",
+    "task_hashes",
+    "dual_evidence_decisions",
+    "threshold_sensitivity",
+    "support_exclusion_join",
+    "positive_negative_control_join"
+  ],
+  "schema_version": "codedye_v3_run_readiness_classifier_v1"
+}

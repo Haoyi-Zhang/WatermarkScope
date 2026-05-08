@@ -1,6 +1,6 @@
 \chapter{CodeMarkBench Benchmark Foundation}\label{cpt:codemarkbench}
 
-CodeMarkBench is the empirical foundation of this dissertation. Its role is not to prove that watermarking is impossible, but to create a reproducible setting in which source-code watermarking methods are evaluated under executable, multi-model, multi-language, and stress-test conditions. The benchmark is release-backed: the submitted artifact and public repository record the canonical single-host matrix with 140/140 run-completion records, four pinned runtime baselines, five local code models, and seven executed source groups~\cite{zhang2026codemarkbench}. This 140/140 figure is a reproducibility and inventory-completion result, not a watermark detection success rate.
+CodeMarkBench is the empirical foundation of this dissertation. Its role is not to prove that watermarking is impossible, but to create a reproducible setting in which source-code watermarking methods are evaluated under executable, multi-model, multi-language, and stress-test conditions. The benchmark is release-backed: the submitted artifact and public repository record the canonical single-host matrix with 140/140 run-completion records, four pinned runtime baselines, five local code models, and seven executed source groups. The repository links and inspection paths are listed first in Appendix~\ref{app:repository-access}. This 140/140 figure is a reproducibility and inventory-completion result, not a watermark detection success rate.
 
 \section{Benchmark Design}
 
@@ -45,7 +45,7 @@ Crafted Stress & Stress-oriented crafted tasks & 240 \\
 \end{tabular}
 \end{table}
 
-The active model roster contains Qwen2.5-Coder 1.5B, 7B, and 14B, StarCoder2-7B, and DeepSeek-Coder-6.7B, covering the Qwen, StarCoder, and DeepSeek code-model families~\cite{hui2024qwen25coder,bigcode2024starcoder2,guo2024deepseekcoder}. The active runtime baseline methods are STONE, SWEET, EWD, and KGW. KGW follows the green-list watermarking family introduced for LLM text watermarking~\cite{kirchenbauer2023watermark}; STONE, SWEET, and EWD are release-internal runtime baselines whose implementation provenance, adaptation assumptions, and detector boundaries are recorded in the CodeMarkBench artifact rather than treated as external peer-reviewed methods~\cite{zhang2026codemarkbench}. Under the current release contract, the full matrix completes 140/140 canonical run records with no failed run in the public result surface.
+The active model roster contains Qwen2.5-Coder 1.5B, 7B, and 14B, StarCoder2-7B, and DeepSeek-Coder-6.7B, covering the Qwen, StarCoder, and DeepSeek code-model families~\cite{hui2024qwen25coder,bigcode2024starcoder2,guo2024deepseekcoder}. The active runtime baseline methods are STONE, SWEET, EWD, and KGW. KGW follows the green-list watermarking family introduced for LLM text watermarking~\cite{kirchenbauer2023watermark}; STONE, SWEET, and EWD are release-internal runtime baselines whose implementation provenance, adaptation assumptions, and detector boundaries are recorded in the CodeMarkBench artifact rather than treated as external peer-reviewed methods. Under the current release contract, the full matrix completes 140/140 canonical run records with no failed run in the public result surface.
 
 The run denominator should not be confused with the task denominator. The 140 canonical runs are
 \begin{equation}
@@ -70,7 +70,7 @@ The benchmark separates utility, detection, robustness, stealth, efficiency, and
   0, & \text{otherwise}.
   \end{cases}
 \end{equation}
-Here $U$ records test-pass utility for an admitted artifact, while $V_{\mathrm{attack}}$ additionally records parse-and-test validity after an attack transformation. Robust detection under attack is estimated over attacked artifacts that remain valid under the same parse-and-test contract used by the release:
+Here $U$ records test-pass utility for an admitted artifact, while $V_{\mathrm{attack}}$ additionally records parse-and-test validity after an attack transformation. At the row level, the primitive finite-release robust-detection estimator is computed over attacked artifacts that remain valid under the same parse-and-test contract used by the release:
 \begin{align}
   \widehat{\mathrm{RobustTPR}}(w,a)
   &= \frac{
@@ -85,7 +85,7 @@ where $D_w$ is the detector associated with watermark method $w$ and $\mathcal{X
   \sum_{x_0\in\mathcal{X}_0}\mathbf{1}[D_w(A_a(x_0))=1\wedge V_{\mathrm{attack}}(A_a(x_0))=1]}
   {\sum_{x_0\in\mathcal{X}_0}\mathbf{1}[V_{\mathrm{attack}}(A_a(x_0))=1]}.
 \end{align}
-Here $\mathcal{X}_0$ is the matched admitted unwatermarked control set. The implemented benchmark uses finite-sample estimators over released rows; additional component definitions are given in Appendix~\ref{app:reproducibility}. This keeps the main text focused on the contract: executable validity determines whether an attacked row enters a robustness denominator, and clean executable controls determine the false-positive denominator. The dissertation does not claim that the displayed rates estimate a universal distribution over all future code transformations; they summarize the fixed released matrix.
+Here $\mathcal{X}_0$ is the matched admitted unwatermarked control set. These equations define the primitive row-level counting events. The released CodeMarkBench scorecard then reports component summaries built from several such primitives, including watermark retention, attacked semantic detection, attacked pass preservation, and negative-control families. Additional component definitions are given in Appendix~\ref{app:reproducibility}. This keeps the main text focused on the contract: executable validity determines whether an attacked row can support a robustness component, and clean executable controls determine the false-positive surface. The dissertation does not claim that the displayed rates estimate a universal distribution over all future code transformations; they summarize the fixed released matrix.
 The same not-estimable convention applies to false-positive cells with zero executable control denominator.
 The aggregate release scalar is used only as a summary field from the public benchmark release; the dissertation keeps component metrics visible so that robustness, utility, and false-positive behavior are not hidden behind one number. The reproducible object is the component vector
 \begin{equation}
@@ -139,7 +139,7 @@ The gate component is a normalized release metric, not a binary accept/reject de
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.96\textwidth]{fig/codemarkbench_tradeoff.pdf}
+  \includegraphics[width=0.99\textwidth]{fig/codemarkbench_tradeoff.pdf}
   \caption{CodeMarkBench robustness--utility tradeoff with descriptive release-scalar context. Conclusions use component coordinates and raw FPR, not a winner-takes-all ranking.}
   \label{fig:codemarkbench-tradeoff}
 \end{figure}

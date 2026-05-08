@@ -1,0 +1,31 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "formal_blackbox_upgrade_claims_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:14:54+00:00",
+  "policy": "These contracts make provider execution auditable. They do not promote any black-box paper claim.",
+  "project_contracts": {
+    "CodeDye": {
+      "blockers": [],
+      "canonical_output": "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507.json",
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_fresh_run_preflight_contract_v1_20260507.json"
+    },
+    "ProbeTrace": {
+      "blockers": [],
+      "canonical_output": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_live_score_vectors_20260507.jsonl",
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_fresh_run_preflight_contract_v1_20260507.json"
+    },
+    "SealAudit": {
+      "blockers": [],
+      "canonical_output": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v5_results_sealaudit_v5_20260507.json",
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_v5_fresh_run_preflight_contract_v1_20260507.json"
+    }
+  },
+  "provider": "deepseek",
+  "schema_version": "blackbox_fresh_run_preflight_contracts_v1",
+  "secret_values_recorded": false
+}

@@ -1,0 +1,34 @@
+{
+  "claim_bearing": false,
+  "current_claim_preserved": "single-active-owner/source-bound attribution",
+  "formal_multi_owner_claim_allowed": false,
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "promotion_policy": "A 300/300 result can remain claim-bearing only with leakage controls and margin evidence; it must not be expanded to provider-general attribution.",
+  "required_checks": [
+    {
+      "check": "owner_token_exposure_scan",
+      "status": "planned"
+    },
+    {
+      "check": "prompt_shortcut_scan",
+      "status": "planned"
+    },
+    {
+      "check": "registry_leakage_scan",
+      "status": "planned"
+    },
+    {
+      "check": "same_provider_unwrap_control",
+      "status": "planned"
+    },
+    {
+      "check": "owner_heldout_split_integrity",
+      "status": "planned"
+    },
+    {
+      "check": "task_heldout_split_integrity",
+      "status": "planned"
+    }
+  ],
+  "schema_version": "probetrace_anti_leakage_gate_v1"
+}

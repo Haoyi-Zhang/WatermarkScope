@@ -1,0 +1,85 @@
+{
+  "claim_bearing": false,
+  "claim_boundary": "This supports anti-leakage review for the current single-owner artifact. It still does not promote comparable owner-margin separability or multi-owner attribution.",
+  "control_score_summaries": {
+    "null_owner_abstain": {
+      "false_attribution": 0,
+      "owner_id_emitted": 0,
+      "score_quantiles": {
+        "count": 300,
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "q05": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "q95": 0.0
+      }
+    },
+    "random_owner_seeded_prior": {
+      "false_attribution": 0,
+      "owner_id_emitted": 0,
+      "score_quantiles": {
+        "count": 300,
+        "max": 0.999563,
+        "median": 0.527968,
+        "min": 0.004568,
+        "q05": 0.051079,
+        "q25": 0.279469,
+        "q75": 0.775155,
+        "q95": 0.961043
+      }
+    },
+    "task_level_utility_only_comparator": {
+      "false_attribution": 0,
+      "owner_id_emitted": 0,
+      "score_quantiles": {
+        "count": 300,
+        "max": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "q05": 1.0,
+        "q25": 1.0,
+        "q75": 1.0,
+        "q95": 1.0
+      }
+    },
+    "unwrapped_same_provider_task_level": {
+      "false_attribution": 0,
+      "owner_id_emitted": 0,
+      "score_quantiles": {
+        "count": 300,
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "q05": 0.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "q95": 0.0
+      }
+    }
+  },
+  "family_counts": {
+    "adversarial_instruction_blending": 30,
+    "budget_control": 30,
+    "cross_provider_format_control": 30,
+    "multi_turn_probe_prompts": 30,
+    "neutralization_after_distillation": 30,
+    "neutralization_before_distillation": 30,
+    "probe_prompts": 30,
+    "rehosted_student": 30,
+    "session_replay_control": 30,
+    "wrapper_stripping": 30
+  },
+  "generated_at_utc": "2026-05-06T16:26:51+00:00",
+  "high_control_score_without_owner_emission_count": 300,
+  "language_counts": {
+    "python": 300
+  },
+  "near_boundary_confidence_count": 150,
+  "remaining_gap": "Comparable true-owner vs wrong-owner score vectors require a fresh multi-owner support run.",
+  "row_count": 300,
+  "schema_version": "probetrace_margin_second_pass_audit_v1",
+  "source_artifact": "probetrace_owner_margin_control_audit_rows_20260505.jsonl",
+  "true_owner_verified_count": 300
+}

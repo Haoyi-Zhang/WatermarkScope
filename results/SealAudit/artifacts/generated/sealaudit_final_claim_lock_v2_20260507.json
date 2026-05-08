@@ -1,0 +1,75 @@
+{
+  "allowed_current_claim": "DeepSeek-only marker-hidden v5 selective audit/triage with support-evidence binding",
+  "bestpaper_ready": true,
+  "bestpaper_ready_reason": "SealAudit now has case-bound v2 marker-hidden evidence, code-aware provider trace support, executable-conjunction support, threshold sensitivity, visible-marker diagnostic exclusion, and 0 unsafe-pass rows. The allowed claim remains selective audit/triage, not a security certificate.",
+  "blockers": [],
+  "claim_bearing": false,
+  "forbidden_claims": [
+    "security certificate",
+    "harmlessness guarantee",
+    "automatic latent-trojan classifier",
+    "visible-marker rows as main evidence",
+    "expert-signed gold labels or named/institutional expert certification",
+    "claim that hard ambiguity is resolved when retained as review load"
+  ],
+  "formal_automatic_classifier_claim_allowed": false,
+  "formal_harmlessness_claim_allowed": false,
+  "formal_marker_hidden_selective_triage_claim_allowed": true,
+  "formal_security_certificate_claim_allowed": false,
+  "formal_v5_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:42:58+00:00",
+  "locked_effect_surface": {
+    "case_count": 320,
+    "confirmed_benign_count": 80,
+    "confirmed_latent_risk_count": 240,
+    "decision_distribution": {
+      "confirmed_benign": 80,
+      "confirmed_latent_risk": 240,
+      "hard_ambiguity_retained": 484,
+      "needs_expert_review": 156
+    },
+    "decisive_count": 320,
+    "decisive_coverage_ci95": {
+      "high": 0.3637654259478915,
+      "k": 320,
+      "low": 0.3042297644732227,
+      "method": "wilson",
+      "n": 960,
+      "rate": 0.3333333333333333
+    },
+    "expert_review_role_support_only": true,
+    "marker_hidden_claim_rows": 960,
+    "marker_visible_diagnostic_rows": 320,
+    "threshold_sweep_count": 6,
+    "unsafe_pass_ci95": {
+      "high": 0.003985571263342763,
+      "k": 0,
+      "low": 0.0,
+      "method": "wilson",
+      "n": 960,
+      "rate": 0.0
+    },
+    "unsafe_pass_count": 0,
+    "visible_marker_claim_rows": 0
+  },
+  "paper_table_requirements": [
+    "Report 320/960 decisive marker-hidden v5 rows with Wilson and bootstrap CI.",
+    "Report 0/960 unsafe-pass rows with a Wilson upper bound.",
+    "Report visible-marker rows as diagnostic-only and excluded from main denominators.",
+    "Report code-aware provider trace and executable-conjunction evidence as support binding, not independent labels.",
+    "State that the result is selective audit/triage, not a security certificate or harmlessness guarantee."
+  ],
+  "remaining_blockers": [],
+  "schema_version": "sealaudit_final_claim_lock_v2",
+  "source_artifacts": {
+    "coverage_risk_frontier": "results/SealAudit/artifacts/generated/sealaudit_v5_coverage_risk_frontier_v2_20260507.json",
+    "expert_role_support": "results/SealAudit/artifacts/generated/sealaudit_expert_review_role_support_gate_v1_20260507.json",
+    "materialized_evidence": "results/SealAudit/artifacts/generated/sealaudit_v5_final_claim_evidence_rows_v2_20260507.json",
+    "postrun_promotion": "results/SealAudit/artifacts/generated/sealaudit_v5_postrun_promotion_gate_v2_20260507.json",
+    "threshold_sensitivity": "results/SealAudit/artifacts/generated/sealaudit_v5_threshold_sensitivity_v2_20260507.json",
+    "visible_marker_boundary": "results/SealAudit/artifacts/generated/sealaudit_v5_visible_marker_diagnostic_boundary_v2_20260507.json"
+  },
+  "supersedes_for_continuation_planning": "results/SealAudit/artifacts/generated/sealaudit_final_claim_lock_v1_20260507.json",
+  "upgrade_claim_allowed": true
+}

@@ -1,0 +1,22 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "exclusion_policy": "These rows are retained as support/public/stress evidence and cannot change the 300-row live audit numerator or denominator.",
+  "formal_v3_live_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T17:22:01+00:00",
+  "join_policy": "Support/public/stress rows can be cited as auxiliary evidence only when every table clearly separates them from the 300 claim-bearing DeepSeek live denominator.",
+  "main_denominator": 300,
+  "main_denominator_unchanged": 300,
+  "schema_version": "codedye_v3_support_exclusion_gate_v1",
+  "source_inventory": "results/CodeDye/artifacts/generated/codedye_support_exclusion_inventory_fyp.json",
+  "support_categories": [
+    {
+      "category": "public_or_utility_support",
+      "claim_bearing": false,
+      "exclusion_reason": "Rows do not satisfy the frozen DeepSeek live CodeDyeBench claim contract.",
+      "row_count": 806
+    }
+  ],
+  "support_rows_excluded_from_main_denominator": 806
+}

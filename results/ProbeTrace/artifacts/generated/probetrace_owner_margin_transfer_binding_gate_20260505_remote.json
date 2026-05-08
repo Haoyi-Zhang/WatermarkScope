@@ -1,0 +1,47 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "field_glossary": {
+    "dataset_sha256": "top-level validation dataset hash applied to all transfer output rows",
+    "expected_owner_id": "run-level active owner expected by the clean-holdout transfer split",
+    "owner_id_hat": "predicted active owner id in APIS-300 rows; this is not a multi-owner claim",
+    "source_record_hash": "row-level source provenance binding in every transfer output row",
+    "tokenizer_source": "runtime-local path in internal artifact; redacted from anonymous release copies"
+  },
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T12:33:37Z",
+  "margin_summary": {
+    "max_margin": null,
+    "min_margin": null,
+    "near_zero_margin_count_at_0_05": 0,
+    "owner_scores_are_single_active_owner_scope": true,
+    "validation_records_seen": 900
+  },
+  "overfit_guard": "Perfect TPR/FPR must be interpreted with source hashes, wrong/null/random owner controls, single-owner scope, and latency/query frontier.",
+  "row_binding": {
+    "dataset_sha256": "0adefeff0da33219c4a94565e6073392a69d4a46b56ef184e7fb501191c87073",
+    "dataset_sha_applies_to_each_transfer_output_row": true,
+    "expected_owner_id": "d2553fe5bd1040bc",
+    "missing_required_row_field_count": 0,
+    "missing_required_row_fields_sample": [],
+    "output_jsonl_sha256": "4f3fc49f7142fa6a9efd56ada04aba1c8b901cb9c507c23d531bbea83f6019f2",
+    "owner_alignment_gate_passed": true,
+    "owner_bound_record_count": 900,
+    "source_bound_record_count": 900,
+    "student_ids": [
+      "lora-student",
+      "quantized-student",
+      "sft-student"
+    ],
+    "summary_json_sha256": "dee8b57674d13a0b4fbe851d4838e381bc8287baa2d1c7a90e5052fe0e5ac3c2",
+    "transfer_families": [
+      "lora",
+      "quantized",
+      "sft"
+    ],
+    "transfer_output_row_count": 900,
+    "validation_record_count": 900,
+    "validation_summary_record_count": 900
+  },
+  "schema_version": "probetrace_owner_margin_transfer_binding_gate_v2_schema_corrected"
+}

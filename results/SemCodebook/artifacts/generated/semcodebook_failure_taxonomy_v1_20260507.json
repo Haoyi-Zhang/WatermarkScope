@@ -1,0 +1,27 @@
+{
+  "claim_bearing": false,
+  "clean_slice_positive_denominator": 2400,
+  "clean_slice_positive_missed": 2100,
+  "clean_slice_positive_recovered": 300,
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "headline_positive_denominator": 24000,
+  "headline_positive_missed": 658,
+  "headline_positive_recovered": 23342,
+  "known_failure_sources": {
+    "attack_not_applicable_or_unchanged": 5430,
+    "detector_abstain_or_reject_on_positive": 20,
+    "generation_failure": 0,
+    "mock_or_fallback_generation": 0,
+    "schedule_commitment_mismatch": 0,
+    "semantic_or_compile_failure": 0,
+    "unattributed_headline_positive_misses_requiring_row_level_join": 658
+  },
+  "next_required_closure": [
+    "Join row-level detector outcomes by model, language, family, attack, and carrier family.",
+    "Map every missed positive into exactly one primary failure bucket.",
+    "Report miss rates with Wilson intervals; do not tune thresholds after seeing the taxonomy."
+  ],
+  "schema_version": "semcodebook_failure_taxonomy_v1",
+  "source_artifact": "semcodebook_whitebox_effect_authenticity_gate_20260505.json",
+  "taxonomy_policy": "Failures are preserved as boundary evidence and must not be deleted, relabeled, or excluded from the denominator."
+}

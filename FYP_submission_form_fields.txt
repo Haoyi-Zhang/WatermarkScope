@@ -1,59 +1,41 @@
-﻿2025/26 Final Year Project Data Collection - Final Fields
-
-1. Supervisor's Name
+2025/26 Final Year Project Data Collection
+Supervisor's Name 导师姓名
 Md Maruf Hasan
 
-2. Type
-Design
+Type 论文类型Design 毕业设计
 
-3. Title (English)
+Title (English) 论文题目(英文)
 WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models
 
-4. Title (Chinese)
+Title (Chinese) 论文题目(中文)
 WatermarkScope：面向代码生成模型源代码水印的基准到审计框架
 
-5. Keywords (English)
-1. Watermark Evidence
-2. Executable Evaluation
-3. Provenance Recovery
-4. Owner Attribution
-5. Risk Triage
+Keywords (English) 论文关键词(英文)
+Watermark Evidence;Executable Evaluation;Provenance Recovery;Owner Attribution;Risk Triage
 
-6. Keywords (Chinese)
-1. 水印证据
-2. 可执行评估
-3. 溯源恢复
-4. 所有者归因
-5. 风险分诊
+Keywords (Chinese) 论文关键词(中文)
+水印证据;可执行评估;溯源恢复;所有者归因;风险分诊
 
-7. Source of Topic
-Non-funded Project
+Source 选题来源Non-funded Project 非立项
 
-8. Research Field (English)
-1. Trustworthy AI for Software Engineering
-2. Code Generation Assessment
+Research Field(English) 研究方向(英文)
+Trustworthy Software Engineering;Large Language Model-based Code Generation
 
-9. Research Field (Chinese)
-1. 可信软件智能
-2. 代码生成评估
+Research Field(Chinese) 研究方向(中文)
+可信软件智能;大模型代码生成评估
 
-10. Language
-English
+Language 撰写语种English 英语
 
-11. Abstract (English)
+Abstract (English) 摘要（英文）
 Large language models increasingly generate source code that is copied, edited, translated, and deployed outside the original generation session. This project presents WatermarkScope, a benchmark-to-audit framework for evaluating source-code watermarking evidence under realistic code-generation conditions. The framework connects five stages: CodeMarkBench defines executable benchmark denominators; SemCodebook studies structured white-box provenance recovery; CodeDye preserves conservative black-box null-audit evidence; ProbeTrace evaluates scoped active-owner attribution; and SealAudit examines marker-hidden security triage. The current evidence surface includes 140/140 canonical CodeMarkBench runs, 23,342/24,000 SemCodebook recoveries with 0/48,000 negative-control hits, 6/300 CodeDye sparse live signals with 170/300 positive controls and 0/300 negative controls, 300/300 ProbeTrace scoped decisions with 0/1,200 false-owner controls, and 81/960 decisive SealAudit triage outcomes with 0 observed unsafe passes. The main conclusion is that source-code watermarking should not be judged by one detector score. Reliable evaluation requires fixed denominators, executable controls, uncertainty reporting, access-specific claim boundaries, and explicit abstention when evidence is insufficient.
 
-12. Abstract (Chinese)
+Abstract (Chinese) 摘要（ 中文）
 大型语言模型生成的源代码常被复制、修改、翻译并部署到原始生成会话之外，因此代码水印评估不能只依赖单一检测分数。本项目提出 WatermarkScope，一个面向代码生成模型水印证据的基准到审计框架。该框架包含五个阶段：CodeMarkBench 建立可执行基准与固定分母；SemCodebook 研究结构化白盒溯源水印；CodeDye 保留保守的黑盒空审计证据；ProbeTrace 评估有界的主动所有者归因；SealAudit 分析隐藏标记条件下的安全分诊。当前结果包括 CodeMarkBench 140/140 个规范运行，SemCodebook 23,342/24,000 个正例恢复且 48,000 个负控中 0 命中，CodeDye 在 300 个实时样本中得到 6 个稀疏信号并通过正负控验证，ProbeTrace 完成 300/300 个有界归因且 1,200 个错误所有者控件中 0 误报，SealAudit 在 960 个隐藏标记样本中给出 81 个明确分诊且未观察到不安全通过。结论是，可靠的代码水印研究需要固定分母、可执行控件、不确定性报告、访问模型边界以及证据不足时的显式弃权。
 
-13. Embargo Period
-No embargo
+Embargo Period 保密期1-year
 
-14. File Name
+File Name 论文最终版文件命名
 2526_32_16403_2254912_Haoyi Zhang
 
-15. File name of supplementary materials (if applicable)
-2254912_Haoyi Zhang_2026_Supplementary
-
-GitHub Repository
+File name of supplymentary materials (if applicable) 其他补充材料（如代码、数据等）文件命名 (如有)
 https://github.com/Haoyi-Zhang/WatermarkScope

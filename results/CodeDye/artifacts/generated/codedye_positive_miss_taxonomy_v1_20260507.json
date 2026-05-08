@@ -1,0 +1,19 @@
+{
+  "claim_bearing": false,
+  "closure_policy": "Do not lower thresholds after seeing misses; v3 must be frozen before any new claim-bearing rerun.",
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "miss_taxonomy_status": "requires_row_level_join",
+  "positive_control_denominator": 300,
+  "positive_control_detected": 170,
+  "positive_control_missed": 130,
+  "provisional_failure_buckets": [
+    "canary_absent_or_destroyed",
+    "provenance_margin_below_frozen_threshold",
+    "chronology_not_retained",
+    "retrieval_confound_discounted",
+    "query_budget_insufficient",
+    "structured_payload_incomplete"
+  ],
+  "schema_version": "codedye_positive_miss_taxonomy_v1",
+  "source_artifact": "codedye_low_signal_claim_boundary_gate_20260505.json"
+}

@@ -1,0 +1,15 @@
+{
+  "blocked": true,
+  "blockers": [
+    "v5_evidence_is_support_only_not_final_claim"
+  ],
+  "claim_bearing": false,
+  "evidence_artifact_role": "executable_adapter_conjunction_materialized_support",
+  "evidence_claim_role": "executable_adapter_conjunction_subgate_evidence_not_final_claim",
+  "formal_v5_claim_allowed": false,
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T16:58:22+00:00",
+  "promotion_condition": "Coverage improves over 8.44%; unsafe-pass remains bounded; visible-marker rows stay diagnostic-only; evidence must be final v5 row-level evidence, not support-only conjunction material.",
+  "provider": "deepseek",
+  "schema_version": "sealaudit_second_stage_v5_runner_receipt_v1"
+}

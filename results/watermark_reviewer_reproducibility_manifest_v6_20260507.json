@@ -1,0 +1,202 @@
+{
+  "claim_bearing": false,
+  "claim_locks": {
+    "CodeDye": {
+      "allowed_current_claim": "DeepSeek-only curator-side sparse null-audit with hash-bound transcript retention",
+      "bestpaper_ready": false,
+      "forbidden_claims": [
+        "high-recall contamination detector",
+        "contamination prevalence estimate",
+        "provider accusation",
+        "evidence that non-signals prove absence of contamination",
+        "support/public rows as main-denominator evidence",
+        "v3 live claim before the postrun promotion gate passes"
+      ],
+      "gate_pass": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_final_claim_lock_v1_20260507.json",
+      "project": "CodeDye",
+      "remaining_blockers": [
+        "fresh_v3_live_result_missing",
+        "positive_control_sensitivity_only_170_of_300",
+        "live_signal_only_6_of_300"
+      ],
+      "schema_version": "codedye_final_claim_lock_v1",
+      "upgrade_claim_allowed": false
+    },
+    "ProbeTrace": {
+      "allowed_current_claim": "DeepSeek-only single-active-owner/source-bound attribution protocol",
+      "bestpaper_ready": false,
+      "forbidden_claims": [
+        "provider-general attribution",
+        "multi-owner attribution from input package alone",
+        "shortcut-free or leakage-free claim without fresh owner/task-heldout score vectors",
+        "student-transfer generalization outside source-bound receipts",
+        "perfect-score language without the anti-leakage caveat"
+      ],
+      "gate_pass": true,
+      "path": "results/ProbeTrace/artifacts/generated/probetrace_final_claim_lock_v1_20260507.json",
+      "project": "ProbeTrace",
+      "remaining_blockers": [
+        "fresh_multi_owner_live_score_vectors_missing",
+        "owner_task_heldout_margin_auc_missing",
+        "perfect_single_owner_result_requires_anti_leakage_confirmation"
+      ],
+      "schema_version": "probetrace_final_claim_lock_v1",
+      "upgrade_claim_allowed": false
+    },
+    "SealAudit": {
+      "allowed_current_claim": "DeepSeek-only marker-hidden selective audit/triage protocol",
+      "bestpaper_ready": false,
+      "forbidden_claims": [
+        "security certificate",
+        "harmlessness guarantee",
+        "automatic latent-trojan classifier",
+        "visible-marker rows as main evidence",
+        "expert-signed gold labels or named/institutional expert certification",
+        "v5 coverage upgrade before final v5 postrun promotion passes"
+      ],
+      "gate_pass": true,
+      "path": "results/SealAudit/artifacts/generated/sealaudit_final_claim_lock_v1_20260507.json",
+      "project": "SealAudit",
+      "remaining_blockers": [
+        "decisive_coverage_only_81_of_960",
+        "v5_final_evidence_not_claim_bearing",
+        "v5_coverage_risk_frontier_missing",
+        "v5_threshold_sensitivity_missing",
+        "v5_visible_marker_boundary_missing"
+      ],
+      "schema_version": "sealaudit_final_claim_lock_v1",
+      "upgrade_claim_allowed": false
+    },
+    "SemCodebook": {
+      "allowed_current_claim": "structured provenance watermark over admitted white-box model cells",
+      "bestpaper_ready": true,
+      "forbidden_claims": [
+        "universal code watermark",
+        "first-sample/no-retry natural-generation guarantee",
+        "validator-repair evidence as main result",
+        "provider-general claim outside admitted white-box cells",
+        "perfect-score language"
+      ],
+      "gate_pass": true,
+      "path": "results/SemCodebook/artifacts/generated/semcodebook_final_claim_lock_v1_20260507.json",
+      "project": "SemCodebook",
+      "remaining_blockers": [],
+      "schema_version": "semcodebook_final_claim_lock_v1",
+      "upgrade_claim_allowed": true
+    }
+  },
+  "full_experiment_policy": "SemCodebook remains locally ready. Black-box projects have executable fresh-run contracts, but claim upgrades still require fresh provider outputs and postrun promotion gates.",
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T22:35:53+00:00",
+  "global_artifacts": [
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 5536,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": null,
+      "path": "results/provider_launch_readiness_gate_v1_20260507.json",
+      "schema_version": "provider_launch_readiness_gate_v1",
+      "sha256": "90c33a4e6f34efa6b0b2c07e0ffd616e6e8330899f46b51bd24a917553e819cb"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 4694,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": null,
+      "path": "results/provider_launch_readiness_gate_v2_20260507.json",
+      "schema_version": "provider_launch_readiness_gate_v2",
+      "sha256": "64d626a0dca8e7d0eca7a98f0f96db01a1903c26093b1be98816c84234af80e3"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 1398,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/blackbox_fresh_run_preflight_contracts_v1_20260507.json",
+      "schema_version": "blackbox_fresh_run_preflight_contracts_v1",
+      "sha256": "3dbf5d8cc07f561295bcf0384b06e7f3d9cffffd0d361c7aafb25f0b02b099ba"
+    },
+    {
+      "blocked": null,
+      "blockers": [],
+      "bytes": 5009,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": true,
+      "path": "results/blackbox_artifact_naming_consistency_v1_20260507.json",
+      "schema_version": "blackbox_artifact_naming_consistency_v1",
+      "sha256": "75faeb3fd6e617e871c0f7dd16e55ae340cc25369630161081eab53a821cf98c"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 17296,
+      "claim_bearing": false,
+      "exists": true,
+      "gate_pass": null,
+      "path": "results/watermark_strict_reviewer_audit_v4_20260507.json",
+      "schema_version": "watermark_strict_reviewer_audit_v4",
+      "sha256": "78f13d6c23d927b5becac072d30b9018141820aa643762b955c09540dce9591f"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 2158,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": null,
+      "path": "results/watermark_strict_reviewer_audit_v4_20260507.md",
+      "schema_version": null,
+      "sha256": "564af80540165eb6bedd62dda4068b03e703ce30ca0ef44387ac483a7bebd9cd"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 3744,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": null,
+      "path": "CLAIM_BOUNDARIES.md",
+      "schema_version": null,
+      "sha256": "5026769fe427b869bd38f4b45ad311ca5915adaf7133f4fd2c3b451cb53635af"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 12992,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": null,
+      "path": "RESULT_MANIFEST.jsonl",
+      "schema_version": null,
+      "sha256": "51a0e1fb0b9c2ae620dc03c2b17f795492af23b6440346462f9dd5fcc524825d"
+    },
+    {
+      "blocked": null,
+      "blockers": null,
+      "bytes": 93518,
+      "claim_bearing": null,
+      "exists": true,
+      "gate_pass": null,
+      "path": "PRESERVED_RESULT_MANIFEST.jsonl",
+      "schema_version": null,
+      "sha256": "bc6f95bfb047f5b4c168fa80651222bff60d3d401e653197412f496cd941bac6"
+    }
+  ],
+  "manifest_role": "reviewer_entrypoint_after_fresh_run_contract_and_provider_readiness_hardening",
+  "missing_artifacts": [],
+  "project_manifests": {
+    "CodeDye": "results/CodeDye/REPRODUCIBILITY_MANIFEST_v6_20260507.json",
+    "ProbeTrace": "results/ProbeTrace/REPRODUCIBILITY_MANIFEST_v6_20260507.json",
+    "SealAudit": "results/SealAudit/REPRODUCIBILITY_MANIFEST_v6_20260507.json",
+    "SemCodebook": "results/SemCodebook/REPRODUCIBILITY_MANIFEST_v6_20260507.json"
+  },
+  "schema_version": "watermark_reviewer_reproducibility_manifest_v6"
+}

@@ -1,0 +1,410 @@
+{
+  "claim_bearing": false,
+  "formal_full_experiment_allowed": false,
+  "formal_full_experiment_rule": "Do not run or promote full canonical claim experiments until each project has zero P1/P2 under this audit and project-specific pre-run gates pass.",
+  "generated_at_utc": "2026-05-06T18:57:06+00:00",
+  "portfolio_bestpaper_ready": false,
+  "portfolio_mean_score": 4.06,
+  "portfolio_verdict": "not_bestpaper_ready_p1_blocked",
+  "projects": [
+    {
+      "bestpaper_ready": false,
+      "bestpaper_ready_reason": "Strongest project, but still requires careful paper claim locking and full miss taxonomy to remove residual reviewer attack surface.",
+      "effect_metrics": {
+        "ablation_formal_claim_allowed": true,
+        "admitted_families": 5,
+        "admitted_models": 10,
+        "admitted_records": 72000,
+        "generation_changing_ablation_rows": 43200,
+        "helper_compiler_mock_negative_failures": {
+          "blind_negative_hit_count": 0,
+          "compiler_failures": 0,
+          "helper_failures": 0,
+          "mock_or_fallback_count": 0,
+          "negative_control_hits": 0
+        },
+        "negative_control_hits": {
+          "ci95_high": 8.002398774667768e-05,
+          "ci95_low": 0.0,
+          "k": 0,
+          "method": "wilson_score_interval",
+          "n": 48000,
+          "rate": 0.0
+        },
+        "positive_recovery": {
+          "ci95_high": 0.9745748406649429,
+          "ci95_low": 0.9704405660946408,
+          "k": 23342,
+          "method": "wilson_score_interval",
+          "n": 24000,
+          "rate": 0.9725833333333334
+        },
+        "scale_coverage": [
+          "large",
+          "mid",
+          "small",
+          "tiny"
+        ],
+        "source_manifest_rows": 0
+      },
+      "forbidden_claims": [
+        "universal code watermark",
+        "first-sample/no-retry natural-generation guarantee",
+        "validator-repair evidence as main result",
+        "provider-general claim outside admitted white-box cells"
+      ],
+      "main_claim_allowed": "structured provenance watermark over admitted white-box model cells",
+      "mean_score": 4.38,
+      "next_actions": [
+        "Use semcodebook_causal_contribution_gate_v2 only with paired component deltas.",
+        "Add miss taxonomy table to appendix and cite it in limitations."
+      ],
+      "overfit_risk": {
+        "level": "medium_low",
+        "reason": "Large family/scale matrix and negative controls reduce overfit risk; residual risk is mainly overclaiming no-retry or cherry-picking recovery slices.",
+        "required_guard": "Keep all misses in denominator and report failure-boundary taxonomy."
+      },
+      "project": "SemCodebook",
+      "remaining_p1": [],
+      "remaining_p2": [
+        "Finish row-level positive-miss taxonomy for all 658 headline misses before using miss-analysis as a main-paper argument.",
+        "In the paper, explicitly separate supported structural provenance recovery from unsupported natural first-sample generation."
+      ],
+      "scores": {
+        "attack_negative_control": {
+          "rationale": "0/48,000 negative hits and 8 attack conditions provide strong attack/control coverage.",
+          "score_1_to_5": 5
+        },
+        "baseline_control_strength": {
+          "rationale": "Controls and baseline-role boundaries exist; official-baseline claims must stay scoped to runnable/admitted cells.",
+          "score_1_to_5": 4
+        },
+        "claim_boundary": {
+          "rationale": "Current artifacts forbid first-sample/no-retry and provider-general overclaiming.",
+          "score_1_to_5": 5
+        },
+        "evidence_workload": {
+          "rationale": "72,000 white-box records, 10 admitted models, 5 families, and all scale buckets exceed normal main-paper workload.",
+          "score_1_to_5": 5
+        },
+        "innovation": {
+          "rationale": "Structured provenance over AST/CFG/SSA with keyed schedule and ECC is a real mechanism, not just prompting.",
+          "score_1_to_5": 4
+        },
+        "method_rigor": {
+          "rationale": "Fail-closed detector, negative controls, and generation-changing ablation are strong; no-retry natural-generation is correctly excluded.",
+          "score_1_to_5": 4
+        },
+        "reproducibility": {
+          "rationale": "Hash-bound manifests and scripts exist, but full reproduction depends on large local model/GPU availability.",
+          "score_1_to_5": 4
+        },
+        "statistics": {
+          "rationale": "Wilson intervals and denominator separation are present; row-level miss taxonomy is still not fully decisive.",
+          "score_1_to_5": 4
+        }
+      },
+      "strict_verdict": "strong_submission_but_not_bestpaper_locked"
+    },
+    {
+      "bestpaper_ready": false,
+      "bestpaper_ready_reason": "Method is defensible as a conservative null-audit, but effect yield is too sparse for best-paper unless the protocol contribution is framed narrowly or v3 improves sensitivity.",
+      "effect_metrics": {
+        "final_conservative_signal_count": 6,
+        "live_signal": {
+          "ci95_high": 0.042939620817860576,
+          "ci95_low": 0.009197631557703617,
+          "k": 6,
+          "method": "wilson_score_interval",
+          "n": 300,
+          "rate": 0.02
+        },
+        "missing_payload_or_transcript_hash": 0,
+        "negative_control_false_positive": {
+          "ci95_high": 0.012642971224546034,
+          "ci95_low": 8.673617379884035e-19,
+          "k": 0,
+          "method": "wilson_score_interval",
+          "n": 300,
+          "rate": 0.0
+        },
+        "positive_control_sensitivity": {
+          "ci95_high": 0.6215486818545306,
+          "ci95_low": 0.5100989219821965,
+          "k": 170,
+          "method": "wilson_score_interval",
+          "n": 300,
+          "rate": 0.5666666666666667
+        },
+        "statistics_artifact_positive_count": 4,
+        "support_rows_excluded": 806
+      },
+      "forbidden_claims": [
+        "high-recall contamination detector",
+        "contamination prevalence estimate",
+        "provider accusation",
+        "support/public rows as part of the 300-row main denominator"
+      ],
+      "main_claim_allowed": "DeepSeek-only curator-side sparse null-audit",
+      "mean_score": 3.88,
+      "next_actions": [
+        "Run v3 positive/negative controls under frozen thresholds.",
+        "Only if control sensitivity improves without FP inflation, run a fresh DeepSeek live v3 claim surface."
+      ],
+      "overfit_risk": {
+        "level": "medium",
+        "reason": "Low live yield protects against false accusation but weak positive-control sensitivity invites concerns that the method is underpowered.",
+        "required_guard": "Freeze v3 before rerun; do not tune thresholds on the 300 live outcomes."
+      },
+      "project": "CodeDye",
+      "remaining_p1": [
+        "Effect is weak for any detection claim: live yield is 6/300 and positive-control sensitivity is 170/300.",
+        "A fresh frozen v3 control/live run is required before any claim upgrade beyond conservative null-audit."
+      ],
+      "remaining_p2": [
+        "Positive-control misses should be split into canary, provenance, chronology, retrieval, budget, and payload buckets."
+      ],
+      "scores": {
+        "attack_negative_control": {
+          "rationale": "0/300 false positives with row hashes is good; stronger positive-control sensitivity is still needed.",
+          "score_1_to_5": 4
+        },
+        "baseline_control_strength": {
+          "rationale": "Official/control role separation is clear and support rows are excluded from the main denominator.",
+          "score_1_to_5": 4
+        },
+        "claim_boundary": {
+          "rationale": "Artifacts correctly forbid high-recall, prevalence, or provider-accusation claims.",
+          "score_1_to_5": 5
+        },
+        "evidence_workload": {
+          "rationale": "300 live rows plus controls is acceptable for scoped DeepSeek-only audit, not yet dominant best-paper scale.",
+          "score_1_to_5": 3
+        },
+        "innovation": {
+          "rationale": "Curator-side null-audit with transcript/hash retention is a useful protocol contribution.",
+          "score_1_to_5": 4
+        },
+        "method_rigor": {
+          "rationale": "Threshold discipline is good, but 130/300 positive-control misses need stronger causal diagnosis.",
+          "score_1_to_5": 3
+        },
+        "reproducibility": {
+          "rationale": "Raw/structured hash discipline and row manifests are strong; live API rerun remains external.",
+          "score_1_to_5": 4
+        },
+        "statistics": {
+          "rationale": "CI, FDR-sensitive language, and denominator separation are present.",
+          "score_1_to_5": 4
+        }
+      },
+      "strict_verdict": "not_bestpaper_ready_p1_blocked"
+    },
+    {
+      "bestpaper_ready": false,
+      "bestpaper_ready_reason": "Single-owner claim is strong; best-paper-level generality requires fresh multi-owner live score-vector evidence.",
+      "effect_metrics": {
+        "apis_attribution": {
+          "ci95_high": 0.9999999999999998,
+          "ci95_low": 0.9873570287754538,
+          "k": 300,
+          "method": "wilson_score_interval",
+          "n": 300,
+          "rate": 1.0
+        },
+        "false_owner_controls": {
+          "ci95_high": 0.003191000602734924,
+          "ci95_low": 2.168404344971009e-19,
+          "k": 0,
+          "method": "wilson_score_interval",
+          "n": 1200,
+          "rate": 0.0
+        },
+        "multi_owner_formal_claim_allowed": false,
+        "multi_owner_input_claim_bearing": false,
+        "multi_owner_input_rows": 6000,
+        "multi_owner_role_counts": {
+          "null_owner": 750,
+          "random_owner": 750,
+          "same_provider_unwrap": 750,
+          "true_owner": 750,
+          "wrong_owner": 3000
+        },
+        "multi_owner_split_counts": {
+          "owner_heldout": 1200,
+          "task_heldout": 1200,
+          "train_dev": 3600
+        },
+        "primary_transfer_independence_unit": "300 task clusters",
+        "transfer_validation": {
+          "ci95_high": 1.0,
+          "ci95_low": 0.9957498532699458,
+          "k": 900,
+          "method": "wilson_score_interval",
+          "n": 900,
+          "rate": 1.0
+        }
+      },
+      "forbidden_claims": [
+        "provider-general attribution",
+        "multi-owner attribution from input package alone",
+        "student-transfer claim without source-bound receipts"
+      ],
+      "main_claim_allowed": "single-active-owner/source-bound DeepSeek attribution",
+      "mean_score": 4.0,
+      "next_actions": [
+        "Execute fresh DeepSeek multi-owner package only after raw/structured transcript hash retention is enabled.",
+        "Promote only if per-owner TPR/FPR CI and rank/AUC separation pass."
+      ],
+      "overfit_risk": {
+        "level": "medium_high_until_multi_owner_rerun",
+        "reason": "Perfect single-owner results can be attacked as owner leakage or shortcut even with good current controls.",
+        "required_guard": "Run the 6,000-row multi-owner package and report true/wrong/null/random owner margins separately."
+      },
+      "project": "ProbeTrace",
+      "remaining_p1": [
+        "Broad multi-owner attribution is not claim-bearing until fresh score-vector outputs exist.",
+        "Perfect 300/300 result remains vulnerable to shortcut/leakage critique without multi-owner heldout evidence."
+      ],
+      "remaining_p2": [
+        "Latency/query frontier should be visible in main text, not only appendix."
+      ],
+      "scores": {
+        "attack_negative_control": {
+          "rationale": "0/1,200 control failures is strong; owner-heldout and task-heldout live outputs are still missing.",
+          "score_1_to_5": 4
+        },
+        "baseline_control_strength": {
+          "rationale": "Wrong/null/abstain controls exist; multi-owner controls are input-ready but not result-bearing.",
+          "score_1_to_5": 4
+        },
+        "claim_boundary": {
+          "rationale": "Current scope is correctly single-active-owner/source-bound and DeepSeek-only.",
+          "score_1_to_5": 5
+        },
+        "evidence_workload": {
+          "rationale": "APIS-300, 1,200 controls, HardDecoy, and 900 transfer rows are substantial but still single-owner scoped.",
+          "score_1_to_5": 4
+        },
+        "innovation": {
+          "rationale": "Active-owner attribution with semantic witnesses, decoys, and transfer binding is a strong mechanism.",
+          "score_1_to_5": 4
+        },
+        "method_rigor": {
+          "rationale": "300/300 is impressive but needs multi-owner score vectors to fully defeat leakage/shortcut critiques.",
+          "score_1_to_5": 3
+        },
+        "reproducibility": {
+          "rationale": "Receipts and hashes exist; provider rerun and owner secrets remain operational dependencies.",
+          "score_1_to_5": 4
+        },
+        "statistics": {
+          "rationale": "CI and task-cluster independence are explicit; threshold-free AUC/margin evidence should be promoted after rerun.",
+          "score_1_to_5": 4
+        }
+      },
+      "strict_verdict": "not_bestpaper_ready_p1_blocked"
+    },
+    {
+      "bestpaper_ready": false,
+      "bestpaper_ready_reason": "The protocol is honest and useful, but coverage is too low until v5 increases decisive routing without unsafe-pass inflation.",
+      "effect_metrics": {
+        "case_count": 320,
+        "hidden_claim_rows": 960,
+        "marker_hidden_decisive_coverage": {
+          "ci95_high": 0.10365684661114782,
+          "ci95_low": 0.06840615950150586,
+          "k": 81,
+          "method": "wilson_score_interval",
+          "n": 960,
+          "rate": 0.084375
+        },
+        "needs_review_rate": {
+          "ci95_high": 0.9315938404984943,
+          "ci95_low": 0.8963431533888522,
+          "k": 879,
+          "method": "wilson_score_interval",
+          "n": 960,
+          "rate": 0.915625
+        },
+        "unsafe_pass": {
+          "ci95_high": 0.003985571263342763,
+          "ci95_low": 0.0,
+          "k": 0,
+          "method": "wilson_score_interval",
+          "n": 960,
+          "rate": 0.0
+        },
+        "v5_blockers": [
+          "fresh_final_row_level_v5_evidence_missing",
+          "decisive_coverage_upgrade_not_admitted"
+        ],
+        "v5_final_evidence_ready": false,
+        "visible_marker_diagnostic_rows": 320
+      },
+      "forbidden_claims": [
+        "security certificate",
+        "harmlessness guarantee",
+        "automatic latent-trojan classifier",
+        "visible-marker diagnostic rows as main evidence"
+      ],
+      "main_claim_allowed": "marker-hidden DeepSeek selective audit/triage",
+      "mean_score": 4.0,
+      "next_actions": [
+        "Produce final v5 row-level evidence with the 960 marker-hidden denominator intact.",
+        "Report coverage-risk frontier and unsafe-pass upper bound in the main paper."
+      ],
+      "overfit_risk": {
+        "level": "medium",
+        "reason": "High abstention avoids unsafe overclaiming but weakens utility; trying to force labels would create overfit/unsafe-pass risk.",
+        "required_guard": "Improve coverage through preregistered v5 conjunction only; preserve hard ambiguity as a valid outcome."
+      },
+      "project": "SealAudit",
+      "remaining_p1": [
+        "Decisive coverage is only 81/960; the current result is a selective triage surface, not a strong audit classifier.",
+        "v5 final evidence is not claim-bearing yet, so coverage cannot be upgraded."
+      ],
+      "remaining_p2": [
+        "Expert review support should stay role-based and row-confirmation based without implying signatures or identity disclosure."
+      ],
+      "scores": {
+        "attack_negative_control": {
+          "rationale": "Unsafe-pass tracking and marker-hidden stress are strong, but v5 must be final-row claim-bearing.",
+          "score_1_to_5": 4
+        },
+        "baseline_control_strength": {
+          "rationale": "Marker-hidden/visible boundaries and controls are explicit.",
+          "score_1_to_5": 4
+        },
+        "claim_boundary": {
+          "rationale": "Artifacts forbid safety certificate or automatic classifier claims.",
+          "score_1_to_5": 5
+        },
+        "evidence_workload": {
+          "rationale": "320 cases and 960 marker-hidden rows are solid for a scoped DeepSeek audit.",
+          "score_1_to_5": 4
+        },
+        "innovation": {
+          "rationale": "Watermark-as-security-object audit framing is valuable and well scoped.",
+          "score_1_to_5": 4
+        },
+        "method_rigor": {
+          "rationale": "Explicit abstention is honest, but decisive coverage is too low for a strong utility claim.",
+          "score_1_to_5": 3
+        },
+        "reproducibility": {
+          "rationale": "Artifacts and role-based review support exist; final v5 rows remain blocked.",
+          "score_1_to_5": 4
+        },
+        "statistics": {
+          "rationale": "Coverage-risk CI and unsafe-pass upper bound are explicit.",
+          "score_1_to_5": 4
+        }
+      },
+      "strict_verdict": "not_bestpaper_ready_p1_blocked"
+    }
+  ],
+  "remaining_p1_count": 6,
+  "remaining_p2_count": 5,
+  "schema_version": "watermark_strict_reviewer_audit_v1"
+}

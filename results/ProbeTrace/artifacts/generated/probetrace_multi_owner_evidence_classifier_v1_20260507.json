@@ -1,0 +1,65 @@
+{
+  "blockers": [
+    "comparable_signed_owner_margin_rows_missing",
+    "fresh_multi_owner_multilingual_deepseek_canonical_results_missing",
+    "multi_owner_postrun_audit_missing",
+    "per_owner_per_language_ci_missing",
+    "raw_transcript_and_structured_payload_hash_join_missing",
+    "transfer_artifact_is_single_owner_only"
+  ],
+  "claim_bearing": false,
+  "classification": {
+    "input_package": "executable_input_not_result",
+    "remote_generalization_gate": "future_rerun_manifest_not_claim_evidence",
+    "score_vectors": "single_owner_control_score_audit_not_comparable_multi_owner_margin",
+    "single_owner_transfer": "support_only_single_owner_floor"
+  },
+  "formal_multi_owner_claim_allowed": false,
+  "future_generalization_gate_status": {
+    "claim_blockers_remaining": [
+      "fresh_multi_owner_multilingual_deepseek_canonical_results_missing",
+      "multi_owner_postrun_audit_missing",
+      "per_owner_per_language_ci_missing",
+      "raw_transcript_and_structured_payload_hash_join_missing"
+    ],
+    "formal_claim_allowed": false,
+    "gate_pass": true
+  },
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T19:10:35+00:00",
+  "input_package_status": {
+    "claim_bearing": false,
+    "formal_multi_owner_claim_allowed": false,
+    "owner_count": 5,
+    "role_counts": {
+      "null_owner": 750,
+      "random_owner": 750,
+      "same_provider_unwrap": 750,
+      "true_owner": 750,
+      "wrong_owner": 3000
+    },
+    "row_count": 6000,
+    "split_counts": {
+      "owner_heldout": 1200,
+      "task_heldout": 1200,
+      "train_dev": 3600
+    }
+  },
+  "promotion_policy": "Do not close the multi-owner P1 until fresh 5-owner DeepSeek outputs have comparable score vectors, raw/structured hashes, per-owner/per-language CI, and a postrun promotion gate.",
+  "schema_version": "probetrace_multi_owner_evidence_classifier_v1",
+  "score_vector_status": {
+    "comparable_signed_owner_margin_rows": 0,
+    "high_control_score_without_owner_emission_rows": 300,
+    "owner_id_hat_hash_count": 1,
+    "row_count": 300,
+    "score_space_status_counts": {
+      "not_available_score_spaces_not_comparable_in_current_single_owner_artifact": 300
+    }
+  },
+  "single_owner_transfer_status": {
+    "correct_owner_count": 900,
+    "formal_claim_allowed": false,
+    "observed_owner_count_transfer": 1,
+    "validation_record_count": 900
+  }
+}

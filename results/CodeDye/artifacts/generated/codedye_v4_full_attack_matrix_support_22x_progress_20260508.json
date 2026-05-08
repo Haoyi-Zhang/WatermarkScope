@@ -1,0 +1,49 @@
+{
+  "schema_version": "codedye_attack_matrix_live_support_progress_v1",
+  "status": "support_only_passed",
+  "completed": 153,
+  "total": 153,
+  "output": "results/CodeDye/artifacts/generated/codedye_v4_full_attack_matrix_support_22x_results_20260508.json",
+  "claim_bearing": false,
+  "blockers": [],
+  "canonical_promotion_blockers": [
+    "declared_attack_live_records_missing",
+    "attack_admissible_records_below_20:ast_canonicalization:0/21",
+    "attack_admissible_records_below_20:canary_preserving_rewrite:0/22",
+    "attack_admissible_records_below_20:chronology_shuffle:0/22",
+    "attack_admissible_records_below_20:comment_whitespace_normalize:0/22",
+    "attack_admissible_records_below_20:cross_language_reexpression:0/22",
+    "attack_admissible_records_below_20:rename_identifiers:0/22",
+    "attack_admissible_rate_below_0.90:0.0000"
+  ],
+  "support_blockers": [],
+  "support_gate_pass": true,
+  "targeted_repair_health": {
+    "mode": "full_attack_matrix_contract",
+    "repair_health_pass": false,
+    "claim_bearing": false,
+    "formal_claim_allowed": false,
+    "coverage_blockers_allowed": [
+      "required_attack_live_records_missing",
+      "declared_attack_live_records_missing"
+    ],
+    "record_count": 153,
+    "expected_record_count": 153,
+    "blockers": [
+      "targeted_repair_health_requires_filter",
+      "selected_utility_failures:2"
+    ],
+    "policy": "Filtered launches may pass only as targeted repair-health evidence. They remain support-only and never satisfy the canonical full attack-matrix claim gate."
+  },
+  "run_filter": {
+    "task_filter_enabled": false,
+    "attack_filter_enabled": false,
+    "task_ids": [],
+    "attack_ids": [],
+    "input_row_count": 153,
+    "filtered_row_count": 153,
+    "missing_task_ids": [],
+    "missing_attack_ids": [],
+    "claim_policy_note": "Filters are permitted for repair-health/support-only launches. A filtered canonical run is never sufficient for a full main-table claim."
+  }
+}

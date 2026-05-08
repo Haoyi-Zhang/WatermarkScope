@@ -1,0 +1,37 @@
+{
+  "blocked": true,
+  "blockers": [
+    "v5_evidence_missing"
+  ],
+  "claim_bearing": false,
+  "formal_v5_claim_allowed": false,
+  "gate_pass": false,
+  "generated_at_utc": "2026-05-06T17:27:28+00:00",
+  "promotion_condition": "Coverage improves over 8.44%; unsafe-pass remains bounded; visible-marker rows stay diagnostic-only.",
+  "provider": "deepseek",
+  "required_v5_fields": [
+    "case_id",
+    "provider",
+    "scheme_kind",
+    "language",
+    "marker_condition",
+    "candidate_code_hash",
+    "raw_provider_payload_hash",
+    "structured_payload_hash",
+    "static_safety_decision",
+    "semantic_drift_decision",
+    "laundering_decision",
+    "spoofability_decision",
+    "provider_judge_decision",
+    "baseline_control_decision",
+    "final_v5_decision",
+    "abstain_reason",
+    "threshold_version",
+    "claim_bearing",
+    "visible_marker_diagnostic_only",
+    "unsafe_pass_flag",
+    "coverage_risk_frontier_entry",
+    "threshold_sensitivity_entry"
+  ],
+  "schema_version": "sealaudit_second_stage_v5_runner_receipt_v1"
+}

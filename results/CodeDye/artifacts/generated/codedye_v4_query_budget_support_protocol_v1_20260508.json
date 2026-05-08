@@ -1,0 +1,68 @@
+{
+  "attack_id": "query_budget_drop",
+  "blockers": [],
+  "canonical_output": "results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_results_20260508.json",
+  "claim_bearing": false,
+  "date": "20260508",
+  "execution_allowed": true,
+  "experiment_role": "support_only_deepseek_query_budget_sensitivity",
+  "frozen": true,
+  "gate_pass": true,
+  "launch_command_redacted": "python projects/CodeDye/scripts/run_attack_matrix_live_support.py --provider deepseek --attack-id query_budget_drop --rows-per-attack 20 --sample-count 1 --run-id codedye_v4_query_budget_support_20260508 --output results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_results_20260508.json --progress-output results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_progress_20260508.json",
+  "main_claim_policy": {
+    "formal_contamination_prevalence_claim_allowed": false,
+    "formal_high_recall_detection_claim_allowed": false,
+    "threshold_adjustment_allowed": false,
+    "v3_main_denominator_preserved": true,
+    "v4_rows_enter_main_denominator": false
+  },
+  "minimum_live_records": 20,
+  "postrun_gate": "results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_postrun_gate_v1_20260508.json",
+  "prerequisite_artifacts": [
+    {
+      "bytes": 52773,
+      "exists": true,
+      "path": "projects/CodeDye/scripts/run_attack_matrix_live_support.py",
+      "sha256": "59982ad31fb90d4678f81530b780aedd81663f912a85332581198c9f632ea1e3"
+    },
+    {
+      "bytes": 4513,
+      "exists": true,
+      "path": "projects/CodeDye/configs/attack_matrix.json",
+      "sha256": "b064ef37bb7b1f82d440530b8b62611836a8e8b5d14cae1ffedeb63b464241d4"
+    },
+    {
+      "bytes": 1134,
+      "exists": true,
+      "path": "projects/CodeDye/configs/providers.example.json",
+      "sha256": "1b68b065b768dcdd0422971b180f3c79c6994f996f86108726e04243ae8abe62"
+    },
+    {
+      "bytes": 3395921,
+      "exists": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_live_results_20260507_topup_v5.json",
+      "sha256": "3284764954f0025751755f01f415395799745b4766a56f1618c3b9d913b86210"
+    },
+    {
+      "bytes": 2526,
+      "exists": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_v3_postrun_promotion_gate_v1_20260507_deepseek300_topup_v5_postrun.json",
+      "sha256": "aaf30223998623a55891b2c516e4e6e68a4f61bf604a472cb130e1d9dc40531c"
+    },
+    {
+      "bytes": 3469,
+      "exists": true,
+      "path": "results/CodeDye/artifacts/generated/codedye_final_claim_lock_v2_20260507.json",
+      "sha256": "d59fd3efc08fa2102a153aab41224f27f52834948f85de957ca83835fe93de44"
+    }
+  ],
+  "progress_output": "results/CodeDye/artifacts/generated/codedye_v4_query_budget_support_progress_20260508.json",
+  "project": "CodeDye",
+  "provider": "deepseek",
+  "provider_mode_required": "live",
+  "run_id": "codedye_v4_query_budget_support_20260508",
+  "sample_count": 1,
+  "schema_version": "codedye_v4_query_budget_support_protocol_v1",
+  "secret_values_recorded": false,
+  "why_this_experiment_matters": "The locked v3 main table has a clean 300-row DeepSeek denominator, but reviewers can still ask whether sparse audit decisions are stable under a one-query budget. This v4 support run tests that operator-budget axis with live provider rows while keeping all rows outside the main denominator."
+}

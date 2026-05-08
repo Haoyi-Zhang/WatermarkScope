@@ -1,0 +1,18 @@
+{
+  "artifact_role": "pre_run_robustness_matrix_gate",
+  "blockers": [],
+  "claim_bearing": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:46.828447Z",
+  "promotion_predicate": "multi-condition claim promoted only with live rows, per-condition CI, no owner leakage, and latency/query frontier",
+  "required_conditions": [
+    "semantic_paraphrase",
+    "same_provider_unwrap",
+    "query_budget_reduction",
+    "decoy_collision",
+    "student_distillation",
+    "wrong_registry"
+  ],
+  "schema_version": "probetrace_multi_condition_robustness_prerun_gate_v1",
+  "warnings": []
+}

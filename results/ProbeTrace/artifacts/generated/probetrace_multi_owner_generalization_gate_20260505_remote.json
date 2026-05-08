@@ -1,0 +1,86 @@
+{
+  "artifact_role": "future_expansion_manifest_gate_not_claim_evidence",
+  "blockers": [],
+  "claim_bearing": false,
+  "claim_blockers_remaining": [
+    "fresh_multi_owner_multilingual_deepseek_canonical_results_missing",
+    "multi_owner_postrun_audit_missing",
+    "per_owner_per_language_ci_missing",
+    "raw_transcript_and_structured_payload_hash_join_missing"
+  ],
+  "current_single_owner_floor": {
+    "claim_lock_gate_pass": true,
+    "false_positive_count": 0,
+    "floor_pass": true,
+    "fpr": 0.0,
+    "fpr_ci95_high": 0.003191,
+    "negative_n": 1200,
+    "positive_n": 300,
+    "preservation_policy": "The future expansion cannot overwrite or dilute this floor; report old single-owner and new multi-owner metrics separately.",
+    "scope_gate_pass": true,
+    "source_scope": "current DeepSeek-only single active-owner/source-bound APIS-300 + HardDecoy-96 + transfer-900",
+    "statistics_formal_claim_allowed": true,
+    "tpr": 1.0,
+    "tpr_ci95_low": 0.987357,
+    "true_positive_count": 300
+  },
+  "current_single_owner_floor_preserved": true,
+  "forbidden_promotions": [
+    "do_not_treat_this_manifest_as_live_evidence",
+    "do_not_merge_future_multi_owner_denominator_with_current_single_owner_denominator",
+    "do_not_claim multi-owner or multilingual generalization before the listed live outputs and postrun audit exist"
+  ],
+  "formal_claim_allowed": false,
+  "future_rerun_manifest_ready": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T11:16:20Z",
+  "multi_owner_generalization_claim_allowed": false,
+  "multilingual_main_claim_allowed": false,
+  "registry": {
+    "path": "artifacts/generated/probetrace_multi_owner_registry_20260505.json",
+    "sha256_after_write": "6b13b9efda92831183c1a15aa7e95081b61be6f9858aad7c802c87105bd1ff92"
+  },
+  "rerun_manifest": {
+    "path": "artifacts/generated/probetrace_multi_owner_multilingual_deepseek_rerun_manifest_20260505.json",
+    "sha256_after_write": "818bfd810ea0c40e8b4b49daf8ff6ca7feee0f6c23950e06c5ce340f2bfea035"
+  },
+  "schema_version": "probetrace_multi_owner_generalization_gate_v1",
+  "source_artifacts": {
+    "anti_overfit_transfer_scope_gate": {
+      "path": "artifacts/generated/probetrace_anti_overfit_transfer_scope_gate_20260504.json",
+      "sha256": "7f45e5bd0fbed907563b5610ab613f75e6a57f7652d22d750e3c5e533c6e200c"
+    },
+    "api_stealbench_300_manifest": {
+      "path": "artifacts/generated/api_stealbench_300_manifest.json",
+      "sha256": "283959ec4634b44b7f21c8556adaedea9a45517888827b44b12ce8743f6a3755",
+      "task_count": 300
+    },
+    "api_stealbench_multilingual_manifest": {
+      "language_counts": {
+        "go": 300,
+        "javascript": 300
+      },
+      "path": "artifacts/generated/api_stealbench_multilingual_manifest.json",
+      "sha256": "b30054c62a070d029b147c660c09ebbfb9c5f5915d725d819a8b82fdb8597a5b",
+      "task_count": 600
+    },
+    "claim_boundary_lock": {
+      "path": "artifacts/generated/claim_boundary_lock_20260504.json",
+      "sha256": "ef6ebbfef2fb9627b05953f18562eeb689552e8c3bde1d389c3c7313c7c64e42"
+    },
+    "statistics_repro_gate": {
+      "path": "artifacts/generated/statistics_repro_gate.json",
+      "sha256": "0e785c4cb0592ae6679e489bab01e32f64304a309bf0463b931c2b27a0004911"
+    }
+  },
+  "status": "passed",
+  "target_denominators": {
+    "language_count": 3,
+    "null_owner_negative_records": 750,
+    "owner_count": 5,
+    "positive_records": 750,
+    "random_owner_negative_records": 750,
+    "same_provider_unwrap_control_records": 750,
+    "wrong_owner_negative_records": 3000
+  }
+}

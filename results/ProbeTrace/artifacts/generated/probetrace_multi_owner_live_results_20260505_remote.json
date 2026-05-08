@@ -1,0 +1,55 @@
+{
+  "apis300_claim_record_count": 300,
+  "claim_bearing": false,
+  "correct_owner_count": 900,
+  "family_counts": {
+    "lora": 300,
+    "quantized": 300,
+    "sft": 300
+  },
+  "formal_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T11:52:50Z",
+  "observed_owner_count_transfer": 1,
+  "owner_counts_transfer": {
+    "d2553fe5bd1040bc": 900
+  },
+  "policy": "DeepSeek main claim remains active-owner/source-bound; multi-owner registry is support-only until fresh multi-owner live rerun.",
+  "schema_version": "probetrace_multi_owner_live_results_v2",
+  "source_artifacts": [
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/real_student_transfer_manifest.owner_witness_v5.json",
+      "sha256": "8f87eb3177f05d850431cc17086c1d82d70ba3041ae081be70b69b403a9985b6",
+      "size_bytes": 1753885
+    },
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/student_transfer_live_validation_results.owner_witness_v5.json",
+      "sha256": "b0e17fcfe9941d8de51e654753af29619baedbf2d9ec4b1c3e5ea6e432ea3779",
+      "size_bytes": 1674336
+    },
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/apis300_live_attribution_evidence.json",
+      "sha256": "3e710eda4c03426b153710330b6fb11ecff702ca5af9ab1c9857f8d487102712",
+      "size_bytes": 3302721
+    },
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/live_runs/probetrace_active_owner_apis300_live_20260502T1245Z/full_eval_results.json",
+      "sha256": "6a4e235101b183216427be62529c1a9eb6e731302349603394665d26ad469a40",
+      "size_bytes": 4112438
+    }
+  ],
+  "student_counts": {
+    "lora-student": 300,
+    "quantized-student": 300,
+    "sft-student": 300
+  },
+  "tpr_ci95": {
+    "high": 0.9999999999999998,
+    "low": 0.9873570287754537
+  },
+  "validation_record_count": 900
+}

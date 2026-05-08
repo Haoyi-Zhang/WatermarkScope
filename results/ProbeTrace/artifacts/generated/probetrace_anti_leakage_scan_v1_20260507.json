@@ -1,0 +1,58 @@
+{
+  "blockers": [],
+  "checks": {
+    "anti_leakage_receipt_count": 300,
+    "apis300_record_count": 300,
+    "control_false_attribution_count": 0,
+    "control_owner_id_emitted_count": 0,
+    "high_control_score_without_owner_emission_count": 300,
+    "missing_control_role_receipt_count": 0,
+    "multi_owner_input_claim_bearing_rows": 0,
+    "multi_owner_input_owner_key_material_rows": 0,
+    "multi_owner_input_rows": 6000,
+    "multi_owner_role_counts": {
+      "null_owner": 750,
+      "random_owner": 750,
+      "same_provider_unwrap": 750,
+      "true_owner": 750,
+      "wrong_owner": 3000
+    },
+    "multi_owner_split_counts": {
+      "owner_heldout": 1200,
+      "task_heldout": 1200,
+      "train_dev": 3600
+    },
+    "near_boundary_positive_count": 150,
+    "receipt_family_counts": {
+      "adversarial_instruction_blending": 30,
+      "budget_control": 30,
+      "cross_provider_format_control": 30,
+      "multi_turn_probe_prompts": 30,
+      "neutralization_after_distillation": 30,
+      "neutralization_before_distillation": 30,
+      "probe_prompts": 30,
+      "rehosted_student": 30,
+      "session_replay_control": 30,
+      "wrapper_stripping": 30
+    }
+  },
+  "claim_bearing": false,
+  "formal_multi_owner_claim_allowed": false,
+  "formal_single_active_owner_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T21:19:35+00:00",
+  "remaining_blockers_for_upgrade": [
+    "fresh_multi_owner_live_score_vectors_missing",
+    "comparable_signed_owner_margin_rows_missing",
+    "owner_task_heldout_auc_missing"
+  ],
+  "reviewer_boundary": "This scan closes single-owner leakage/control-emission checks only. It does not provide comparable true-vs-wrong owner score vectors and cannot promote the multi-owner claim.",
+  "schema_version": "probetrace_anti_leakage_scan_v1",
+  "source_artifacts": {
+    "apis300_live": "results\\ProbeTrace\\artifacts\\generated\\apis300_live_attribution_evidence.json",
+    "multi_owner_input_package": "results\\ProbeTrace\\artifacts\\generated\\probetrace_multi_owner_deepseek_canonical_input_package_20260507.json",
+    "multi_owner_input_rows": "results\\ProbeTrace\\artifacts\\generated\\probetrace_multi_owner_deepseek_canonical_input_rows_20260507.jsonl",
+    "owner_margin_rows": "results\\ProbeTrace\\artifacts\\generated\\probetrace_owner_margin_control_audit_rows_20260505.jsonl",
+    "row_receipts": "results\\ProbeTrace\\artifacts\\generated\\probetrace_anti_leakage_row_receipts_v1_20260507.jsonl"
+  }
+}

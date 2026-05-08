@@ -1,0 +1,12 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "excluded_diagnostic_artifact": "artifacts/generated/marker_visible_diagnostic_surface_results.json",
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T23:33:48+00:00",
+  "policy": "Visible-marker rows are retained only as diagnostic evidence and cannot enter main claim denominators.",
+  "schema_version": "sealaudit_v5_visible_marker_diagnostic_boundary_v2",
+  "visible_marker_claim_rows": 0,
+  "visible_marker_diagnostic_only": true,
+  "visible_marker_diagnostic_rows": 320
+}

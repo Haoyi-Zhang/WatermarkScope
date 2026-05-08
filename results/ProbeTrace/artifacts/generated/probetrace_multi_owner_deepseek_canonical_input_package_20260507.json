@@ -1,0 +1,43 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "control_role_counts": {
+    "null_owner": 750,
+    "random_owner": 750,
+    "same_provider_unwrap": 750,
+    "true_owner": 750,
+    "wrong_owner": 3000
+  },
+  "formal_multi_owner_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T18:21:26+00:00",
+  "input_rows": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_rows_20260507.jsonl",
+  "input_rows_sha256": "997d4b78252a8a4d6000424cd1c2c32a76e0d608dab2b88717eeb1b035ba1edc",
+  "language_count": 3,
+  "language_counts": {
+    "go": 2000,
+    "javascript": 2000,
+    "python": 2000
+  },
+  "owner_count": 5,
+  "positive_rows_per_owner": {
+    "owner_alpha": 150,
+    "owner_beta": 150,
+    "owner_delta": 150,
+    "owner_epsilon": 150,
+    "owner_gamma": 150
+  },
+  "promotion_policy": "This package is executable input only. It cannot promote a multi-owner claim without fresh provider outputs, transcript hashes, score vectors, and postrun audit.",
+  "registry": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_registry_20260505_remote.json",
+  "registry_sha256": "6b13b9efda92831183c1a15aa7e95081b61be6f9858aad7c802c87105bd1ff92",
+  "rerun_manifest": "results/ProbeTrace/artifacts/generated/probetrace_multi_owner_multilingual_deepseek_rerun_manifest_20260505_remote.json",
+  "rerun_manifest_sha256": "818bfd810ea0c40e8b4b49daf8ff6ca7feee0f6c23950e06c5ce340f2bfea035",
+  "row_count": 6000,
+  "schema_version": "probetrace_multi_owner_deepseek_canonical_input_package_v1",
+  "split_counts": {
+    "owner_heldout": 1200,
+    "task_heldout": 1200,
+    "train_dev": 3600
+  },
+  "threshold_policy": "threshold-free rank/AUC evidence; any scalar thresholds must be frozen before provider execution"
+}

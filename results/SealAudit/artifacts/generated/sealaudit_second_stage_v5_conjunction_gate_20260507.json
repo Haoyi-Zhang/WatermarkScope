@@ -1,0 +1,26 @@
+{
+  "claim_bearing": false,
+  "conjunction": [
+    "static_safety",
+    "semantic_drift",
+    "laundering_resistance",
+    "spoofability_resistance",
+    "marker_hidden_stress",
+    "provider_judge_perturbation",
+    "ambiguity_retention"
+  ],
+  "does_not_overwrite": [
+    "v3",
+    "v4",
+    "canonical_claim_surface_results.json"
+  ],
+  "formal_v5_claim_allowed": false,
+  "generated_at_utc": "2026-05-06T16:26:50+00:00",
+  "promotion_policy": "Increase decisive coverage only if unsafe-pass count and upper bound remain conservative.",
+  "required_postrun_artifacts": [
+    "sealaudit_second_stage_v5_results_20260507.json",
+    "sealaudit_v5_coverage_risk_frontier_20260507.json",
+    "sealaudit_v5_visible_marker_diagnostic_boundary_20260507.json"
+  ],
+  "schema_version": "sealaudit_second_stage_v5_conjunction_prerun_gate"
+}

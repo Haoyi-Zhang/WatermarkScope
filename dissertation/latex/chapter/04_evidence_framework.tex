@@ -25,7 +25,7 @@ The predicate is not allowed to depend on the observed decision $d_i$ or score $
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.96\textwidth]{fig/evidence_contract_stack.pdf}
+  \includegraphics[width=\textwidth]{fig/evidence_contract_stack.pdf}
   \caption{The row-admission contract used throughout WatermarkScope. Claim-bearing rows pass pre-outcome admission; diagnostic rows remain preserved but non-promoting.}
   \label{fig:evidence-contract-stack}
 \end{figure}
@@ -126,7 +126,7 @@ Coverage/support & 72,000; 43,200 & Structured records and ablation rows; suppor
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.96\textwidth]{fig/semcodebook_ablation.pdf}
+  \includegraphics[width=0.99\textwidth]{fig/semcodebook_ablation.pdf}
   \caption{SemCodebook claim surface and ablation coverage. The figure separates main claim evidence from support-only ablation coverage, preserving the denominator boundary used throughout WatermarkScope.}
   \label{fig:semcodebook-ablation}
 \end{figure}
@@ -150,7 +150,7 @@ record family observation, structural or stable witness evidence, direct canary 
   \mathrm{signal}^{report}_i
   = \mathbf{1}\bigl[\mathrm{stage}(\mathbf{g}_i,\mathrm{witness}_i,\mathrm{density}_i)=4\bigr].
 \end{align}
-All thresholds and predicate components are fixed by the detector and threshold versions before a claim-bearing run.
+Here stage 4 is the frozen final evidence-stage predicate used by the reporting claim lock, not a tunable score bin chosen after seeing the live responses. All thresholds and predicate components are fixed by the detector and threshold versions before a claim-bearing run.
 The narrower statistics-artifact predicate is denoted $\mathrm{signal}^{stats}_i$ and is stored under a different threshold version:
 \begin{equation}
   \mathrm{signal}^{stats}_i =
@@ -191,3 +191,9 @@ This leaves one final gap. A preserved transcript can support an audit trail, bu
 This handoff defines the chapter's role in the lifecycle. SemCodebook shows what is possible when the defender can use program structure and local model access; CodeDye shows what remains defensible after those assumptions disappear. The shared contribution is not that both stages optimize the same metric. It is that both stages use the same evidence rule: the row is admitted before the result is known, controls are reported with the result, and the strongest claim is limited by the available evidence object. The next chapter applies that rule to two questions that arise only after evidence exists: who can claim it, and whether it should trigger security review.
 
 This distinction is the main methodological bridge from watermarking to governance. A recoverable identifier answers a provenance question, while a preserved transcript answers an audit question. Neither, by itself, decides ownership or safety. The next stage therefore does not try to inflate CodeDye's sparse signal or reinterpret SemCodebook's white-box recovery as black-box detection. It adds the missing assumptions explicitly: an owner registry for attribution and a marker-hidden evidence vector for triage.
+
+This handoff is deliberately strict because it prevents three common review failures. First, a white-box recovery rate should not be used to imply that a provider API can be audited with the same sensitivity. The carrier, schedule, helper-closure, and ECC evidence available to SemCodebook are absent from CodeDye. Second, a black-box audit signal should not be used to imply ownership. CodeDye preserves hashes and a frozen evidence stage, but it has no registered owner key or source-split commitment. Third, neither provenance nor audit evidence is a safety decision. A transcript can be preserved and an identifier can be recovered while the generated code still contains security-relevant ambiguity. Chapter~\ref{cpt:attribution-triage} therefore introduces new evidence objects rather than stretching the two protocols in this chapter beyond their access assumptions.
+
+The resulting chapter-level claim is narrow but strong: WatermarkScope can support high-rate structured provenance when local carrier evidence exists, and it can support conservative null-audit evidence when only black-box transcripts exist. These are not competing results. They are two different answers to the same evidence-contract question: given the available access model, what is the strongest interpretation that survives fixed denominators, controls, and forbidden-claim boundaries?
+
+This chapter is also the main anti-overfitting mechanism in the report. SemCodebook is not allowed to repair its headline by moving failed recoveries into a diagnostic bucket, and CodeDye is not allowed to repair sparse live yield by changing the threshold after seeing provider responses. The evidence admission rule is therefore not cosmetic bookkeeping. It is the rule that makes later optimization legitimate: a future carrier, provider prompt, or threshold version can be better, but it has to create a new admitted surface before it is measured. That is the bridge into deployment-facing evidence in the next chapter.

@@ -1,0 +1,17 @@
+{
+  "artifact_role": "pre_run_stability_design_gate",
+  "blockers": [],
+  "claim_bearing": false,
+  "formal_stability_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:46.811368Z",
+  "minimum_provider_windows": 3,
+  "required_statistics": [
+    "between_window_variance",
+    "cluster_bootstrap_by_family",
+    "FDR_or_familywise_sensitivity",
+    "negative_control_UCB95_per_window"
+  ],
+  "schema_version": "codedye_repeated_rerun_stability_prerun_gate_v1",
+  "warnings": []
+}
