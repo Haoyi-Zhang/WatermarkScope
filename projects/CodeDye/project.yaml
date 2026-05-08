@@ -1,0 +1,21 @@
+project:
+  name: CodeDye
+  fyp_role: black_box_curator_side_null_audit
+  packaged_status: fyp_evidence_snapshot
+  claim_boundary: deepseek_null_audit_only
+  result_bundle: ../../results/CodeDye
+  headline_results:
+    live_rows: 300
+    sparse_signals: 6
+    positive_control_hits: 170
+    positive_control_denominator: 300
+    negative_control_hits: 0
+    negative_control_denominator: 300
+    support_rows_excluded: 806
+  code_entrypoints:
+    packaged_snapshot_check: python ../../scripts/check_project_snapshots.py
+    full_rerun_boundary: full live audit reruns require provider API access and the original experiment environment
+  forbidden_claims:
+    - contamination_accusation
+    - contamination_prevalence_estimate
+    - high_recall_detection

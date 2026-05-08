@@ -1,0 +1,20 @@
+project:
+  name: SealAudit
+  fyp_role: watermark_as_security_object_selective_triage
+  packaged_status: fyp_evidence_snapshot
+  claim_boundary: marker_hidden_selective_triage_only
+  result_bundle: ../../results/SealAudit
+  headline_results:
+    cases: 320
+    marker_hidden_rows: 960
+    decisive_outcomes: 81
+    needs_review: 879
+    unsafe_pass: 0
+    marker_visible_diagnostic_rows: 320
+  code_entrypoints:
+    packaged_snapshot_check: python ../../scripts/check_project_snapshots.py
+    full_rerun_boundary: full triage reruns require the original benchmark/adjudication and provider-judge environment
+  forbidden_claims:
+    - automatic_safety_classifier
+    - harmlessness_certificate
+    - universal_security_certificate

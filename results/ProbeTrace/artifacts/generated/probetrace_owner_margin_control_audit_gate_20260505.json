@@ -1,0 +1,87 @@
+{
+  "artifact_role": "anti_overfit_owner_margin_boundary_gate_not_new_claim_evidence",
+  "blockers": [],
+  "claim_bearing": false,
+  "effect_surface": {
+    "apis_positive_records": 300,
+    "apis_verified_records": 300,
+    "apis_verified_wilson95": {
+      "high": 0.9999999999999999,
+      "k": 300,
+      "low": 0.9873565700022643,
+      "n": 300,
+      "rate": 1.0
+    },
+    "comparable_signed_owner_margin_rows": 0,
+    "control_false_attribution_any_rows": 0,
+    "control_false_attribution_wilson95": {
+      "high": 0.012643429997735661,
+      "k": 0,
+      "low": 0.0,
+      "n": 300,
+      "rate": 0.0
+    },
+    "control_owner_id_emitted_any_rows": 0,
+    "control_owner_id_emitted_wilson95": {
+      "high": 0.012643429997735661,
+      "k": 0,
+      "low": 0.0,
+      "n": 300,
+      "rate": 0.0
+    },
+    "high_control_score_without_owner_emission_rows": 300,
+    "negative_control_records": 1200,
+    "no_false_attribution_rows": 300,
+    "no_owner_emit_rows": 300,
+    "positive_verification_confidence": {
+      "count": 300,
+      "max": 0.766,
+      "median": 0.21,
+      "min": 0.0,
+      "near_boundary_le_0_05": 150,
+      "q05": 0.0,
+      "q95": 0.762
+    },
+    "tasks_missing_required_four_controls": 0,
+    "transfer_family_counts": {
+      "": 900
+    },
+    "transfer_observed_owner_count": 0,
+    "transfer_owner_counts": {
+      "": 900
+    },
+    "transfer_record_count": 900,
+    "transfer_rows_with_dataset_sha_like_field": 0
+  },
+  "formal_multi_owner_claim_allowed": false,
+  "formal_owner_separability_margin_claim_allowed": false,
+  "formal_single_owner_attribution_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T15:37:44Z",
+  "reviewer_defense": {
+    "what_remains_unclaimed": [
+      "No multi-owner generalization claim.",
+      "No provider-general attribution claim.",
+      "No comparable signed owner-vs-wrong-owner score distribution until a fresh multi-owner live rerun materializes score vectors."
+    ],
+    "what_this_closes": [
+      "Prevents a perfect TPR/FPR result from being described as score-margin owner separability.",
+      "Shows negative controls do not emit owner ids or false attributions even when control-specific scores can be high.",
+      "Surfaces near-boundary/low-confidence positive rows instead of hiding them."
+    ]
+  },
+  "schema_version": "probetrace_owner_margin_control_audit_gate_v1",
+  "source_artifacts": {
+    "apis300_live_attribution_evidence": "artifacts/generated/apis300_live_attribution_evidence.json",
+    "apis300_sha256": "3e710eda4c03426b153710330b6fb11ecff702ca5af9ab1c9857f8d487102712",
+    "row_audit_jsonl": "artifacts/generated/probetrace_owner_margin_control_audit_rows_20260505.jsonl",
+    "row_audit_sha256": "f15223bdf341f843f24fe37370720b4ba50b7b3b458e1340302168237185e1ac",
+    "transfer_jsonl": "artifacts/generated/student_transfer_live_validation_outputs.owner_witness_v6_clean_holdout.jsonl",
+    "transfer_jsonl_sha256": "4f3fc49f7142fa6a9efd56ada04aba1c8b901cb9c507c23d531bbea83f6019f2"
+  },
+  "warnings": [
+    "current_single_owner_artifact_has_no_comparable_wrong_owner_score_vector_owner_separability_claim_not_promoted",
+    "high_control_scores_not_comparable_to_owner_confidence_rows:300",
+    "near_boundary_or_low_confidence_positive_rows:150"
+  ]
+}

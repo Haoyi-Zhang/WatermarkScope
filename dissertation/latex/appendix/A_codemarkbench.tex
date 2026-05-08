@@ -1,0 +1,260 @@
+\appendixchapter{Evidence Contract and Manifest}{app:artifact-index}
+
+This appendix is an examiner-facing evidence contract. It does not repeat the dissertation as five mini-projects. Instead, it records how the lifecycle stages in the main body map to notation, code snapshots, result artifacts, and claim boundaries. The machine-readable binding is in \artifact{RESULT\_MANIFEST.jsonl}.
+
+\section{Lifecycle Notation}
+
+Table~\ref{tab:lifecycle-notation-summary-app} expands Eq.~\ref{eq:lifecycle-stage}. The key point is that every stage has both an allowed interpretation and a forbidden interpretation.
+
+\begin{table}[htbp]
+\centering
+\caption{Evidence-contract notation used across the dissertation.}
+\label{tab:lifecycle-notation-summary-app}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{1.55cm}Y@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+$\mathcal{L}_j$ & Lifecycle stage $j$: benchmark, provenance, audit, attribution, or triage. \\
+$\mathcal{A}_j$ & Access model: local white-box model, black-box provider, owner registry, or marker-hidden audit setting. \\
+$\mathcal{O}_j$ & Evidence object: run record, carrier recovery, transcript hash, owner witness, or triage row. \\
+$\mathcal{D}_j$ & Fixed denominator for the main claim at that stage. \\
+$\mathcal{C}_j$ & Control set, including negative controls, false-owner controls, marker-hidden controls, or support-row exclusions. \\
+$\delta_j$ & Frozen decision rule or resolver used before result interpretation. \\
+$\mathcal{M}_j$ & Reported metric vector, including rates, intervals, bounds, costs, and abstentions when relevant. \\
+$\mathcal{I}_j$ & Allowed interpretation supported by the claim-bearing denominator. \\
+$\mathcal{F}_j$ & Forbidden interpretation, such as universal watermarking, prevalence, provider-general authorship, or safety certification. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Statistical Reporting Rules}
+
+For a result with $k$ observed events over $n$ claim-bearing records, the observed rate is $\hat{p}=k/n$. The Wilson interval used in the main tables is computed with $z=1.96$:
+\begin{align}
+  c &= \frac{\hat{p}+z^2/(2n)}{1+z^2/n},&
+  h &= \frac{z\sqrt{\hat{p}(1-\hat{p})/n+z^2/(4n^2)}}{1+z^2/n},
+\end{align}
+and reported as $[c-h,c+h]$. Zero-event rows are reported as ``0 observed'' plus the upper interval endpoint, not as zero risk. These are descriptive binomial row-level intervals over the submitted denominators. Clustered or repeated rows require the separately reported independence unit and should not be read as fully independent future-task inference.
+
+\begin{table}[htbp]
+\centering
+\caption{Rules used to keep result reporting conservative.}
+\label{tab:stat-reporting-rules}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.25cm}YY@{}}
+\toprule
+Case & Reporting rule & Reason \\
+\midrule
+Ordinary binomial rate & Report $k/n$ and Wilson-style 95\% interval. & Avoids naked percentages. \\
+Zero-event result & Report 0 observed and a nonzero upper bound. & Avoids implying zero mathematical risk. \\
+Perfect observed result & Report lower confidence bound. & Avoids absolute-certainty wording. \\
+Clustered rows & State the primary independence unit. & Avoids inflated support surfaces. \\
+Support-only rows & Exclude from main denominators. & Prevents post-hoc denominator drift. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Claim-Row Schema}
+
+\begin{table}[htbp]
+\centering
+\caption{Shared claim-row field groups.}
+\label{tab:claim-row-fields-app}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.20cm}Y@{}}
+\toprule
+Field group & Purpose \\
+\midrule
+Identity & Task/case identifier, language, source group, and model/provider/owner context. \\
+Hash binding & Prompt, raw payload, and structured payload hashes for later inspection. \\
+Version binding & Detector version, threshold version, baseline/control name, and attack condition. \\
+Decision evidence & Decision, score/support statistic, and abstain reason when applicable. \\
+Claim boundary & Claim-bearing flag and support-only exclusion reason. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Main artifact families used by the dissertation. Exact paths and hashes are bound in \artifact{RESULT\_MANIFEST.jsonl}.}
+\label{tab:appendix-artifact-index}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{1.80cm}L{2.45cm}YY@{}}
+\toprule
+Lifecycle stage & Artifact family & Evidence supported & Boundary \\
+\midrule
+Benchmark & Benchmark tables & Run inventory, method leaderboard, robustness--utility summary & Finite release matrix \\
+Provenance & White-box gates & 72,000-row surface, positive/negative records, ablation gate & Admitted cells only \\
+Audit & Null-audit gates & 300 live rows, positive/negative controls, support-row exclusion & Null audit only \\
+Attribution & Owner evidence & APIS-300 evidence, false-owner controls, transfer receipts & Single active owner \\
+Triage & Risk gates & Marker-hidden triage rows, coverage-risk frontier, resolver gate & Selective triage \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{How To Read The Manifest}
+
+The repository intentionally keeps long file paths out of the main-body tables. A reader should use \artifact{RESULT\_MANIFEST.jsonl} as the lookup layer: each row contains the relative path, SHA-256 hash, module, claim text, numerator, denominator, independence unit, and boundary. This keeps the appendix readable while preserving exact artifact traceability.
+
+\section{Manifest Fields}
+
+Each manifest row stores a relative artifact path, SHA-256 hash, module name, claim text, numerator, denominator, independence unit when applicable, confidence-interval metadata when required, and a prose boundary. This allows a reader to start from a table in the dissertation, locate the exact artifact, verify the hash, and recover the reported denominator.
+
+\begin{table}[htbp]
+\centering
+\caption{Manifest field definitions.}
+\label{tab:manifest-field-definitions}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.25cm}L{1.55cm}Y@{}}
+\toprule
+Field & Required & Examiner use \\
+\midrule
+\artifact{path} & yes & Locate the artifact relative to the package root. \\
+\artifact{sha256} & yes & Verify the exact file used by the report. \\
+\artifact{module} & yes & Connect the artifact to the lifecycle stage. \\
+\artifact{claim} & yes & Identify the supported result or boundary. \\
+\artifact{num.}/\artifact{denom.} & when applicable & Recover the reported rate. \\
+\artifact{indep. unit} & when applicable & Detect clustering or repeated-row issues. \\
+\artifact{ci95\_low}, \artifact{ci95\_high} & for CI-bearing rows & Verify uncertainty wording. \\
+\artifact{boundary} & yes & Check that the artifact does not support a broader claim. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Lifecycle-level repository lookup.}
+\label{tab:repo-lookup}
+\lookuptable
+\begin{tabularx}{\textwidth}{@{}L{1.45cm}L{2.25cm}L{2.25cm}Y@{}}
+\toprule
+Layer & Code family & Result family & Examiner question answered \\
+\midrule
+Benchmark & Benchmark code & Benchmark results & Are benchmark tasks, baselines, and run tables present? \\
+Provenance & SemCodebook code & SemCodebook results & Are carrier recovery, negative controls, and ablation gates bound? \\
+Audit & CodeDye code & CodeDye results & Are live rows, controls, and support-row exclusions separated? \\
+Attribution & ProbeTrace code & ProbeTrace results & Are owner controls and transfer receipts scoped correctly? \\
+Triage & SealAudit code & SealAudit results & Are hidden-row coverage and unsafe-pass boundaries explicit? \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Support-Only Rule}
+
+Rows produced for diagnostics, canaries, stress exploration, old release surfaces, or support examples may remain useful for engineering review, but they do not enter the main denominator unless the manifest marks them as claim-bearing before interpretation. This rule is the main protection against retrofitting an attractive result after seeing outcomes.
+
+\begin{table}[htbp]
+\centering
+\caption{Support-only surfaces retained for auditability but excluded from main claims.}
+\label{tab:support-only-ledger}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.10cm}L{1.45cm}YY@{}}
+\toprule
+Surface & Count & Role & Must not be used as \\
+\midrule
+SemCodebook ablation & 43,200 & Method-support surface for component interventions. & Main recovery denominator or unsupported causal effect table. \\
+CodeDye support rows & 806 & Public/support/stress auditability evidence. & Live DeepSeek audit denominator. \\
+CodeDye stats sub-gate & 4/300 & Narrow reproducibility sub-definition. & Replacement for the 6/300 reporting signal. \\
+ProbeTrace transfer & 900 & Source-bound support over 300 task clusters. & 900 independent attribution tasks. \\
+SealAudit marker-visible & 320 & Diagnostic visibility surface. & Marker-hidden claim denominator. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Lifecycle Evidence Ledger}
+
+Table~\ref{tab:lifecycle-evidence-ledger} gives a compact reading ledger for the five lifecycle stages. It is intended for examiners who want to move from a main-body number to the corresponding evidence discipline without reading every artifact file. The table deliberately lists the primary denominator, the principal control, the allowed conclusion, and the most likely overclaim.
+
+\begin{table}[htbp]
+\centering
+\caption{Lifecycle evidence ledger for examiner reading.}
+\label{tab:lifecycle-evidence-ledger}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{1.65cm}L{2.25cm}L{2.25cm}YY@{}}
+\toprule
+Stage & Primary denominator & Principal control & Allowed conclusion & Most likely overclaim \\
+\midrule
+Benchmark & 140 canonical model-method-source runs & Clean controls and executable attack rows & Existing baselines show multidimensional tradeoffs. & Ranking every possible method or model. \\
+Provenance & 24,000 positives and 48,000 negatives & Negative controls and admitted-cell gates & Structured carriers can recover provenance in admitted white-box cells. & Universal semantic watermarking. \\
+Audit & 300 live rows plus frozen controls & Positive and negative contamination controls & Sparse null-audit evidence is preserved honestly. & Provider contamination prevalence. \\
+Attribution & 300 APIS rows plus 1,200 controls & Owner controls & Single-active-owner source binding is supported. & Open-world authorship attribution. \\
+Triage & 960 marker-hidden rows & Unsafe-pass accounting and diagnostic visible rows & Conservative triage routes ambiguity to review. & Automatic security certification. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The ledger is useful because it separates evidence quantity from claim strength. A large denominator can still support a narrow claim if the access model is narrow. A perfect observed rate can still be scoped if the evaluated owner, provider, or marker setting is scoped. A low decisive coverage can still be useful if the intended output is triage rather than forced classification. These distinctions are exactly what the main body means by a denominator-aware framework.
+
+\section{Examiner Claim Checklist}
+
+The following checklist is the shortest way to audit a result table. A row is not claim-bearing because it appears in a CSV file; it is claim-bearing only when the denominator, control role, version, and boundary are fixed before interpretation.
+
+\begin{table}[htbp]
+\centering
+\caption{Checklist used to decide whether a row can support a main claim.}
+\label{tab:examiner-claim-checklist}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.10cm}YY@{}}
+\toprule
+Check & Pass condition & If the check fails \\
+\midrule
+Identity binding & Task, case, model/provider/owner, and source group are fixed. & Row is diagnostic or support-only. \\
+Version binding & Detector, threshold, prompt template, and parser versions are recorded. & Row cannot be merged into a main denominator. \\
+Control role & Positive, negative, false-owner, diagnostic, or support role is declared. & Row is not interpretable as evidence. \\
+Outcome independence & Admission does not depend on detector score or observed label. & Row is excluded from claim-bearing tables. \\
+Hash or artifact binding & Raw/structured payload or result artifact has a stable digest. & Row remains unverifiable support. \\
+Boundary statement & Allowed and forbidden readings are written near the result. & Result is unsafe for main-body use. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+This checklist also explains why the dissertation keeps some apparently useful rows out of the main claims. A support row may have complete hashes and may even look persuasive, but if it was generated for debugging, canary tuning, visibility diagnosis, or old-release comparison, it cannot be promoted after its outcome is known. This rule is stricter than many informal project reports, but it makes the evidence surface easier to defend.
+
+\section{Manifest-To-Text Traceability}
+
+Table~\ref{tab:manifest-to-text-traceability} gives the reading order used when checking a claim from prose back to artifacts. The table avoids long repository paths in print; exact relative paths are stored in the manifest and are better inspected in a text editor or script output than in a narrow PDF column.
+
+\begin{table}[htbp]
+\centering
+\caption{Traceability path from dissertation statement to released evidence.}
+\label{tab:manifest-to-text-traceability}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.15cm}YY@{}}
+\toprule
+Reader action & Artifact discipline & Why it matters \\
+\midrule
+Start from a result sentence & Identify the lifecycle stage and denominator named in the sentence. & Prevents using a nearby but different result surface. \\
+Open the main table source & Confirm numerator, denominator, control role, and excluded rows. & Separates claim-bearing rows from support-only rows. \\
+Check the manifest entry & Verify module name, digest, and boundary text. & Connects prose to a stable file rather than memory. \\
+Read the boundary file & Compare allowed and forbidden interpretations. & Catches overclaiming before publication writing. \\
+Run the examiner check & Confirm local package integrity and stale-wording gates. & Provides a one-command sanity check for the submitted package. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+This traceability path is intentionally more formal than a typical FYP appendix. It makes the report easier to audit because an examiner can challenge a number without reverse-engineering the whole repository. If a future manuscript changes a denominator, the corresponding manifest row must change too; otherwise the old FYP text remains the authoritative claim boundary.
+
+\section{Lifecycle Dependency Map}
+
+The five stages form a dependency chain. CodeMarkBench is not only a background benchmark; it establishes the execution and denominator discipline used by every later module. SemCodebook depends on that discipline to report structured recovery without deleting misses. CodeDye depends on SemCodebook's access-model distinction to explain why black-box evidence is transcript-bound. ProbeTrace depends on the audit record idea but adds an owner registry. SealAudit depends on all earlier stages because safety triage only makes sense after the evidence object is explicit.
+
+\begin{table}[htbp]
+\centering
+\caption{How each lifecycle stage constrains the next stage.}
+\label{tab:lifecycle-dependency-map}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{1.85cm}YY@{}}
+\toprule
+Stage & Constraint inherited by the next stage & Failure if ignored \\
+\midrule
+Benchmark & Count only executable and release-bound evidence. & Later method claims inherit unstable denominators. \\
+Provenance & Preserve misses, abstentions, and negative controls. & White-box recovery appears stronger than it is. \\
+Audit & Keep black-box transcripts hash-bound and scoped. & Sparse signals become unsupported prevalence claims. \\
+Attribution & Require owner and source-split commitments. & Similarity evidence becomes open-world authorship. \\
+Triage & Treat ambiguity as a first-class output. & Safety evidence becomes a misleading classifier score. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+This dependency map is the compact version of the dissertation story. It is also a practical checklist for later paper writing: a future paper may focus on one stage, but it should not discard the constraint inherited from the previous stage.

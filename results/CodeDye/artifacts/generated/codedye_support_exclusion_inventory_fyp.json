@@ -1,0 +1,17 @@
+{
+  "artifact_role": "compact_support_exclusion_inventory",
+  "categories": [
+    {
+      "category": "public_or_utility_support",
+      "claim_bearing": false,
+      "exclusion_reason": "Rows do not satisfy the frozen DeepSeek live CodeDyeBench claim contract.",
+      "row_count": 806
+    }
+  ],
+  "claim_bearing": false,
+  "exclusion_policy": "These rows are retained as support/public/stress evidence and cannot change the 300-row live audit numerator or denominator.",
+  "main_denominator_unchanged": 300,
+  "schema_version": "codedye_support_exclusion_inventory_fyp_v1",
+  "source_gate": "results/CodeDye/artifacts/generated/codedye_low_signal_claim_boundary_gate_20260505.json",
+  "support_rows_excluded_from_main_denominator": 806
+}

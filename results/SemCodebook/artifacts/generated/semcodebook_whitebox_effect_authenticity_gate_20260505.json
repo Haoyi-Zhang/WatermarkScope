@@ -1,0 +1,98 @@
+{
+  "anti_overfit_boundaries": {
+    "causal_ablation_promoted": false,
+    "causal_ablation_status": "blocked_until_fresh_generation_changing_full_eval",
+    "first_sample_no_retry_gate_pass": false,
+    "first_sample_no_retry_promoted": false,
+    "first_sample_no_retry_status": "blocked_nonpromotion_boundary",
+    "hard_cases_not_deleted": true,
+    "no_threshold_lowering": true,
+    "perfect_score_language_allowed": false,
+    "support_only_rows_excluded": true
+  },
+  "blockers": [],
+  "claim_bearing": true,
+  "effect_summary": {
+    "attack_conditions": [
+      "clean",
+      "comment_whitespace_normalize",
+      "control_flow_rewrite",
+      "cross_language_translation",
+      "dataflow_rewrite",
+      "dead_code_add_remove",
+      "helper_extract_inline",
+      "rename"
+    ],
+    "clean_detection_wilson95": {
+      "high": 0.9999999999999998,
+      "k": 300,
+      "low": 0.9873570287754538,
+      "method": "wilson",
+      "n": 300,
+      "rate": 1.0
+    },
+    "clean_negative_false_positive": 0,
+    "clean_negative_false_positive_wilson95": {
+      "high": 0.00636170101370071,
+      "k": 0,
+      "low": 4.336808689942018e-19,
+      "method": "wilson",
+      "n": 600,
+      "rate": 0.0
+    },
+    "clean_negative_true_negative": 600,
+    "clean_positive_detected": 300,
+    "clean_positive_missed": 0,
+    "failure_boundary_counts": {
+      "attack_not_applicable_or_unchanged": 5430,
+      "detector_abstain_or_reject_on_positive": 20,
+      "generation_failure": 0,
+      "missing_primary_metric": 0,
+      "mock_or_fallback_generation": 0,
+      "negative_control_false_positive": 0,
+      "schedule_commitment_mismatch": 0,
+      "semantic_or_compile_failure": 0
+    },
+    "family_count": 6,
+    "language_count": 5,
+    "negative_control_records": 2400,
+    "positive_carrier_records": 2400,
+    "primary_deepseek_carrierstressbench_records": 7200,
+    "primary_tasks": 600,
+    "reference_control_records": 2400
+  },
+  "formal_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T12:23:21Z",
+  "reviewer_risk_closure": {
+    "overfit_risk": "The main effect is reported with denominator/failure-boundary separation. Perfect clean detection is not generalized to raw first-sample generation or causal component ablation.",
+    "scope_risk": "White-box generalization is limited to the exact admitted public/backbone cells in the source manifest.",
+    "utility_risk": "Candidate-validation warnings and support retries are disclosed as protocol cost/failure-boundary evidence."
+  },
+  "schema_version": "semcodebook_whitebox_effect_authenticity_gate_v1",
+  "source_manifest": "artifacts/generated/semcodebook_whitebox_main_denominator_source_manifest_20260505.json",
+  "whitebox_family_scale_summary": {
+    "admitted_families": {
+      "codegen": 1,
+      "deepseek": 2,
+      "phi": 1,
+      "qwen": 4,
+      "starcoder2": 2
+    },
+    "admitted_family_count": 5,
+    "admitted_model_count": 10,
+    "scale_coverage": [
+      "large",
+      "mid",
+      "small",
+      "tiny"
+    ],
+    "total_admitted_records": 72000,
+    "zero_failure_metrics": {
+      "compiler_failure_count": 0,
+      "helper_failure_count": 0,
+      "mock_or_fallback_count": 0,
+      "negative_control_hit_count": 0
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "schema_role": "release_summary_exports",
+  "schema_version": 1,
+  "canonical_release_surface": {
+    "matrix_index": "results/matrix/suite_all_models_methods/matrix_index.json",
+    "manifest": "configs/matrices/suite_all_models_methods.json",
+    "profile": "suite_all_models_methods",
+    "execution_mode": "single_host_canonical",
+    "run_count": 140,
+    "success_count": 140,
+    "failed_count": 0
+  },
+  "provenance_inheritance": {
+    "machine_readable_release_contract": "docs/release_provenance.md",
+    "machine_readable_report_schema": "results/schema.json",
+    "summary_export_identity": "results/tables/suite_all_models_methods/suite_all_models_methods_export_identity.json",
+    "note": "Tracked summary exports inherit canonical matrix identity and release provenance from the publication-facing matrix index and release provenance contract. The row-array JSON/CSV sidecars do not embed a second provenance header, but the companion surface includes a summary export-identity sidecar for figure-only redraw validation, the canonical figure roster, and the exact pinned model_name + model_revision release roster."
+  },
+  "rollup_semantics": {
+    "scorecard_recomputed_from_grouped_benchmark_rows": "The row's score fields are recomputed by applying the released scorecard to the grouped benchmark rows for that rollup.",
+    "descriptive_mean_of_model_method_scorecard_rollups": "The row's score fields are descriptive means over already-exported model-method scorecard rows. Treat this as a summary rollup, not as a fresh standalone scorecard evaluation.",
+    "projected_from_model_method_scorecard_rollup": "The row is a release-facing projection of an already-computed model-method rollup.",
+    "generation_stage_timing_descriptive_only": "The row is a descriptive timing surface. It does not define an independent headline score formula.",
+    "per_run_scorecard_from_report_rows": "The row's score fields are recomputed directly from one run's report rows.",
+    "multiplicative_headline_component_decomposition": "The row is a release-facing sidecar for the published score decomposition figure. It restates the already-computed headline components and raw core-factor diagnostics used to interpret the public score."
+  },
+  "timing_contract": {
+    "headline_metric": "CodeMarkScore",
+    "efficiency_scope": "generation_stage_only",
+    "efficiency_inputs": [
+      "summary.stage_timing.clean_generation_seconds_per_1k_token",
+      "summary.stage_timing.watermarked_generation_seconds_per_1k_token",
+      "scorecard.efficiency",
+      "scorecard.efficiency_conditioned"
+    ],
+    "descriptive_only_stage_timing_fields": [
+      "summary.stage_timing.attack_seconds_total",
+      "summary.stage_timing.validation_seconds_total",
+      "summary.stage_timing.detection_seconds_total",
+      "summary.stage_timing.total_example_seconds_total"
+    ],
+    "notes": {
+      "efficiency": "The public efficiency semantics use only clean-vs-watermarked generation-stage token-normalized timing.",
+      "descriptive": "Full-pipeline attack, validation, detection, and total-example timing remain descriptive systems outputs and are not CodeMarkScore inputs.",
+      "headline": "CodeMarkScore composes gate with the geometric mean of headline_core_score and headline_generalization. Exact-value tables, factor decompositions, and per-attack/per-tier breakdowns remain the primary evidence surface.",
+      "generalization_status": "Rows with generalization_status=unsupported export raw generalization as null/N.A. and use headline_generalization=0.5 as a neutral headline value rather than evidence of perfect generalization. Rows with generalization_status=descriptive_mixed are descriptive means over already-exported model-method rows and must not be interpreted as fresh grouped generalization verdicts. Read the status field before interpreting the scalar.",
+      "descriptive_status_rollups": "Descriptive rollups can also emit robustness_status=descriptive_mixed and utility_status=descriptive_mixed when they average already-exported grouped scorecards across mixed status values. Read these status fields as descriptive rollup markers rather than fresh grouped verdicts.",
+      "public_vs_strict": "Release-facing exports expose support-aware public summary fields alongside raw_* strict diagnostics.",
+      "robustness_tiers": "Public robustness is computed from reviewer-safe core attacks only. Stress attacks are exported separately through descriptive stress surfaces and exact-value tables."
+    }
+  },
+  "table_export_families": {
+    "leaderboards": {
+      "format": "csv+json row arrays",
+      "paper_track": "generation_time",
+      "stems": [
+        "suite_all_models_methods_method_master_leaderboard",
+        "suite_all_models_methods_method_model_leaderboard",
+        "suite_all_models_methods_upstream_only_leaderboard"
+      ]
+    },
+    "functional_quality": {
+      "format": "csv+json row arrays",
+      "paper_track": "generation_time",
+      "stems": [
+        "suite_all_models_methods_model_method_functional_quality"
+      ]
+    },
+    "table_first_tradeoff_surfaces": {
+      "format": "csv+json row arrays",
+      "paper_track": "generation_time",
+      "stems": [
+        "suite_all_models_methods_utility_robustness_summary"
+      ],
+      "row_roles": [
+        "paper_utility_robustness_summary"
+      ],
+      "note": "This exact-value table replaces the old utility-vs-robustness release figure. It is the public evidence surface for utility / robustness / drop comparisons."
+    },
+    "score_diagnostics": {
+      "format": "csv+json row arrays",
+      "paper_track": "generation_time",
+      "stems": [
+        "per_attack_robustness_breakdown",
+        "core_vs_stress_robustness_summary",
+        "robustness_factor_decomposition",
+        "utility_factor_decomposition",
+        "generalization_axis_breakdown",
+        "gate_decomposition"
+      ],
+      "note": "These exact-value tables are the release-facing evidence surfaces for strict/raw diagnostics, public summary fields, and per-attack/per-tier interpretation."
+    },
+    "timing": {
+      "format": "csv+json row arrays",
+      "paper_track": "generation_time",
+      "stems": [
+        "timing_summary",
+        "suite_all_models_methods_model_method_timing"
+      ],
+      "row_roles": [
+        "paper_timing"
+      ]
+    },
+    "inventories_and_rollups": {
+      "format": "csv+json row arrays",
+      "paper_track": "generation_time",
+      "stems": [
+        "method_summary",
+        "model_summary",
+        "model_method_summary",
+        "method_source_summary",
+        "method_language_summary",
+        "method_attack_summary",
+        "suite_all_models_methods_run_inventory"
+      ]
+    },
+    "identity_sidecar": {
+      "format": "json object",
+      "paper_track": "generation_time",
+      "stems": [
+        "suite_all_models_methods_export_identity"
+      ],
+      "note": "This sidecar records the canonical matrix identity, score version, required summary-table hashes, the exact five-model pinned release roster with resolved revisions, and the narrowed publication-facing figure roster used by the redraw-only figure path."
+    }
+  },
+  "figure_export_families": {
+    "publication_facing_figures": {
+      "format": "png+pdf with json/csv sidecars when applicable",
+      "paper_track": "generation_time",
+      "stems": [
+        "suite_all_models_methods_score_decomposition",
+        "suite_all_models_methods_detection_vs_utility"
+      ],
+      "score_semantics": [
+        "multiplicative_headline_component_decomposition"
+      ],
+      "note": "The public release keeps only relation- and structure-oriented suite figures in git, with explanatory semantics kept in repository text and sidecars rather than small in-figure footnotes. Exact-value comparisons, utility-vs-robustness comparisons, sparse generalization views, and timing-heavy breakdowns are table-first artifacts. In score decomposition, `Headline Gen` uses `//` for unsupported raw generalization rendered as the neutral `0.50` headline value and `xx` for supported-zero generalization rendered with the public `0.05` headline floor."
+    }
+  },
+  "dataset_statistics_release_surface": {
+    "figures": [
+      "release_slice_composition",
+      "evaluation_dimensions_overview"
+    ],
+    "table_first_artifacts": [
+      "benchmark_definition_summary",
+      "release_slice_language_breakdown",
+      "dataset_task_category_breakdown",
+      "dataset_family_breakdown",
+      "release_source_manifest_index"
+    ],
+    "note": "The dataset-statistics release surface keeps one empirical slice-composition figure plus one conceptual evaluation-overview panel. The overview uses full metric labels and a schematic structural wheel rather than a quantitative radar score plot; it does not encode additive weights, coefficients, measured values, or method scores. The PL-style derivation panel shows dependencies rather than exact values. Coverage and taxonomy breakdowns remain table-first."
+  }
+}

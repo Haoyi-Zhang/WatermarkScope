@@ -1,0 +1,19 @@
+{
+  "blockers": [],
+  "false_positive_count": 0,
+  "false_positive_rate_ci95": {
+    "high": 0.012642971224546029,
+    "low": 0.0
+  },
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T11:52:50Z",
+  "record_count": 300,
+  "required_record_count": 300,
+  "schema_version": "codedye_negative_control_300plus_gate_v1",
+  "source_artifact": {
+    "exists": true,
+    "path": "codemark_codedye/artifacts/generated/null_calibration_negative_controls_300_20260505.json",
+    "sha256": "3d6caffac78f77687c80811c11958da774f1780fdcc173b673a0b605effac163",
+    "size_bytes": 857119
+  }
+}

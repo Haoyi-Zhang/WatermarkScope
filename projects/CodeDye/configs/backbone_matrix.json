@@ -1,0 +1,23 @@
+{
+  "primary_backbone": "Qwen2.5-Coder-7B-Instruct",
+  "backbones": [
+    {
+      "name": "Qwen2.5-Coder-7B-Instruct",
+      "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "provider_alias": "hf_local_placeholder",
+      "family": "qwen"
+    },
+    {
+      "name": "DeepSeek-Coder-6.7B-Instruct",
+      "model_name": "deepseek-ai/deepseek-coder-6.7b-instruct",
+      "provider_alias": "hf_local_placeholder",
+      "family": "deepseek"
+    },
+    {
+      "name": "StarCoder2-7B",
+      "model_name": "bigcode/starcoder2-7b",
+      "provider_alias": "hf_local_placeholder",
+      "family": "starcoder2"
+    }
+  ]
+}

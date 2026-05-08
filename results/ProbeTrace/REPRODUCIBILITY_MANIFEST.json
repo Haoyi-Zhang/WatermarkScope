@@ -1,0 +1,66 @@
+{
+  "artifact_count": 14,
+  "artifacts": [
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/apis300_live_attribution_evidence.json",
+      "bytes": 3372996
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/probetrace_abstain_aware_attribution_gate_20260506.json",
+      "bytes": 1597
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/probetrace_multi_condition_robustness_prerun_gate_20260506.json",
+      "bytes": 636
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/probetrace_owner_margin_control_audit_gate_20260505.json",
+      "bytes": 3391
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/probetrace_owner_margin_control_audit_rows_20260505.jsonl",
+      "bytes": 484249
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/probetrace_student_training_receipt_hash_manifest_20260506.json",
+      "bytes": 1187
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/probetrace_transfer_integrity_receipt_repair_audit_20260506.json",
+      "bytes": 664
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/probetrace_transfer_row_binding_manifest_gate_20260505.json",
+      "bytes": 2155
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/probetrace_transfer_row_integrity_receipts_20260506.jsonl",
+      "bytes": 1014550
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/probetrace_transfer_validation_integrity_gate_20260506.json",
+      "bytes": 3487
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/student_transfer_live_validation_outputs.owner_witness_v6_clean_holdout.jsonl",
+      "bytes": 1045956
+    },
+    {
+      "artifact_path": "results/ProbeTrace/artifacts/generated/student_transfer_live_validation_results.owner_witness_v6_clean_holdout.json",
+      "bytes": 1745434
+    },
+    {
+      "artifact_path": "results/ProbeTrace/ANONYMIZATION_AUDIT.json",
+      "bytes": 201
+    },
+    {
+      "artifact_path": "results/ProbeTrace/LARGE_ARTIFACTS_MANIFEST.json",
+      "bytes": 31
+    }
+  ],
+  "claim_boundary_file": "CLAIM_BOUNDARIES.md",
+  "manifest_role": "sanitized_result_artifact_index",
+  "project": "ProbeTrace",
+  "repository_scope": "FYP dissertation evidence bundle",
+  "result_manifest": "RESULT_MANIFEST.jsonl"
+}

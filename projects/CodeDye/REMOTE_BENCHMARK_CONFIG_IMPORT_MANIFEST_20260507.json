@@ -1,0 +1,65 @@
+﻿{
+  "files": [
+    {
+      "bytes": 1820,
+      "local": "projects/CodeDye/benchmarks/code_dyebench_300_task_extension_spec.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/benchmarks/code_dyebench_300_task_extension_spec.json"
+    },
+    {
+      "bytes": 751,
+      "local": "projects/CodeDye/benchmarks/code_dyebench_300_task_generator_manifest.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/benchmarks/code_dyebench_300_task_generator_manifest.json"
+    },
+    {
+      "bytes": 2852,
+      "local": "projects/CodeDye/benchmarks/code_dyebench_spec.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/benchmarks/code_dyebench_spec.json"
+    },
+    {
+      "bytes": 535643,
+      "local": "projects/CodeDye/benchmarks/code_dyebench_tasks.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/benchmarks/code_dyebench_tasks.json"
+    },
+    {
+      "bytes": 470,
+      "local": "projects/CodeDye/configs/accusation_gate_freeze.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/configs/accusation_gate_freeze.json"
+    },
+    {
+      "bytes": 4513,
+      "local": "projects/CodeDye/configs/attack_matrix.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/configs/attack_matrix.json"
+    },
+    {
+      "bytes": 620,
+      "local": "projects/CodeDye/configs/backbone_matrix.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/configs/backbone_matrix.json"
+    },
+    {
+      "bytes": 1233,
+      "local": "projects/CodeDye/configs/default_experiment.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/configs/default_experiment.json"
+    },
+    {
+      "bytes": 415,
+      "local": "projects/CodeDye/configs/provider_matrix.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/configs/provider_matrix.json"
+    },
+    {
+      "bytes": 807,
+      "local": "projects/CodeDye/configs/provider_replay.example.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/configs/provider_replay.example.json"
+    },
+    {
+      "bytes": 1134,
+      "local": "projects/CodeDye/configs/providers.example.json",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/configs/providers.example.json"
+    }
+  ],
+  "schema_version": "codedye_remote_benchmark_config_import_v1",
+  "source_host": "redacted_remote_host",
+  "source_root": "redacted_remote_source_root"
+}
+
+
+

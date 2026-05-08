@@ -1,0 +1,111 @@
+{
+  "schema_version": "codedye_attack_matrix_v1",
+  "matrix_role": "first_round_low_risk_attack_and_ablation_scaffold",
+  "provider_policy": "no live provider calls required for matrix construction",
+  "claim_policy": "Rows define planned robustness and ablation checks; they do not create new canonical contamination claims until run and audited.",
+  "attacks": [
+    {
+      "attack_id": "rename_identifiers",
+      "family": "surface_form_preserving",
+      "applies_to_subsets": [
+        "fresh_unseen_tasks",
+        "semantic_canaries",
+        "canary_preserving_rewrites"
+      ],
+      "perturbation": "rename local variables and helper identifiers while preserving public entrypoints",
+      "utility_preservation_check": "compile_and_visible_tests",
+      "contamination_scoring_policy": "diagnostic_until_family_stratified_null_audit_passes",
+      "canary_ablation_axis": "identifier_surface",
+      "requires_live_provider": false
+    },
+    {
+      "attack_id": "comment_whitespace_normalize",
+      "family": "format_preserving",
+      "applies_to_subsets": [
+        "fresh_unseen_tasks",
+        "prompt_chronology",
+        "semantic_canaries",
+        "canary_preserving_rewrites"
+      ],
+      "perturbation": "strip comments and normalize whitespace without changing code semantics",
+      "utility_preservation_check": "compile_and_visible_tests",
+      "contamination_scoring_policy": "diagnostic_until_family_stratified_null_audit_passes",
+      "canary_ablation_axis": "format_surface",
+      "requires_live_provider": false
+    },
+    {
+      "attack_id": "ast_canonicalization",
+      "family": "structure_preserving",
+      "applies_to_subsets": [
+        "fresh_unseen_tasks",
+        "semantic_canaries",
+        "canary_preserving_rewrites"
+      ],
+      "perturbation": "canonicalize AST-equivalent expression forms and helper layout",
+      "utility_preservation_check": "compile_and_visible_tests",
+      "contamination_scoring_policy": "diagnostic_until_family_stratified_null_audit_passes",
+      "canary_ablation_axis": "ast_shape",
+      "requires_live_provider": false
+    },
+    {
+      "attack_id": "chronology_shuffle",
+      "family": "chronology_control",
+      "applies_to_subsets": [
+        "prompt_chronology"
+      ],
+      "perturbation": "shuffle chronology labels within matched release-window strata",
+      "utility_preservation_check": "metadata_only_no_code_execution",
+      "contamination_scoring_policy": "planned_null_sensitivity_check_only",
+      "canary_ablation_axis": "chronology_marker",
+      "requires_live_provider": false
+    },
+    {
+      "attack_id": "canary_preserving_rewrite",
+      "family": "semantic_rewrite",
+      "applies_to_subsets": [
+        "semantic_canaries",
+        "canary_preserving_rewrites"
+      ],
+      "perturbation": "rewrite code structure while retaining output-visible semantic canaries",
+      "utility_preservation_check": "compile_and_visible_tests",
+      "contamination_scoring_policy": "diagnostic_until_canary_ablation_audit_passes",
+      "canary_ablation_axis": "semantic_pack",
+      "requires_live_provider": false
+    },
+    {
+      "attack_id": "cross_language_reexpression",
+      "family": "language_transfer",
+      "applies_to_subsets": [
+        "cross_language_variants"
+      ],
+      "perturbation": "map task intent to non-Python implementation slots after 300-task expansion review",
+      "utility_preservation_check": "language_specific_compile_or_static_check",
+      "contamination_scoring_policy": "planned_expansion_only_not_current_claim",
+      "canary_ablation_axis": "language",
+      "requires_live_provider": false
+    },
+    {
+      "attack_id": "query_budget_drop",
+      "family": "operator_budget",
+      "applies_to_subsets": [
+        "fresh_unseen_tasks",
+        "prompt_chronology",
+        "semantic_canaries",
+        "cross_language_variants",
+        "canary_preserving_rewrites"
+      ],
+      "perturbation": "evaluate accusation stability under lower sample and query budgets",
+      "utility_preservation_check": "artifact_replay_or_no_provider_smoke",
+      "contamination_scoring_policy": "requires_existing_records_or_future_preflight_passed_canary",
+      "canary_ablation_axis": "budget",
+      "requires_live_provider": false
+    }
+  ],
+  "audit_requirements": [
+    "family_stratified_null_calibration",
+    "bootstrap_confidence_intervals",
+    "benjamini_hochberg_fdr_control",
+    "canary_ablation_report",
+    "attack_by_family_manifest"
+  ]
+}

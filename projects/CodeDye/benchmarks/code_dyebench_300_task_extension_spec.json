@@ -1,0 +1,61 @@
+{
+  "schema_version": "codedyebench_300_task_extension_spec_v1",
+  "name": "CodeDyeBench-300 canonical v3 materialization",
+  "current_canonical_task_file": "benchmarks/code_dyebench_tasks.json",
+  "current_canonical_task_count": 300,
+  "target_total_task_count": 300,
+  "extension_task_count": 250,
+  "claim_status": "canonical_v3_materialized_pending_deepseek_rerun",
+  "canonical_50_policy": "The original 50 reviewed Python tasks are retained as the legacy slice inside the 300-task canonical v3 benchmark.",
+  "target_subset_counts_total": {
+    "fresh_unseen_tasks": 60,
+    "prompt_chronology": 60,
+    "semantic_canaries": 60,
+    "cross_language_variants": 60,
+    "canary_preserving_rewrites": 60
+  },
+  "required_extension_subset_counts": {
+    "fresh_unseen_tasks": 50,
+    "prompt_chronology": 50,
+    "semantic_canaries": 50,
+    "cross_language_variants": 50,
+    "canary_preserving_rewrites": 50
+  },
+  "target_language_counts_total": {
+    "python": 100,
+    "typescript": 50,
+    "java": 50,
+    "cpp": 50,
+    "go": 50
+  },
+  "required_extension_language_counts": {
+    "python": 50,
+    "typescript": 50,
+    "java": 50,
+    "cpp": 50,
+    "go": 50
+  },
+  "review_gates": [
+    "deterministic_task_review",
+    "visible_test_execution",
+    "hidden_test_execution",
+    "protected_asset_id_uniqueness",
+    "family_stratified_null_pool_coverage",
+    "canary_ablation_coverage",
+    "public_release_boundary_redaction"
+  ],
+  "slot_fields": [
+    "slot_id",
+    "subset",
+    "language",
+    "target_family",
+    "chronology_split",
+    "canary_split",
+    "review_status"
+  ],
+  "not_allowed": [
+    "promote generated tasks as live-provider evidence before DeepSeek utility-first rerun",
+    "change canonical 50-task target silently",
+    "clear runnable-baseline or DeepSeek-live blockers"
+  ]
+}

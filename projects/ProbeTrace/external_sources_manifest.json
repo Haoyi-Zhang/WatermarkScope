@@ -1,0 +1,71 @@
+{
+  "project": "ProbeTrace",
+  "manifest_version": "1.0",
+  "root_manifest_role": "workspace-level index for venue orchestration",
+  "canonical_upstream_manifest_dir": "third_party/upstream",
+  "external_dependencies": [
+    {
+      "manifest": "third_party/upstream/evalplus.json",
+      "role": "official EvalPlus benchmark checkout"
+    },
+    {
+      "manifest": "third_party/upstream/human-eval.json",
+      "role": "official HumanEval reference dataset"
+    },
+    {
+      "manifest": "third_party/upstream/classeval.json",
+      "role": "official ClassEval benchmark checkout"
+    },
+    {
+      "manifest": "third_party/upstream/octopack.json",
+      "role": "HumanEvalPack assets from OctoPack"
+    },
+    {
+      "manifest": "third_party/upstream/bigcode-evaluation-harness.json",
+      "role": "BigCode evaluation harness snapshot used as read-only support provenance"
+    },
+    {
+      "manifest": "third_party/upstream/uiuc-llm-code-watermark.json",
+      "role": "metadata-only support material for related code watermarking context"
+    },
+    {
+      "manifest": "third_party/upstream/instructional-fingerprinting.json",
+      "role": "task-level runnable main-table baseline through repo-local adapter"
+    },
+    {
+      "manifest": "third_party/upstream/postmark.json",
+      "role": "citation/support-only baseline"
+    },
+    {
+      "manifest": "third_party/upstream/duffin.json",
+      "role": "citation/support-only baseline"
+    },
+    {
+      "manifest": "third_party/upstream/clmtracing-paper-only.json",
+      "role": "paper-only citation/support baseline"
+    },
+    {
+      "manifest": "third_party/upstream/mergeprint-paper-only.json",
+      "role": "paper-only citation/support baseline"
+    }
+  ],
+  "project_authored_inputs": [
+    {
+      "path": "benchmarks/api_stealbench_spec.json",
+      "role": "APIStealBench private benchmark specification"
+    },
+    {
+      "path": "benchmarks/api_stealbench_tasks.json",
+      "role": "60 implementation-materialized APIStealBench tasks"
+    },
+    {
+      "path": "benchmarks/api_stealbench_hard_negative_registry.json",
+      "role": "hard-decoy registry"
+    }
+  ],
+  "notes": [
+    "External checkout internals are read-only; project integration changes belong in adapters, wrappers, and manifests.",
+    "The local Windows mirror has no EvalPlus plus-cache, so EvalPlus is truthfully marked as cache-missing locally while the cloud snapshot remains the authoritative evidence source.",
+    "The local Windows environment does not expose git, so commit pins are not rechecked locally in this checkpoint; source paths and manifests are still verified."
+  ]
+}

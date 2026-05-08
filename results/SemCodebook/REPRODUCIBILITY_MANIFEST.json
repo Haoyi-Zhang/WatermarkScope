@@ -1,0 +1,46 @@
+{
+  "artifact_count": 9,
+  "artifacts": [
+    {
+      "artifact_path": "results/SemCodebook/artifacts/generated/semcodebook_external_benchmark_admission_gate_20260506.json",
+      "bytes": 1142
+    },
+    {
+      "artifact_path": "results/SemCodebook/artifacts/generated/semcodebook_generation_changing_ablation_promotion_gate_20260505.json",
+      "bytes": 8569
+    },
+    {
+      "artifact_path": "results/SemCodebook/artifacts/generated/semcodebook_natural_generation_ladder_gate_20260506.json",
+      "bytes": 3457
+    },
+    {
+      "artifact_path": "results/SemCodebook/artifacts/generated/semcodebook_no_retry_canonical_run_contract_20260505.json",
+      "bytes": 6560
+    },
+    {
+      "artifact_path": "results/SemCodebook/artifacts/generated/semcodebook_whitebox_effect_authenticity_gate_20260505.json",
+      "bytes": 3359
+    },
+    {
+      "artifact_path": "results/SemCodebook/artifacts/generated/semcodebook_whitebox_main_denominator_source_manifest_20260505.json",
+      "bytes": 24506
+    },
+    {
+      "artifact_path": "results/SemCodebook/artifacts/generated/semcodebook_whitebox_model_sufficiency_gate_20260505.json",
+      "bytes": 11368
+    },
+    {
+      "artifact_path": "results/SemCodebook/ANONYMIZATION_AUDIT.json",
+      "bytes": 201
+    },
+    {
+      "artifact_path": "results/SemCodebook/LARGE_ARTIFACTS_MANIFEST.json",
+      "bytes": 448
+    }
+  ],
+  "claim_boundary_file": "CLAIM_BOUNDARIES.md",
+  "manifest_role": "sanitized_result_artifact_index",
+  "project": "SemCodebook",
+  "repository_scope": "FYP dissertation evidence bundle",
+  "result_manifest": "RESULT_MANIFEST.jsonl"
+}

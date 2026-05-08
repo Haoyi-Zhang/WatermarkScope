@@ -1,0 +1,62 @@
+{
+  "blockers": [],
+  "claim_bearing": false,
+  "claim_boundary": "Binds transfer-900 rows to source hashes, active owner, student family, and dataset SHA; does not promote multi-owner separability.",
+  "dataset_sha256": "0adefeff0da33219c4a94565e6073392a69d4a46b56ef184e7fb501191c87073",
+  "formal_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T14:18:36Z",
+  "margin_summary": {
+    "count": 3,
+    "max": 0.3786,
+    "median": 0.3346,
+    "min": 0.3023,
+    "near_zero_margin_count_at_0_05": 0,
+    "negative_margin_count": 0,
+    "note": "These are active-owner transfer margins, not a full multi-owner wrong-owner score distribution."
+  },
+  "missing_required_row_field_count": 0,
+  "missing_required_row_fields_sample": [],
+  "owner_alignment_gate": {
+    "blockers": [],
+    "dataset_teacher_owner_ids": [
+      "d2553fe5bd1040bc"
+    ],
+    "expected_owner_id": "d2553fe5bd1040bc",
+    "owner_conditioned_prompt_count": 300,
+    "passed": true,
+    "prompt_count": 300
+  },
+  "per_student_id": {
+    "lora-student": 300,
+    "quantized-student": 300,
+    "sft-student": 300
+  },
+  "per_transfer_family": {
+    "lora": 300,
+    "quantized": 300,
+    "sft": 300
+  },
+  "row_count": 900,
+  "schema_version": "probetrace_transfer_row_binding_manifest_gate_v1",
+  "source_artifacts": [
+    {
+      "path": "codemark_probetrace/artifacts/generated/student_transfer_live_validation_outputs.owner_witness_v6_clean_holdout.jsonl",
+      "sha256": "4f3fc49f7142fa6a9efd56ada04aba1c8b901cb9c507c23d531bbea83f6019f2"
+    },
+    {
+      "path": "codemark_probetrace/artifacts/generated/student_transfer_live_validation_results.owner_witness_v6_clean_holdout.json",
+      "sha256": "dee8b57674d13a0b4fbe851d4838e381bc8287baa2d1c7a90e5052fe0e5ac3c2"
+    }
+  ],
+  "summary_counts": {
+    "claim_bearing_record_count": 900,
+    "owner_bound_record_count": 900,
+    "record_count": 900,
+    "source_bound_record_count": 900,
+    "validation_record_count": 900
+  },
+  "unique_generated_hash_count": 12,
+  "unique_source_record_hash_count": 300,
+  "unique_task_count": 300
+}

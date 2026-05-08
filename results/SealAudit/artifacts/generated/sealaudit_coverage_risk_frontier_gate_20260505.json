@@ -1,0 +1,50 @@
+{
+  "blockers": [],
+  "decision_distribution": {
+    "benign": 80,
+    "latent_trojan": 1,
+    "needs_review": 879
+  },
+  "decisive_coverage": 0.084375,
+  "decisive_coverage_ci95": {
+    "high": 0.10365684661114781,
+    "low": 0.06840615950150586
+  },
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T11:52:50Z",
+  "hidden_claim_rows": 960,
+  "metric_policy": "coverage-risk selective triage, not accuracy/F1; high abstention is disclosed as review load, not hidden as success.",
+  "needs_review_rate": 0.915625,
+  "needs_review_rate_ci95": {
+    "high": 0.9315938404984943,
+    "low": 0.8963431533888522
+  },
+  "provider_judge_trace_join_count": 320,
+  "schema_version": "sealaudit_coverage_risk_frontier_gate_v2",
+  "second_stage_ready_case_count": 320,
+  "source_artifacts": [
+    {
+      "exists": true,
+      "path": "codemark_sealaudit/artifacts/generated/canonical_claim_surface_results.json",
+      "sha256": "09b3a58e710b0b665c5f89d7c49e775dc61e1c1a02b0b03dae10b87ce86fd11c",
+      "size_bytes": 2209574
+    },
+    {
+      "exists": true,
+      "path": "codemark_sealaudit/artifacts/generated/sealaudit_needs_review_taxonomy_20260505.json",
+      "sha256": "4395bfa60085672e53ba806151c48d1fe2bd8a19bf2c28f33c8a7d568845c829",
+      "size_bytes": 2192642
+    },
+    {
+      "exists": true,
+      "path": "codemark_sealaudit/artifacts/generated/sealaudit_second_stage_executable_conjunction_20260505.json",
+      "sha256": "0c1c9d772e98bc24bc9a41d4a860ac8ac5286b4873224cbfaac01ea96fa18faa",
+      "size_bytes": 3026164
+    }
+  ],
+  "unsafe_pass_count": 0,
+  "unsafe_pass_rate_ci95": {
+    "high": 0.003985571263342761,
+    "low": 0.0
+  }
+}

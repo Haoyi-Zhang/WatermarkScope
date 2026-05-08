@@ -1,0 +1,46 @@
+{
+  "artifact_count": 9,
+  "artifacts": [
+    {
+      "artifact_path": "results/CodeDye/artifacts/generated/codedye_canonical_attack_matrix_claim_gate_20260506.json",
+      "bytes": 814
+    },
+    {
+      "artifact_path": "results/CodeDye/artifacts/generated/codedye_low_signal_claim_boundary_gate_20260505.json",
+      "bytes": 8996
+    },
+    {
+      "artifact_path": "results/CodeDye/artifacts/generated/codedye_negative_control_300plus_gate_20260505.json",
+      "bytes": 601
+    },
+    {
+      "artifact_path": "results/CodeDye/artifacts/generated/codedye_positive_contamination_control_300_gate_20260505.json",
+      "bytes": 651
+    },
+    {
+      "artifact_path": "results/CodeDye/artifacts/generated/codedye_repeated_rerun_stability_prerun_gate_20260506.json",
+      "bytes": 547
+    },
+    {
+      "artifact_path": "results/CodeDye/artifacts/generated/codedye_v2_dual_evidence_protocol_freeze_gate_20260506.json",
+      "bytes": 2596
+    },
+    {
+      "artifact_path": "results/CodeDye/artifacts/generated/statistics_repro_gate.json",
+      "bytes": 34303
+    },
+    {
+      "artifact_path": "results/CodeDye/ANONYMIZATION_AUDIT.json",
+      "bytes": 201
+    },
+    {
+      "artifact_path": "results/CodeDye/LARGE_ARTIFACTS_MANIFEST.json",
+      "bytes": 31
+    }
+  ],
+  "claim_boundary_file": "CLAIM_BOUNDARIES.md",
+  "manifest_role": "sanitized_result_artifact_index",
+  "project": "CodeDye",
+  "repository_scope": "FYP dissertation evidence bundle",
+  "result_manifest": "RESULT_MANIFEST.jsonl"
+}

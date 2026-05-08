@@ -1,0 +1,140 @@
+\chapter{Attribution and Security Triage}\label{cpt:attribution-triage}
+
+After CodeDye preserves black-box evidence, the lifecycle reaches two deployment questions that transcript evidence alone cannot answer: who can make a scoped source claim, and whether acting on the evidence is safe. ProbeTrace adds the missing owner-registry assumption for active-owner attribution; SealAudit then treats the watermarking mechanism itself as a security-relevant object. This chapter is therefore the deployment end of WatermarkScope, not a pair of unrelated follow-up projects.
+
+\section{ProbeTrace: Active-Owner Source-Bound Attribution}
+
+ProbeTrace is not a universal authorship detector. It is an active-owner attribution protocol. The owner registry is written as
+\begin{equation}
+  \mathcal{R} = \{(o, K_o, h^{split}_o): o\in O\},
+\end{equation}
+where $K_o$ is the owner key and $h^{split}_o$ identifies the source split or registry commitment associated with that owner. For an output $x$, ProbeTrace computes an owner-specific witness score
+\begin{equation}
+  s_o(x)=\mathrm{witness\_score}(x,K_o,h^{split}_o).
+\end{equation}
+The score is normalized to $[0,1]$, with larger values indicating stronger agreement with the registered owner witness. The current claim surface is single-active-owner and source-bound. Let $\mathcal{C}_{wrong}(x)$, $\mathcal{C}_{null}(x)$, and $\mathcal{C}_{rand}(x)$ denote the wrong-owner, null-owner, and random-owner control evidence attached to the same APIS claim surface. The operational scenario is deliberately narrow: before evaluation, the owner registry and source-split commitment are fixed; during evaluation, the active owner must pass its frozen witness threshold while the available control evidence remains below its frozen acceptance boundary. The full decision function is $\delta_{PT}(x)\in\{\mathrm{attribute},\mathrm{reject},\mathrm{abstain}\}$; the following indicator is the protocol contract for the success event:
+\begin{align}
+  \mathrm{attr}_o(x)
+  = \mathbf{1}\bigl[
+  &s_o(x)\geq\tau_o
+  \wedge \max_{c\in\mathcal{C}_{wrong}(x)}c<\tau_{wrong} \nonumber\\
+  &\wedge\ \max_{c\in\mathcal{C}_{null}(x)}c<\tau_{null}
+  \wedge \max_{c\in\mathcal{C}_{rand}(x)}c<\tau_{rand}
+  \bigr].
+\end{align}
+A row is admitted to this APIS decision only when the active evidence, owner-control evidence, and their threshold or artifact versions are present in the preserved claim surface. If a required control family is missing before evaluation, the row is nonpromoted; if evidence becomes insufficient after admission, the decision rule returns reject or abstain inside the APIS denominator.
+A future multi-owner protocol over a simultaneous registry $\mathcal{R}_{multi}$ would additionally use the margin
+\begin{align}
+  o^\ast &= \arg\max_o s_o(x),\\
+  \Delta(x) &= s_{o^\ast}(x)-s_{\mathrm{second}}(x).
+\end{align}
+Here $s_{\mathrm{second}}(x)$ is the second-largest score over a simultaneous registry. Because explicit comparable margin fields are not available for every APIS row, this margin expression is presented as protocol design rather than as a validated APIS-300 margin claim. If the active score is below the evidence threshold, the current protocol abstains for insufficient evidence. If a future multi-owner margin is below $\tau_{\Delta}$, the multi-owner protocol abstains for ambiguity.
+
+The compact decision sketch is included in Appendix~\ref{app:reproducibility}, Table~\ref{tab:protocol-sketches}. The main-body claim is that a row succeeds only when the active owner passes and all same-task owner controls stay below their frozen thresholds. If either side of that conjunction fails, the protocol rejects or abstains inside the APIS denominator. This is closer to a controlled audit protocol than to open-world authorship attribution.
+
+The current ProbeTrace claim-bearing surface contains 300 APIS attribution records in the scoped active-owner setting and 1,200 false-owner controls. It observes 300/300 promoted active-owner decisions under the scoped APIS protocol and 0/1,200 false-owner hits. Separately, 900 source-bound transfer rows are support-only receipt/source-binding evidence over 300 task clusters. Within the APIS-300 denominator, no insufficient-evidence abstention is counted as a success; an abstention would have entered the denominator as a non-attribution outcome. The transfer rows are reported with task-cluster sensitivity: the primary independence unit is the task identifier rather than treating all 900 rows as fully independent tasks. Table~\ref{tab:probetrace-results} summarizes the result.
+
+\begin{table}[htbp]
+\centering
+\caption{ProbeTrace attribution-stage evidence surface. The allowed claim is source-bound, single-active-owner attribution under the evaluated protocol only.}
+\label{tab:probetrace-results}
+\compacttable
+\begin{tabularx}{\textwidth}{@{}L{2.45cm}L{2.00cm}Y@{}}
+\toprule
+Quantity & Value & Interpretation \\
+\midrule
+Scoped APIS decisions & 300/300 promoted & Active-owner decisions under frozen single-owner protocol; Wilson 95\% lower bound about 98.74\% \\
+False-owner controls & 0/1,200 & 0 observed; 95\% upper bound about 0.32\% \\
+\addlinespace[2pt]
+\multicolumn{3}{@{}l}{\emph{Support-only evidence}}\\
+Transfer support rows & 900 support-only & Receipt-complete source-binding support over 300 task clusters; not part of the APIS attribution denominator \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The three ProbeTrace evidence surfaces have different meanings. APIS-300 measures the promoted active-owner decision. The 1,200 controls measure whether wrong, null, or random owner evidence falsely passes. The 900 transfer rows are support-only: they check receipt completeness and source binding under student-transfer variants, with 300 task clusters as the primary independence unit, but they do not enlarge the main attribution denominator. This separation matters because a single large number would make the result look stronger but less honest. The intervals reported for ProbeTrace are row-level Wilson intervals over admitted rows and are conditional on this scoped protocol.
+
+The result is strong for the scoped setting, but the perfect observed rate requires careful writing. The dissertation does not claim multi-owner generalization, provider-general attribution, broad authorship detection, or validated margin separability. The current result also has practical caveats: some positives are near-boundary or low-confidence under diagnostic margin analysis, and the protocol has nontrivial query and latency cost. The claim is that active-owner and source-bound evidence can be useful under the evaluated protocol and controls, not that every attribution instance is equally strong.
+
+The main examiner risk is that 300/300 appears too perfect. The dissertation handles this by reporting false-owner controls, transfer receipt integrity, and task-cluster sensitivity. In other words, the result is presented as a scoped protocol success rather than a universal attribution theorem. If future work adds multi-owner experiments, those experiments should introduce wrong-owner, null-owner, random-owner, and owner-heldout controls before any broader claim is made.
+
+\section{SealAudit: Watermark-as-Security-Object Triage}
+
+Attribution does not certify safety. Even if ProbeTrace binds an output to a registered source, that evidence does not say whether the watermarking or marker mechanism changes security-relevant behavior. SealAudit therefore changes the question from source binding to risk triage. The evidence object is no longer an owner witness; it is a marker-hidden audit row that can be benign, latent risk, or retained for review. This is the final handoff in the lifecycle: after a system can evaluate, recover, audit, and attribute evidence, it still needs to decide whether the evidence mechanism itself is safe enough to act on.
+
+SealAudit treats watermark markers and related mechanisms as security-relevant objects. The key design choice is selective triage. For each row, the resolver receives an evidence vector
+\begin{equation}
+  e_i=(e^{static}_i,e^{semantic}_i,e^{launder}_i,e^{spoof}_i,e^{judge}_i),
+\end{equation}
+covering static safety, semantic drift, laundering, spoofability, and provider-judge perturbation evidence when available. The conservative resolver is described as a function $g(e_i)\rightarrow \mathcal{Y}$ that returns a decisive label only when component evidence is sufficient and non-conflicting. In the submitted artifacts, these semantics are stored as row-level final decisions and unsafe-pass flags rather than recomputed from raw component scores during the PDF build. The normalized decision set is
+\begin{equation}
+  \mathcal{Y} = \{\mathrm{benign}, \mathrm{latent\_risk}, \mathrm{needs\_review}\}.
+\end{equation}
+The artifact labels \emph{confirmed\_benign} and \emph{confirmed\_latent\_risk} are mapped to the normalized decisive labels \emph{benign} and \emph{latent\_risk} in the report. Let $S(e_i)$ denote sufficient evidence for a decisive label and $Q(e_i)$ denote a conflict among evidence components. These are the adjudication semantics used to interpret the stored row decisions; they do not depend on the final table counts. The resolver contract is conservative:
+\begin{equation}
+  g(e_i)=\mathrm{needs\_review}
+  \quad\text{if}\quad
+  \neg S(e_i)\ \vee\ Q(e_i).
+\end{equation}
+When $S(e_i)\wedge\neg Q(e_i)$ holds, a frozen subrule $h(e_i)$ selects the decisive output:
+\begin{equation}
+  g(e_i)=h(e_i)\in\{\mathrm{benign},\mathrm{latent\_risk}\}.
+\end{equation}
+For example, a marker-hidden case with clean static evidence but unstable semantic behavior under laundering should not be forced into benign. It is routed to needs-review because the evidence components disagree. A decisive benign row requires enough non-conflicting evidence to make the risk interpretation stable under the evaluated checks.
+Coverage and safety are reported separately over the marker-hidden row denominator $n=960$. Let $y_i^\ast$ be the adjudicated or construction-derived reference state for row $i$, and let $\hat{y}_i$ be the triage output. In $y_i^\ast$, \emph{needs\_review} denotes a should-review reference state caused by unresolved or conflicting evidence; it is not treated as a hidden ground-truth class equivalent to benign or latent risk. The unsafe-pass count is not a returned class; it is an audit error event in which evidence that should require risk or review is incorrectly allowed through as benign:
+\begin{equation}
+  \mathcal{Y}^{\ast}_{block}=\{\mathrm{latent\_risk},\mathrm{needs\_review}\}.
+\end{equation}
+\begin{align}
+  \mathrm{Coverage} &= \frac{1}{n}\sum_i \mathbf{1}[\hat{y}_i\in\{\mathrm{benign},\mathrm{latent\_trojan}\}],\\
+  \mathrm{NeedsReviewRate} &= \frac{1}{n}\sum_i \mathbf{1}[\hat{y}_i=\mathrm{needs\_review}],\\
+  \mathrm{UnsafePassRate} &=
+  \frac{1}{n}\sum_i
+  \mathbf{1}[y_i^\ast\in\mathcal{Y}^{\ast}_{block}
+  \wedge \hat{y}_i=\mathrm{benign}].
+\end{align}
+This is an all-hidden-row unsafe-pass rate. A conditional unsafe-pass rate over block-required rows would require a separately fixed block denominator; the submitted surface reports the all-row audit-error event instead. This is more appropriate than accuracy or F1 when the system is designed to abstain under insufficient or conflicting evidence.
+
+The resolver decision sketch is included in Appendix~\ref{app:reproducibility}, Table~\ref{tab:protocol-sketches}. The main-body rule is that insufficient evidence or component conflict returns needs-review before any benign or latent-risk label is allowed. The verification script checks the stored final decision, marker-hidden claim role, required evidence fields, and unsafe-pass flag; it does not silently reinterpret visible-marker diagnostics as hidden claim rows.
+
+The current SealAudit claim surface contains 320 cases and 960 marker-hidden rows. It reports 81 decisive outcomes, 879 needs-review outcomes, and 0 unsafe-pass outcomes. Marker-visible rows are diagnostic-only and do not enter the marker-hidden claim denominator. A correct owner attribution can still point to unsafe or ambiguous code; therefore attribution is not the endpoint of the lifecycle. Table~\ref{tab:sealaudit-results} summarizes the result.
+
+\begin{table}[htbp]
+\centering
+\caption{SealAudit triage-stage marker-hidden evidence surface. Marker-visible rows are diagnostic-only and are excluded from the hidden denominator.}
+\label{tab:sealaudit-results}
+\compacttable
+\begin{tabularx}{\textwidth}{@{}L{2.45cm}L{2.00cm}Y@{}}
+\toprule
+Quantity & Value & Interpretation \\
+\midrule
+Hidden rows & 960 & Main claim denominator \\
+Decisive & 81/960 & 8.44\%; 95\% CI about 6.84--10.37\%; 80 benign and 1 latent risk \\
+Needs review & 879/960 & 91.56\%; 95\% CI about 89.63--93.16\% \\
+Unsafe pass & 0/960 & 0 observed; 95\% upper bound about 0.40\% \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The intervals in Table~\ref{tab:sealaudit-results} are row-level Wilson intervals over the submitted marker-hidden denominator. They are not deployment-wide safety guarantees; zero observed unsafe passes should be read with the printed upper bound.
+
+SealAudit is therefore a selective risk-audit protocol, not a security certificate. Its main contribution is that it refuses to collapse ambiguous or under-supported cases into confident labels. In safety-sensitive settings, an explicit needs-review outcome is often preferable to a misleading automatic decision.
+
+The high needs-review rate is not hidden because it is part of the safety story. An automatic classifier with higher coverage but unknown unsafe-pass behavior would be less defensible. SealAudit instead reports coverage and unsafe-pass separately, which lets a human reviewer decide whether the current frontier is useful for triage, whether more evidence is required, or whether a case should be escalated to expert review.
+
+The practical value is therefore workload shaping rather than full automation. The 81 decisive marker-hidden outcomes identify cases that can be handled with the current evidence conjunction, while the remaining 879 cases are explicitly retained for review instead of being forced into labels. For an examiner, the key question is not whether 8.44\% coverage is high; it is whether the protocol reduces obvious review work without silently passing unsafe cases. The current evidence supports that narrower claim and leaves coverage improvement as future work.
+
+\section{Deployment Governance Synthesis}
+
+ProbeTrace and SealAudit close the lifecycle by separating ownership evidence from safety evidence. Attribution may be strong in one scoped setting, while security triage may still require abstention. A credible source-code watermarking framework therefore needs both: source-bound evidence for ownership questions and marker-hidden triage for risk questions.
+At this point the lifecycle has evaluated benchmark evidence, embedded structured provenance, traced black-box and owner-bound evidence, and audited security-relevant marker behavior under progressively weaker or riskier access settings.
+
+This separation is important for deployment. A system operator who receives a ProbeTrace attribution still needs to know whether the associated marker or generated artifact should be accepted, escalated, or reviewed. Conversely, a SealAudit needs-review outcome does not prove that the source claim is false; it says that the security evidence is not decisive enough for automatic action. The two modules therefore produce complementary governance outputs: one binds evidence to a scoped owner, and the other prevents that evidence from becoming an unchecked safety decision.
+
+The chapter also explains the dissertation's conservative treatment of perfect and weak-looking results. ProbeTrace is written narrowly because perfect APIS observations would be easy to overclaim without the owner-registry boundary. SealAudit is written as selective triage because high abstention is preferable to unsafe pass-through in a security-sensitive setting. These choices are not rhetorical downgrades; they are the access-model discipline required before Chapter~\ref{cpt:discussion} compares the five evidence surfaces.
+
+The deployment lesson is that a watermarking system should produce reviewable evidence, not only automatic labels. In a real code-generation workflow, the cost of a false ownership claim, a false contamination claim, or an unsafe benign label can be higher than the cost of abstaining. ProbeTrace and SealAudit make this explicit by separating source evidence from risk evidence. A scoped attribution can be useful without being universal, and a low-coverage triage system can be useful if it preserves an unsafe-pass boundary.
+
+This completes the lifecycle needed for the final synthesis. CodeMarkBench evaluates the denominator, SemCodebook embeds recoverable structure, CodeDye traces black-box evidence, ProbeTrace binds source ownership under a registry, and SealAudit audits marker-hidden risk. Chapter~\ref{cpt:discussion} compares these evidence surfaces without turning them into one misleading accuracy score.
+
+The deployment framing is therefore intentionally two-handed. ProbeTrace shows how a strong owner-bound result can be made defensible by narrowing the registry and control assumptions. SealAudit shows how a weak-looking coverage result can still be useful when the objective is to avoid unsafe automatic pass-through. Both results would be easier to advertise if their boundaries were removed, but they would become much harder to defend. The final chapter keeps the boundaries visible and treats them as part of the contribution.

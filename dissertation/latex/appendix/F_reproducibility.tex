@@ -1,0 +1,349 @@
+\appendixchapter{Supplementary Methods and Reproducibility}{app:reproducibility}
+
+This appendix gives the compact technical lookup material that would be too detailed for the main body. It is organized by evidence function rather than by project folder so that the dissertation remains one framework.
+
+\section{Notation Summary}
+
+\begin{table}[htbp]
+\centering
+\caption{Core notation used across the dissertation.}
+\label{tab:notation-summary}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{1.95cm}Y@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+$\mathcal{B}$ & CodeMarkBench tuple of tasks, source groups, models, watermark methods, attacks, and evaluators. \\
+$\mathcal{T}_s$ & Executable task slice for source group $s$; $\mathcal{T}=\bigsqcup_s\mathcal{T}_s$. \\
+$C_r(x)$ & Carrier set extracted from representation family $r\in\{\mathrm{AST},\mathrm{CFG},\mathrm{SSA}\}$. \\
+$\rho_i,\ell_{i,j}$ & Keyed carrier family and slot selected for encoded bit position $i$ and retry counter $j$. \\
+$\kappa$ & SemCodebook schedule digest over payload, adaptive schedule, and detector version. \\
+$r_i$ & Shared claim-row record in Eq.~\ref{eq:claim-row}. \\
+$b_i$ & Claim-bearing flag; only rows with $b_i=1$ may enter a main denominator. \\
+$\hat{p}$ & Observed rate $k/n$ over a fixed denominator. \\
+$\tau$ & Frozen threshold version used by a detector or audit protocol. \\
+$\hat{y}_i$ & SealAudit triage decision for marker-hidden row $i$. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\FloatBarrier
+
+\section{Supplementary Method Details}
+
+\begin{table}[htbp]
+\centering
+\caption{Supplementary method details by evidence function.}
+\label{tab:supplementary-method-details}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.25cm}YY@{}}
+\toprule
+Evidence function & Include in examiner reading & Keep out of main claims \\
+\midrule
+Executable benchmark contract & Run/task denominator distinction, metric vector, negative controls, release stability. & Full leaderboard dumps or unsupported winner-takes-all ranking. \\
+Structured provenance & AST/CFG/SSA-style carrier summary, adaptive schedule commitments, ECC-style recovery, admission rules, failure accounting. & Raw 72,000-row listings or no-retry overclaims. \\
+Black-box audit & Hash-retention record, 6/300 versus 4/300 boundary, support-row exclusion. & Provider transcript raw text or prevalence estimates. \\
+Source attribution & Registry object, APIS denominator, false-owner controls, transfer-cluster rule. & Treating 900 transfer rows as 900 primary tasks. \\
+Selective triage & Marker-hidden denominator, needs-review semantics, unsafe-pass event definition. & Marker-visible diagnostics as the main result. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\FloatBarrier
+
+\section{Benchmark Metric Details}
+
+For a fixed method, model, and source group, utility is reported over the executable task slice:
+\begin{equation}
+  \widehat{U}(w,m,s)=
+  \frac{1}{|\mathcal{T}_s|}
+  \sum_{t\in\mathcal{T}_s} U(G(m,t,w)).
+\end{equation}
+For a fixed watermark method and attack, the finite-sample robustness estimator is
+computed over the released admitted watermarked set $\mathcal{X}_w$ and the matched
+admitted unwatermarked control set $\mathcal{X}_0$:
+\begin{equation}
+  \widehat{\mathrm{RobustTPR}}(w,a)=
+  \frac{\sum_{x\in\mathcal{X}_w}\mathbf{1}[V_{\mathrm{attack}}(A_a(x))=1\wedge D_w(A_a(x))=1]}
+       {\sum_{x\in\mathcal{X}_w}\mathbf{1}[V_{\mathrm{attack}}(A_a(x))=1]}.
+\end{equation}
+The corresponding control estimator is computed over unwatermarked rows:
+\begin{equation}
+  \widehat{\mathrm{FPR}}(w,a)=
+  \frac{\sum_{x_0\in\mathcal{X}_0}\mathbf{1}[V_{\mathrm{attack}}(A_a(x_0))=1\wedge D_w(A_a(x_0))=1]}
+       {\sum_{x_0\in\mathcal{X}_0}\mathbf{1}[V_{\mathrm{attack}}(A_a(x_0))=1]}.
+\end{equation}
+Generation overhead is reported as a matched aggregate over the same admitted task slice:
+\begin{equation}
+  \mathrm{Overhead} =
+  \frac{\sum_i \mathrm{time}_{\mathrm{watermarked}}(i)-\sum_i \mathrm{time}_{\mathrm{baseline}}(i)}
+       {\sum_i \mathrm{time}_{\mathrm{baseline}}(i)}.
+\end{equation}
+
+\begin{table}[htbp]
+\centering
+\caption{CodeMarkBench component-vector definitions. These fields explain the released method table; they are not independent pass/fail gates.}
+\label{tab:codemarkbench-components-app}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{1.90cm}L{2.20cm}Y@{}}
+\toprule
+Component & Direction & Meaning in the release table \\
+\midrule
+$q_{\mathrm{core}}$ & larger is better & Detector behavior on core transformations and standard admitted rows. \\
+$q_{\mathrm{robust}}$ & larger is better & Detection retained under executable attacks that preserve program validity. \\
+$q_{\mathrm{utility}}$ & larger is better & Pass-rate preservation for generated artifacts under the executable harness. \\
+$q_{\mathrm{gate}}$ & larger is better & Release-completeness and implementation-admission component, not a binary accept decision. \\
+$q_{\mathrm{negFPR}}$ & larger is better & Inverted negative-control false-positive behavior; raw false-positive rates remain printed separately. \\
+$q_{\mathrm{efficiency}}$ & larger is better & Normalized generation/evaluation overhead where available in the release surface. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\FloatBarrier
+
+\section{Protocol Pseudocode}
+
+\begin{algorithm}[!htbp]
+\caption{SemCodebook Embed Protocol}
+\label{alg:semcodebook}
+\begin{algorithmic}[1]
+\Require Task identifier $t$, code artifact $x$, secret key $K$, provenance identifier $\mathrm{id}$
+\State Extract tagged carriers $C(x)$ from AST, CFG, and SSA families
+\If{$|C(x)|=0$ or typed carrier coverage is below threshold}
+  \State \Return abstain if row is already admitted; otherwise record nonpromotion
+\EndIf
+\State Score carrier families by applicability, frozen family bias, and HMAC-derived tie-break
+\State Build adaptive data-slot and anchor-slot schedule plus public schedule commitment record
+\State Encode payload bits with the configured ECC-style schedule block
+\For{each encoded position $i$}
+  \State Select unused carrier slot by keyed schedule with collision retry
+  \If{the selected family has no admissible carrier}
+    \State \Return abstain
+  \ElsIf{collision retry budget is exhausted}
+    \State \Return abstain
+  \EndIf
+  \State Materialize the scheduled carrier without breaking executable behavior
+  \If{materialization breaks parse or executable validation}
+    \State \Return materialization\_failure counted in the admitted denominator
+  \EndIf
+\EndFor
+\State \Return watermarked artifact and public schedule digest record
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[!htbp]
+\caption{SemCodebook Recover Protocol}
+\label{alg:semcodebook-recover}
+\begin{algorithmic}[1]
+\Require Candidate code artifact $x'$, task identifier $t$, key $K$, schedule/recovery version $v_{\mathrm{sched}}$
+\State Recompute admissible carrier families and adaptive keyed schedule
+\If{carrier coverage is below threshold or support families are insufficient}
+  \State \Return abstain
+\EndIf
+\State Extract observations $o_1,\ldots,o_L$ from scheduled carriers
+\State Decode $\widehat{\mathrm{payload}}\gets \mathrm{ECC\_Decode}(o_1,\ldots,o_L)$
+\If{ECC check fails, payload mismatches, or positive-support/schedule evidence fails}
+  \State \Return reject
+\Else
+  \State \Return recovered identifier and verified support evidence
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+
+\FloatBarrier
+
+\begin{table}[!htbp]
+\centering
+\caption{Compact decision sketches for the black-box and deployment protocols. The shared admission logic is given in Algorithm~\ref{alg:evidence-admission}; this table records only the stage-specific decision rule.}
+\label{tab:protocol-sketches}
+\lookuptable
+\begin{tabularx}{\textwidth}{@{}L{2.1cm}YY@{}}
+\toprule
+Protocol & Stage-specific decision rule & Failure accounting \\
+\midrule
+SemCodebook admission & Distinguish pre-run nonpromotion from post-admission recovery failures. & Missing model/parser/helper closure is nonpromotion; carrier insufficiency, ECC rejection, payload mismatch, support-gate failure, and materialization failure remain abstain/reject/failure inside the admitted positive denominator. \\
+CodeDye frozen null-audit &
+Store prompt, raw-response, and structured hashes; compute the frozen non-weighted gate vector over family observation, structural or stable witness evidence, output-visible canary evidence, and heldout/rewrite context; report a sparse signal only when the final evidence stage passes. &
+Pre-admission failures remain diagnostic; post-admission no-signal rows stay inside the 300-row live denominator. \\
+ProbeTrace single-owner attribution &
+Compute active-owner witness score and same-task wrong/null/random-owner controls; attribute only when the active witness passes and all controls remain below their frozen thresholds. &
+Low active evidence abstains; control violation rejects inside the APIS denominator; transfer rows remain support over task clusters. \\
+SealAudit conservative triage &
+Collect marker-hidden static, semantic, laundering, spoofability, and judge-perturbation evidence; return a decisive label only when evidence is sufficient and non-conflicting. &
+Insufficient or conflicting evidence returns \needsreview; unsafe-pass is reported as a separate audit-error event, not hidden inside accuracy. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\FloatBarrier
+
+\section{Admission And Boundary Tables}
+
+\begin{table}[htbp]
+\centering
+\caption{SemCodebook admission rule for white-box claim cells.}
+\label{tab:sem-admission-app}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.25cm}YY@{}}
+\toprule
+Gate & Required condition & If condition fails \\
+\midrule
+Model admission & Frozen local code-model revision and scale bucket & Nonpromotion audit; no main claim \\
+Execution admission & Source group has executable tests and attack harness & Support-only diagnostic \\
+Carrier admission & AST/CFG/SSA extractor available before run; row-level typed coverage checked after admission & Pre-run extractor absence is nonpromotion; row-level insufficiency is abstain inside denominator \\
+Closure admission & Helpers, imports, package prelude, and transitive calls validated before run & Missing closure is nonpromotion; post-admission materialization/compiler failure is counted failure \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Examiner Verification Entry Points}
+
+The submitted repository preserves the dissertation PDF, code snapshots, result artifacts, hash manifest, and verification scripts. The main entry points are:
+\begin{itemize}
+  \item \artifact{dissertation/WatermarkScope\_FYP\_Dissertation.pdf}: submitted report;
+  \item \artifact{RESULT\_MANIFEST.jsonl}: claim-to-artifact binding with hashes;
+  \item \artifact{CLAIM\_BOUNDARIES.md}: allowed and forbidden interpretations;
+  \item \artifact{scripts/repro\_check.py}: repository integrity, stale wording, hash, and denominator checks;
+  \item \artifact{scripts/examiner\_check.py}: one-command examiner-facing check;
+  \item \href{https://github.com/Haoyi-Zhang/WatermarkScope}{WatermarkScope}: submitted FYP repository with dissertation source, method snapshots, manifests, and verification scripts;
+  \item \href{https://github.com/Haoyi-Zhang/CodeMarkBench}{CodeMarkBench}: public benchmark repository and software artifact snapshot.
+\end{itemize}
+
+The local verification layer has a narrow examination purpose: it checks that the submitted claims still bind to preserved artifacts, that support-only rows are not promoted, and that no stale internal material has entered the examiner-facing package.
+
+\begin{table}[htbp]
+\centering
+\caption{Local examiner checks and the evidence risk each one targets.}
+\label{tab:local-examiner-checks}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.35cm}YY@{}}
+\toprule
+Check family & Targeted risk & Expected reading \\
+\midrule
+Package integrity & Missing source snapshots, result artifacts, manifests, or examiner documents. & The dissertation can be inspected without private working files. \\
+Claim reconstruction & A printed numerator or denominator no longer matches the manifest. & Each headline number has a preserved artifact path and digest. \\
+Boundary lint & Support rows, diagnostics, or historical blockers enter main claims. & Reviewer-facing text keeps allowed and forbidden interpretations separate. \\
+Secret and stale scan & API tokens, private paths, cache files, failed drafts, or temporary logs leak into the package. & The package is clean enough for supervisor/examiner sharing. \\
+Preservation audit & Existing result artifacts are silently modified during writing. & Preserved experiment outputs remain immutable unless a new result row is explicitly added. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\FloatBarrier
+
+\section{Reproducibility Tiers}
+
+\begin{table}[htbp]
+\centering
+\caption{What each reproducibility tier proves.}
+\label{tab:reproducibility-tiers}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{1.75cm}L{2.15cm}YY@{}}
+\toprule
+Tier & Command or artifact & What it proves & What it does not prove \\
+\midrule
+Local package check & examiner check & Files, hashes, denominators, stale wording, and manifest consistency. & Full GPU/API experiment regeneration. \\
+Manifest summary & summary script & Claim-to-artifact binding and result-surface summaries. & Model/provider reproducibility. \\
+Code snapshot inspection & project snapshots & Implementations and scripts are present for examiner review. & All large experiments rerun on a normal laptop. \\
+Full rerun & GPU/API access & Experimental regeneration under the recorded settings. & Feasibility within the submitted local check. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Main-Body Result Reconstruction}
+
+The dissertation's headline numbers can be reconstructed from the manifest rather than from prose alone. Table~\ref{tab:result-reconstruction-app} records the arithmetic used in the main body. The table is not intended to introduce new claims; it gives the denominator arithmetic in one place so that a reader can check that rates are not mixed across modules.
+
+\begin{table}[htbp]
+\centering
+\caption{Reconstruction of main-body quantitative readings.}
+\label{tab:result-reconstruction-app}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.15cm}L{1.95cm}L{2.30cm}Y@{}}
+\toprule
+Result & Count & Reported reading & Boundary \\
+\midrule
+Benchmark inventory & 140/140 & Complete canonical run inventory. & Inventory completion, not detector success. \\
+SCB recovery & 23,342/24k & 97.26\% recovered. & Admitted white-box positive denominator. \\
+SemCodebook negative & 0/48,000 & No observed negative-control hit. & Nonzero upper bound still governs risk. \\
+CodeDye live audit & 6/300 & Sparse 2.00\% live signal. & Null-audit signal, not prevalence. \\
+CodeDye controls & 170/300; 0/300 & Positive sensitivity and clean negatives. & Calibration, not live denominator expansion. \\
+ProbeTrace APIS & 300/300 & Scoped active-owner decisions promoted. & Single active owner only. \\
+ProbeTrace controls & 0/1,200 & No observed false-owner hit. & Wrong/null/random controls only. \\
+SealAudit triage & 81/960; 879/960 & Decisive and needs-review split. & Selective triage, not automatic classification. \\
+SealAudit unsafe pass & 0/960 & No observed unsafe pass. & Marker-hidden rows only. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Failure-Mode Interpretation}
+
+The framework is designed so that failures remain scientifically useful. A failed executable attack in CodeMarkBench reveals a utility or transformation-boundary issue. A SemCodebook miss, abstain, or reject reveals carrier insufficiency, ECC failure, decoded-payload mismatch, or support-gate inconsistency. A CodeDye no-signal row says that the frozen non-weighted evidence stage did not fire, but not that related material was absent from training. A ProbeTrace abstention would indicate insufficient active-owner evidence rather than a negative authorship theorem. A SealAudit needs-review decision indicates that safety evidence is insufficient or conflicting.
+
+\begin{table}[htbp]
+\centering
+\caption{How non-success outcomes are interpreted.}
+\label{tab:failure-mode-interpretation}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.15cm}L{2.35cm}YY@{}}
+\toprule
+Module & Non-success outcome & Counted as & Interpretation \\
+\midrule
+Benchmark & Non-executable transformed artifact & Attack utility boundary & The transformation cannot support robustness evidence. \\
+SemCodebook & Miss, abstain, reject & Positive denominator outcome & Recovery failed or evidence was insufficient. \\
+CodeDye & No live signal & Live denominator outcome & The frozen audit predicate did not fire. \\
+ProbeTrace & Low active evidence or control violation & APIS denominator outcome & Attribution abstains or rejects under the scoped rule. \\
+SealAudit & Needs review & Marker-hidden denominator outcome & Evidence is insufficient or conflicting for decisive triage. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+This failure-mode interpretation is central to the dissertation's anti-overfitting stance. The easiest way to make a watermarking result look stronger is to remove inconvenient outcomes or merge support rows into a favorable denominator. WatermarkScope instead preserves non-success outcomes as evidence about where a method is strong, where it is fragile, and where the claim must be narrowed.
+
+\section{Examiner Reproduction Walkthrough}
+
+The repository is designed for two levels of examiner checking. The first level is a local integrity check: it verifies that the report, manifests, scripts, and preserved result files agree. The second level is a research reproduction check: it reruns selected experimental modules when GPU or API access is available. The submitted package does not require a full GPU/API rerun for basic marking, but it records the boundary between the two checks.
+
+\begin{table}[htbp]
+\centering
+\caption{Recommended examiner walkthrough for the submitted package.}
+\label{tab:examiner-walkthrough}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.00cm}YY@{}}
+\toprule
+Step & What to inspect & Expected outcome \\
+\midrule
+Read README & Project story, folder map, and integrity command. & The package is understandable without private notes. \\
+Open PDF & Main body, references, and appendices. & Claims match the manifest and do not exceed 40 main-body pages. \\
+Run examiner check & Local files, stale wording, and manifest consistency. & No secret-like token, stale failed-run wording, or missing canonical artifact. \\
+Inspect snapshots & Code for benchmark, provenance, audit, attribution, and triage modules. & The FYP contains code, not only result summaries. \\
+Inspect result manifest & Claim text, denominator, digest, and boundary. & Each main result is traceable to a preserved artifact. \\
+Optional rerun & Selected smoke or full experiment, depending on resources. & Rerun status is reported separately from submitted claim validity. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+This walkthrough is intentionally examiner-facing rather than developer-facing. It avoids requiring a marker to read every intermediate file before understanding the project. At the same time, it leaves enough structure for a technical examiner to audit a number from the PDF back to a script, a manifest row, and a result artifact.
+
+\section{Artifact Preservation Policy}
+
+The submitted package preserves the evidence needed to understand the FYP, not every temporary file produced during development. Preserved artifacts satisfy at least one of three roles: they support a main result, explain a support-only exclusion, or allow an examiner to verify the dissertation. Generated caches, scratch logs, and private-path material are outside the evidence surface and are not part of the submitted record.
+
+\begin{table}[htbp]
+\centering
+\caption{Evidence-preservation policy for the final submission package.}
+\label{tab:artifact-preservation-policy}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.15cm}YY@{}}
+\toprule
+File class & Preserve? & Reason \\
+\midrule
+Source code snapshots & Yes & Needed to show implementation and allow inspection. \\
+Canonical result artifacts & Yes & Needed for claim reconstruction. \\
+Hash and result manifests & Yes & Needed to bind claims to files. \\
+Reproduction scripts & Yes & Needed for local verification and future reruns. \\
+Report source and figures & Yes & Needed to inspect how claims, tables, and figures are written. \\
+Generated byproducts & No & Regenerated locally and distract from review. \\
+Scratch logs and failed drafts & No & Not part of the submitted evidence surface. \\
+Private paths or secret-bearing files & No & Unsafe and irrelevant to examiner review. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The preservation policy also explains the appendix style. File names are described as artifact families in tables and bound precisely through the manifest, rather than printed as long technical paths across narrow columns. This makes the appendix readable while keeping exact paths available to scripts and technical readers.

@@ -1,0 +1,20 @@
+{
+  "openai": {
+    "responses": [
+      "def solve(items):\n    if not items:\n        return []\n    return list(items)\n",
+      "def solve(items):\n    result = []\n    if items:\n        result = list(items)\n    else:\n        result = []\n    return result\n"
+    ]
+  },
+  "deepseek": {
+    "responses": [
+      "def solve(mapping, key, default):\n    return mapping.get(key, default)\n",
+      "def solve(mapping, key, default):\n    if key in mapping:\n        return mapping[key]\n    return default\n"
+    ]
+  },
+  "claude": {
+    "responses": [
+      "def solve(items):\n    total = 0\n    for index in range(len(items)):\n        total += items[index]\n    return total\n",
+      "def solve(items):\n    total = 0\n    for item in items:\n        total += item\n    return total\n"
+    ]
+  }
+}

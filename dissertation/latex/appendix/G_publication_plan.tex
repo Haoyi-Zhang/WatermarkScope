@@ -1,0 +1,119 @@
+\appendixchapter{Future Work and Denominator Continuity}{app:publication-plan}
+
+This appendix records how the submitted FYP evidence surface can be extended without changing what the dissertation already claims. It is not part of the FYP result denominator. Its purpose is to keep future work accountable: later experiments may add models, providers, owners, attacks, or cases, but those additions must become new evidence surfaces with new manifests, hashes, and claim boundaries.
+
+\section{Continuation Map}
+
+The five stages remain connected by the WatermarkScope lifecycle. Future work should therefore broaden the lifecycle by adding new denominators, not by rewriting the submitted ones. Table~\ref{tab:future-continuation-map} records the most direct extension path for each stage.
+
+\begin{table}[htbp]
+\centering
+\caption{Future continuation map with denominator-preserving expansion rules.}
+\label{tab:future-continuation-map}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.15cm}YY@{}}
+\toprule
+Stage & Current FYP boundary & Required new evidence surface \\
+\midrule
+Benchmark & 140-run executable benchmark release. & External reruns, broader stress taxonomy, and versioned benchmark documentation. \\
+Provenance & Admitted white-box family/scale cells. & Additional model cells, family/scale ledgers, causal ablations, and negative controls. \\
+Audit & DeepSeek-only frozen null-audit surface. & Provider-specific denominators, frozen controls, and transcript-hash preservation. \\
+Attribution & Single-active-owner/source-bound attribution. & Multi-owner registries, owner-heldout tasks, margin distributions, and latency/query frontier. \\
+Triage & Marker-hidden selective triage. & Second-stage coverage improvements with unsafe-pass accounting preserved. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The expansion rule is deliberately strict. A new CodeDye provider surface cannot change the DeepSeek live denominator. A new ProbeTrace multi-owner run cannot be merged into the single-owner APIS result. A new SealAudit coverage improvement cannot rewrite the submitted 960-row marker-hidden frontier. This continuity lets future work improve the research without invalidating the FYP evidence record.
+
+\section{Claim Boundaries for Later Work}
+
+Table~\ref{tab:future-claim-boundaries} records how each stage may be extended and which interpretation should remain excluded. The table is included because the same artifacts could otherwise be over-read in several directions.
+
+\begin{table}[htbp]
+\centering
+\caption{Central and excluded claims for later extensions.}
+\label{tab:future-claim-boundaries}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.15cm}YY@{}}
+\toprule
+Stage & Extension direction & Claim to exclude \\
+\midrule
+Benchmark & Executable stress benchmarking can be broadened to additional methods and source groups. & All watermarking methods fail universally. \\
+Provenance & Structured carriers can be tested on additional admitted white-box cells. & The method works for all code models without admission. \\
+Audit & Frozen black-box null-audit can be repeated for provider-specific surfaces. & Sparse signals estimate contamination prevalence. \\
+Attribution & Active-owner registries can be expanded to multi-owner controlled settings. & The protocol proves open-world authorship. \\
+Triage & Marker-hidden triage can improve coverage while preserving unsafe-pass accounting. & The resolver certifies watermark safety. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Individual FYP Contribution and Publication Route}
+
+The work submitted for this FYP was completed as an individual implementation and synthesis by Haoyi Zhang. This includes the current code snapshots, benchmark execution package, method integrations, result preservation scripts, claim-boundary ledgers, verification scripts, repository organization, and dissertation writing. The post-FYP plan is to develop the same research line into five separate publication surfaces: CodeMarkBench as a TOSEM-oriented journal submission, and SemCodebook, CodeDye, ProbeTrace, and SealAudit as EMNLP-oriented conference submissions.
+
+\begin{table}[htbp]
+\centering
+\caption{Individual FYP contribution boundary and post-FYP publication route.}
+\label{tab:individual-publication-route}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.55cm}L{2.10cm}YY@{}}
+\toprule
+Work & Planned route & Current FYP contribution & Later collaboration boundary \\
+\midrule
+CodeMarkBench & TOSEM-oriented journal article. & Individual benchmark packaging, preserved result surface, and dissertation integration. & Later co-authors may help extend studies, writing, and revision after the FYP submission. \\
+SemCodebook & EMNLP-oriented conference paper. & Individual structured-provenance implementation snapshot, admitted-result synthesis, and claim-boundary documentation. & Later work may add model cells, ablations, positioning, and manuscript development. \\
+CodeDye & EMNLP-oriented conference paper. & Individual frozen null-audit protocol snapshot, DeepSeek result preservation, and conservative interpretation. & Later work may add provider-specific surfaces and paper-level framing. \\
+ProbeTrace & EMNLP-oriented conference paper. & Individual active-owner attribution package, transfer surface preservation, and single-owner scope definition. & Later work may add multi-owner experiments and manuscript revision. \\
+SealAudit & EMNLP-oriented conference paper. & Individual selective-triage package, marker-hidden evidence surface, and audit-boundary synthesis. & Later work may improve second-stage coverage and paper presentation. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Future collaborators may therefore contribute to paper writing, positioning, additional experiments, or revision work after this FYP. Those contributions should be versioned separately and should not be read as part of the submitted FYP implementation or integration package. This distinction matters because the dissertation is assessed on the submitted individual work, whereas later publication manuscripts may reasonably involve collaborative writing and additional evidence surfaces.
+
+Future extensions should be versioned separately so that the FYP denominator remains the submitted package. This protects the completed dissertation as an individual implementation and synthesis while still allowing later experiments to build on the same codebase.
+
+\section{Post-FYP Execution Checklist}
+
+Table~\ref{tab:post-fyp-checklist} converts the continuation map into a compact checklist. These items are not hidden requirements for the FYP grade; they are the next evidence surfaces needed if the research is expanded after submission.
+
+\begin{table}[htbp]
+\centering
+\caption{Post-FYP execution checklist.}
+\label{tab:post-fyp-checklist}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.20cm}YY@{}}
+\toprule
+Stage & First next action & Stopping rule \\
+\midrule
+Benchmark & Package external rerun instructions and release notes. & Stop when reruns reproduce the release surface within documented drift. \\
+Provenance & Admit additional public model families and scale buckets. & Stop when cells pass admission, postrun audit, and negative-control gates. \\
+Audit & Add provider-specific frozen control packets. & Stop if controls fail or provider surfaces cannot be separated. \\
+Attribution & Run simultaneous multi-owner support experiments. & Stop if margins are not stable enough for a new main claim. \\
+Triage & Improve second-stage marker-hidden coverage. & Stop if higher coverage increases unsafe pass-through risk. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Appendix Reading Guide}
+
+Appendix~\ref{app:artifact-index} is the evidence contract: it explains how claims bind to denominators, manifests, and support-only exclusions. Appendix~\ref{app:reproducibility} is the method and reproduction lookup: it contains formulas, protocol sketches, entry points, and preservation rules. This appendix is the continuity plan: it explains how the current FYP can be extended without rewriting the submitted denominators.
+
+\begin{table}[htbp]
+\centering
+\caption{How different readers should use the appendices.}
+\label{tab:appendix-reading-guide}
+\tighttable
+\begin{tabularx}{\textwidth}{@{}L{2.05cm}YY@{}}
+\toprule
+Reader & Recommended appendix path & Main question answered \\
+\midrule
+FYP examiner & Evidence contract, then verification entry points. & Are the claims checkable and responsibly scoped? \\
+Technical reader & Reproducibility tables, then continuation map. & Which artifacts and scripts support future experiments? \\
+Supervisor & Continuation map, then checklist. & How can the FYP evidence surface be expanded without changing submitted claims? \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The appendix material should therefore be read as a controlled extension of the main story rather than as a loose archive. Executable evidence comes first, structured provenance next, black-box and owner-bound evidence after that, and safety triage at the end. Future work is useful only if it preserves that ordering and adds new denominators when claims expand.

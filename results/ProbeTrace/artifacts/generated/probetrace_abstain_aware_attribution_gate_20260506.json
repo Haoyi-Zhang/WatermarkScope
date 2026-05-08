@@ -1,0 +1,52 @@
+{
+  "anti_leakage_controls": [
+    "owner-heldout",
+    "task-heldout",
+    "wrong-owner 4x",
+    "null owner",
+    "random owner",
+    "same-provider unwrap"
+  ],
+  "artifact_role": "pre_run_abstain_and_anti_leakage_gate",
+  "blockers": [],
+  "claim_bearing": false,
+  "current_effect_surface": {
+    "apis_verified_ci95": {
+      "high": 0.9999999999999998,
+      "k": 300,
+      "low": 0.9873570287754538,
+      "n": 300,
+      "rate": 1.0
+    },
+    "comparable_signed_owner_margin_rows": 0,
+    "near_boundary_positive_rows": 150,
+    "negative_control_records": 1200,
+    "transfer_rows": 900
+  },
+  "formal_multi_owner_claim_allowed": false,
+  "formal_signed_owner_margin_claim_allowed": false,
+  "fresh_abstain_aware_rerun_allowed_after_gate": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:46.817981Z",
+  "required_decisions": [
+    "correct_owner",
+    "wrong_owner",
+    "ambiguous_abstain",
+    "no_evidence_abstain",
+    "utility_only_no_owner_claim"
+  ],
+  "schema_version": "probetrace_abstain_aware_attribution_gate_v1",
+  "source_artifacts": [
+    {
+      "exists": true,
+      "path": "codemark_probetrace/artifacts/generated/probetrace_owner_margin_control_audit_gate_20260505.json",
+      "sha256": "4e609170959b807676447f3efbbb7064cff4bea334194bbdd3a7722e5bd736f9",
+      "size_bytes": 3304
+    }
+  ],
+  "warnings": [
+    "APIS rows lack explicit margin fields",
+    "latency high and must be reported",
+    "multi-owner claim remains forbidden"
+  ]
+}

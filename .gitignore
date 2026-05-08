@@ -1,0 +1,15 @@
+*.aux
+*.bbl
+*.blg
+*.idx
+*.log
+*.out
+*.toc
+*.synctex.gz
+__pycache__/
+*.pyc
+*.pyo
+*.bak
+tmp*/
+tmp_*/
+.pytest_cache/

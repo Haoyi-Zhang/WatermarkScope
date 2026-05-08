@@ -1,0 +1,20 @@
+project:
+  name: ProbeTrace
+  fyp_role: active_owner_source_bound_attribution
+  packaged_status: fyp_evidence_snapshot
+  claim_boundary: single_active_owner_source_bound
+  result_bundle: ../../results/ProbeTrace
+  headline_results:
+    apis_successes: 300
+    apis_denominator: 300
+    false_owner_hits: 0
+    false_owner_denominator: 1200
+    transfer_rows: 900
+  code_entrypoints:
+    packaged_snapshot_check: python ../../scripts/check_project_snapshots.py
+    summary_scripts: scripts
+    full_rerun_boundary: full attribution reruns require provider/API access and owner-registry setup
+  forbidden_claims:
+    - provider_general_authorship
+    - multi_owner_attribution
+    - unbounded_transfer_generalization

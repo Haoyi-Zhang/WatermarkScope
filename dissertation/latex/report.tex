@@ -1,0 +1,170 @@
+\documentclass[12pt,times,oneside,openright,hardcopy]{eeereport}
+\renewcommand{\baselinestretch}{1.08}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{placeins}
+\usepackage{caption}
+\usepackage{etoolbox}
+\usepackage{makecell}
+\usepackage{pifont}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{enumitem}
+
+\renewcommand{\arraystretch}{1.02}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\captionsetup{font=small,labelfont=bf,skip=3pt}
+\captionsetup[table]{font=small,labelfont=bf,skip=2pt}
+\newcommand{\compacttable}{\small\renewcommand{\arraystretch}{0.90}\setlength{\tabcolsep}{1.60pt}}
+\newcommand{\tighttable}{\footnotesize\renewcommand{\arraystretch}{0.86}\setlength{\tabcolsep}{1.15pt}}
+\newcommand{\lookuptable}{\scriptsize\renewcommand{\arraystretch}{0.84}\setlength{\tabcolsep}{0.95pt}}
+\AtBeginEnvironment{algorithmic}{\scriptsize}
+\floatstyle{ruled}
+\restylefloat{algorithm}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+\setlist[itemize]{leftmargin=*, itemsep=1.5pt, topsep=2pt}
+\setlist[enumerate]{leftmargin=*, itemsep=1.5pt, topsep=2pt}
+\sisetup{detect-all=true}
+\renewcommand{\bibname}{References}
+\makeatletter
+\let\watermarkscope@addcontentsline\addcontentsline
+\newcommand{\suppressappendixsubtoc}{%
+  \renewcommand{\addcontentsline}[3]{%
+    \def\watermarkscope@toclevel{##2}%
+    \def\watermarkscope@section{section}%
+    \def\watermarkscope@subsection{subsection}%
+    \def\watermarkscope@subsubsection{subsubsection}%
+    \ifx\watermarkscope@toclevel\watermarkscope@section
+    \else\ifx\watermarkscope@toclevel\watermarkscope@subsection
+    \else\ifx\watermarkscope@toclevel\watermarkscope@subsubsection
+    \else
+      \watermarkscope@addcontentsline{##1}{##2}{##3}%
+    \fi\fi\fi
+  }%
+}
+\newcommand{\appendixchapter}[2]{%
+  \cleardoublepage
+  \refstepcounter{chapter}%
+  \setcounter{section}{0}%
+  \chapter*{Appendix \thechapter\\#1}%
+  \phantomsection
+  \watermarkscope@addcontentsline{toc}{section}{Appendix \thechapter: #1}%
+  \markboth{Appendix \thechapter. #1}{Appendix \thechapter. #1}%
+  \label{#2}%
+}
+\makeatother
+\newcommand{\claimrow}{\ensuremath{\mathsf{row}}}
+\newcommand{\claimbearing}{\ensuremath{\mathsf{claim}}}
+\newcommand{\supportonly}{\ensuremath{\mathsf{support}}}
+\newcommand{\needsreview}{\ensuremath{\mathsf{needs\_review}}}
+\newcommand{\artifact}[1]{\textnormal{\small #1}}
+\newcommand{\stagebullet}{\textcolor{black!70}{\ding{117}}}
+\newcommand{\claimmark}{\textcolor{black!70}{\ding{72}}}
+\newcommand{\insightbox}[1]{%
+  \begin{center}
+  \setlength{\fboxsep}{6pt}%
+  \fcolorbox{black!20}{black!3}{%
+    \begin{minipage}{0.91\textwidth}
+    \small\itshape #1
+    \end{minipage}}%
+  \end{center}}
+\newcommand{\questionbox}[1]{%
+  \begin{center}
+  \setlength{\fboxsep}{5pt}%
+  \fcolorbox{black!18}{black!3}{%
+    \begin{minipage}{0.88\textwidth}
+    \centering\small\textbf{\emph{#1}}
+    \end{minipage}}%
+  \end{center}}
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  frame=lines,
+  rulecolor=\color{black!25},
+  backgroundcolor=\color{black!2},
+  numbers=none,
+  captionpos=b,
+  showstringspaces=false,
+  columns=fullflexible,
+  keepspaces=true
+}
+
+\begin{document}
+\linespread{1.08}
+\pagenumbering{Alph}
+
+\begin{titlepage}
+  \begin{center}
+    \includegraphics[scale=0.5]{fig/xjtlu_logo_blue.pdf}\\[0.3in]
+    \large \textbf{DTS311TC Final Year Project}\\[0.2in]
+    \huge \textit{\textbf{WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models}}\\[2.0in]
+    \normalsize
+    \small \textbf{In Partial Fulfillment of \\ the Requirements for the Degree of \\ Bachelor of Engineering} \\[0.3in]
+    \normalsize
+    By \\
+    \textbf{Haoyi Zhang}\\
+    Student ID: \textbf{2254912} \\
+    \vspace{.2in}
+    Supervisor\\
+    {\textbf{Md Maruf Hasan}}\\[0.1in]
+    \vfill
+    {School of AI and Advanced Computing}\\
+    \normalsize
+    \textsc{Xi'an Jiaotong-Liverpool University}\\
+    May 2026
+  \end{center}
+\end{titlepage}
+
+\frontmatter
+
+\chapter{Abstract}
+\input{chapter/00_abstract}
+
+\tableofcontents
+
+\mainmatter
+\pagenumbering{arabic}
+
+\input{chapter/01_introduction}
+\input{chapter/02_background}
+\input{chapter/03_codemarkbench}
+\input{chapter/04_evidence_framework}
+\input{chapter/05_attribution_triage}
+\input{chapter/06_discussion}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\begingroup
+\sloppy
+\emergencystretch=2em
+\bibliographystyle{IEEEtran}
+\bibliography{reference}
+\endgroup
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Appendices}
+\appendix
+\suppressappendixsubtoc
+\input{appendix/A_codemarkbench}
+\input{appendix/F_reproducibility}
+\input{appendix/G_publication_plan}
+
+\end{document}

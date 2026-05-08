@@ -1,0 +1,35 @@
+﻿{
+  "files": [
+    {
+      "bytes": 70140,
+      "local": "projects/CodeDye/scripts/run_attack_matrix_ci_scaffold.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/scripts/run_attack_matrix_ci_scaffold.py"
+    },
+    {
+      "bytes": 40484,
+      "local": "projects/CodeDye/scripts/run_attack_matrix_live_support.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/scripts/run_attack_matrix_live_support.py"
+    },
+    {
+      "bytes": 16701,
+      "local": "projects/CodeDye/scripts/materialize_null_calibration_negative_controls.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/scripts/materialize_null_calibration_negative_controls.py"
+    },
+    {
+      "bytes": 14433,
+      "local": "projects/CodeDye/tests/test_attack_matrix_live_support.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/tests/test_attack_matrix_live_support.py"
+    },
+    {
+      "bytes": 29382,
+      "local": "projects/CodeDye/tests/test_attack_matrix_ci_scaffold.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/tests/test_attack_matrix_ci_scaffold.py"
+    }
+  ],
+  "schema_version": "codedye_remote_script_test_import_v1",
+  "source_host": "redacted_remote_host",
+  "source_root": "redacted_remote_source_root"
+}
+
+
+

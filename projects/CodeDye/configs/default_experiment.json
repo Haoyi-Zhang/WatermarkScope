@@ -1,0 +1,41 @@
+{
+  "project": "CodeDye",
+  "objective": "Benchmark contamination auditing for code models and code APIs.",
+  "threat_model": "Leakage or pre-exposure to benchmark prompts, hidden tests, or semantic canary variants.",
+  "wrapper": {
+    "sample_count": 4,
+    "query_budget": 16,
+    "selection_rule": "chronology-aware semantic-canary alignment with confidence reranking"
+  },
+  "primary_backbone": "Qwen2.5-Coder-7B-Instruct",
+  "pilot_models": [
+    "Qwen2.5-Coder-7B-Instruct",
+    "DeepSeek-Coder-6.7B-Instruct",
+    "StarCoder2-7B"
+  ],
+  "external_benchmarks": [
+    "HumanEval",
+    "MBPP",
+    "HumanEvalPack",
+    "ClassEval"
+  ],
+  "private_benchmark": "CodeDyeBench",
+  "provider_modes": ["mock", "replay", "live"],
+  "primary_live_provider": "deepseek",
+  "full_eval_live_policy": "do_not_silently_downgrade_live_to_mock; keep review_status tied to benchmark review and mark unresolved live traces as unscored runtime records",
+  "baselines": {
+    "parse_only": [
+      "DyePack"
+    ],
+    "contamination_heuristics": [
+      "Lexical Overlap",
+      "Embedding Retrieval",
+      "AST Similarity",
+      "Nearest-Neighbor Retrieval"
+    ],
+    "benchmark_references": [
+      "LBPP",
+      "LiveCodeBench"
+    ]
+  }
+}

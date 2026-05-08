@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use CodeMarkBench, please cite the software artifact and the Zenodo archival record."
+title: "CodeMarkBench: Corrected Canonical Raw Results and Release Bundle for Source-Code Watermarking Reliability Evaluation"
+type: software
+authors:
+  - family-names: Zhang
+    given-names: Haoyi
+    affiliation: "Xi'an Jiaotong-Liverpool University"
+repository-code: "https://github.com/Haoyi-Zhang/CodeMarkBench"
+url: "https://doi.org/10.5281/zenodo.19740954"
+doi: "10.5281/zenodo.19740954"
+date-released: "2026-04-25"
+license: MIT
+keywords:
+  - source-code watermarking
+  - code generation
+  - benchmark
+  - robustness
+  - reproducibility
+preferred-citation:
+  type: dataset
+  title: "CodeMarkBench: Corrected Canonical Raw Results and Release Bundle for Source-Code Watermarking Reliability Evaluation"
+  authors:
+    - family-names: Zhang
+      given-names: Haoyi
+      affiliation: "Xi'an Jiaotong-Liverpool University"
+  doi: "10.5281/zenodo.19740954"
+  date-released: "2026-04-25"

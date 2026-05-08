@@ -1,0 +1,20 @@
+{
+  "blockers": [],
+  "clean_control_leak_count": 0,
+  "detected_at_frozen_0_5_count": 170,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T11:52:50Z",
+  "record_count": 300,
+  "required_record_count": 300,
+  "schema_version": "codedye_positive_contamination_control_300_gate_v2",
+  "sensitivity_ci95": {
+    "high": 0.6215486818545306,
+    "low": 0.5100989219821965
+  },
+  "source_artifact": {
+    "exists": true,
+    "path": "codemark_codedye/artifacts/generated/positive_control_contamination_result.json",
+    "sha256": "6ea4cc491ef4e452aab7c6398172a3b37e920c775148cadcbe4099f2c2697151",
+    "size_bytes": 2708572
+  }
+}

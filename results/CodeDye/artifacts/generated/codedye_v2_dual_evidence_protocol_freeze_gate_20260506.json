@@ -1,0 +1,73 @@
+{
+  "artifact_role": "pre_run_protocol_freeze_not_new_detection_result",
+  "blockers": [],
+  "claim_bearing": false,
+  "current_effect_surface": {
+    "claim_rows": 300,
+    "negative_control_ci95": {
+      "high": 0.012642971224546034,
+      "k": 0,
+      "low": 8.673617379884035e-19,
+      "n": 300,
+      "rate": 0.0
+    },
+    "positive_control_ci95": {
+      "high": 0.6215486818545306,
+      "k": 170,
+      "low": 0.5100989219821965,
+      "n": 300,
+      "rate": 0.5666666666666667
+    },
+    "signal_ci95": {
+      "high": 0.04293962081786058,
+      "k": 6,
+      "low": 0.009197631557703614,
+      "n": 300,
+      "rate": 0.02
+    },
+    "support_rows_excluded": 806
+  },
+  "forbidden_after_provider_call": [
+    "threshold lowering",
+    "row promotion",
+    "sample deletion",
+    "label edits",
+    "control-as-official-baseline renaming"
+  ],
+  "formal_contamination_accusation_claim_allowed": false,
+  "formal_high_recall_detection_claim_allowed": false,
+  "fresh_v2_rerun_allowed_after_gate": true,
+  "frozen_v2_predicate": "canary_margin >= tau_c AND provenance_margin >= tau_p AND chronology_control_pass AND retrieval_confound_discount_pass AND raw_structured_hash_complete",
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-06T03:21:46.811133Z",
+  "schema_version": "codedye_v2_dual_evidence_protocol_freeze_gate_v1",
+  "source_artifacts": [
+    {
+      "exists": true,
+      "path": "codemark_codedye/artifacts/generated/codedye_low_signal_claim_boundary_gate_20260505.json",
+      "sha256": "e8bb472da1a5fce9bfd5b5dffd2f430eb4fd980b970c783a26d986a8b1006275",
+      "size_bytes": 8798
+    },
+    {
+      "exists": true,
+      "path": "codemark_codedye/artifacts/generated/codedye_positive_contamination_control_300_gate_20260505.json",
+      "sha256": "74d1f14b6ee56a18ae09a2a14988d5f08c8327f6ad42f867938566c95a67b768",
+      "size_bytes": 631
+    },
+    {
+      "exists": true,
+      "path": "codemark_codedye/artifacts/generated/codedye_negative_control_300plus_gate_20260505.json",
+      "sha256": "ae7b698a8be8b80fa8731bb805e26e143247874a5496072cf261098e27123925",
+      "size_bytes": 582
+    },
+    {
+      "exists": true,
+      "path": "codemark_codedye/artifacts/generated/statistics_repro_gate.json",
+      "sha256": "b5b2cb0122ff60466d1abd55b9ed70f8daf069b295fbd75fcc802cc40e72d7d0",
+      "size_bytes": 33041
+    }
+  ],
+  "warnings": [
+    "effect remains sparse; write null-audit, not high-recall detection"
+  ]
+}

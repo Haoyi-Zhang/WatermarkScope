@@ -1,0 +1,19 @@
+{
+  "providers": [
+    {
+      "provider": "OpenAI",
+      "env_key": "OPENAI_API_KEY",
+      "model_id": "REPLACE_WITH_CURRENT_CODE_MODEL"
+    },
+    {
+      "provider": "DeepSeek",
+      "env_key": "DEEPSEEK_API_KEY",
+      "model_id": "REPLACE_WITH_CURRENT_CODE_MODEL"
+    },
+    {
+      "provider": "Claude",
+      "env_key": "ANTHROPIC_API_KEY",
+      "model_id": "REPLACE_WITH_CURRENT_CODE_MODEL"
+    }
+  ]
+}

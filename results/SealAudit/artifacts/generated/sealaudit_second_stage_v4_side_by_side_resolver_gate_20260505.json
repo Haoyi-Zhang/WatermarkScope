@@ -1,0 +1,81 @@
+{
+  "anti_overfit_policy": {
+    "no_accuracy_or_security_certificate_claim": true,
+    "no_relabeling_old_v3": true,
+    "v3_marker_hidden_decisions_immutable": true,
+    "v4_side_by_side_only_until_fresh_provider_rerun": true
+  },
+  "blockers": [
+    "fresh_v4_provider_side_by_side_rerun_missing_for_claim_bearing_upgrade"
+  ],
+  "claim_bearing": false,
+  "coverage_risk_frontier_policy": "Current claim remains 8.44% decisive coverage selective triage. V4 may improve coverage only after fresh side-by-side resolver rerun passes unsafe-pass and marker-hidden gates.",
+  "current_v3_surface": {
+    "claim_rows": 960,
+    "decisive_count": 81,
+    "decisive_coverage_ci95": {
+      "high": 0.10365684661114782,
+      "k": 81,
+      "low": 0.06840615950150586,
+      "n": 960,
+      "rate": 0.084375
+    },
+    "needs_review_ci95": {
+      "high": 0.9315938404984943,
+      "k": 879,
+      "low": 0.8963431533888522,
+      "n": 960,
+      "rate": 0.915625
+    },
+    "needs_review_count": 879,
+    "unsafe_pass_ci95": {
+      "high": 0.003985571263342763,
+      "k": 0,
+      "low": 0,
+      "n": 960,
+      "rate": 0.0
+    },
+    "unsafe_pass_count": 0
+  },
+  "formal_claim_allowed": false,
+  "formal_second_stage_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T14:02:27Z",
+  "needs_review_routing_support": {
+    "provider_rerun_required_for_claim_bearing_upgrade": true,
+    "routing_role": "support_only_review_load_decomposition_not_claim_relabel",
+    "target_v4_labels": [
+      "confirmed_benign",
+      "confirmed_latent_risk",
+      "hard_ambiguity_retained",
+      "needs_expert_review"
+    ],
+    "taxonomy_counts": {
+      "hard_ambiguity_retained": 440,
+      "primary_marker_hidden_uncertainty": 879,
+      "rubric_boundary_band": 730,
+      "rubric_variant_disagreement": 162
+    }
+  },
+  "schema_version": "sealaudit_second_stage_v4_side_by_side_resolver_gate",
+  "second_stage_materialized_inputs": {
+    "conjunction_artifact": "codemark_sealaudit/artifacts/generated/sealaudit_second_stage_executable_conjunction_20260505.json",
+    "conjunction_sha256": "0c1c9d772e98bc24bc9a41d4a860ac8ac5286b4873224cbfaac01ea96fa18faa",
+    "provider_judge_trace_join_count": 320,
+    "ready_case_count": 320
+  },
+  "source_artifacts": [
+    {
+      "path": "codemark_sealaudit/artifacts/generated/canonical_claim_surface_results.json",
+      "sha256": "09b3a58e710b0b665c5f89d7c49e775dc61e1c1a02b0b03dae10b87ce86fd11c"
+    },
+    {
+      "path": "codemark_sealaudit/artifacts/generated/sealaudit_needs_review_taxonomy_20260505.json",
+      "sha256": "4395bfa60085672e53ba806151c48d1fe2bd8a19bf2c28f33c8a7d568845c829"
+    },
+    {
+      "path": "codemark_sealaudit/artifacts/generated/sealaudit_second_stage_executable_conjunction_20260505.json",
+      "sha256": "0c1c9d772e98bc24bc9a41d4a860ac8ac5286b4873224cbfaac01ea96fa18faa"
+    }
+  ]
+}

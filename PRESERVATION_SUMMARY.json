@@ -1,0 +1,26 @@
+{
+  "by_scope": {
+    "benchmark_result:CodeMarkBench": 74,
+    "dissertation_output": 1,
+    "examiner_documentation": 1,
+    "project_result:CodeDye": 6,
+    "project_result:ProbeTrace": 6,
+    "project_result:SealAudit": 4,
+    "project_result:SemCodebook": 6,
+    "repository_claim_binding": 2
+  },
+  "by_suffix": {
+    ".csv": 28,
+    ".json": 55,
+    ".jsonl": 1,
+    ".md": 6,
+    ".pdf": 5,
+    ".png": 4,
+    ".txt": 1
+  },
+  "created_at_utc": "2026-05-08T09:39:34.749480+00:00",
+  "manifest": "PRESERVED_RESULT_MANIFEST.jsonl",
+  "policy": "Existing result artifacts are immutable for continuation work. Add new artifacts instead of overwriting old evidence.",
+  "preserved_file_count": 100,
+  "total_bytes": 10489355
+}

@@ -1,0 +1,148 @@
+{
+  "arms": [
+    {
+      "arm": "ast_only_carriers",
+      "attacks": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "records": 4800,
+      "tasks": 600
+    },
+    {
+      "arm": "cfg_only_carriers",
+      "attacks": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "records": 4800,
+      "tasks": 600
+    },
+    {
+      "arm": "drop_ast_carriers",
+      "attacks": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "records": 4800,
+      "tasks": 600
+    },
+    {
+      "arm": "drop_cfg_carriers",
+      "attacks": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "records": 4800,
+      "tasks": 600
+    },
+    {
+      "arm": "drop_ssa_carriers",
+      "attacks": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "records": 4800,
+      "tasks": 600
+    },
+    {
+      "arm": "ecc_raw_payload4_no_correction",
+      "attacks": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "records": 4800,
+      "tasks": 600
+    },
+    {
+      "arm": "full_ast_cfg_ssa_ecc_keyed",
+      "attacks": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "records": 4800,
+      "tasks": 600
+    },
+    {
+      "arm": "ssa_only_carriers",
+      "attacks": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "records": 4800,
+      "tasks": 600
+    },
+    {
+      "arm": "unkeyed_static_family_order",
+      "attacks": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "records": 4800,
+      "tasks": 600
+    }
+  ],
+  "artifact_role": "compact_ablation_summary",
+  "claim_bearing": false,
+  "claim_boundary": "Ablation evidence supports method interpretation; it is not a first-sample/no-retry or universal watermarking claim.",
+  "formal_ablation_claim_allowed": true,
+  "record_count": 43200,
+  "required_tasks_per_arm": 600,
+  "schema_version": "semcodebook_ablation_compact_summary_fyp_v1",
+  "source_result_path": "artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json",
+  "source_result_sha256": "82f6ec1d7fd375973620c204775fab2489a8a82c706326eac81fb4a066aad0a0"
+}

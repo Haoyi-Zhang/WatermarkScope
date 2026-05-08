@@ -1,0 +1,188 @@
+{
+  "admitted_families": {
+    "codegen": 1,
+    "deepseek": 2,
+    "phi": 1,
+    "qwen": 4,
+    "starcoder2": 2
+  },
+  "admitted_family_count": 5,
+  "admitted_model_count": 10,
+  "blockers": [],
+  "candidate_generation_interfaces": [
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/CodeGen-2B-Mono/watermark_adapter",
+      "backbone": "CodeGen-2B-Mono",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/CodeGen-2B-Mono/generation_interface.json",
+      "interface_sha256": "d714be73307d61137c11e3b45071fa70339bbc2c4fe9c8915883c09ddae8f979",
+      "model_name": "Salesforce/codegen-2B-mono",
+      "training_report_present": true,
+      "training_report_sha256": "93a65c44bc177813ecccb93ff981d4d23a6f059fd91ea7f56d6db65052ff51f3"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/CodeGen-350M-Mono/watermark_adapter",
+      "backbone": "CodeGen-350M-Mono",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/CodeGen-350M-Mono/generation_interface.json",
+      "interface_sha256": "b415fa73ddec0023046bdfaf1c0b06fef09d3afe6727bba6b60598c69a29da49",
+      "model_name": "Salesforce/codegen-350M-mono",
+      "training_report_present": true,
+      "training_report_sha256": "571e01ed8be04b2284fd02121c649254b2a32cd2dc3c34786bc816cf64a2dd8b"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/CodeGen-6B-Mono/watermark_adapter",
+      "backbone": "CodeGen-6B-Mono",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/CodeGen-6B-Mono/generation_interface.json",
+      "interface_sha256": "6b0bf0918019f76e76b49e702e31951abfd740fb919aaabb2c0e22763e388cd5",
+      "model_name": "Salesforce/codegen-6B-mono",
+      "training_report_present": true,
+      "training_report_sha256": "c1d80fb7dfc5f5e8e75aef7946074ecd0b1085ad3e9ddefd85ee854e42e2c5a0"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/CodeLlama-13B-Instruct/watermark_adapter",
+      "backbone": "CodeLlama-13B-Instruct",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/CodeLlama-13B-Instruct/generation_interface.json",
+      "interface_sha256": "17475ac23d3eb81841b1ae684185acb1d01510f1a323c427b67ef9847d0d9b28",
+      "model_name": "codellama/CodeLlama-13b-Instruct-hf",
+      "training_report_present": false,
+      "training_report_sha256": ""
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/CodeLlama-7B-Instruct/watermark_adapter",
+      "backbone": "CodeLlama-7B-Instruct",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/CodeLlama-7B-Instruct/generation_interface.json",
+      "interface_sha256": "67424cad7ee18bac6b0def70648ac84a02a4c35ebf7c77e5d823a4b7919c0267",
+      "model_name": "codellama/CodeLlama-7b-Instruct-hf",
+      "training_report_present": false,
+      "training_report_sha256": ""
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/DeepSeek-Coder-1.3B-Instruct/watermark_adapter",
+      "backbone": "DeepSeek-Coder-1.3B-Instruct",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/DeepSeek-Coder-1.3B-Instruct/generation_interface.json",
+      "interface_sha256": "377c2012f141036e5b784c78088448bda4e957b0a6185bb5c1bff244cba4d237",
+      "model_name": "deepseek-ai/deepseek-coder-1.3b-instruct",
+      "training_report_present": true,
+      "training_report_sha256": "20ef1380159fb6fc4fe82628c3fae2fa53e86802a1d854cc9ddebe3374d4d02b"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/DeepSeek-Coder-6.7B-Instruct/watermark_adapter",
+      "backbone": "DeepSeek-Coder-6.7B-Instruct",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/DeepSeek-Coder-6.7B-Instruct/generation_interface.json",
+      "interface_sha256": "8b0ab4ecf425ad945bc337a9d6877b9e107f1a06bcb9b1de5dc5db388db8166b",
+      "model_name": "deepseek-ai/deepseek-coder-6.7b-instruct",
+      "training_report_present": true,
+      "training_report_sha256": "9828e6071f176645107e292774d1d32dc22be16483b8dd63ff48e7479ae1553b"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/DeepSeek-Coder-6.7B-Instruct/watermark_adapter",
+      "backbone": "DeepSeek-Coder-6.7B-Instruct",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/DeepSeek-Coder-6.7B-Instruct.bak_20260427t0909z/generation_interface.json",
+      "interface_sha256": "8b0ab4ecf425ad945bc337a9d6877b9e107f1a06bcb9b1de5dc5db388db8166b",
+      "model_name": "deepseek-ai/deepseek-coder-6.7b-instruct",
+      "training_report_present": true,
+      "training_report_sha256": "9828e6071f176645107e292774d1d32dc22be16483b8dd63ff48e7479ae1553b"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/Phi-1-Code-1.3B/watermark_adapter",
+      "backbone": "Phi-1-Code-1.3B",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/Phi-1-Code-1.3B/generation_interface.json",
+      "interface_sha256": "617963b62c7204d2dd577d22f4ecbbccbbff3245bd1e16ab640730632fbb818c",
+      "model_name": "microsoft/phi-1",
+      "training_report_present": true,
+      "training_report_sha256": "88d8d6c286c82a19871cc0fcc97e3b793bcc18a3bb8ce215ba70cf4304ecb3df"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/Qwen2.5-Coder-0.5B-Instruct/watermark_adapter",
+      "backbone": "Qwen2.5-Coder-0.5B-Instruct",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/Qwen2.5-Coder-0.5B-Instruct/generation_interface.json",
+      "interface_sha256": "a31932207fa0d463ebeb1334473932b73d2fcab7b9653963e5abfadd9933c649",
+      "model_name": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+      "training_report_present": true,
+      "training_report_sha256": "0694bbb5ac0eed85ea39a815a8ef3a753895f06368aa7818db0f236365648498"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/Qwen2.5-Coder-1.5B-Instruct/watermark_adapter",
+      "backbone": "Qwen2.5-Coder-1.5B-Instruct",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/Qwen2.5-Coder-1.5B-Instruct/generation_interface.json",
+      "interface_sha256": "3c0e5ceda9e5361f6f9ca02a866c98514a0416e14b30f8d65464faf9ea6be80d",
+      "model_name": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "training_report_present": true,
+      "training_report_sha256": "f6de756ed20cb87a415b61942e2b5031cc3670dc7152582a391fa7717b9a0783"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/Qwen2.5-Coder-14B-Instruct/watermark_adapter",
+      "backbone": "Qwen2.5-Coder-14B-Instruct",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/Qwen2.5-Coder-14B-Instruct/generation_interface.json",
+      "interface_sha256": "94fbaf3a4ae031661260c5034ee7bfdcd49baa5875cc44850d86c573c1c43ba4",
+      "model_name": "Qwen/Qwen2.5-Coder-14B-Instruct",
+      "training_report_present": true,
+      "training_report_sha256": "ed0a55dc648ea276584b94c56c0490f67b4f32f87f80574007e0c6d9b441fd46"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/Qwen2.5-Coder-7B-Instruct/watermark_adapter",
+      "backbone": "Qwen2.5-Coder-7B-Instruct",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/Qwen2.5-Coder-7B-Instruct/generation_interface.json",
+      "interface_sha256": "730ba3c66657000a38b72f9f9087b152adc40697b88d1d39669620e661a06c50",
+      "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "training_report_present": true,
+      "training_report_sha256": "8016b016fa7b5c4f2de06f5e73e6c0ac574a57b52c4fcccf502dc167ff001890"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/StarCoder2-3B/watermark_adapter",
+      "backbone": "StarCoder2-3B",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/StarCoder2-3B/generation_interface.json",
+      "interface_sha256": "1b45616500f714e80dc8834c717a3c557e3d4786ce954e5e1a4f73589808559c",
+      "model_name": "<cloud_model_cache>/huggingface/models--bigcode--starcoder2-3b/snapshots/733247c55e3f73af49ce8e9c7949bf14af205928",
+      "training_report_present": true,
+      "training_report_sha256": "9cc9801fba172bddfd4e17ed1c026416767046da66a053cb483b5c2baa1e9982"
+    },
+    {
+      "adapter_path": "artifacts/generated/checkpoints/semcodebook/StarCoder2-7B/watermark_adapter",
+      "backbone": "StarCoder2-7B",
+      "claim_admission_role": "admitted_only_if_full_7200_postrun_audit_present_in_primary_effect_summary",
+      "interface_path": "artifacts/generated/checkpoints/semcodebook/StarCoder2-7B/generation_interface.json",
+      "interface_sha256": "276f7087d1b73cbbb59808a13188d75c7615f61ac8d60186bd1882d84e312691",
+      "model_name": "<cloud_conference_root>/models/starcoder2-7b",
+      "training_report_present": true,
+      "training_report_sha256": "e0daaccf59bc8be6be0a51e755553479e1caf2d22ab0edab9ba8d8afba11276a"
+    }
+  ],
+  "claim_bearing": false,
+  "formal_claim_allowed": true,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T11:55:24Z",
+  "nonpromotion_policy": {
+    "candidate_interfaces_do_not_imply_admission": true,
+    "each_main_cell_requires_7200_records_and_postrun_audit": true,
+    "no_retry_first_sample_claim_separate": true
+  },
+  "schema_version": "semcodebook_whitebox_family_scale_sufficiency_gate_v1",
+  "whitebox_scale_coverage": {
+    "large": true,
+    "mid": true,
+    "small": true,
+    "tiny": true
+  },
+  "whitebox_total_admitted_records": 72000,
+  "zero_failure_metrics": {
+    "blind_negative_hit_count": 0,
+    "compiler_failures": 0,
+    "helper_failures": 0,
+    "mock_or_fallback_count": 0,
+    "negative_control_hits": 0
+  }
+}

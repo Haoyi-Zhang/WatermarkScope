@@ -1,0 +1,237 @@
+{
+  "artifact_role": "generation_changing_ablation_promotion_readiness_gate_not_results",
+  "blockers": [],
+  "claim_bearing": false,
+  "formal_ablation_claim_allowed": true,
+  "formal_claim_allowed": true,
+  "fresh_result_summary": {
+    "attack_names_by_arm": {
+      "ast_only_carriers": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "cfg_only_carriers": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "drop_ast_carriers": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "drop_cfg_carriers": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "drop_ssa_carriers": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "ecc_raw_payload4_no_correction": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "full_ast_cfg_ssa_ecc_keyed": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "ssa_only_carriers": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ],
+      "unkeyed_static_family_order": [
+        "comment_whitespace_normalize",
+        "control_flow_rewrite",
+        "cross_language_translation",
+        "dataflow_rewrite",
+        "dead_code_add_remove",
+        "helper_extract_inline",
+        "rename",
+        "unperturbed"
+      ]
+    },
+    "by_arm": {
+      "ast_only_carriers": 4800,
+      "cfg_only_carriers": 4800,
+      "drop_ast_carriers": 4800,
+      "drop_cfg_carriers": 4800,
+      "drop_ssa_carriers": 4800,
+      "ecc_raw_payload4_no_correction": 4800,
+      "full_ast_cfg_ssa_ecc_keyed": 4800,
+      "ssa_only_carriers": 4800,
+      "unkeyed_static_family_order": 4800
+    },
+    "path": "artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json",
+    "payload_gate_pass": true,
+    "present": true,
+    "record_count": 43200,
+    "schema_version": "semcodebook_generation_changing_ablation_full_eval_merged_v1",
+    "sha256": "82f6ec1d7fd375973620c204775fab2489a8a82c706326eac81fb4a066aad0a0",
+    "task_count_by_arm": {
+      "ast_only_carriers": 600,
+      "cfg_only_carriers": 600,
+      "drop_ast_carriers": 600,
+      "drop_cfg_carriers": 600,
+      "drop_ssa_carriers": 600,
+      "ecc_raw_payload4_no_correction": 600,
+      "full_ast_cfg_ssa_ecc_keyed": 600,
+      "ssa_only_carriers": 600,
+      "unkeyed_static_family_order": 600
+    }
+  },
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T17:29:29.527955+00:00",
+  "non_downgrade_policy": {
+    "current_claim_results_unchanged": true,
+    "no_failed_arm_deletion": true,
+    "no_posthoc_to_main_claim_promotion": true,
+    "no_support_only_sidecar_as_causal_result": true,
+    "no_threshold_lowering": true
+  },
+  "promotion_contract": {
+    "causal_claim_policy": "Formal component-causality claims remain blocked until a fresh generation-changing ablation result covers every required arm/task/attack slice and passes this gate.",
+    "fresh_generation_changing_rerun_required": true,
+    "posthoc_or_sidecar_cannot_promote": true,
+    "required_arms": [
+      "full_ast_cfg_ssa_ecc_keyed",
+      "ast_only_carriers",
+      "cfg_only_carriers",
+      "ssa_only_carriers",
+      "drop_ast_carriers",
+      "drop_cfg_carriers",
+      "drop_ssa_carriers",
+      "ecc_raw_payload4_no_correction",
+      "unkeyed_static_family_order"
+    ],
+    "required_attack_conditions": [
+      "unperturbed",
+      "rename",
+      "comment_whitespace_normalize",
+      "dead_code_add_remove",
+      "helper_extract_inline",
+      "control_flow_rewrite",
+      "dataflow_rewrite",
+      "cross_language_translation"
+    ],
+    "required_outputs": {
+      "fresh_result": "artifacts/generated/semcodebook_generation_changing_ablation_full_eval_results_20260505.json",
+      "promotion_gate": "artifacts/generated/semcodebook_generation_changing_ablation_promotion_gate_20260505.json"
+    },
+    "required_tasks_per_arm": 600
+  },
+  "schema_version": "semcodebook_generation_changing_ablation_promotion_gate_v1",
+  "source_checks": {
+    "all_required_source_paths_present": true,
+    "posthoc_outputs_non_claim_bearing": true,
+    "sidecar_generation_changing_arms_present": true,
+    "sidecar_outputs_non_claim_bearing": true,
+    "source_sha256": {
+      "scripts/build_semcodebook_stats_ablation_plan.py": "65f4cc2d7c33ec9e2a61e34bff003cdd113be7fa5c1a5d38cf19839d02a97ae4",
+      "scripts/materialize_generation_changing_ablation_sidecar.py": "7ddb98418a7476c6aaa09ea15be427dc705192fc6f8298185a84154a632f54e8",
+      "scripts/materialize_posthoc_component_ablation_from_7200.py": "a2500eea3f157fef7ffb87d07477782388c279a6e0f0c560f2b561d1bb0bb4b3"
+    },
+    "stats_plan_prereg_schema_present": true
+  },
+  "status": "passed",
+  "support_sources": {
+    "ablation_ci_gate": {
+      "blockers": [],
+      "claim_bearing": null,
+      "formal_ablation_claim_allowed": false,
+      "formal_claim_allowed": null,
+      "gate_pass": true,
+      "nonpromotion_role": true,
+      "path": "artifacts/generated/semcodebook_ablation_ci_gate.json",
+      "present": true,
+      "record_count": null,
+      "schema_version": "semcodebook_ablation_ci_gate_v1",
+      "sha256": "696598571ad1f2f2e6a9769c199226bfd7c730cf1410ad7b19aaa373cfe31026"
+    },
+    "posthoc_component_ablation": {
+      "blockers": [],
+      "claim_bearing": false,
+      "formal_ablation_claim_allowed": null,
+      "formal_claim_allowed": false,
+      "gate_pass": true,
+      "nonpromotion_role": true,
+      "path": "artifacts/generated/semcodebook_posthoc_component_ablation_from_7200_20260504.json",
+      "present": true,
+      "record_count": 21600,
+      "schema_version": "semcodebook_posthoc_component_ablation_from_7200_v1",
+      "sha256": "f9b1a83314839182c0b62d6ac3275ae8c50f6be8457debca221159de9269320d"
+    },
+    "sidecar_300pos": {
+      "blockers": [],
+      "claim_bearing": false,
+      "formal_ablation_claim_allowed": null,
+      "formal_claim_allowed": false,
+      "gate_pass": true,
+      "nonpromotion_role": true,
+      "path": "artifacts/generated/semcodebook_generation_changing_ablation_sidecar_300pos_20260504.json",
+      "present": true,
+      "record_count": 4800,
+      "schema_version": "semcodebook_generation_changing_ablation_sidecar_v1",
+      "sha256": "f212c50b8938448b24ae00ad9fc65a2f2c9edcc316b9348ee73c901130100afb"
+    },
+    "stats_ablation_plan": {
+      "blockers": [],
+      "claim_bearing": null,
+      "formal_ablation_claim_allowed": null,
+      "formal_claim_allowed": null,
+      "gate_pass": false,
+      "nonpromotion_role": false,
+      "path": "artifacts/generated/semcodebook_stats_ablation_plan.json",
+      "present": true,
+      "record_count": null,
+      "schema_version": "semcodebook_stats_ablation_prereg_v1",
+      "sha256": "097485436743b18d6b90c94ac23fe412582c7647565239b4ace33f3fea883a1d"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "claude": {
+    "api_key_env": "ANTHROPIC_API_KEY",
+    "base_url": "https://api.anthropic.com",
+    "claim_bearing": false,
+    "claim_role": "future_extension_disabled_until_explicit_key",
+    "disabled_until_explicit_key_provided": true,
+    "enabled": false,
+    "model_name": "claude-sonnet-4-20250514",
+    "policy": "disabled_until_user_provides_non_deepseek_key",
+    "provider_kind": "claude",
+    "provider_policy": "disabled_by_current_deepseek_only_policy"
+  },
+  "deepseek": {
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "base_url": "https://api.deepseek.com/v1",
+    "model_name": "deepseek-chat",
+    "provider_kind": "openai_compatible"
+  },
+  "openai": {
+    "api_key_env": "OPENAI_API_KEY",
+    "base_url": "https://api.openai.com/v1",
+    "claim_bearing": false,
+    "claim_role": "future_extension_disabled_until_explicit_key",
+    "disabled_until_explicit_key_provided": true,
+    "enabled": false,
+    "model_name": "gpt-5.4-mini",
+    "policy": "disabled_until_user_provides_non_deepseek_key",
+    "provider_kind": "openai_compatible",
+    "provider_policy": "disabled_by_current_deepseek_only_policy"
+  }
+}

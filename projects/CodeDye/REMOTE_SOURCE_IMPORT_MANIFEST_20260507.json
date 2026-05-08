@@ -1,0 +1,120 @@
+﻿{
+  "files": [
+    {
+      "bytes": 7081,
+      "local": "projects/CodeDye/src/codedye/api_wrapper.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/api_wrapper.py"
+    },
+    {
+      "bytes": 13207,
+      "local": "projects/CodeDye/src/codedye/benchmarks.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/benchmarks.py"
+    },
+    {
+      "bytes": 25248,
+      "local": "projects/CodeDye/src/codedye/canaries.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/canaries.py"
+    },
+    {
+      "bytes": 1940,
+      "local": "projects/CodeDye/src/codedye/config.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/config.py"
+    },
+    {
+      "bytes": 9219,
+      "local": "projects/CodeDye/src/codedye/contamination.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/contamination.py"
+    },
+    {
+      "bytes": 6826,
+      "local": "projects/CodeDye/src/codedye/external.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/external.py"
+    },
+    {
+      "bytes": 605,
+      "local": "projects/CodeDye/src/codedye/gate_freeze.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/gate_freeze.py"
+    },
+    {
+      "bytes": 2776,
+      "local": "projects/CodeDye/src/codedye/__init__.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/__init__.py"
+    },
+    {
+      "bytes": 18118,
+      "local": "projects/CodeDye/src/codedye/isolated_exec.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/isolated_exec.py"
+    },
+    {
+      "bytes": 9295,
+      "local": "projects/CodeDye/src/codedye/probes.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/probes.py"
+    },
+    {
+      "bytes": 7424,
+      "local": "projects/CodeDye/src/codedye/protocol.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/protocol.py"
+    },
+    {
+      "bytes": 12189,
+      "local": "projects/CodeDye/src/codedye/provider_prompts.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/provider_prompts.py"
+    },
+    {
+      "bytes": 36454,
+      "local": "projects/CodeDye/src/codedye/providers.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/providers.py"
+    },
+    {
+      "bytes": 11725,
+      "local": "projects/CodeDye/src/codedye/reranker.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/reranker.py"
+    },
+    {
+      "bytes": 6064,
+      "local": "projects/CodeDye/src/codedye/response_normalization.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/response_normalization.py"
+    },
+    {
+      "bytes": 4001,
+      "local": "projects/CodeDye/src/codedye/signature.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/signature.py"
+    },
+    {
+      "bytes": 4770,
+      "local": "projects/CodeDye/src/codedye/simulation.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/simulation.py"
+    },
+    {
+      "bytes": 6471,
+      "local": "projects/CodeDye/src/codedye/statistical_audit.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/statistical_audit.py"
+    },
+    {
+      "bytes": 28656,
+      "local": "projects/CodeDye/src/codedye/statistics.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/statistics.py"
+    },
+    {
+      "bytes": 7055,
+      "local": "projects/CodeDye/src/codedye/tracing.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/tracing.py"
+    },
+    {
+      "bytes": 1844,
+      "local": "projects/CodeDye/src/codedye/verification.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/src/codedye/verification.py"
+    },
+    {
+      "bytes": 353,
+      "local": "projects/CodeDye/scripts/_bootstrap.py",
+      "remote": "/data/EMNLP_2026_Main_Conference/codemark/codemark_codedye/scripts/_bootstrap.py"
+    }
+  ],
+  "schema_version": "codedye_remote_source_import_v1",
+  "source_host": "redacted_remote_host",
+  "source_root": "redacted_remote_source_root"
+}
+
+
+

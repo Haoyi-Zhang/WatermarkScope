@@ -1,0 +1,25 @@
+{
+  "schema_version": "codedyebench_300_generator_manifest_v2",
+  "canonical_task_file": "benchmarks/code_dyebench_tasks.json",
+  "generator": "scripts/materialize_codedyebench_300.py",
+  "extension_task_count": 250,
+  "extension_language_counts": {
+    "python": 50,
+    "typescript": 50,
+    "java": 50,
+    "cpp": 50,
+    "go": 50
+  },
+  "subset_targets": {
+    "fresh_unseen_tasks": 60,
+    "prompt_chronology": 60,
+    "semantic_canaries": 60,
+    "cross_language_variants": 60,
+    "canary_preserving_rewrites": 60
+  },
+  "test_protocol": "io_cases_v1",
+  "visible_tests_per_extension_task": 1,
+  "hidden_tests_per_extension_task": 5,
+  "provider_calls_made": 0,
+  "claim_boundary": "benchmark_materialization_only_not_live_provider_evidence"
+}

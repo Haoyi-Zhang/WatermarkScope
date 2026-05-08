@@ -1,0 +1,11 @@
+{
+  "schema_version": "codedye_accusation_gate_freeze_v1",
+  "threshold_name": "diagnostic_minimum_accusation_score",
+  "threshold_value": 0.58,
+  "freeze_source": "pre_final_dev_seed_and_metadata_matched_null_review",
+  "headline_policy": "familywise_gate_first_threshold_diagnostic_only",
+  "notes": [
+    "The headline contamination decision is the non-weighted familywise gate.",
+    "This threshold is retained only for diagnostic reporting and drift checks."
+  ]
+}

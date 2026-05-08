@@ -1,0 +1,16 @@
+{
+  "artifact_name": "CodeMarkBench-canonical-release-raw-results",
+  "release_status": "template_post_rerun_fill",
+  "zenodo_doi": "fill_after_public_artifact",
+  "download_url": "fill_after_public_artifact",
+  "matrix_root": "results/matrix/suite_all_models_methods",
+  "required_paths": [
+    "results/matrix/suite_all_models_methods/matrix_index.json"
+  ],
+  "optional_paths": [
+    "results/certifications",
+    "results/audits",
+    "results/environment"
+  ],
+  "notes": "Populate this template with the final public raw-results artifact location, environment capture, and checksums only after the rerun-backed public artifact is published."
+}

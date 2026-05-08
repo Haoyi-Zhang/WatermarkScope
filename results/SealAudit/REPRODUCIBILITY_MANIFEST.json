@@ -1,0 +1,38 @@
+{
+  "artifact_count": 7,
+  "artifacts": [
+    {
+      "artifact_path": "results/SealAudit/artifacts/generated/canonical_claim_surface_results.json",
+      "bytes": 2247041
+    },
+    {
+      "artifact_path": "results/SealAudit/artifacts/generated/sealaudit_coverage_risk_frontier_gate_20260505.json",
+      "bytes": 1702
+    },
+    {
+      "artifact_path": "results/SealAudit/artifacts/generated/sealaudit_evidence_enriched_second_stage_gate_20260506.json",
+      "bytes": 2396
+    },
+    {
+      "artifact_path": "results/SealAudit/artifacts/generated/sealaudit_second_stage_claim_promotion_stability_gate_20260506.json",
+      "bytes": 968
+    },
+    {
+      "artifact_path": "results/SealAudit/artifacts/generated/sealaudit_second_stage_v4_side_by_side_resolver_gate_20260505.json",
+      "bytes": 2961
+    },
+    {
+      "artifact_path": "results/SealAudit/ANONYMIZATION_AUDIT.json",
+      "bytes": 201
+    },
+    {
+      "artifact_path": "results/SealAudit/LARGE_ARTIFACTS_MANIFEST.json",
+      "bytes": 31
+    }
+  ],
+  "claim_boundary_file": "CLAIM_BOUNDARIES.md",
+  "manifest_role": "sanitized_result_artifact_index",
+  "project": "SealAudit",
+  "repository_scope": "FYP dissertation evidence bundle",
+  "result_manifest": "RESULT_MANIFEST.jsonl"
+}

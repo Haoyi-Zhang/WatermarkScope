@@ -1,0 +1,21 @@
+project:
+  name: SemCodebook
+  fyp_role: white_box_structured_provenance_watermark
+  packaged_status: fyp_evidence_snapshot
+  claim_boundary: admitted_white_box_cells_only
+  result_bundle: ../../results/SemCodebook
+  headline_results:
+    total_whitebox_records: 72000
+    positive_recoveries: 23342
+    positive_denominator: 24000
+    negative_hits: 0
+    negative_denominator: 48000
+    ablation_rows: 43200
+  code_entrypoints:
+    packaged_snapshot_check: python ../../scripts/check_project_snapshots.py
+    full_rerun_boundary: full unit/GPU reruns require the original remote experiment environment and model cache
+  forbidden_claims:
+    - universal_code_watermarking
+    - first_sample_no_retry_success
+    - validator_repair_success
+    - claims_outside_admitted_cells

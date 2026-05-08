@@ -1,0 +1,198 @@
+{
+  "artifact_role": "low_signal_effect_and_claim_boundary_gate_not_new_detection_result",
+  "blockers": [],
+  "claim_bearing": false,
+  "effect_surface": {
+    "claim_family_counts": {
+      "compact_spaces_hidden_suite": 25,
+      "dedupe_words_hidden_suite": 25,
+      "legacy_budget_sensitive_path_join_hidden_suite": 1,
+      "legacy_chronology_csv_helper_hidden_suite": 1,
+      "legacy_chronology_inventory_keys_hidden_suite": 1,
+      "legacy_chronology_log_chunks_hidden_suite": 1,
+      "legacy_chronology_pairwise_gap_hidden_suite": 1,
+      "legacy_chronology_path_tokens_hidden_suite": 1,
+      "legacy_chronology_row_totals_hidden_suite": 1,
+      "legacy_chronology_score_rank_hidden_suite": 1,
+      "legacy_chronology_weighted_sum_hidden_suite": 1,
+      "legacy_chronology_window_average_hidden_suite": 1,
+      "legacy_cross_language_digit_mask_hidden_suite": 1,
+      "legacy_cross_language_filter_truthy_hidden_suite": 1,
+      "legacy_cross_language_join_nonempty_hidden_suite": 1,
+      "legacy_cross_language_reverse_mapping_hidden_suite": 1,
+      "legacy_cross_language_reverse_words_hidden_suite": 1,
+      "legacy_cross_language_segment_lengths_hidden_suite": 1,
+      "legacy_cross_language_title_case_words_hidden_suite": 1,
+      "legacy_cross_language_unique_sorted_hidden_suite": 1,
+      "legacy_cross_language_window_pairs_hidden_suite": 1,
+      "legacy_fresh_clamp_scores_hidden_suite": 1,
+      "legacy_fresh_group_even_odd_hidden_suite": 1,
+      "legacy_fresh_lookup_default_hidden_suite": 1,
+      "legacy_fresh_merge_sorted_unique_hidden_suite": 1,
+      "legacy_fresh_norm_list_guard_hidden_suite": 1,
+      "legacy_fresh_prefix_lookup_hidden_suite": 1,
+      "legacy_fresh_rotate_tail_hidden_suite": 1,
+      "legacy_fresh_slugify_words_hidden_suite": 1,
+      "legacy_fresh_trim_nonempty_lines_hidden_suite": 1,
+      "legacy_holdout_jsonl_projection_hidden_suite": 1,
+      "legacy_holdout_matrix_diagonal_hidden_suite": 1,
+      "legacy_holdout_regex_tokens_hidden_suite": 1,
+      "legacy_latency_sensitive_counter_sum_hidden_suite": 1,
+      "legacy_rewrite_preserving_chunked_sum_hidden_suite": 1,
+      "legacy_rewrite_preserving_common_prefix_hidden_suite": 1,
+      "legacy_rewrite_preserving_difference_pairs_hidden_suite": 1,
+      "legacy_rewrite_preserving_even_positions_hidden_suite": 1,
+      "legacy_rewrite_preserving_nested_lookup_hidden_suite": 1,
+      "legacy_rewrite_preserving_pairs_hidden_suite": 1,
+      "legacy_rewrite_preserving_prefix_scan_hidden_suite": 1,
+      "legacy_rewrite_preserving_range_merge_hidden_suite": 1,
+      "legacy_rewrite_preserving_record_sort_hidden_suite": 1,
+      "legacy_rewrite_preserving_trim_suffixes_hidden_suite": 1,
+      "legacy_semantic_bucketize_ranges_hidden_suite": 1,
+      "legacy_semantic_counter_projection_hidden_suite": 1,
+      "legacy_semantic_deduplicate_stable_hidden_suite": 1,
+      "legacy_semantic_flag_majority_hidden_suite": 1,
+      "legacy_semantic_flatten_pairs_hidden_suite": 1,
+      "legacy_semantic_group_by_initial_hidden_suite": 1,
+      "legacy_semantic_merge_counters_hidden_suite": 1,
+      "legacy_semantic_patch_defaults_hidden_suite": 1,
+      "mask_digits_hidden_suite": 25,
+      "mirror_halves_hidden_suite": 25,
+      "normalize_csv_hidden_suite": 25,
+      "pair_gaps_hidden_suite": 25,
+      "path_tokens_hidden_suite": 25,
+      "reverse_words_hidden_suite": 25,
+      "sorted_words_hidden_suite": 25,
+      "vowel_count_hidden_suite": 25
+    },
+    "claim_rows": 300,
+    "claim_rows_missing_payload_or_transcript_hash": 0,
+    "decision_counts": {
+      "contamination_signal_detected": 6,
+      "null_not_rejected": 294
+    },
+    "final_signal_wilson95": {
+      "high": 0.042940186730055147,
+      "k": 6,
+      "low": 0.009197506067771082,
+      "n": 300,
+      "rate": 0.02
+    },
+    "negative_control_false_positive_wilson95": {
+      "high": 0.012643429997735661,
+      "k": 0,
+      "low": 0.0,
+      "n": 300,
+      "rate": 0.0
+    },
+    "p_value_or_score_summary": {
+      "count": 300,
+      "max": 1.0,
+      "median": 1.0,
+      "min": 0.0167,
+      "q95": 1.0
+    },
+    "positive_control_detected_at_frozen_threshold": 170,
+    "positive_control_sensitivity_wilson95": {
+      "high": 0.6215496625310637,
+      "k": 170,
+      "low": 0.5100978801359048,
+      "n": 300,
+      "rate": 0.5666666666666667
+    },
+    "score_summary": {
+      "count": 300,
+      "max": 1.0,
+      "median": 0.0,
+      "min": 0.0,
+      "q95": 0.5
+    },
+    "signal_family_counts": {
+      "legacy_cross_language_unique_sorted_hidden_suite": 1,
+      "legacy_fresh_lookup_default_hidden_suite": 1,
+      "legacy_latency_sensitive_counter_sum_hidden_suite": 1,
+      "legacy_rewrite_preserving_common_prefix_hidden_suite": 1,
+      "legacy_rewrite_preserving_pairs_hidden_suite": 1,
+      "legacy_rewrite_preserving_trim_suffixes_hidden_suite": 1
+    },
+    "statistics_artifact_boundary": {
+      "claim_bearing_denominator": 300,
+      "final_conservative_signal_count": 6,
+      "final_conservative_signal_rate": 0.02,
+      "interpretation": "The statistics artifact positive count is a reproducibility sub-gate count, not a replacement for the final conservative signal count from aggregate_results.accused_asset_count.",
+      "public_support_only_rows": 806,
+      "statistics_artifact_positive_count": 4,
+      "statistics_artifact_rate": 0.0133,
+      "table_note_required": "4/300 statistics artifact vs 6/300 final signal; public rows are 806 support-only rows and are outside the denominator"
+    },
+    "strongest_null_margin_summary": {
+      "count": 300,
+      "max": 1.0,
+      "median": -1.0,
+      "min": -1.0,
+      "q95": 0.0
+    },
+    "support_rows_excluded_from_main_denominator": 806,
+    "threshold_versions": {
+      "codedye_null_audit_threshold_v1": 300
+    },
+    "utility_selection_used_contamination_or_canary_score_count": 0
+  },
+  "formal_contamination_accusation_claim_allowed": false,
+  "formal_curator_side_null_audit_claim_allowed": true,
+  "formal_high_recall_detection_claim_allowed": false,
+  "formal_v2_dual_evidence_claim_allowed": false,
+  "gate_pass": true,
+  "generated_at_utc": "2026-05-05T16:21:20Z",
+  "paper_language_lock": {
+    "allowed": [
+      "conservative curator-side null-audit",
+      "sparse high-confidence audit yield",
+      "bounded false-discovery controls",
+      "positive-control sensitivity is moderate, not high recall"
+    ],
+    "forbidden": [
+      "contamination prevalence",
+      "provider accusation",
+      "high-recall detection",
+      "v2 dual-evidence result promoted without fresh run",
+      "support/public rows in 300 denominator"
+    ]
+  },
+  "reviewer_defense": {
+    "low_signal_response": "The main result is intentionally a low-yield null-audit signal surface. We report 6/300 with CI and do not interpret non-signals as absence of contamination.",
+    "negative_control_response": "The 0/300 negative-control result is reported with a nonzero Wilson upper bound, not as zero risk.",
+    "positive_control_response": "The 170/300 positive-control sensitivity shows the audit is not inert, while also bounding recall claims.",
+    "threshold_response": "The current main denominator uses one frozen threshold version; v2 dual evidence is preregistered support only until a fresh claim-bearing rerun is promoted."
+  },
+  "schema_version": "codedye_low_signal_claim_boundary_gate_v1",
+  "source_artifacts": {
+    "dual_evidence_integrity_gate": {
+      "path": "artifacts/generated/codedye_dual_evidence_integrity_gate_20260505.json",
+      "sha256": "6900ce575b56e3b6e95df7e26b2a1b27f1ca931bf0ef99fd71b8ee49401e0c7a"
+    },
+    "dual_evidence_spec": {
+      "path": "artifacts/generated/codedye_dual_evidence_score_fusion_spec_20260505.json",
+      "sha256": "c2cd2254aab6537d50a1f5382d85d8393f18176cc6e732f0eaad6b85be52972f"
+    },
+    "full_eval_results": {
+      "path": "artifacts/generated/full_eval_results.json",
+      "sha256": "d97bbaba7d8f4a6935360611391af65500baf3453963da840911df03b765c95c"
+    },
+    "negative_control_gate": {
+      "path": "artifacts/generated/codedye_negative_control_300plus_gate_20260505.json",
+      "sha256": "ae7b698a8be8b80fa8731bb805e26e143247874a5496072cf261098e27123925"
+    },
+    "positive_control_gate": {
+      "path": "artifacts/generated/codedye_positive_contamination_control_300_gate_20260505.json",
+      "sha256": "74d1f14b6ee56a18ae09a2a14988d5f08c8327f6ad42f867938566c95a67b768"
+    },
+    "statistics_repro_gate": {
+      "path": "artifacts/generated/statistics_repro_gate.json",
+      "sha256": "f030f0f74df8d55c7500fc49e0aeac0530d8430f55db9571b8ed8831ff5fa572"
+    }
+  },
+  "warnings": [
+    "signal_lcb_not_separated_from_negative_control_ucb_report_as_sparse_audit_yield_not_detection_accuracy"
+  ]
+}
