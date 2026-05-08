@@ -13,11 +13,11 @@ WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in C
 WatermarkScope：面向代码生成模型源代码水印的基准到审计框架
 
 5. Keywords (English)
-1. watermark evidence
-2. executable evaluation
-3. provenance recovery
-4. owner attribution
-5. risk triage
+1. Watermark Evidence
+2. Executable Evaluation
+3. Provenance Recovery
+4. Owner Attribution
+5. Risk Triage
 
 6. Keywords (Chinese)
 1. 水印证据
