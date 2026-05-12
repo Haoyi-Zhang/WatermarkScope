@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WatermarkScope: a benchmark-to-audit framework for source-code watermarking evidence.">
+    <title>WatermarkScope | Evidence Audit</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="WatermarkScope home">
+          <span class="brand-mark">W</span>
+          <span>WatermarkScope</span>
+        </a>
+        <div class="nav-links">
+          <a href="#pipeline">Pipeline</a>
+          <a href="#evidence">Evidence</a>
+          <a href="#reproduce">Reproduce</a>
+          <a href="#roadmap">Roadmap</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Final Year Project artifact</p>
+          <h1>WatermarkScope</h1>
+          <p class="subtitle">A benchmark-to-audit framework for source-code watermarking in code generation models.</p>
+          <p class="thesis">The central claim is simple: do not judge source-code watermarking by one detector score. Judge it by admitted evidence, controls, artifacts, and boundaries.</p>
+          <div class="hero-actions" aria-label="Repository links">
+            <a class="button primary" href="https://github.com/Haoyi-Zhang/WatermarkScope">Open repository</a>
+            <a class="button" href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/CLAIM_BOUNDARIES.md">Claim boundaries</a>
+            <a class="button" href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/docs/TRACEABILITY_MATRIX.md">Traceability matrix</a>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-label="Evidence contract diagram">
+          <div class="contract-title">Evidence contract</div>
+          <div class="contract-flow">
+            <div class="contract-node hot">score</div>
+            <div class="flow-line" aria-hidden="true"></div>
+            <div class="contract-node">controls</div>
+            <div class="flow-line" aria-hidden="true"></div>
+            <div class="contract-node">artifact</div>
+            <div class="flow-line" aria-hidden="true"></div>
+            <div class="contract-node gold">claim</div>
+          </div>
+          <div class="contract-detail">
+            <span>denominator</span>
+            <span>hash</span>
+            <span>boundary</span>
+            <span>abstention</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compact" id="pipeline">
+        <div class="section-heading">
+          <p class="eyebrow">Audit pipeline</p>
+          <h2>Five questions, one evidence discipline.</h2>
+          <p>Each module answers a different question, but the interpretation rule is shared: fixed denominator, controls, preserved artifacts, and explicit claim boundaries.</p>
+        </div>
+
+        <div class="pipeline" role="list" aria-label="WatermarkScope stages">
+          <button class="stage active" data-stage="codemarkbench" role="listitem">
+            <span class="stage-index">01</span>
+            <span class="stage-name">CodeMarkBench</span>
+            <span class="stage-role">count</span>
+          </button>
+          <button class="stage" data-stage="semcodebook" role="listitem">
+            <span class="stage-index">02</span>
+            <span class="stage-name">SemCodebook</span>
+            <span class="stage-role">recover</span>
+          </button>
+          <button class="stage" data-stage="codedye" role="listitem">
+            <span class="stage-index">03</span>
+            <span class="stage-name">CodeDye</span>
+            <span class="stage-role">audit</span>
+          </button>
+          <button class="stage" data-stage="probetrace" role="listitem">
+            <span class="stage-index">04</span>
+            <span class="stage-name">ProbeTrace</span>
+            <span class="stage-role">attribute</span>
+          </button>
+          <button class="stage" data-stage="sealaudit" role="listitem">
+            <span class="stage-index">05</span>
+            <span class="stage-name">SealAudit</span>
+            <span class="stage-role">triage</span>
+          </button>
+        </div>
+
+        <article class="stage-detail" aria-live="polite">
+          <div>
+            <p class="eyebrow" id="stageKind">shared benchmark support</p>
+            <h3 id="stageTitle">CodeMarkBench</h3>
+            <p id="stageSummary">Executable benchmark support for fixed source-code watermark evaluation surfaces.</p>
+          </div>
+          <dl class="evidence-grid">
+            <div>
+              <dt>Denominator</dt>
+              <dd id="stageDenominator">140 canonical run-completion records</dd>
+            </div>
+            <div>
+              <dt>Observed surface</dt>
+              <dd id="stageObserved">140/140 canonical runs completed</dd>
+            </div>
+            <div>
+              <dt>Allowed claim</dt>
+              <dd id="stageAllowed">Benchmark support for released executable stress matrix.</dd>
+            </div>
+            <div>
+              <dt>Boundary</dt>
+              <dd id="stageBoundary">Not a universal result over all watermarking methods.</dd>
+            </div>
+          </dl>
+        </article>
+      </section>
+
+      <section class="section" id="evidence">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Evidence surface</p>
+          <h2>Results are shown with the claim they can safely support.</h2>
+        </div>
+
+        <div class="metric-board">
+          <article class="metric-card">
+            <span class="metric-label">CodeMarkBench</span>
+            <strong>140 / 140</strong>
+            <p>Canonical run inventory completed before interpretation.</p>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">SemCodebook</span>
+            <strong>30,330 / 31,200</strong>
+            <p>Admitted white-box positive recoveries with fixed and blind controls at zero.</p>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">CodeDye</span>
+            <strong>0 / 300</strong>
+            <p>Active v13 fresh live memory-probe signal; positive calibration and controls are reported separately.</p>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">ProbeTrace</span>
+            <strong>750 / 750</strong>
+            <p>Scoped true-owner decisions with wrong/null/random/same-provider controls at zero.</p>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">SealAudit</span>
+            <strong>320 / 960</strong>
+            <p>Conservative marker-hidden selective triage with explicit abstention.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split" id="reproduce">
+        <div class="section-heading">
+          <p class="eyebrow">Reproducibility route</p>
+          <h2>Follow one claim until its evidence object appears.</h2>
+          <p>The viva route is intentionally short: inspect the claim boundary, trace the artifact, then run the consistency check.</p>
+        </div>
+
+        <div class="route">
+          <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/README.md">README</a>
+          <span aria-hidden="true">-&gt;</span>
+          <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/CLAIM_BOUNDARIES.md">CLAIM_BOUNDARIES</a>
+          <span aria-hidden="true">-&gt;</span>
+          <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/docs/TRACEABILITY_MATRIX.md">TRACEABILITY_MATRIX</a>
+          <span aria-hidden="true">-&gt;</span>
+          <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/RESULT_MANIFEST.jsonl">RESULT_MANIFEST</a>
+          <span aria-hidden="true">-&gt;</span>
+          <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/scripts/viva_check.py">viva_check.py</a>
+        </div>
+
+        <div class="terminal" aria-label="Local verification command">
+          <div class="terminal-bar">
+            <span></span><span></span><span></span>
+          </div>
+          <pre><code>cd WatermarkScope
+python scripts/viva_check.py
+
+[OK] Viva-facing documents present
+[OK] Result manifest covers modules
+[OK] Manifest artifact hashes verified
+[OK] Claim boundaries are present
+[OK] Viva check passed</code></pre>
+        </div>
+      </section>
+
+      <section class="section" id="roadmap">
+        <div class="section-heading narrow">
+          <p class="eyebrow">Publication roadmap</p>
+          <h2>Planned submission targets, not acceptance claims.</h2>
+          <p>The current FYP repository is the implementation and evidence organization surface. Later manuscript writing may involve collaborators, while the submitted FYP work remains individually completed.</p>
+        </div>
+
+        <div class="roadmap">
+          <article>
+            <span>Target journal</span>
+            <h3>CodeMarkBench - TOSEM</h3>
+            <p>Benchmark and executable evaluation support for source-code watermarking.</p>
+          </article>
+          <article>
+            <span>Target conference style</span>
+            <h3>SemCodebook - EMNLP-style</h3>
+            <p>Structured white-box provenance recovery under semantic rewrite.</p>
+          </article>
+          <article>
+            <span>Target conference style</span>
+            <h3>CodeDye - EMNLP-style</h3>
+            <p>Conservative black-box curator-side null-audit and calibration.</p>
+          </article>
+          <article>
+            <span>Target conference style</span>
+            <h3>ProbeTrace - EMNLP-style</h3>
+            <p>Active-owner, source-bound commitment and witness verification.</p>
+          </article>
+          <article>
+            <span>Target conference style</span>
+            <h3>SealAudit - EMNLP-style</h3>
+            <p>Marker-hidden security triage with abstention and unsafe-pass tracking.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>WatermarkScope</span>
+      <span>Bounded evidence for source-code watermarking.</span>
+    </footer>
+
+    <script src="site.js"></script>
+  </body>
+</html>
