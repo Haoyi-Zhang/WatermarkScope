@@ -20,6 +20,7 @@
           <a href="#problem">Problem</a>
           <a href="#pipeline">Pipeline</a>
           <a href="#evidence">Evidence</a>
+          <a href="#viva">Viva</a>
           <a href="#reproduce">Reproduce</a>
           <a href="#roadmap">Roadmap</a>
         </div>
@@ -102,6 +103,44 @@
           <article><span>CodeDye</span><strong>0/300</strong></article>
           <article><span>ProbeTrace</span><strong>750/750</strong></article>
           <article><span>SealAudit</span><strong>320/960</strong></article>
+        </div>
+      </section>
+
+      <section class="section viva-bridge reveal" id="viva">
+        <div class="section-title">
+          <p class="kicker">Viva bridge</p>
+          <h2>The presentation, project page, and repository use the same inspection route.</h2>
+          <p>The deck is designed for a short viva: first explain the evidence contract, then show the project page, then open the repository artifacts that support the submitted claim.</p>
+        </div>
+
+        <div class="viva-grid">
+          <a class="deck-preview" href="WatermarkScope_FYP_Viva.pptx" aria-label="Download the WatermarkScope FYP viva deck">
+            <img src="assets/viva_deck_cover.png" alt="Preview of the WatermarkScope viva deck cover slide">
+            <span>Download viva deck</span>
+          </a>
+
+          <div class="demo-panel">
+            <div class="demo-header">
+              <span>10-minute structure</span>
+              <strong>Explain, then inspect.</strong>
+            </div>
+            <ol class="demo-steps">
+              <li><strong>Story</strong><span>Generated code moves; a detector score is not enough.</span></li>
+              <li><strong>Contract</strong><span>Freeze denominator, controls, artifacts, hashes, and boundaries.</span></li>
+              <li><strong>Evidence</strong><span>Report positive evidence together with abstention and null results.</span></li>
+              <li><strong>Demo</strong><span>Open project page, repository, claim boundaries, traceability, and manifest.</span></li>
+            </ol>
+            <div class="demo-actions">
+              <a class="button primary" href="WatermarkScope_FYP_Viva.pptx">Deck</a>
+              <a class="button" href="https://github.com/Haoyi-Zhang/WatermarkScope">Repository</a>
+              <a class="button" href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/scripts/viva_check.py">viva_check.py</a>
+            </div>
+          </div>
+
+          <figure class="demo-route-card" aria-label="Demo route slide preview">
+            <img src="assets/viva_demo_route.png" alt="Preview of the 90-second project page walkthrough slide">
+            <figcaption>Demo 1 is the page-to-repository route; Demo 2 is the lightweight integrity check.</figcaption>
+          </figure>
         </div>
       </section>
 
