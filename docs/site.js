@@ -46,6 +46,8 @@ const stages = {
   }
 };
 
+document.documentElement.classList.add("motion-ready");
+
 const buttons = Array.from(document.querySelectorAll(".stage"));
 const fields = {
   kind: document.getElementById("stageKind"),
@@ -80,3 +82,23 @@ buttons.forEach((button) => {
   button.setAttribute("aria-pressed", button.classList.contains("active") ? "true" : "false");
   button.addEventListener("click", () => setStage(button.dataset.stage));
 });
+
+const revealItems = Array.from(document.querySelectorAll(".reveal"));
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("visible"));
+}
