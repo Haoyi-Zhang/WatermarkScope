@@ -590,6 +590,136 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
+.viva-bridge {
+  padding-top: 84px;
+}
+
+.viva-grid {
+  display: grid;
+  grid-template-columns: 1.06fr 0.94fr;
+  grid-template-areas:
+    "deck panel"
+    "route panel";
+  gap: 18px;
+  align-items: stretch;
+}
+
+.deck-preview,
+.demo-panel,
+.demo-route-card {
+  border: 1px solid var(--line);
+  background: white;
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.055);
+}
+
+.deck-preview {
+  grid-area: deck;
+  position: relative;
+  min-height: 260px;
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.deck-preview img,
+.demo-route-card img {
+  width: 100%;
+  display: block;
+}
+
+.deck-preview img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.deck-preview span {
+  position: absolute;
+  left: 22px;
+  bottom: 20px;
+  padding: 10px 14px;
+  color: white;
+  background: #004080;
+  font-size: 13px;
+  font-weight: 860;
+}
+
+.demo-panel {
+  grid-area: panel;
+  padding: 26px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(135deg, #07111f, #0b2344 58%, #0b1020);
+  background-size: 42px 42px, 42px 42px, auto;
+  color: white;
+}
+
+.demo-header span {
+  display: block;
+  margin-bottom: 14px;
+  color: #9eb7d8;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.demo-header strong {
+  display: block;
+  max-width: 420px;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1;
+}
+
+.demo-steps {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.demo-steps li {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(216, 230, 251, 0.18);
+}
+
+.demo-steps strong {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.demo-steps span {
+  color: #c6d6ed;
+  font-size: 14px;
+}
+
+.demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.demo-route-card {
+  grid-area: route;
+  margin: 0;
+  overflow: hidden;
+}
+
+.demo-route-card img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.demo-route-card figcaption {
+  padding: 14px 18px 16px;
+  color: #40516a;
+  font-size: 14px;
+  font-weight: 720;
+}
+
 .stage-tabs {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -924,8 +1054,16 @@ html.motion-ready .reveal.visible {
 
   .problem,
   .stage-detail,
+  .viva-grid,
   .repro-grid {
     grid-template-columns: 1fr;
+  }
+
+  .viva-grid {
+    grid-template-areas:
+      "deck"
+      "panel"
+      "route";
   }
 
   .ledger article {
@@ -1013,6 +1151,7 @@ html.motion-ready .reveal.visible {
   .problem-grid,
   .stage-tabs,
   .evidence-grid,
+  .demo-steps li,
   .roadmap {
     grid-template-columns: 1fr;
   }
@@ -1087,6 +1226,18 @@ html.motion-ready .reveal.visible {
 
   .route span {
     min-height: 28px;
+  }
+
+  .deck-preview {
+    min-height: 210px;
+  }
+
+  .demo-panel {
+    padding: 22px;
+  }
+
+  .demo-steps li {
+    gap: 6px;
   }
 
   .footer {
