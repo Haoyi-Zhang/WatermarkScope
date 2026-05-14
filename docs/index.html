@@ -135,11 +135,20 @@
               <a class="button" href="https://github.com/Haoyi-Zhang/WatermarkScope">Repository</a>
               <a class="button" href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/scripts/viva_check.py">viva_check.py</a>
             </div>
+            <div class="inspection-strip" aria-label="Viva inspection route">
+              <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/CLAIM_BOUNDARIES.md">Claim boundary</a>
+              <span></span>
+              <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/docs/TRACEABILITY_MATRIX.md">Traceability</a>
+              <span></span>
+              <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/RESULT_MANIFEST.jsonl">Manifest</a>
+              <span></span>
+              <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/scripts/viva_check.py">Local check</a>
+            </div>
           </div>
 
           <figure class="demo-route-card" aria-label="Demo route slide preview">
             <img src="assets/viva_demo_route.png" alt="Preview of the 90-second project page walkthrough slide">
-            <figcaption>Demo 1 is the page-to-repository route; Demo 2 is the lightweight integrity check.</figcaption>
+            <figcaption>Demo 1 is the page-to-repository route; Demo 2 is the lightweight integrity check. The check verifies inspectability, not a full GPU/API rerun.</figcaption>
           </figure>
         </div>
       </section>
@@ -304,7 +313,8 @@
 
 [OK] Viva-facing documents present
 [OK] Result manifest covers modules
-[OK] Manifest artifact hashes verified
+[OK] Manifest rows are hash-addressed
+[OK] Key inspection artifacts present
 [OK] Claim boundaries are present
 [OK] Viva check passed</code></pre>
           </div>

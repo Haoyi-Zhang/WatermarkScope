@@ -1,6 +1,8 @@
 # Viva Preparation
 
-This file lists likely supervisor or examiner questions and the concise answers supported by the dissertation and repository.
+This file lists likely supervisor or examiner questions and the concise answers supported by the submitted FYP dissertation and repository.
+
+Use the submitted FYP snapshot numbers during the viva. Later paper-continuation runs may be mentioned only as future work, not as the defended submission result.
 
 ## Core Story
 
@@ -19,13 +21,13 @@ A: SemCodebook is the main method contribution, because it moves provenance reco
 A: No. It means 140 canonical runs completed under the release matrix. The watermark method quality is reported through utility, robustness, stealth, efficiency, and false-positive tables.
 
 **Q: Does CodeDye prove contamination?**  
-A: No. CodeDye reports a conservative null-audit: 6 sparse signals over 300 live DeepSeek rows, with controls. It does not estimate contamination prevalence and does not accuse a provider.
+A: No. In the submitted FYP snapshot, CodeDye reports 6/300 sparse live signals, 170/300 positive controls, and 0/300 negative controls. This is conservative null-audit evidence. It does not estimate contamination prevalence, prove absence, or accuse a provider.
 
 **Q: ProbeTrace has 300/300. Is that overclaiming?**  
-A: The dissertation deliberately scopes it to a single-active-owner/source-bound setting and reports false-owner controls. The 900 transfer rows are support evidence over 300 task clusters, not 900 independent primary attribution tasks.
+A: It would be overclaiming if I presented it as universal authorship proof. In the submitted FYP snapshot, ProbeTrace supports 300/300 scoped owner decisions with 0/1,200 false-owner controls. The claim is limited to that registry, split, and control surface.
 
-**Q: SealAudit only has 8.44% decisive coverage. Is that weak?**  
-A: It is a selective triage system, not an automatic classifier. The contribution is explicit abstention and 0 observed unsafe-pass outcomes in the current denominator, with a nonzero confidence upper bound.
+**Q: SealAudit is still selective. Is that weak?**  
+A: It is selective by design. In the submitted FYP snapshot, SealAudit reports 81/960 decisive triage outcomes with 0 observed unsafe passes. The remaining cases are treated as abstention or review load, not forced classification.
 
 **Q: Why report confidence intervals for zero events?**  
 A: Because 0 observed events is not the same as zero risk. Wilson intervals make uncertainty explicit and prevent overclaiming.
@@ -36,7 +38,7 @@ A: Because 0 observed events is not the same as zero risk. Wilson intervals make
 A: Under `projects/`. CodeMarkBench contains a full benchmark repository snapshot. SemCodebook, CodeDye, ProbeTrace, and SealAudit contain implementation snapshots, scripts, tests, and project claim maps.
 
 **Q: How can the repository be checked quickly?**  
-A: Run `python scripts/examiner_check.py` from the root. It runs the integrity check and result summary, and it verifies the key examiner-facing documents.
+A: Run `python scripts/viva_check.py` from the root. It checks that the viva-facing documents, manifest entries, claim boundaries, and key artifact hashes are present and consistent. It is not a full GPU/API rerun.
 
 **Q: Why is this not a full raw-experiment dump?**  
 A: The FYP package is designed for examination. It includes code, result artifacts, manifests, and hashes. Full raw reruns require GPUs, model weights, or provider APIs, and those boundaries are documented in `docs/ENVIRONMENT.md` and `docs/RUNBOOK.md`.
@@ -47,7 +49,7 @@ A: The FYP package is designed for examination. It includes code, result artifac
 A: Scope. Each module has a finite model/provider/source/attack denominator. The dissertation handles this by explicitly stating boundaries rather than broadening claims.
 
 **Q: What future work would most improve the project?**  
-A: Expand SemCodebook cell-level publication tables, add more provider families for black-box modules, complete multi-owner ProbeTrace support, and raise SealAudit decisive coverage while keeping unsafe-pass bounded.
+A: Expand provider families beyond DeepSeek for the black-box modules once keys are available, add more independent white-box model cells for SemCodebook if compute allows, and continue reporting coverage-risk frontiers rather than broadening claims.
 
 **Q: Why should this receive a high mark?**  
 A: It combines a coherent research question, a substantial software artifact, mathematical definitions, algorithms, controlled experiments, confidence intervals, claim boundaries, reproducibility checks, and an honest limitations section.

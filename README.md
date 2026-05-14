@@ -1,6 +1,32 @@
-# WatermarkScope EMNLP Artifact
+# WatermarkScope
 
-This repository is the current EMNLP-style research artifact for four source-code watermarking papers. It contains implementation snapshots, reproducibility scripts, hash-bound result artifacts, final claim locks, and reviewer-facing documentation for:
+This repository supports the submitted Final Year Project, **WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models**, and the post-FYP paper-continuation workstreams built from the same implementation base.
+
+For viva examination, use the submitted FYP snapshot below and the project page:
+
+```text
+https://Haoyi-Zhang.github.io/WatermarkScope/
+```
+
+| Viva-facing submitted FYP surface | Registered snapshot result |
+|---|---|
+| CodeMarkBench | 140/140 canonical runs |
+| SemCodebook | 23,342/24,000 recoveries; 0/48,000 negative-control hits |
+| CodeDye | 6/300 sparse live signals; 170/300 positive controls; 0/300 negative controls |
+| ProbeTrace | 300/300 scoped decisions; 0/1,200 false-owner controls |
+| SealAudit | 81/960 decisive triage outcomes; 0 observed unsafe passes |
+
+Run the lightweight viva check from the repository root:
+
+```bash
+python scripts/viva_check.py
+```
+
+This check verifies repository consistency and inspectability. It does not rerun the full GPU/API experiments.
+
+The sections below describe the current paper-continuation artifact for four source-code watermarking papers. These continuation surfaces are preserved for traceability and future submission planning; they should not be confused with the registered FYP snapshot above.
+
+It contains implementation snapshots, reproducibility scripts, hash-bound result artifacts, final claim locks, and reviewer-facing documentation for:
 
 1. **SemCodebook**: structured white-box provenance watermarking under semantic rewrite.
 2. **CodeDye**: conservative black-box curator-side contamination null-audit.

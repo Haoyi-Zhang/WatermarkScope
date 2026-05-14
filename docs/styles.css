@@ -702,6 +702,68 @@ h3 {
   margin-top: 28px;
 }
 
+.inspection-strip {
+  display: grid;
+  grid-template-columns: 1fr 26px 1fr 26px 1fr 26px 1fr;
+  gap: 8px;
+  align-items: center;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(216, 230, 251, 0.18);
+}
+
+.inspection-strip a,
+.inspection-strip span {
+  min-height: 52px;
+  display: grid;
+  place-items: center;
+}
+
+.inspection-strip a {
+  padding: 10px;
+  border: 1px solid rgba(216, 230, 251, 0.2);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.055);
+  font-size: 12px;
+  font-weight: 820;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.inspection-strip a:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.inspection-strip span {
+  position: relative;
+}
+
+.inspection-strip span::before,
+.inspection-strip span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  background: rgba(216, 230, 251, 0.45);
+}
+
+.inspection-strip span::before {
+  left: 2px;
+  right: 2px;
+  height: 1px;
+}
+
+.inspection-strip span::after {
+  right: 2px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid rgba(216, 230, 251, 0.45);
+  border-right: 1px solid rgba(216, 230, 251, 0.45);
+  transform: translateY(-50%) rotate(45deg);
+  background: transparent;
+}
+
 .demo-route-card {
   grid-area: route;
   margin: 0;
@@ -1147,6 +1209,7 @@ html.motion-ready .reveal.visible {
   .console-flow,
   .console-grid,
   .console-methods,
+  .inspection-strip,
   .hero-metrics,
   .problem-grid,
   .stage-tabs,
@@ -1157,6 +1220,10 @@ html.motion-ready .reveal.visible {
   }
 
   .flow-item::after {
+    display: none;
+  }
+
+  .inspection-strip span {
     display: none;
   }
 
