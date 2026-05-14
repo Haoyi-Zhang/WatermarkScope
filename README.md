@@ -24,6 +24,12 @@ python scripts/viva_check.py
 
 This check verifies repository consistency and inspectability. It does not rerun the full GPU/API experiments.
 
+Viva preparation materials:
+
+- `docs/VIVA_PREPARATION.md`: likely examiner questions and concise answers.
+- `docs/VIVA_REHEARSAL_SCRIPT.md`: 8-10 minute speaking plan, demo route, and short Q&A answers.
+- `docs/WatermarkScope_FYP_Viva.pptx`: editable viva slide deck.
+
 The sections below describe the current paper-continuation artifact for four source-code watermarking papers. These continuation surfaces are preserved for traceability and future submission planning; they should not be confused with the registered FYP snapshot above.
 
 It contains implementation snapshots, reproducibility scripts, hash-bound result artifacts, final claim locks, and reviewer-facing documentation for:
