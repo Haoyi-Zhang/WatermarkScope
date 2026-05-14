@@ -11,37 +11,37 @@ const stages = {
   semcodebook: {
     kind: "white-box provenance recovery",
     title: "SemCodebook",
-    summary: "Structured provenance recovery in admitted white-box model and scale cells.",
-    denominator: "31,200 positives; 62,400 fixed controls; 62,400 blind replay rows",
-    observed: "30,330/31,200 positives; 0/62,400 fixed controls; 0/62,400 blind replay",
+    summary: "Structured provenance recovery in the submitted FYP snapshot.",
+    denominator: "24,000 positive recovery rows and 48,000 negative-control rows",
+    observed: "23,342/24,000 positive recoveries; 0/48,000 negative-control hits",
     allowed: "Structured provenance recovery within the admitted white-box family.",
     boundary: "Not a universal semantic watermarking or first-sample natural-generation guarantee."
   },
   codedye: {
     kind: "black-box null-audit",
     title: "CodeDye",
-    summary: "Conservative curator-side audit surface with role-separated controls.",
-    denominator: "3,600 DeepSeek live rows over 1,200 pre-separated memory-probe triads",
-    observed: "0/300 fresh live signal; 272/300 positive memory calibration; 0/300 negative controls; 0/300 retrieval-confound controls",
-    allowed: "Active audit/calibration surface with preserved null-audit evidence.",
+    summary: "Conservative black-box audit surface with positive and negative controls.",
+    denominator: "300 live audit samples, 300 positive controls, and 300 negative controls",
+    observed: "6/300 sparse live signals; 170/300 positive controls; 0/300 negative controls",
+    allowed: "Preserved null-audit evidence under a finite black-box surface.",
     boundary: "Not contamination prevalence, provider accusation, high-recall detection, or proof of absence."
   },
   probetrace: {
     kind: "active-owner verification",
     title: "ProbeTrace",
     summary: "Source-bound commitment and witness verification with false-owner controls.",
-    denominator: "6,000 DeepSeek five-owner commitment/witness rows",
-    observed: "750/750 true-owner positives; 0/5,250 wrong/null/random/same-provider controls",
-    allowed: "Scoped DeepSeek-only active-owner verification under the evaluated registry and split.",
+    denominator: "300 scoped owner decisions and 1,200 false-owner controls",
+    observed: "300/300 scoped decisions; 0/1,200 false-owner controls",
+    allowed: "Scoped active-owner attribution under the evaluated registry and split.",
     boundary: "Not provider-general authorship proof, cross-provider attribution, or unbounded transfer."
   },
   sealaudit: {
     kind: "security triage",
     title: "SealAudit",
     summary: "Marker-hidden security-relevant selective triage with explicit abstention.",
-    denominator: "960 marker-hidden claim rows over 320 cases",
-    observed: "320/960 decisive rows; 0/960 provider-flag unsafe-pass rows",
-    allowed: "Conservative marker-hidden selective triage and coverage-risk frontier.",
+    denominator: "960 marker-hidden triage rows in the submitted FYP snapshot",
+    observed: "81/960 decisive outcomes; 0 observed unsafe passes",
+    allowed: "Conservative marker-hidden selective triage with explicit abstention.",
     boundary: "Not an automatic safety classifier, harmlessness certificate, or security certificate."
   }
 };
