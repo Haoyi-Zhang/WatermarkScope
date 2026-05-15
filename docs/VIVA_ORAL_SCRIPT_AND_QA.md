@@ -25,6 +25,8 @@ WatermarkScope is my framework for evaluating source-code watermarking as inspec
 
 Good afternoon. I am Haoyi Zhang. My final year project is called WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models.
 
+I will use the homepage as my presentation route, so I can move section by section and keep the talk close to ten minutes.
+
 The simple idea is this: when a large language model generates code, the code may later be copied, edited, translated, or deployed somewhere else. At that point, if I only say "the detector score is high", that is not enough. I need to show what was counted, what controls were used, what artifact supports the result, and what claim I am allowed to make.
 
 So my project treats source-code watermarking as an evidence problem. I am not trying to claim that one universal watermark detector solves everything. I am trying to make watermark evidence inspectable and bounded.
@@ -55,6 +57,8 @@ The important point is that these five stages are connected by the same evidence
 
 For the results page, I will not read every table. I will explain it in three messages.
 
+The sentence at the top is the main point: do not read a watermark result as one detector score. Read it as denominator, controls, and boundary.
+
 The first message is benchmark grounding. CodeMarkBench completed 140 out of 140 canonical runs. I use this to say that the benchmark rows are executable and countable. I do not use it to claim that every watermark method succeeded.
 
 The second message is the main method result. SemCodebook recovered 30,330 out of 31,200 positive cases, with 0 hits in 62,400 fixed negative controls and 0 hits in 62,400 blind negative replay controls. So my safe claim is structured white-box provenance recovery within the admitted cells.
@@ -68,6 +72,8 @@ So the result conclusion is simple: WatermarkScope is not asking the examiner to
 For the live demo, I will not rerun the full experiments in the room. Some experiments need GPUs, model weights, or provider APIs, so a full rerun is not realistic during a viva.
 
 Instead, I will show inspectability. I will open the repository, then show the claim boundary document, the traceability matrix, the result manifest, and the quick viva check.
+
+These links open separately, so I can return to the homepage after each inspection step.
 
 The point of this demo is not to prove the experiments again from zero. The point is to show that the submitted result is organized in a way that the examiner can inspect: each claim points to code, artifacts, manifests, and boundaries.
 
