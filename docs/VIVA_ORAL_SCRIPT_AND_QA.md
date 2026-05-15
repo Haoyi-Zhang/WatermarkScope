@@ -12,11 +12,11 @@ WatermarkScope is my framework for evaluating source-code watermarking as inspec
 |---|---:|---|
 | Opening | 45 sec | Project title, one-sentence story, why this matters. |
 | Problem | 1 min 15 sec | Generated code moves; a score alone is weak. |
-| Method | 2 min | Evidence contract plus five-stage pipeline. |
-| Results | 2 min 30 sec | Five submitted result surfaces, each with denominator and boundary. |
+| Method | 1 min 45 sec | Evidence contract plus five-stage pipeline. |
+| Results | 2 min | Five submitted result surfaces, but only the core message. |
 | Demo | 1 min 30 sec | Repository, claim boundary, traceability, manifest, viva check. |
 | Future and close | 1 min | Submitted FYP is fixed; future work is separate. |
-| Buffer | 1 min | Slow down, answer interruption, or skip demo details if needed. |
+| Buffer | 1 min 30 sec | Slow down, answer interruption, or skip demo details if needed. |
 
 ## Full Oral Script
 
@@ -52,19 +52,15 @@ The important point is that these five stages are connected by the same evidence
 
 ### Results
 
-For the submitted FYP version, I focus on five result surfaces.
+For the results page, I will not read every table. I will explain it in three messages.
 
-First, CodeMarkBench completed 140 out of 140 canonical runs. I use this as the executable benchmark foundation. This does not mean every watermark method succeeded. It means the benchmark rows were completed and countable.
+The first message is benchmark grounding. CodeMarkBench completed 140 out of 140 canonical runs. I use this to say that the benchmark rows are executable and countable. I do not use it to claim that every watermark method succeeded.
 
-Second, SemCodebook recovered 30,330 out of 31,200 positive cases. It also had 0 hits in 62,400 fixed negative controls and 0 hits in 62,400 blind negative replay controls. This is the main method result. The safe claim is structured white-box provenance recovery within the admitted cells.
+The second message is the main method result. SemCodebook recovered 30,330 out of 31,200 positive cases, with 0 hits in 62,400 fixed negative controls and 0 hits in 62,400 blind negative replay controls. So my safe claim is structured white-box provenance recovery within the admitted cells.
 
-Third, CodeDye found 4 sparse live signals in 300 black-box samples. It also had 170 out of 300 positive controls and 0 out of 300 negative controls. I do not present this as contamination proof or provider accusation. I present it as conservative black-box audit evidence.
+The third message is why boundaries matter. CodeDye has 4 sparse live signals out of 300, so I do not call it contamination proof. ProbeTrace has 750 out of 750 true-owner positives with 0 out of 5,250 false-attribution controls, so I call it scoped owner verification, not general authorship proof. SealAudit has 320 decisive triage outcomes out of 960, with 0 observed unsafe passes, so I call it selective triage, not a safety certificate.
 
-Fourth, ProbeTrace had 750 out of 750 true-owner positives inside a five-owner surface, with 0 out of 5,250 false-attribution controls. This is a strong result, but the claim is scoped. It is not general authorship proof.
-
-Fifth, SealAudit produced 320 decisive marker-hidden triage outcomes out of 960, with 0 out of 960 observed unsafe passes. Here, abstention is part of the design. I would rather keep uncertain cases as review load than force a claim that the evidence cannot support.
-
-The conclusion is simple: source-code watermarking should not be judged by one detector score. Reliable evaluation needs fixed denominators, executable controls, uncertainty reporting, access-specific boundaries, and explicit abstention.
+So the result conclusion is simple: WatermarkScope is not asking the examiner to trust one big detector score. It shows how to make each result inspectable, with its own denominator, controls, and boundary.
 
 ### Demo
 
@@ -259,4 +255,3 @@ A: It helps researchers and reviewers ask better questions before trusting a wat
 
 **Q40. What is your final takeaway?**  
 A: My final takeaway is that code watermarking should be evaluated as evidence. A detector score is useful, but only after it is tied to a clear denominator, controls, artifacts, access model, and boundary.
-
