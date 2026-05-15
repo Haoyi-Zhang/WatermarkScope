@@ -20,6 +20,7 @@
           <a href="#problem">Problem</a>
           <a href="#pipeline">Pipeline</a>
           <a href="#evidence">Evidence</a>
+          <a href="#portfolio">Portfolio</a>
           <a href="#viva">Viva</a>
           <a href="#reproduce">Reproduce</a>
           <a href="#roadmap">Roadmap</a>
@@ -101,7 +102,7 @@
           <article><span>CodeMarkBench</span><strong>140/140</strong></article>
           <article><span>SemCodebook</span><strong>23,342/24,000</strong></article>
           <article><span>CodeDye</span><strong>6/300</strong></article>
-          <article><span>ProbeTrace</span><strong>300/300</strong></article>
+          <article><span>ProbeTrace</span><strong>6,000 rows</strong></article>
           <article><span>SealAudit</span><strong>81/960</strong></article>
         </div>
       </section>
@@ -267,26 +268,70 @@
               <span>Null audit</span>
               <h3>CodeDye</h3>
             </div>
-            <strong>6 / 300</strong>
-            <p>Sparse live signal in the submitted FYP snapshot; positive and negative controls are reported separately.</p>
+            <strong>4 / 300</strong>
+            <p>Sparse live signal in the submitted FYP snapshot; 170/300 positive controls and 0/300 negative controls are reported separately.</p>
           </article>
           <article>
             <div>
               <span>Owner attribution</span>
               <h3>ProbeTrace</h3>
             </div>
-            <strong>300 / 300</strong>
-            <p>Scoped owner-attribution decisions with false-owner controls kept at zero.</p>
+            <strong>6,000 rows</strong>
+            <p>Five-owner source-bound surface with 750/750 true-owner positives and 0/5,250 false-attribution controls.</p>
           </article>
           <article>
             <div>
               <span>Selective triage</span>
               <h3>SealAudit</h3>
             </div>
-            <strong>81 / 960</strong>
-            <p>Decisive marker-hidden triage outcomes under an explicit abstention policy.</p>
+            <strong>320 / 960</strong>
+            <p>Decisive marker-hidden triage outcomes under an explicit abstention policy, with 0/960 unsafe passes.</p>
           </article>
         </div>
+      </section>
+
+      <section class="section portfolio-section reveal" id="portfolio">
+        <div class="section-title">
+          <p class="kicker">Continuation portfolio</p>
+          <h2>Five publication tracks extend the submitted FYP without rewriting it.</h2>
+          <p>The submitted FYP snapshot is the marking surface. Continuation work is tracked as separate repositories, commits, and future evidence surfaces, so later progress cannot silently change the submitted denominators.</p>
+        </div>
+
+        <div class="portfolio-snapshot" aria-label="Submitted FYP snapshot metrics">
+          <article>
+            <span>CodeMarkBench</span>
+            <strong>140/140</strong>
+            <em>run completion</em>
+          </article>
+          <article>
+            <span>SemCodebook</span>
+              <strong>23,342/24,000</strong>
+            <em>positive recovery</em>
+          </article>
+          <article>
+            <span>CodeDye</span>
+              <strong>6/300</strong>
+            <em>live signal</em>
+          </article>
+          <article>
+            <span>ProbeTrace</span>
+            <strong>300/300</strong>
+            <em>scoped decisions</em>
+          </article>
+          <article>
+            <span>SealAudit</span>
+            <strong>81/960</strong>
+            <em>decisive triage</em>
+          </article>
+        </div>
+
+        <div class="portfolio-legend" aria-label="Snapshot and continuation distinction">
+          <span><i></i>Submitted FYP snapshot</span>
+          <span><i></i>Continuation progress</span>
+          <span><i></i>New denominator required for expanded claims</span>
+        </div>
+
+        <div class="track-grid" id="continuationTracks" aria-label="Continuation publication tracks"></div>
       </section>
 
       <section class="section reproduce reveal" id="reproduce">
