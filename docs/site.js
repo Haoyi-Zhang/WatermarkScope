@@ -1,4 +1,7 @@
 const repoBase = "https://github.com/Haoyi-Zhang/WatermarkScope";
+const submittedRef = "e0851409c3fe14d1813b714ff9b2d1fa2da965cb";
+const repoTree = `${repoBase}/tree/${submittedRef}`;
+const repoBlob = `${repoBase}/blob/${submittedRef}`;
 
 const contractFacts = {
   denominator: {
@@ -91,9 +94,9 @@ const stages = {
     boundary: "Run completion is benchmark support, not watermark success.",
     speak: "This stage is the foundation: before comparing watermark methods, I first make the benchmark rows executable and countable.",
     links: [
-      ["Code snapshot", `${repoBase}/tree/main/projects/CodeMarkBench`],
-      ["Result tables", `${repoBase}/tree/main/projects/CodeMarkBench/results/tables/suite_all_models_methods`],
-      ["Dissertation appendix", `${repoBase}/tree/main/dissertation/latex/appendix`]
+      ["Code snapshot", `${repoTree}/projects/CodeMarkBench`],
+      ["Result tables", `${repoTree}/projects/CodeMarkBench/results/tables/suite_all_models_methods`],
+      ["Dissertation appendix", `${repoTree}/dissertation/latex/appendix`]
     ]
   },
   semcodebook: {
@@ -105,9 +108,9 @@ const stages = {
     boundary: "White-box admitted-cell provenance, not universal semantic watermarking.",
     speak: "The important point is not just a high recovery rate. The important point is that the misses and the negative controls stay inside the admitted evidence surface.",
     links: [
-      ["Implementation", `${repoBase}/tree/main/projects/SemCodebook`],
-      ["Result artifacts", `${repoBase}/tree/main/results/SemCodebook/artifacts/generated`],
-      ["Method index", `${repoBase}/blob/main/docs/METHOD_INDEX.md`]
+      ["Implementation", `${repoTree}/projects/SemCodebook`],
+      ["Result artifacts", `${repoTree}/results/SemCodebook/artifacts/generated`],
+      ["Method index", `${repoBlob}/docs/METHOD_INDEX.md`]
     ]
   },
   codedye: {
@@ -119,9 +122,9 @@ const stages = {
     boundary: "Not contamination prevalence, high-recall detection, provider accusation, or proof of absence.",
     speak: "A sparse signal is still useful if it tells us what not to claim. Here the correct claim is conservative audit evidence, not prevalence.",
     links: [
-      ["Implementation", `${repoBase}/tree/main/projects/CodeDye`],
-      ["Result artifacts", `${repoBase}/tree/main/results/CodeDye/artifacts/generated`],
-      ["Claim boundaries", `${repoBase}/blob/main/CLAIM_BOUNDARIES.md`]
+      ["Implementation", `${repoTree}/projects/CodeDye`],
+      ["Result artifacts", `${repoTree}/results/CodeDye/artifacts/generated`],
+      ["Claim boundaries", `${repoBlob}/CLAIM_BOUNDARIES.md`]
     ]
   },
   probetrace: {
@@ -133,9 +136,9 @@ const stages = {
     boundary: "Scoped DeepSeek-only owner evidence, not provider-general authorship proof.",
     speak: "The perfect-looking true-owner result is not presented as universal authorship. It is read together with the false-owner controls and the fixed registry.",
     links: [
-      ["Implementation", `${repoBase}/tree/main/projects/ProbeTrace`],
-      ["Result artifacts", `${repoBase}/tree/main/results/ProbeTrace/artifacts/generated`],
-      ["Traceability", `${repoBase}/blob/main/docs/TRACEABILITY_MATRIX.md`]
+      ["Implementation", `${repoTree}/projects/ProbeTrace`],
+      ["Result artifacts", `${repoTree}/results/ProbeTrace/artifacts/generated`],
+      ["Traceability", `${repoBlob}/docs/TRACEABILITY_MATRIX.md`]
     ]
   },
   sealaudit: {
@@ -147,9 +150,9 @@ const stages = {
     boundary: "Selective triage, not an automatic safety classifier or security certificate.",
     speak: "For this stage, abstention is not a failure of presentation. It is part of the design because forced labels would make the claim less honest.",
     links: [
-      ["Implementation", `${repoBase}/tree/main/projects/SealAudit`],
-      ["Result artifacts", `${repoBase}/tree/main/results/SealAudit/artifacts/generated`],
-      ["Results summary", `${repoBase}/blob/main/docs/RESULTS_SUMMARY.md`]
+      ["Implementation", `${repoTree}/projects/SealAudit`],
+      ["Result artifacts", `${repoTree}/results/SealAudit/artifacts/generated`],
+      ["Results summary", `${repoBlob}/docs/RESULTS_SUMMARY.md`]
     ]
   }
 };
