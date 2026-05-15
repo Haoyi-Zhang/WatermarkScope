@@ -205,61 +205,66 @@ const futureTracks = [
     key: "codemarkbench",
     name: "CodeMarkBench",
     route: "Benchmark foundation",
-    venue: "Planned journal track: TOSEM",
+    venue: "Target journal: ACM TOSEM",
     repo: "https://github.com/Haoyi-Zhang/CodeMarkBench",
     commit: "2db2630",
     visibility: "Public repository",
     status: "Latest continuation snapshot, benchmark infrastructure.",
     focus: "This track extends the benchmark side: more tasks, clearer denominator admission, and stronger reproducibility packaging.",
-    boundary: "Any new benchmark cell must be admitted as a new surface; it does not change the 140/140 submitted FYP denominator."
+    boundary: "Any new benchmark cell must be admitted as a new surface; it does not change the 140/140 submitted FYP denominator.",
+    review: ["Open the benchmark repository", "Show task and suite organization", "Explain how new benchmark surfaces would be admitted"]
   },
   {
     key: "semcodebook",
     name: "SemCodebook",
     route: "White-box method",
-    venue: "Planned conference track: EMNLP",
+    venue: "Target conference: EMNLP",
     repo: "https://github.com/Haoyi-Zhang/SemCodebook",
     commit: "f243416",
     visibility: "Private continuation repository",
     status: "Latest continuation snapshot, structured provenance recovery.",
     focus: "This is the main method direction: typed program carriers, keyed scheduling, recovery, and negative-control replay.",
-    boundary: "Extra cells are future evidence. They should be reported separately from the submitted 30,330/31,200 FYP recovery surface."
+    boundary: "Extra cells are future evidence. They should be reported separately from the submitted 30,330/31,200 FYP recovery surface.",
+    review: ["Open implementation modules", "Show carrier and recovery pipeline", "Explain negative-control and replay gates"]
   },
   {
     key: "codedye",
     name: "CodeDye",
     route: "Black-box audit",
-    venue: "Planned conference track: EMNLP",
+    venue: "Target conference: EMNLP",
     repo: "https://github.com/Haoyi-Zhang/CodeDye",
     commit: "6aa5d8c",
     visibility: "Private continuation repository",
     status: "Latest continuation snapshot, conservative null-audit track.",
     focus: "This track studies whether sparse black-box memory-probe evidence can be preserved without turning it into a provider accusation.",
-    boundary: "The claim remains null-audit evidence, not prevalence, wrongdoing proof, or absence proof."
+    boundary: "The claim remains null-audit evidence, not prevalence, wrongdoing proof, or absence proof.",
+    review: ["Open audit scripts", "Show role-separated control design", "Explain why sparse signals are not accusations"]
   },
   {
     key: "probetrace",
     name: "ProbeTrace",
     route: "Owner attribution",
-    venue: "Planned conference track: EMNLP",
+    venue: "Target conference: EMNLP",
     repo: "https://github.com/Haoyi-Zhang/ProbeTrace",
     commit: "a6e53b2",
     visibility: "Private continuation repository",
     status: "Latest continuation snapshot, commitment/witness verification.",
     focus: "This track expands active-owner verification while keeping owner registry, split, and false-owner controls explicit.",
-    boundary: "It is scoped owner verification, not universal authorship proof or cross-provider attribution."
+    boundary: "It is scoped owner verification, not universal authorship proof or cross-provider attribution.",
+    review: ["Open commitment and witness code", "Show owner registry and split", "Explain false-owner controls"]
   },
   {
     key: "sealaudit",
     name: "SealAudit",
     route: "Security triage",
-    venue: "Planned conference track: EMNLP",
+    venue: "Target conference: EMNLP",
     repo: "https://github.com/Haoyi-Zhang/SealAudit",
     commit: "5203c62",
     visibility: "Private continuation repository",
     status: "Latest continuation snapshot, marker-hidden selective triage.",
     focus: "This track treats watermark evidence as a security-relevant audit signal with abstention and unsafe-pass accounting.",
-    boundary: "It is selective triage, not a classifier, safety certificate, or automatic harmlessness guarantee."
+    boundary: "It is selective triage, not a classifier, safety certificate, or automatic harmlessness guarantee.",
+    review: ["Open triage pipeline", "Show marker-hidden decision packets", "Explain abstention and unsafe-pass accounting"]
   }
 ];
 
@@ -423,15 +428,17 @@ const futureFocus = document.getElementById("futureFocus");
 const futureRepo = document.getElementById("futureRepo");
 const futureStatus = document.getElementById("futureStatus");
 const futureBoundary = document.getElementById("futureBoundary");
+const futureReview = document.getElementById("futureReview");
 const futureActions = document.getElementById("futureActions");
 
 if (futureGrid) {
   futureGrid.innerHTML = futureTracks.map((track, index) => `
     <article class="future-track ${index === 0 ? "active" : ""}" data-future="${index}" tabindex="0" role="button" aria-pressed="${index === 0 ? "true" : "false"}">
-      <span>${track.route}</span>
+      <span>${track.venue}</span>
       <h3>${track.name}</h3>
-      <p>${track.venue}</p>
-      <em>${track.visibility} · ${track.commit}</em>
+      <p>${track.route}</p>
+      <em>${track.visibility} / latest ${track.commit}</em>
+      <a href="${track.repo}" target="_blank" rel="noopener" aria-label="Review ${track.name} repository">Review repo</a>
     </article>
   `).join("");
 }
@@ -453,10 +460,19 @@ function setFutureTrack(index) {
   if (futureRepo) futureRepo.textContent = `${track.repo} (${track.visibility})`;
   if (futureStatus) futureStatus.textContent = `${track.status} Latest commit: ${track.commit}.`;
   if (futureBoundary) futureBoundary.textContent = track.boundary;
+  if (futureReview) {
+    futureReview.innerHTML = `
+      <strong>Live review route</strong>
+      <ol>
+        ${track.review.map((item) => `<li>${item}</li>`).join("")}
+      </ol>
+    `;
+  }
   if (futureActions) {
     futureActions.innerHTML = `
-      <a href="${track.repo}">Open repository</a>
-      <span>${track.route}</span>
+      <a href="${track.repo}" target="_blank" rel="noopener">Open latest repository</a>
+      <span>${track.visibility}</span>
+      <span>${track.commit}</span>
     `;
   }
   requestAnimationFrame(() => futurePanel.classList.add("content-refresh"));
