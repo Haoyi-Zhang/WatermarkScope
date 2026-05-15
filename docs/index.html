@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="WatermarkScope submitted FYP viva walkthrough: bounded evidence for source-code watermarking in code generation models.">
-    <title>WatermarkScope | Submitted FYP Viva Walkthrough</title>
+    <title>WatermarkScope | FYP Viva Route</title>
     <style>
 :root {
   --bg: #07111f;
@@ -496,6 +496,10 @@ h3 {
   align-items: end;
 }
 
+.optional-section {
+  display: none;
+}
+
 .future-section {
   align-content: center;
 }
@@ -668,6 +672,7 @@ h3 {
   grid-template-areas:
     "chips detail"
     "equation equation"
+    "pipeline pipeline"
     "contrib contrib";
   gap: 12px;
 }
@@ -726,8 +731,8 @@ h3 {
 
 .contract-equation {
   grid-area: equation;
-  display: grid;
-  grid-template-columns: repeat(6, auto) 1fr;
+  display: flex;
+  flex-wrap: nowrap;
   gap: 8px;
   align-items: center;
   padding: 12px;
@@ -742,6 +747,7 @@ h3 {
 
 .contract-equation span,
 .contract-equation strong {
+  flex: 1 1 0;
   min-height: 42px;
   display: grid;
   place-items: center;
@@ -760,8 +766,40 @@ h3 {
 }
 
 .contract-equation b {
+  flex: 0 0 auto;
   color: var(--faint);
   font-size: 18px;
+}
+
+.method-pipeline {
+  grid-area: pipeline;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.method-pipeline span {
+  min-height: 74px;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 15px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.method-pipeline em {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 780;
+  text-transform: uppercase;
 }
 
 .contribution-strip {
@@ -1560,6 +1598,7 @@ body.presenter .floating-controls {
       "chips"
       "detail"
       "equation"
+      "pipeline"
       "contrib";
   }
 
@@ -1580,6 +1619,7 @@ body.presenter .floating-controls {
   }
 
   .benchmark-strip,
+  .method-pipeline,
   .demo-route {
     grid-template-columns: 1fr;
   }
@@ -1628,8 +1668,17 @@ body.presenter .floating-controls {
   .future-grid,
   .stage-grid,
   .contract-stack,
-  .contract-equation {
+  .method-pipeline {
     grid-template-columns: 1fr;
+  }
+
+  .contract-equation {
+    flex-wrap: wrap;
+  }
+
+  .contract-equation span,
+  .contract-equation strong {
+    flex-basis: 42%;
   }
 
   .result-card {
@@ -1662,11 +1711,11 @@ body.presenter .floating-controls {
         </a>
         <div class="route-nav" aria-label="10-minute presentation route">
           <a href="#problem">Problem</a>
-          <a href="#contract">Contract</a>
+          <a href="#contract">Method</a>
           <a href="#snapshot">Results</a>
-          <a href="#walkthrough">Walkthrough</a>
           <a href="#demo">Demo</a>
           <a href="#future">Future</a>
+          <a href="#qa">Q&amp;A</a>
         </div>
         <div class="nav-actions">
           <button class="mode-button" id="presenterMode" type="button" aria-pressed="false">Presenter mode</button>
@@ -1693,10 +1742,11 @@ body.presenter .floating-controls {
             <p class="hero-lead">A framework for turning source-code watermark detector outputs into inspectable, bounded evidence.</p>
             <div class="cover-route" aria-label="Interactive viva route">
               <a href="#problem">1 Problem</a>
-              <a href="#contract">2 Contract</a>
+              <a href="#contract">2 Method</a>
               <a href="#snapshot">3 Results</a>
-              <a href="#walkthrough">4 Walkthrough</a>
-              <a href="#demo">5 Demo</a>
+              <a href="#demo">4 Demo</a>
+              <a href="#future">5 Future</a>
+              <a href="#qa">6 Q&amp;A</a>
             </div>
           </div>
 
@@ -1724,26 +1774,26 @@ body.presenter .floating-controls {
       <section class="section problem-section viva-step" id="problem" data-step="Problem">
         <div class="section-head split">
           <div>
-            <p class="eyebrow">Problem</p>
-            <h2>Source-code watermarking is an evidence problem.</h2>
+            <p class="eyebrow">Research gap</p>
+            <h2>The gap is not only detection. It is trustworthy evidence after code leaves the prompt.</h2>
           </div>
-          <p>When generated code is copied, edited, translated, or deployed, the original prompt session is no longer enough to support a provenance claim.</p>
+          <p>Generated code may be copied, edited, translated, or deployed outside the original session. At that point, a detector score alone is too weak unless the counted rows, controls, and claim boundary are clear.</p>
         </div>
         <div class="problem-grid">
           <article class="problem-card active" data-problem="execution" tabindex="0">
             <span>01</span>
-            <h3>Code must execute</h3>
-            <p>For source code, a watermark result is weak if the benchmark row is not tied to executable behavior and a stable denominator.</p>
+            <h3>Code moves</h3>
+            <p>The generated snippet may no longer have its original prompt, model session, or owner context.</p>
           </article>
           <article class="problem-card" data-problem="access" tabindex="0">
             <span>02</span>
-            <h3>Access changes meaning</h3>
-            <p>White-box recovery, black-box audit, owner attribution, and security triage cannot share one accuracy score.</p>
+            <h3>Code must run</h3>
+            <p>For source code, a watermark claim is weak if the benchmark row is not executable and countable.</p>
           </article>
           <article class="problem-card" data-problem="abstention" tabindex="0">
             <span>03</span>
-            <h3>Abstention is evidence</h3>
-            <p>If a row cannot support a strong claim, the framework keeps it as null, support-only, or review evidence instead of forcing a label.</p>
+            <h3>Claims need limits</h3>
+            <p>White-box recovery, black-box audit, owner attribution, and security triage should not share one score.</p>
           </article>
         </div>
         <aside class="interaction-panel" aria-live="polite">
@@ -1752,16 +1802,16 @@ body.presenter .floating-controls {
           <p id="problemPanelText">In the viva, this lets me say exactly which code-generation rows were counted before interpreting any watermark signal.</p>
         </aside>
         <aside class="speak-card">
-          <strong>Oral opening</strong>
-          <p>My project is not trying to prove one universal watermark detector. The core idea is evidence admission: before I say what a result means, I fix the denominator, controls, artifact, access model, and claim boundary.</p>
+          <strong>Say it simply</strong>
+          <p>When I started this project, I found that many watermark results are easy to quote but hard to defend. So my focus became: before I say a result proves something, I first define exactly what was counted and what the result is allowed to claim.</p>
         </aside>
       </section>
 
-      <section class="section contract-section viva-step" id="contract" data-step="Contract">
+      <section class="section contract-section viva-step" id="contract" data-step="Method">
         <div class="section-head">
-          <p class="eyebrow">Evidence contract</p>
-          <h2>The central contribution is a rule for what a watermark result may claim.</h2>
-          <p>Click each term during Q&amp;A if the examiner asks how the framework prevents overclaiming.</p>
+          <p class="eyebrow">Method</p>
+          <h2>My answer is an evidence contract plus a five-stage pipeline.</h2>
+          <p>The method is simple to explain: I admit an evidence object first, then I interpret the watermark result only inside that admitted scope.</p>
         </div>
         <div class="contract-lab">
           <div class="contract-stack" role="tablist" aria-label="Evidence contract parts">
@@ -1789,20 +1839,27 @@ body.presenter .floating-controls {
             <b>=</b>
             <strong>admissible claim</strong>
           </div>
+          <div class="method-pipeline" aria-label="Five-stage WatermarkScope pipeline">
+            <span>CodeMarkBench<em>benchmark</em></span>
+            <span>SemCodebook<em>white-box recovery</em></span>
+            <span>CodeDye<em>black-box audit</em></span>
+            <span>ProbeTrace<em>owner attribution</em></span>
+            <span>SealAudit<em>security triage</em></span>
+          </div>
           <div class="contribution-strip" aria-label="Contribution summary">
-            <article><span>Framework</span><strong>Benchmark-to-audit lifecycle</strong></article>
-            <article><span>Main method</span><strong>SemCodebook program carriers</strong></article>
-            <article><span>Governance</span><strong>Explicit forbidden claims</strong></article>
-            <article><span>Reproducibility</span><strong>Manifest and viva check route</strong></article>
+            <article><span>Gap</span><strong>One detector score is not enough</strong></article>
+            <article><span>Method</span><strong>Evidence contract before claim</strong></article>
+            <article><span>Build</span><strong>Five connected code modules</strong></article>
+            <article><span>Defense</span><strong>Allowed and forbidden claims</strong></article>
           </div>
         </div>
       </section>
 
       <section class="section snapshot-section viva-step" id="snapshot" data-step="Submitted results">
         <div class="section-head">
-          <p class="eyebrow">Submitted FYP snapshot</p>
-          <h2>Main results aligned with the submitted dissertation.</h2>
-          <p>Use this section if the examiner asks for the core result surface. Do not mix these rows with later continuation experiments.</p>
+          <p class="eyebrow">Key results</p>
+          <h2>The result story is denominator, control, and boundary.</h2>
+          <p>I will not read every table in the viva. I will use these five result surfaces to show what was counted, what control failed or passed, and what conclusion is safe.</p>
         </div>
         <div class="benchmark-strip" aria-label="CodeMarkBench denominator">
           <strong>Benchmark denominator</strong>
@@ -1821,7 +1878,7 @@ body.presenter .floating-controls {
         </aside>
       </section>
 
-      <section class="section walkthrough-section viva-step" id="walkthrough" data-step="Walkthrough">
+      <section class="section walkthrough-section optional-section" id="walkthrough" data-step="Walkthrough">
         <div class="section-head">
           <p class="eyebrow">Interactive walkthrough</p>
           <h2>Five stages, five bounded evidence questions.</h2>
@@ -1889,8 +1946,8 @@ body.presenter .floating-controls {
       <section class="section demo-section viva-step" id="demo" data-step="Evidence demo">
         <div class="section-head">
           <p class="eyebrow">Live inspectability demo</p>
-          <h2>Show how one claim can be followed back to code and artifacts.</h2>
-          <p>This demo is intentionally short. It verifies the repository is organized and inspectable; it does not rerun GPU or live-provider experiments during the viva.</p>
+          <h2>In the demo, I only prove inspectability, not a full rerun.</h2>
+          <p>The live part should stay short: open the repository, show the claim boundary, show traceability, then run the quick viva check if time allows.</p>
         </div>
         <div class="demo-grid">
           <div class="demo-route" aria-label="Repository inspection route">
@@ -1926,11 +1983,11 @@ body.presenter .floating-controls {
         </aside>
         <aside class="speak-card">
           <strong>Demo narration</strong>
-          <p>I would not rerun the full experiments live because some require model or provider resources. Instead, I show that each claim has an inspection path: the boundary document states what is allowed, the traceability matrix points to code and artifacts, and the manifest preserves evidence records.</p>
+          <p>I would not rerun the full experiments live because some require GPUs, model weights, or provider APIs. What I can show live is that the work is organized for inspection: each claim points to a boundary, code, artifact, and manifest entry.</p>
         </aside>
       </section>
 
-      <section class="section limits-section viva-step" id="limits" data-step="Limits">
+      <section class="section limits-section optional-section" id="limits" data-step="Limits">
         <div class="section-head">
           <p class="eyebrow">Limits and examiner-safe claims</p>
           <h2>The strongest part of the work is that it says what it does not prove.</h2>
@@ -1958,8 +2015,8 @@ body.presenter .floating-controls {
       <section class="section future-section viva-step" id="future" data-step="Future work">
         <div class="section-head future-head">
           <p class="eyebrow">Future work</p>
-          <h2>Five continuation tracks extend the submitted FYP evidence contract.</h2>
-          <p>These repositories are post-FYP continuation tracks. I can briefly open them after the defended story to show the submission plan and current implementation direction.</p>
+          <h2>The submitted FYP is the defended version; the continuation repositories are future paper tracks.</h2>
+          <p>If there is time, I can briefly open these repositories to show how the work can be extended. They do not change the submitted dissertation evidence.</p>
         </div>
         <div class="future-grid" id="futureGrid" aria-label="Continuation repositories"></div>
         <aside class="future-note" id="futureNote" aria-live="polite">
@@ -1970,8 +2027,12 @@ body.presenter .floating-controls {
       <section class="section qa-section viva-step" id="qa" data-step="Q&amp;A">
         <div class="section-head">
           <p class="eyebrow">Q&amp;A landing page</p>
-          <h2>Stop here after the walkthrough.</h2>
-          <p>Short answers are enough. For most questions, answer with one claim, one denominator, and one boundary.</p>
+          <h2>Stop here after the 10-minute story.</h2>
+          <p>My answer pattern is: first answer directly, then give the evidence number, then state the boundary.</p>
+        </div>
+        <div class="code-links" aria-label="Viva preparation documents">
+          <a href="VIVA_ORAL_SCRIPT_AND_QA.md">Full oral script and Q&amp;A</a>
+          <a href="VIVA_REHEARSAL_SCRIPT.md">Short rehearsal checklist</a>
         </div>
         <div class="qa-grid">
           <details open>
@@ -2015,7 +2076,7 @@ const contractFacts = {
   denominator: {
     label: "What is counted?",
     title: "A result only means something after the denominator is fixed.",
-    text: "For example, SemCodebook reports 30,330 recoveries over 31,200 admitted positive rows. Misses remain inside the denominator; they are not hidden by the aggregate."
+    text: "For example, SemCodebook reports 30,330 recoveries over 31,200 admitted positive rows. I keep the misses inside the denominator, so the result is easier to defend."
   },
   controls: {
     label: "What would fail?",
@@ -2025,7 +2086,7 @@ const contractFacts = {
   artifact: {
     label: "Can it be inspected?",
     title: "A viva claim should point to code, manifests, and preserved result files.",
-    text: "The repository route is README, claim boundaries, traceability matrix, result manifest, and viva_check.py. This makes the work inspectable without rerunning all expensive experiments live."
+    text: "The repository route is README, claim boundaries, traceability matrix, result manifest, and viva_check.py. This lets me show the work live without pretending I can rerun every expensive experiment in the room."
   },
   access: {
     label: "What access is assumed?",
@@ -2035,7 +2096,7 @@ const contractFacts = {
   boundary: {
     label: "What is forbidden?",
     title: "The boundary prevents the result from becoming broader than the evidence.",
-    text: "The framework explicitly forbids universal watermarking, provider accusation, general authorship proof, and safety certification unless a new admitted surface supports those claims."
+    text: "The framework explicitly says what I cannot claim: no universal watermarking claim, no provider accusation, no general authorship proof, and no safety certificate unless a new admitted surface supports it."
   }
 };
 
@@ -2054,7 +2115,7 @@ const submittedResults = [
   {
     name: "SemCodebook",
     tag: "White-box provenance",
-    result: "30,330/31,200",
+    result: "30.3k/31.2k",
     denominator: "31,200 positive rows; 62,400 fixed negatives; 62,400 blind replay negatives",
     controls: "0/62,400 fixed negative-control hits and 0/62,400 blind replay hits",
     claim: "Structured provenance recovery within admitted white-box cells.",
@@ -2076,7 +2137,7 @@ const submittedResults = [
   {
     name: "ProbeTrace",
     tag: "Active-owner attribution",
-    result: "6,000 rows",
+    result: "750/750",
     denominator: "Five-owner DeepSeek commitment/witness surface",
     controls: "750/750 true-owner positives and 0/5,250 false-attribution controls",
     claim: "Scoped active-owner commitment and witness verification.",
@@ -2099,16 +2160,16 @@ const submittedResults = [
 
 const problemFacts = {
   execution: {
-    title: "Executable rows protect the denominator.",
-    text: "In the viva, this lets me say exactly which code-generation rows were counted before interpreting any watermark signal."
+    title: "The original prompt session is not enough.",
+    text: "This is why I treat provenance as an evidence problem: after code is copied or edited, I need an artifact and a boundary, not just a detector score."
   },
   access: {
-    title: "Different access models create different evidence objects.",
-    text: "A white-box carrier recovery result and a black-box transcript audit do not support the same kind of claim."
+    title: "Executable rows protect the denominator.",
+    text: "For code, the benchmark row must be runnable and countable before I interpret any watermark signal."
   },
   abstention: {
-    title: "Abstention prevents overclaiming.",
-    text: "Rows that cannot support a strong statement stay as null, support-only, or review evidence rather than becoming hidden successes."
+    title: "Different access models need different claims.",
+    text: "White-box recovery, black-box audit, active-owner attribution, and security triage answer different questions, so I keep their claims separate."
   }
 };
 
