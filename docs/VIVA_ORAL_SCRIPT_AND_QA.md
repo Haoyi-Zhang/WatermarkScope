@@ -76,9 +76,11 @@ The submitted FYP version is the version I am defending today. After that, I hav
 
 I keep these future repositories separate from the submitted FYP evidence. They show where the work can go next, but they do not change the dissertation result I am defending.
 
+On the Future page, I will only point to the five cards briefly. I will not open every continuation repository unless the examiner asks, because the defended work is still the submitted FYP surface.
+
 To summarize, my contribution is a practical framework for making source-code watermarking evidence more honest and inspectable. I built the benchmark, methods, controls, artifacts, and claim boundaries so that the result can be checked instead of only trusted.
 
-Thank you. I am happy to answer questions.
+Then I will stop on the Q&A page. Thank you. I am happy to answer questions.
 
 ## Short Version If Time Is Tight
 
