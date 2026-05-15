@@ -15,7 +15,8 @@ WatermarkScope is my framework for evaluating source-code watermarking as inspec
 | Method | 1 min 45 sec | Evidence contract plus five-stage pipeline. |
 | Results | 2 min | Five submitted result surfaces, but only the core message. |
 | Demo | 1 min 30 sec | Repository, claim boundary, traceability, manifest, viva check. |
-| Future and close | 1 min | Submitted FYP is fixed; future work is separate. |
+| Future and close | 45 sec | Submitted FYP is fixed; future work is separate. |
+| Q&A landing | 15 sec | Stop on the Q&A page and use the hot-seat rule. |
 | Buffer | 1 min 30 sec | Slow down, answer interruption, or skip demo details if needed. |
 
 ## Full Oral Script
@@ -80,7 +81,7 @@ On the Future page, I will only point to the five cards briefly. I will not open
 
 To summarize, my contribution is a practical framework for making source-code watermarking evidence more honest and inspectable. I built the benchmark, methods, controls, artifacts, and claim boundaries so that the result can be checked instead of only trusted.
 
-Then I will stop on the Q&A page. Thank you. I am happy to answer questions.
+Then I will stop on the Q&A page. I will use a simple answer rule: direct answer first, one evidence number second, and the boundary third. Thank you. I am happy to answer questions.
 
 ## Short Version If Time Is Tight
 
@@ -119,6 +120,8 @@ Use this pattern:
 1. Direct answer.
 2. One evidence number or file.
 3. Boundary.
+
+If I feel nervous, I should slow down and answer in one short paragraph. I do not need to prove everything again in one answer.
 
 Example:
 
