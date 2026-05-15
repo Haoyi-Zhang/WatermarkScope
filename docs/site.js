@@ -41,6 +41,9 @@ const submittedResults = [
     claim: "The benchmark foundation is executable and countable.",
     boundary: "This is benchmark support, not watermark success.",
     oral: "I use this first because code watermark evaluation must start from executable rows, not only text similarity.",
+    meter: 100,
+    meterLabel: "completed",
+    controlLabel: "inventory locked",
     accent: "blue"
   },
   {
@@ -52,6 +55,9 @@ const submittedResults = [
     claim: "Structured provenance recovery within admitted white-box cells.",
     boundary: "Not universal natural-generation watermarking.",
     oral: "This is the main method contribution. The key defense is that recoveries, misses, and two negative surfaces are all reported together.",
+    meter: 97.2,
+    meterLabel: "recovered",
+    controlLabel: "0 fixed / 0 blind hits",
     accent: "cyan"
   },
   {
@@ -63,6 +69,9 @@ const submittedResults = [
     claim: "Conservative sparse black-box audit evidence.",
     boundary: "Not prevalence, provider accusation, high-recall detection, or proof of absence.",
     oral: "A sparse signal is not a failed story; it tells us the honest claim is conservative audit evidence, not contamination prevalence.",
+    meter: 1.3,
+    meterLabel: "sparse signal",
+    controlLabel: "0/300 negative controls",
     accent: "violet"
   },
   {
@@ -74,6 +83,9 @@ const submittedResults = [
     claim: "Scoped active-owner commitment and witness verification.",
     boundary: "Not provider-general or cross-provider authorship proof.",
     oral: "The strong positive result is only safe because it is paired with false-owner controls and a fixed owner registry.",
+    meter: 100,
+    meterLabel: "true owner",
+    controlLabel: "0 false-attribution hits",
     accent: "amber"
   },
   {
@@ -85,6 +97,9 @@ const submittedResults = [
     claim: "Selective marker-hidden triage with explicit abstention.",
     boundary: "Not an automatic safety classifier or harmlessness certificate.",
     oral: "For security-facing evidence, abstention is part of the design because forced labels would overstate what the evidence supports.",
+    meter: 33.3,
+    meterLabel: "decisive",
+    controlLabel: "0 unsafe passes",
     accent: "green"
   }
 ];
@@ -124,6 +139,33 @@ const demoFacts = {
   check: {
     title: "Finish with the lightweight viva check.",
     text: "Say clearly that this verifies inspectability, not a full GPU/API rerun."
+  }
+};
+
+const qaFacts = {
+  broad: {
+    title: "Is this too broad for one FYP?",
+    answer: "It is broad in modules, but narrow in principle: every stage follows the same evidence contract. I defend the submitted FYP surface, not five final papers."
+  },
+  stages: {
+    title: "Why do you need five stages?",
+    answer: "Because access changes the claim. White-box recovery, black-box audit, owner attribution, and triage cannot honestly share one accuracy score."
+  },
+  rerun: {
+    title: "Why not rerun everything live?",
+    answer: "A full rerun needs GPUs, model weights, or provider APIs. In the viva I prove inspectability: repository, claim boundaries, traceability, manifest, and the quick check."
+  },
+  generalize: {
+    title: "Can the result generalize?",
+    answer: "Possibly, but I would not claim it without a new admitted surface. The correct next step is to add model cells and report them separately."
+  },
+  sparse: {
+    title: "Is CodeDye too sparse?",
+    answer: "It would be too sparse for a high-recall detector claim. My claim is conservative black-box audit evidence: 4/300 live signals with 0/300 negative controls."
+  },
+  code: {
+    title: "Where is the code evidence?",
+    answer: "The submitted repository is the defended artifact. The strongest live route is README, CLAIM_BOUNDARIES.md, TRACEABILITY_MATRIX.md, RESULT_MANIFEST.jsonl, then viva_check.py."
   }
 };
 
@@ -278,6 +320,13 @@ if (resultLedger) {
         <h3>${item.name}</h3>
         <strong>${item.result}</strong>
       </div>
+      <div class="result-meter" aria-label="${item.name} ${item.meterLabel}">
+        <i style="--value: ${item.meter}%"></i>
+      </div>
+      <div class="result-badges">
+        <b>${item.meterLabel}</b>
+        <b>${item.controlLabel}</b>
+      </div>
       <p class="result-claim">${item.claim}</p>
       <small>${item.boundary}</small>
     </article>
@@ -300,6 +349,11 @@ function setResultFocus(index) {
     <span>${data.tag}</span>
     <strong>${data.name}: ${data.result}</strong>
     <p>${data.oral}</p>
+    <div class="claim-readout" aria-label="How to read this result">
+      <span>number</span><b>${data.result}</b>
+      <span>read through</span><b>${data.meterLabel}</b>
+      <span>bounded by</span><b>${data.controlLabel}</b>
+    </div>
     <div class="result-focus-grid">
       <div><b>Denominator</b><em>${data.denominator}</em></div>
       <div><b>Controls</b><em>${data.controls}</em></div>
@@ -439,9 +493,15 @@ function setFutureTrack(index) {
   });
   if (futureNote) {
     futureNote.innerHTML = `
-      <strong>${track.name}</strong>
-      <span>${track.status}</span>
-      <em>${track.focus}</em>
+      <div class="future-note-main">
+        <strong>${track.name}</strong>
+        <span>${track.status}</span>
+        <em>${track.focus}</em>
+      </div>
+      <div class="future-review">
+        ${track.review.map((item) => `<b>${item}</b>`).join("")}
+      </div>
+      <p>${track.boundary}</p>
     `;
   }
   requestAnimationFrame(() => futureNote?.classList.add("content-refresh"));
@@ -464,6 +524,19 @@ const steps = Array.from(document.querySelectorAll(".viva-step"));
 const currentStep = document.getElementById("currentStep");
 const routeLinks = Array.from(document.querySelectorAll(".route-nav a, .cover-route a"));
 const startupParams = new URLSearchParams(window.location.search);
+const stepDots = document.createElement("div");
+
+stepDots.className = "step-dots";
+stepDots.setAttribute("aria-label", "Presentation section dots");
+steps.forEach((section, index) => {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.setAttribute("aria-label", `${index + 1}. ${section.dataset.step || section.id}`);
+  button.addEventListener("click", () => scrollToStep(section));
+  stepDots.appendChild(button);
+});
+
+if (steps.length) document.body.appendChild(stepDots);
 
 if (startupParams.get("presenter") === "1") {
   document.body.classList.add("presenter");
@@ -474,6 +547,9 @@ function updateCurrentStep(id) {
   if (step && currentStep) currentStep.textContent = step.dataset.step || step.id;
   steps.forEach((section) => section.classList.toggle("active-step", section.id === id));
   routeLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${id}`));
+  Array.from(stepDots.children).forEach((button, index) => {
+    button.classList.toggle("active", steps[index]?.id === id);
+  });
 }
 
 if (steps.length) updateCurrentStep(steps[0].id);
@@ -575,14 +651,24 @@ presenterButton?.addEventListener("click", () => {
 
 document.addEventListener("keydown", (event) => {
   if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
+  const interactiveTarget = event.target?.closest?.("button, a, summary");
+  if (interactiveTarget && [" ", "Enter", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) return;
   if (event.metaKey || event.ctrlKey || event.altKey) return;
-  if (event.key.toLowerCase() === "n" || event.key === "ArrowDown") {
+  if (event.key.toLowerCase() === "n" || event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
     event.preventDefault();
     scrollToRelativeStep(1);
   }
-  if (event.key.toLowerCase() === "p" || event.key === "ArrowUp") {
+  if (event.key.toLowerCase() === "p" || event.key === "ArrowUp" || event.key === "ArrowLeft" || event.key === "PageUp") {
     event.preventDefault();
     scrollToRelativeStep(-1);
+  }
+  if (event.key === "Home") {
+    event.preventDefault();
+    if (steps[0]) scrollToStep(steps[0]);
+  }
+  if (event.key === "End") {
+    event.preventDefault();
+    if (steps[steps.length - 1]) scrollToStep(steps[steps.length - 1]);
   }
 });
 
@@ -626,3 +712,30 @@ demoLinks.forEach((link) => {
   link.addEventListener("focus", () => setDemo(link.dataset.demo));
   link.addEventListener("click", () => setDemo(link.dataset.demo));
 });
+
+const qaButtons = Array.from(document.querySelectorAll("[data-qa]"));
+const qaAnswer = document.getElementById("qaAnswer");
+
+function setQaAnswer(key) {
+  const data = qaFacts[key];
+  if (!data || !qaAnswer) return;
+  qaAnswer.classList.remove("content-refresh");
+  qaButtons.forEach((button) => {
+    const active = button.dataset.qa === key;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  qaAnswer.innerHTML = `
+    <span>Concise viva answer</span>
+    <strong>${data.title}</strong>
+    <p>${data.answer}</p>
+  `;
+  requestAnimationFrame(() => qaAnswer.classList.add("content-refresh"));
+}
+
+qaButtons.forEach((button) => {
+  button.setAttribute("aria-pressed", "false");
+  button.addEventListener("click", () => setQaAnswer(button.dataset.qa));
+});
+
+if (qaButtons.length) setQaAnswer(qaButtons[0].dataset.qa);
