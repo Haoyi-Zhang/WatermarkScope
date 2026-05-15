@@ -870,6 +870,16 @@ h3 {
   background: var(--amber);
 }
 
+.snapshot-section .section-head {
+  margin-bottom: 16px;
+}
+
+.snapshot-section .section-head p:not(.eyebrow) {
+  max-width: 760px;
+  font-size: 15px;
+  line-height: 1.36;
+}
+
 .result-ledger {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -877,7 +887,7 @@ h3 {
 }
 
 .result-card {
-  min-height: 360px;
+  min-height: 232px;
   display: flex;
   flex-direction: column;
   padding: 14px;
@@ -901,24 +911,76 @@ h3 {
 .result-card.green { border-top-color: var(--green); }
 
 .result-main h3 {
-  margin: 8px 0 10px;
-  font-size: 19px;
+  margin: 7px 0 8px;
+  font-size: 18px;
 }
 
 .result-main strong {
   display: block;
-  min-height: 56px;
+  min-height: 42px;
   color: var(--ink);
-  font-size: clamp(25px, 2.4vw, 34px);
+  font-size: clamp(25px, 2.2vw, 34px);
   line-height: 1.02;
   overflow-wrap: anywhere;
   font-variant-numeric: tabular-nums;
+}
+
+.result-claim {
+  margin: 10px 0 0;
+  color: #dce8f8;
+  font-size: 13px;
+  font-weight: 760;
+  line-height: 1.26;
+}
+
+.result-card small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 720;
+  line-height: 1.24;
 }
 
 .result-card dl {
   display: grid;
   gap: 8px;
   margin: 12px 0 0;
+}
+
+.result-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.result-focus-grid div {
+  min-height: 54px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.result-focus-grid b,
+.result-focus-grid em {
+  display: block;
+}
+
+.result-focus-grid b {
+  margin-bottom: 4px;
+  color: var(--faint);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.result-focus-grid em {
+  color: #dce8f8;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.22;
 }
 
 .result-card dl div,
@@ -1620,6 +1682,7 @@ body.presenter .floating-controls {
 
   .benchmark-strip,
   .method-pipeline,
+  .result-focus-grid,
   .demo-route {
     grid-template-columns: 1fr;
   }
@@ -1679,6 +1742,10 @@ body.presenter .floating-controls {
   .contract-equation span,
   .contract-equation strong {
     flex-basis: 42%;
+  }
+
+  .result-focus-grid {
+    grid-template-columns: 1fr;
   }
 
   .result-card {
@@ -2347,24 +2414,8 @@ if (resultLedger) {
         <h3>${item.name}</h3>
         <strong>${item.result}</strong>
       </div>
-      <dl>
-        <div>
-          <dt>Submitted denominator</dt>
-          <dd>${item.denominator}</dd>
-        </div>
-        <div>
-          <dt>Controls / accounting</dt>
-          <dd>${item.controls}</dd>
-        </div>
-        <div>
-          <dt>Allowed claim</dt>
-          <dd>${item.claim}</dd>
-        </div>
-        <div>
-          <dt>Boundary</dt>
-          <dd>${item.boundary}</dd>
-        </div>
-      </dl>
+      <p class="result-claim">${item.claim}</p>
+      <small>${item.boundary}</small>
     </article>
   `).join("");
 }
@@ -2385,6 +2436,11 @@ function setResultFocus(index) {
     <span>${data.tag}</span>
     <strong>${data.name}: ${data.result}</strong>
     <p>${data.oral}</p>
+    <div class="result-focus-grid">
+      <div><b>Denominator</b><em>${data.denominator}</em></div>
+      <div><b>Controls</b><em>${data.controls}</em></div>
+      <div><b>Boundary</b><em>${data.boundary}</em></div>
+    </div>
   `;
   requestAnimationFrame(() => resultFocus.classList.add("content-refresh"));
 }
@@ -2399,6 +2455,8 @@ resultCards.forEach((card) => {
     }
   });
 });
+
+if (resultCards.length) setResultFocus(0);
 
 const contractButtons = Array.from(document.querySelectorAll(".contract-chip"));
 const contractLabel = document.getElementById("contractLabel");
