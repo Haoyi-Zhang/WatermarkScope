@@ -209,8 +209,8 @@ const futureTracks = [
     repo: "https://github.com/Haoyi-Zhang/CodeMarkBench",
     commit: "2db2630",
     visibility: "Public repository",
-    status: "Latest continuation snapshot, benchmark infrastructure.",
-    focus: "This track extends the benchmark side: more tasks, clearer denominator admission, and stronger reproducibility packaging.",
+    status: "Benchmark infrastructure and denominator expansion.",
+    focus: "Review focus: benchmark repository, task/suite organization, and new admitted benchmark surfaces.",
     boundary: "Any new benchmark cell must be admitted as a new surface; it does not change the 140/140 submitted FYP denominator.",
     review: ["Open the benchmark repository", "Show task and suite organization", "Explain how new benchmark surfaces would be admitted"]
   },
@@ -222,8 +222,8 @@ const futureTracks = [
     repo: "https://github.com/Haoyi-Zhang/SemCodebook",
     commit: "f243416",
     visibility: "Private continuation repository",
-    status: "Latest continuation snapshot, structured provenance recovery.",
-    focus: "This is the main method direction: typed program carriers, keyed scheduling, recovery, and negative-control replay.",
+    status: "Structured provenance recovery method.",
+    focus: "Review focus: implementation modules, carrier/recovery pipeline, and negative-control replay gates.",
     boundary: "Extra cells are future evidence. They should be reported separately from the submitted 30,330/31,200 FYP recovery surface.",
     review: ["Open implementation modules", "Show carrier and recovery pipeline", "Explain negative-control and replay gates"]
   },
@@ -235,8 +235,8 @@ const futureTracks = [
     repo: "https://github.com/Haoyi-Zhang/CodeDye",
     commit: "6aa5d8c",
     visibility: "Private continuation repository",
-    status: "Latest continuation snapshot, conservative null-audit track.",
-    focus: "This track studies whether sparse black-box memory-probe evidence can be preserved without turning it into a provider accusation.",
+    status: "Conservative black-box null-audit track.",
+    focus: "Review focus: audit scripts, role-separated controls, and non-accusation boundary.",
     boundary: "The claim remains null-audit evidence, not prevalence, wrongdoing proof, or absence proof.",
     review: ["Open audit scripts", "Show role-separated control design", "Explain why sparse signals are not accusations"]
   },
@@ -248,8 +248,8 @@ const futureTracks = [
     repo: "https://github.com/Haoyi-Zhang/ProbeTrace",
     commit: "a6e53b2",
     visibility: "Private continuation repository",
-    status: "Latest continuation snapshot, commitment/witness verification.",
-    focus: "This track expands active-owner verification while keeping owner registry, split, and false-owner controls explicit.",
+    status: "Active-owner commitment/witness verification.",
+    focus: "Review focus: commitment/witness code, owner registry, split, and false-owner controls.",
     boundary: "It is scoped owner verification, not universal authorship proof or cross-provider attribution.",
     review: ["Open commitment and witness code", "Show owner registry and split", "Explain false-owner controls"]
   },
@@ -261,8 +261,8 @@ const futureTracks = [
     repo: "https://github.com/Haoyi-Zhang/SealAudit",
     commit: "5203c62",
     visibility: "Private continuation repository",
-    status: "Latest continuation snapshot, marker-hidden selective triage.",
-    focus: "This track treats watermark evidence as a security-relevant audit signal with abstention and unsafe-pass accounting.",
+    status: "Marker-hidden selective security triage.",
+    focus: "Review focus: triage pipeline, decision packets, abstention, and unsafe-pass accounting.",
     boundary: "It is selective triage, not a classifier, safety certificate, or automatic harmlessness guarantee.",
     review: ["Open triage pipeline", "Show marker-hidden decision packets", "Explain abstention and unsafe-pass accounting"]
   }
@@ -421,15 +421,7 @@ stageButtons.forEach((button) => {
 });
 
 const futureGrid = document.getElementById("futureGrid");
-const futurePanel = document.getElementById("futurePanel");
-const futureVenue = document.getElementById("futureVenue");
-const futureName = document.getElementById("futureName");
-const futureFocus = document.getElementById("futureFocus");
-const futureRepo = document.getElementById("futureRepo");
-const futureStatus = document.getElementById("futureStatus");
-const futureBoundary = document.getElementById("futureBoundary");
-const futureReview = document.getElementById("futureReview");
-const futureActions = document.getElementById("futureActions");
+const futureNote = document.getElementById("futureNote");
 
 if (futureGrid) {
   futureGrid.innerHTML = futureTracks.map((track, index) => `
@@ -437,7 +429,7 @@ if (futureGrid) {
       <span>${track.venue}</span>
       <h3>${track.name}</h3>
       <p>${track.route}</p>
-      <em>${track.visibility} / latest ${track.commit}</em>
+      <em>${track.commit}</em>
       <a href="${track.repo}" target="_blank" rel="noopener" aria-label="Review ${track.name} repository">Review repo</a>
     </article>
   `).join("");
@@ -447,35 +439,21 @@ const futureCards = Array.from(document.querySelectorAll(".future-track"));
 
 function setFutureTrack(index) {
   const track = futureTracks[index];
-  if (!track || !futurePanel) return;
-  futurePanel.classList.remove("content-refresh");
+  if (!track) return;
+  futureNote?.classList.remove("content-refresh");
   futureCards.forEach((card) => {
     const active = Number(card.dataset.future) === index;
     card.classList.toggle("active", active);
     card.setAttribute("aria-pressed", String(active));
   });
-  if (futureVenue) futureVenue.textContent = track.venue;
-  if (futureName) futureName.textContent = track.name;
-  if (futureFocus) futureFocus.textContent = track.focus;
-  if (futureRepo) futureRepo.textContent = `${track.repo} (${track.visibility})`;
-  if (futureStatus) futureStatus.textContent = `${track.status} Latest commit: ${track.commit}.`;
-  if (futureBoundary) futureBoundary.textContent = track.boundary;
-  if (futureReview) {
-    futureReview.innerHTML = `
-      <strong>Live review route</strong>
-      <ol>
-        ${track.review.map((item) => `<li>${item}</li>`).join("")}
-      </ol>
+  if (futureNote) {
+    futureNote.innerHTML = `
+      <strong>${track.name}</strong>
+      <span>${track.status}</span>
+      <em>${track.focus}</em>
     `;
   }
-  if (futureActions) {
-    futureActions.innerHTML = `
-      <a href="${track.repo}" target="_blank" rel="noopener">Open latest repository</a>
-      <span>${track.visibility}</span>
-      <span>${track.commit}</span>
-    `;
-  }
-  requestAnimationFrame(() => futurePanel.classList.add("content-refresh"));
+  requestAnimationFrame(() => futureNote?.classList.add("content-refresh"));
 }
 
 futureCards.forEach((card) => {
@@ -531,9 +509,15 @@ window.addEventListener("load", () => {
   if (!window.location.hash) return;
   const target = document.querySelector(window.location.hash);
   if (target) {
-    requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
+    requestAnimationFrame(() => scrollToStep(target, "auto"));
   }
 });
+
+function scrollToStep(target, behavior = "smooth") {
+  const topbarOffset = document.body.classList.contains("presenter") ? 0 : 62;
+  const targetTop = target.getBoundingClientRect().top + window.scrollY - topbarOffset;
+  window.scrollTo({ top: Math.max(0, targetTop), behavior });
+}
 
 function scrollToRelativeStep(direction) {
   const offsets = steps.map((section) => ({
@@ -543,7 +527,7 @@ function scrollToRelativeStep(direction) {
   const current = offsets.sort((a, b) => a.top - b.top)[0];
   const index = steps.findIndex((section) => section.id === current.id);
   const target = steps[Math.min(steps.length - 1, Math.max(0, index + direction))];
-  if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (target) scrollToStep(target);
 }
 
 document.getElementById("nextStep")?.addEventListener("click", () => scrollToRelativeStep(1));
