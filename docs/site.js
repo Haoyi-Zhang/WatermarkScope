@@ -46,6 +46,64 @@ const stages = {
   }
 };
 
+const continuationTracks = [
+  {
+    name: "CodeMarkBench",
+    route: "Software-engineering venue",
+    repo: "https://github.com/Haoyi-Zhang/CodeMarkBench",
+    commit: "3252ca4",
+    snapshot: "140/140 canonical runs",
+    progress: "Public benchmark infrastructure",
+    next: "External reruns and broader stress taxonomy",
+    value: 100,
+    accent: "blue"
+  },
+  {
+    name: "SemCodebook",
+    route: "EMNLP-oriented paper",
+    repo: "https://github.com/Haoyi-Zhang/SemCodebook",
+    commit: "69efebc",
+    snapshot: "23,342/24,000 recoveries",
+    progress: "30,330/31,200; 0/62,400 x2 controls",
+    next: "New admitted cells, ablations, and positioning",
+    value: 97,
+    accent: "cyan"
+  },
+  {
+    name: "CodeDye",
+    route: "EMNLP-oriented paper",
+    repo: "https://github.com/Haoyi-Zhang/CodeDye",
+    commit: "e8f9df3",
+    snapshot: "6/300 live signals",
+    progress: "0/300 fresh; 272/300 calibration",
+    next: "Provider-specific frozen surfaces",
+    value: 1,
+    accent: "violet"
+  },
+  {
+    name: "ProbeTrace",
+    route: "EMNLP-oriented paper",
+    repo: "https://github.com/Haoyi-Zhang/ProbeTrace",
+    commit: "9e459d4",
+    snapshot: "300/300 scoped decisions",
+    progress: "750/750 true; 0/5,250 false",
+    next: "Registry expansion and margin evidence",
+    value: 100,
+    accent: "amber"
+  },
+  {
+    name: "SealAudit",
+    route: "EMNLP-oriented paper",
+    repo: "https://github.com/Haoyi-Zhang/SealAudit",
+    commit: "039275d",
+    snapshot: "81/960 decisive rows",
+    progress: "320/960 decisive; 0/960 unsafe",
+    next: "Second-stage coverage with unsafe-pass accounting",
+    value: 33,
+    accent: "green"
+  }
+];
+
 document.documentElement.classList.add("motion-ready");
 
 const buttons = Array.from(document.querySelectorAll(".stage"));
@@ -82,6 +140,36 @@ buttons.forEach((button) => {
   button.setAttribute("aria-pressed", button.classList.contains("active") ? "true" : "false");
   button.addEventListener("click", () => setStage(button.dataset.stage));
 });
+
+const trackGrid = document.getElementById("continuationTracks");
+
+if (trackGrid) {
+  continuationTracks.forEach((track) => {
+    const article = document.createElement("article");
+    article.className = `track-card ${track.accent}`;
+    article.innerHTML = `
+      <div class="track-head">
+        <span>${track.route}</span>
+        <a href="${track.repo}" aria-label="Open ${track.name} repository">${track.commit}</a>
+      </div>
+      <h3>${track.name}</h3>
+      <div class="track-bars" aria-label="${track.name} submitted and continuation status">
+        <div>
+          <span>Submitted snapshot</span>
+          <strong>${track.snapshot}</strong>
+        </div>
+        <div class="meter"><i style="width: ${track.value}%"></i></div>
+        <div>
+          <span>Continuation progress</span>
+          <strong>${track.progress}</strong>
+        </div>
+      </div>
+      <p>${track.next}</p>
+      <a class="track-link" href="${track.repo}">Repository</a>
+    `;
+    trackGrid.appendChild(article);
+  });
+}
 
 const revealItems = Array.from(document.querySelectorAll(".reveal"));
 
