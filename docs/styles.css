@@ -488,6 +488,10 @@ h3 {
   align-items: end;
 }
 
+.optional-section {
+  display: none;
+}
+
 .future-section {
   align-content: center;
 }
@@ -660,6 +664,7 @@ h3 {
   grid-template-areas:
     "chips detail"
     "equation equation"
+    "pipeline pipeline"
     "contrib contrib";
   gap: 12px;
 }
@@ -718,8 +723,8 @@ h3 {
 
 .contract-equation {
   grid-area: equation;
-  display: grid;
-  grid-template-columns: repeat(6, auto) 1fr;
+  display: flex;
+  flex-wrap: nowrap;
   gap: 8px;
   align-items: center;
   padding: 12px;
@@ -734,6 +739,7 @@ h3 {
 
 .contract-equation span,
 .contract-equation strong {
+  flex: 1 1 0;
   min-height: 42px;
   display: grid;
   place-items: center;
@@ -752,8 +758,40 @@ h3 {
 }
 
 .contract-equation b {
+  flex: 0 0 auto;
   color: var(--faint);
   font-size: 18px;
+}
+
+.method-pipeline {
+  grid-area: pipeline;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.method-pipeline span {
+  min-height: 74px;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 15px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.method-pipeline em {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 780;
+  text-transform: uppercase;
 }
 
 .contribution-strip {
@@ -1552,6 +1590,7 @@ body.presenter .floating-controls {
       "chips"
       "detail"
       "equation"
+      "pipeline"
       "contrib";
   }
 
@@ -1572,6 +1611,7 @@ body.presenter .floating-controls {
   }
 
   .benchmark-strip,
+  .method-pipeline,
   .demo-route {
     grid-template-columns: 1fr;
   }
@@ -1620,8 +1660,17 @@ body.presenter .floating-controls {
   .future-grid,
   .stage-grid,
   .contract-stack,
-  .contract-equation {
+  .method-pipeline {
     grid-template-columns: 1fr;
+  }
+
+  .contract-equation {
+    flex-wrap: wrap;
+  }
+
+  .contract-equation span,
+  .contract-equation strong {
+    flex-basis: 42%;
   }
 
   .result-card {
