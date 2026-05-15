@@ -27,6 +27,8 @@ For the demo, I will show the repository, claim boundaries, traceability matrix,
 
 The submitted FYP version is the version I am defending. The continuation repositories are future paper tracks and do not change the submitted dissertation evidence.
 
+At the end, I will stop on the Q&A page and answer directly: direct answer, one evidence number or file, then the boundary.
+
 ## Answer Pattern
 
 Answer directly, give one evidence number or file, then state the boundary.
