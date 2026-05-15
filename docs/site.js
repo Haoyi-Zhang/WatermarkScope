@@ -7,7 +7,7 @@ const contractFacts = {
   denominator: {
     label: "What is counted?",
     title: "A result only means something after the denominator is fixed.",
-    text: "For example, SemCodebook reports 30,330 recoveries over 31,200 admitted positive rows. Misses remain inside the denominator; they are not hidden by the aggregate."
+    text: "For example, SemCodebook reports 30,330 recoveries over 31,200 admitted positive rows. I keep the misses inside the denominator, so the result is easier to defend."
   },
   controls: {
     label: "What would fail?",
@@ -17,7 +17,7 @@ const contractFacts = {
   artifact: {
     label: "Can it be inspected?",
     title: "A viva claim should point to code, manifests, and preserved result files.",
-    text: "The repository route is README, claim boundaries, traceability matrix, result manifest, and viva_check.py. This makes the work inspectable without rerunning all expensive experiments live."
+    text: "The repository route is README, claim boundaries, traceability matrix, result manifest, and viva_check.py. This lets me show the work live without pretending I can rerun every expensive experiment in the room."
   },
   access: {
     label: "What access is assumed?",
@@ -27,7 +27,7 @@ const contractFacts = {
   boundary: {
     label: "What is forbidden?",
     title: "The boundary prevents the result from becoming broader than the evidence.",
-    text: "The framework explicitly forbids universal watermarking, provider accusation, general authorship proof, and safety certification unless a new admitted surface supports those claims."
+    text: "The framework explicitly says what I cannot claim: no universal watermarking claim, no provider accusation, no general authorship proof, and no safety certificate unless a new admitted surface supports it."
   }
 };
 
@@ -46,7 +46,7 @@ const submittedResults = [
   {
     name: "SemCodebook",
     tag: "White-box provenance",
-    result: "30,330/31,200",
+    result: "30.3k/31.2k",
     denominator: "31,200 positive rows; 62,400 fixed negatives; 62,400 blind replay negatives",
     controls: "0/62,400 fixed negative-control hits and 0/62,400 blind replay hits",
     claim: "Structured provenance recovery within admitted white-box cells.",
@@ -68,7 +68,7 @@ const submittedResults = [
   {
     name: "ProbeTrace",
     tag: "Active-owner attribution",
-    result: "6,000 rows",
+    result: "750/750",
     denominator: "Five-owner DeepSeek commitment/witness surface",
     controls: "750/750 true-owner positives and 0/5,250 false-attribution controls",
     claim: "Scoped active-owner commitment and witness verification.",
@@ -91,16 +91,16 @@ const submittedResults = [
 
 const problemFacts = {
   execution: {
-    title: "Executable rows protect the denominator.",
-    text: "In the viva, this lets me say exactly which code-generation rows were counted before interpreting any watermark signal."
+    title: "The original prompt session is not enough.",
+    text: "This is why I treat provenance as an evidence problem: after code is copied or edited, I need an artifact and a boundary, not just a detector score."
   },
   access: {
-    title: "Different access models create different evidence objects.",
-    text: "A white-box carrier recovery result and a black-box transcript audit do not support the same kind of claim."
+    title: "Executable rows protect the denominator.",
+    text: "For code, the benchmark row must be runnable and countable before I interpret any watermark signal."
   },
   abstention: {
-    title: "Abstention prevents overclaiming.",
-    text: "Rows that cannot support a strong statement stay as null, support-only, or review evidence rather than becoming hidden successes."
+    title: "Different access models need different claims.",
+    text: "White-box recovery, black-box audit, active-owner attribution, and security triage answer different questions, so I keep their claims separate."
   }
 };
 
