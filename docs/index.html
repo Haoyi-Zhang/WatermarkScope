@@ -48,6 +48,13 @@
             <h1>WatermarkScope</h1>
             <p class="title-line">A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models</p>
             <p class="hero-lead">A framework for turning source-code watermark detector outputs into inspectable, bounded evidence.</p>
+            <div class="cover-route" aria-label="Interactive viva route">
+              <a href="#problem">1 Problem</a>
+              <a href="#contract">2 Contract</a>
+              <a href="#snapshot">3 Results</a>
+              <a href="#walkthrough">4 Walkthrough</a>
+              <a href="#demo">5 Demo</a>
+            </div>
           </div>
 
           <footer class="cover-footer">
@@ -80,22 +87,27 @@
           <p>When generated code is copied, edited, translated, or deployed, the original prompt session is no longer enough to support a provenance claim.</p>
         </div>
         <div class="problem-grid">
-          <article>
+          <article class="problem-card active" data-problem="execution" tabindex="0">
             <span>01</span>
             <h3>Code must execute</h3>
             <p>For source code, a watermark result is weak if the benchmark row is not tied to executable behavior and a stable denominator.</p>
           </article>
-          <article>
+          <article class="problem-card" data-problem="access" tabindex="0">
             <span>02</span>
             <h3>Access changes meaning</h3>
             <p>White-box recovery, black-box audit, owner attribution, and security triage cannot share one accuracy score.</p>
           </article>
-          <article>
+          <article class="problem-card" data-problem="abstention" tabindex="0">
             <span>03</span>
             <h3>Abstention is evidence</h3>
             <p>If a row cannot support a strong claim, the framework keeps it as null, support-only, or review evidence instead of forcing a label.</p>
           </article>
         </div>
+        <aside class="interaction-panel" aria-live="polite">
+          <span id="problemPanelLabel">Why this matters</span>
+          <strong id="problemPanelTitle">Executable rows protect the denominator.</strong>
+          <p id="problemPanelText">In the viva, this lets me say exactly which code-generation rows were counted before interpreting any watermark signal.</p>
+        </aside>
         <aside class="speak-card">
           <strong>Oral opening</strong>
           <p>My project is not trying to prove one universal watermark detector. The core idea is evidence admission: before I say what a result means, I fix the denominator, controls, artifact, access model, and claim boundary.</p>
@@ -159,6 +171,11 @@
           <b>140 canonical runs</b>
         </div>
         <div class="result-ledger" id="resultLedger" aria-label="Submitted FYP result ledger"></div>
+        <aside class="result-focus" id="resultFocus" aria-live="polite">
+          <span>Click a result card</span>
+          <strong>Use each number with its denominator and boundary.</strong>
+          <p>The viva answer should never be only a numerator. It should say what was counted, what controls were run, and what claim is allowed.</p>
+        </aside>
       </section>
 
       <section class="section walkthrough-section viva-step" id="walkthrough" data-step="Walkthrough">
@@ -234,15 +251,15 @@
         </div>
         <div class="demo-grid">
           <div class="demo-route" aria-label="Repository inspection route">
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/README.md">README</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/README.md" data-demo="readme">README</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/CLAIM_BOUNDARIES.md">Claim boundaries</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/CLAIM_BOUNDARIES.md" data-demo="boundaries">Claim boundaries</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/docs/TRACEABILITY_MATRIX.md">Traceability</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/docs/TRACEABILITY_MATRIX.md" data-demo="traceability">Traceability</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/RESULT_MANIFEST.jsonl">Manifest</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/RESULT_MANIFEST.jsonl" data-demo="manifest">Manifest</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/scripts/viva_check.py">viva_check.py</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/scripts/viva_check.py" data-demo="check">viva_check.py</a>
           </div>
           <div class="terminal-card">
             <div class="terminal-top">
@@ -259,6 +276,11 @@
 [OK] Viva check passed</code></pre>
           </div>
         </div>
+        <aside class="interaction-panel demo-panel" aria-live="polite">
+          <span id="demoPanelLabel">Demo step</span>
+          <strong id="demoPanelTitle">Start with the repository README.</strong>
+          <p id="demoPanelText">Use it to show the examiner the submitted FYP surface and the exact page route before opening deeper artifacts.</p>
+        </aside>
         <aside class="speak-card">
           <strong>Demo narration</strong>
           <p>I would not rerun the full experiments live because some require model or provider resources. Instead, I show that each claim has an inspection path: the boundary document states what is allowed, the traceability matrix points to code and artifacts, and the manifest preserves evidence records.</p>
@@ -309,22 +331,22 @@
           <p>Short answers are enough. For most questions, answer with one claim, one denominator, and one boundary.</p>
         </div>
         <div class="qa-grid">
-          <article>
-            <strong>What is the novelty?</strong>
+          <details open>
+            <summary>What is the novelty?</summary>
             <p>WatermarkScope makes code watermarking evidence auditable by tying each result to denominator, controls, artifact, access model, and claim boundary.</p>
-          </article>
-          <article>
-            <strong>Which part is the main method?</strong>
+          </details>
+          <details>
+            <summary>Which part is the main method?</summary>
             <p>SemCodebook is the main method contribution: structured white-box provenance recovery using typed program carriers and keyed scheduling.</p>
-          </article>
-          <article>
-            <strong>Why not one accuracy score?</strong>
-            <p>Because benchmark completion, provenance recovery, black-box audit, attribution, and triage answer different questions under different access assumptions.</p>
-          </article>
-          <article>
-            <strong>What would you improve next?</strong>
+          </details>
+          <details>
+            <summary>Why not one accuracy score?</summary>
+            <p>Benchmark completion, provenance recovery, black-box audit, attribution, and triage answer different questions under different access assumptions.</p>
+          </details>
+          <details>
+            <summary>What would you improve next?</summary>
             <p>I would add new admitted evidence surfaces rather than changing old denominators: more model cells, stronger black-box calibration, and broader owner registries.</p>
-          </article>
+          </details>
         </div>
       </section>
     </main>
