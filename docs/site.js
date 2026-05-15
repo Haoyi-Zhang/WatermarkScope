@@ -283,6 +283,7 @@ const resultCards = Array.from(document.querySelectorAll(".result-card"));
 function setResultFocus(index) {
   const data = submittedResults[index];
   if (!data || !resultFocus) return;
+  resultFocus.classList.remove("content-refresh");
   resultCards.forEach((card) => {
     const active = Number(card.dataset.result) === index;
     card.classList.toggle("active", active);
@@ -293,6 +294,7 @@ function setResultFocus(index) {
     <strong>${data.name}: ${data.result}</strong>
     <p>${data.oral}</p>
   `;
+  requestAnimationFrame(() => resultFocus.classList.add("content-refresh"));
 }
 
 resultCards.forEach((card) => {
@@ -314,6 +316,8 @@ const contractText = document.getElementById("contractText");
 function setContract(key) {
   const data = contractFacts[key];
   if (!data) return;
+  const detail = contractTitle?.closest(".contract-detail");
+  detail?.classList.remove("content-refresh");
   contractButtons.forEach((button) => {
     const active = button.dataset.contract === key;
     button.classList.toggle("active", active);
@@ -322,6 +326,7 @@ function setContract(key) {
   contractLabel.textContent = data.label;
   contractTitle.textContent = data.title;
   contractText.textContent = data.text;
+  requestAnimationFrame(() => detail?.classList.add("content-refresh"));
 }
 
 contractButtons.forEach((button) => {
@@ -336,9 +341,12 @@ const problemPanelText = document.getElementById("problemPanelText");
 function setProblem(key) {
   const data = problemFacts[key];
   if (!data) return;
+  const panel = problemPanelTitle?.closest(".interaction-panel");
+  panel?.classList.remove("content-refresh");
   problemCards.forEach((card) => card.classList.toggle("active", card.dataset.problem === key));
   if (problemPanelTitle) problemPanelTitle.textContent = data.title;
   if (problemPanelText) problemPanelText.textContent = data.text;
+  requestAnimationFrame(() => panel?.classList.add("content-refresh"));
 }
 
 problemCards.forEach((card) => {
@@ -366,6 +374,8 @@ const stageFields = {
 function setStage(key) {
   const data = stages[key];
   if (!data) return;
+  const detail = stageFields.question?.closest(".stage-detail");
+  detail?.classList.remove("content-refresh");
   stageButtons.forEach((button) => {
     const active = button.dataset.stage === key;
     button.classList.toggle("active", active);
@@ -379,6 +389,7 @@ function setStage(key) {
   stageFields.boundary.textContent = data.boundary;
   stageFields.speak.textContent = data.speak;
   stageFields.links.innerHTML = data.links.map(([label, href]) => `<a href="${href}">${label}</a>`).join("");
+  requestAnimationFrame(() => detail?.classList.add("content-refresh"));
 }
 
 stageButtons.forEach((button) => {
@@ -407,8 +418,11 @@ const routeLinks = Array.from(document.querySelectorAll(".route-nav a"));
 function updateCurrentStep(id) {
   const step = steps.find((section) => section.id === id);
   if (step && currentStep) currentStep.textContent = step.dataset.step || step.id;
+  steps.forEach((section) => section.classList.toggle("active-step", section.id === id));
   routeLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${id}`));
 }
+
+if (steps.length) updateCurrentStep(steps[0].id);
 
 if ("IntersectionObserver" in window) {
   const sectionObserver = new IntersectionObserver((entries) => {
@@ -486,9 +500,22 @@ const demoPanelText = document.getElementById("demoPanelText");
 function setDemo(key) {
   const data = demoFacts[key];
   if (!data) return;
-  demoLinks.forEach((link) => link.classList.toggle("active", link.dataset.demo === key));
+  let activeIndex = -1;
+  demoLinks.forEach((link, index) => {
+    const active = link.dataset.demo === key;
+    link.classList.toggle("active", active);
+    if (active) activeIndex = index;
+  });
+  const routeItems = Array.from(document.querySelectorAll(".demo-route > *"));
+  routeItems.forEach((item, index) => {
+    const routeIndex = Math.floor(index / 2);
+    item.classList.toggle("passed", item.tagName === "SPAN" && routeIndex < activeIndex);
+  });
+  const panel = demoPanelTitle?.closest(".interaction-panel");
+  panel?.classList.remove("content-refresh");
   if (demoPanelTitle) demoPanelTitle.textContent = data.title;
   if (demoPanelText) demoPanelText.textContent = data.text;
+  requestAnimationFrame(() => panel?.classList.add("content-refresh"));
 }
 
 demoLinks.forEach((link) => {
