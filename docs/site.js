@@ -202,46 +202,64 @@ const stages = {
 
 const futureTracks = [
   {
-    name: "WatermarkScope",
-    route: "Submitted FYP marking surface",
-    repo: "https://github.com/Haoyi-Zhang/WatermarkScope",
-    status: "Use for viva and dissertation alignment.",
-    note: "This page is the main presentation interface."
-  },
-  {
+    key: "codemarkbench",
     name: "CodeMarkBench",
-    route: "TOSEM-oriented benchmark track",
+    route: "Benchmark foundation",
+    venue: "Planned journal track: TOSEM",
     repo: "https://github.com/Haoyi-Zhang/CodeMarkBench",
-    status: "Continuation benchmark infrastructure.",
-    note: "Future expansion must create new admitted benchmark surfaces."
+    commit: "2db2630",
+    visibility: "Public repository",
+    status: "Latest continuation snapshot, benchmark infrastructure.",
+    focus: "This track extends the benchmark side: more tasks, clearer denominator admission, and stronger reproducibility packaging.",
+    boundary: "Any new benchmark cell must be admitted as a new surface; it does not change the 140/140 submitted FYP denominator."
   },
   {
+    key: "semcodebook",
     name: "SemCodebook",
-    route: "EMNLP-oriented method track",
+    route: "White-box method",
+    venue: "Planned conference track: EMNLP",
     repo: "https://github.com/Haoyi-Zhang/SemCodebook",
-    status: "Continuation commit 69efebc.",
-    note: "New cells should not rewrite the submitted denominator."
+    commit: "f243416",
+    visibility: "Private continuation repository",
+    status: "Latest continuation snapshot, structured provenance recovery.",
+    focus: "This is the main method direction: typed program carriers, keyed scheduling, recovery, and negative-control replay.",
+    boundary: "Extra cells are future evidence. They should be reported separately from the submitted 30,330/31,200 FYP recovery surface."
   },
   {
+    key: "codedye",
     name: "CodeDye",
-    route: "EMNLP-oriented audit track",
+    route: "Black-box audit",
+    venue: "Planned conference track: EMNLP",
     repo: "https://github.com/Haoyi-Zhang/CodeDye",
-    status: "Continuation commit e8f9df3.",
-    note: "Provider-specific black-box surfaces remain separately admitted."
+    commit: "6aa5d8c",
+    visibility: "Private continuation repository",
+    status: "Latest continuation snapshot, conservative null-audit track.",
+    focus: "This track studies whether sparse black-box memory-probe evidence can be preserved without turning it into a provider accusation.",
+    boundary: "The claim remains null-audit evidence, not prevalence, wrongdoing proof, or absence proof."
   },
   {
+    key: "probetrace",
     name: "ProbeTrace",
-    route: "EMNLP-oriented attribution track",
+    route: "Owner attribution",
+    venue: "Planned conference track: EMNLP",
     repo: "https://github.com/Haoyi-Zhang/ProbeTrace",
-    status: "Continuation commit 9e459d4.",
-    note: "Registry expansion needs new owner and control gates."
+    commit: "a6e53b2",
+    visibility: "Private continuation repository",
+    status: "Latest continuation snapshot, commitment/witness verification.",
+    focus: "This track expands active-owner verification while keeping owner registry, split, and false-owner controls explicit.",
+    boundary: "It is scoped owner verification, not universal authorship proof or cross-provider attribution."
   },
   {
+    key: "sealaudit",
     name: "SealAudit",
-    route: "EMNLP-oriented triage track",
+    route: "Security triage",
+    venue: "Planned conference track: EMNLP",
     repo: "https://github.com/Haoyi-Zhang/SealAudit",
-    status: "Continuation commit 039275d.",
-    note: "Coverage updates require preserving unsafe-pass accounting."
+    commit: "5203c62",
+    visibility: "Private continuation repository",
+    status: "Latest continuation snapshot, marker-hidden selective triage.",
+    focus: "This track treats watermark evidence as a security-relevant audit signal with abstention and unsafe-pass accounting.",
+    boundary: "It is selective triage, not a classifier, safety certificate, or automatic harmlessness guarantee."
   }
 ];
 
@@ -398,18 +416,64 @@ stageButtons.forEach((button) => {
 });
 
 const futureGrid = document.getElementById("futureGrid");
+const futurePanel = document.getElementById("futurePanel");
+const futureVenue = document.getElementById("futureVenue");
+const futureName = document.getElementById("futureName");
+const futureFocus = document.getElementById("futureFocus");
+const futureRepo = document.getElementById("futureRepo");
+const futureStatus = document.getElementById("futureStatus");
+const futureBoundary = document.getElementById("futureBoundary");
+const futureActions = document.getElementById("futureActions");
 
 if (futureGrid) {
-  futureGrid.innerHTML = futureTracks.map((track) => `
-    <article>
+  futureGrid.innerHTML = futureTracks.map((track, index) => `
+    <article class="future-track ${index === 0 ? "active" : ""}" data-future="${index}" tabindex="0" role="button" aria-pressed="${index === 0 ? "true" : "false"}">
       <span>${track.route}</span>
       <h3>${track.name}</h3>
-      <p>${track.status}</p>
-      <em>${track.note}</em>
-      <a href="${track.repo}">Open repository</a>
+      <p>${track.venue}</p>
+      <em>${track.visibility} · ${track.commit}</em>
     </article>
   `).join("");
 }
+
+const futureCards = Array.from(document.querySelectorAll(".future-track"));
+
+function setFutureTrack(index) {
+  const track = futureTracks[index];
+  if (!track || !futurePanel) return;
+  futurePanel.classList.remove("content-refresh");
+  futureCards.forEach((card) => {
+    const active = Number(card.dataset.future) === index;
+    card.classList.toggle("active", active);
+    card.setAttribute("aria-pressed", String(active));
+  });
+  if (futureVenue) futureVenue.textContent = track.venue;
+  if (futureName) futureName.textContent = track.name;
+  if (futureFocus) futureFocus.textContent = track.focus;
+  if (futureRepo) futureRepo.textContent = `${track.repo} (${track.visibility})`;
+  if (futureStatus) futureStatus.textContent = `${track.status} Latest commit: ${track.commit}.`;
+  if (futureBoundary) futureBoundary.textContent = track.boundary;
+  if (futureActions) {
+    futureActions.innerHTML = `
+      <a href="${track.repo}">Open repository</a>
+      <span>${track.route}</span>
+    `;
+  }
+  requestAnimationFrame(() => futurePanel.classList.add("content-refresh"));
+}
+
+futureCards.forEach((card) => {
+  const index = Number(card.dataset.future);
+  card.addEventListener("click", () => setFutureTrack(index));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setFutureTrack(index);
+    }
+  });
+});
+
+setFutureTrack(0);
 
 const steps = Array.from(document.querySelectorAll(".viva-step"));
 const currentStep = document.getElementById("currentStep");
