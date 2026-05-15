@@ -278,24 +278,8 @@ if (resultLedger) {
         <h3>${item.name}</h3>
         <strong>${item.result}</strong>
       </div>
-      <dl>
-        <div>
-          <dt>Submitted denominator</dt>
-          <dd>${item.denominator}</dd>
-        </div>
-        <div>
-          <dt>Controls / accounting</dt>
-          <dd>${item.controls}</dd>
-        </div>
-        <div>
-          <dt>Allowed claim</dt>
-          <dd>${item.claim}</dd>
-        </div>
-        <div>
-          <dt>Boundary</dt>
-          <dd>${item.boundary}</dd>
-        </div>
-      </dl>
+      <p class="result-claim">${item.claim}</p>
+      <small>${item.boundary}</small>
     </article>
   `).join("");
 }
@@ -316,6 +300,11 @@ function setResultFocus(index) {
     <span>${data.tag}</span>
     <strong>${data.name}: ${data.result}</strong>
     <p>${data.oral}</p>
+    <div class="result-focus-grid">
+      <div><b>Denominator</b><em>${data.denominator}</em></div>
+      <div><b>Controls</b><em>${data.controls}</em></div>
+      <div><b>Boundary</b><em>${data.boundary}</em></div>
+    </div>
   `;
   requestAnimationFrame(() => resultFocus.classList.add("content-refresh"));
 }
@@ -330,6 +319,8 @@ resultCards.forEach((card) => {
     }
   });
 });
+
+if (resultCards.length) setResultFocus(0);
 
 const contractButtons = Array.from(document.querySelectorAll(".contract-chip"));
 const contractLabel = document.getElementById("contractLabel");
