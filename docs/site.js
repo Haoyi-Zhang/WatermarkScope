@@ -40,6 +40,7 @@ const submittedResults = [
     controls: "Canonical run-completion inventory before interpretation",
     claim: "The benchmark foundation is executable and countable.",
     boundary: "This is benchmark support, not watermark success.",
+    oral: "I use this first because code watermark evaluation must start from executable rows, not only text similarity.",
     accent: "blue"
   },
   {
@@ -50,6 +51,7 @@ const submittedResults = [
     controls: "0/62,400 fixed negative-control hits and 0/62,400 blind replay hits",
     claim: "Structured provenance recovery within admitted white-box cells.",
     boundary: "Not universal natural-generation watermarking.",
+    oral: "This is the main method contribution. The key defense is that recoveries, misses, and two negative surfaces are all reported together.",
     accent: "cyan"
   },
   {
@@ -60,6 +62,7 @@ const submittedResults = [
     controls: "170/300 positive controls and 0/300 negative controls",
     claim: "Conservative sparse black-box audit evidence.",
     boundary: "Not prevalence, provider accusation, high-recall detection, or proof of absence.",
+    oral: "A sparse signal is not a failed story; it tells us the honest claim is conservative audit evidence, not contamination prevalence.",
     accent: "violet"
   },
   {
@@ -70,6 +73,7 @@ const submittedResults = [
     controls: "750/750 true-owner positives and 0/5,250 false-attribution controls",
     claim: "Scoped active-owner commitment and witness verification.",
     boundary: "Not provider-general or cross-provider authorship proof.",
+    oral: "The strong positive result is only safe because it is paired with false-owner controls and a fixed owner registry.",
     accent: "amber"
   },
   {
@@ -80,9 +84,48 @@ const submittedResults = [
     controls: "0/960 observed unsafe passes; nondecisive rows retained as review load",
     claim: "Selective marker-hidden triage with explicit abstention.",
     boundary: "Not an automatic safety classifier or harmlessness certificate.",
+    oral: "For security-facing evidence, abstention is part of the design because forced labels would overstate what the evidence supports.",
     accent: "green"
   }
 ];
+
+const problemFacts = {
+  execution: {
+    title: "Executable rows protect the denominator.",
+    text: "In the viva, this lets me say exactly which code-generation rows were counted before interpreting any watermark signal."
+  },
+  access: {
+    title: "Different access models create different evidence objects.",
+    text: "A white-box carrier recovery result and a black-box transcript audit do not support the same kind of claim."
+  },
+  abstention: {
+    title: "Abstention prevents overclaiming.",
+    text: "Rows that cannot support a strong statement stay as null, support-only, or review evidence rather than becoming hidden successes."
+  }
+};
+
+const demoFacts = {
+  readme: {
+    title: "Start with the repository README.",
+    text: "Use it to show the examiner the submitted FYP surface and the exact page route before opening deeper artifacts."
+  },
+  boundaries: {
+    title: "Then show the claim boundaries.",
+    text: "This is the strongest defense document: it states both the allowed claim and the forbidden interpretation."
+  },
+  traceability: {
+    title: "Traceability connects claims to files.",
+    text: "Use this to show that each module has code paths, result paths, and a safe interpretation."
+  },
+  manifest: {
+    title: "The manifest preserves evidence records.",
+    text: "This shows the evidence is not just prose on the page; rows are recorded and hash-addressed for inspection."
+  },
+  check: {
+    title: "Finish with the lightweight viva check.",
+    text: "Say clearly that this verifies inspectability, not a full GPU/API rerun."
+  }
+};
 
 const stages = {
   codemarkbench: {
@@ -206,7 +249,7 @@ const resultLedger = document.getElementById("resultLedger");
 
 if (resultLedger) {
   resultLedger.innerHTML = submittedResults.map((item, index) => `
-    <article class="result-card ${item.accent}" data-result="${index}">
+    <article class="result-card ${item.accent}" data-result="${index}" tabindex="0" role="button" aria-pressed="false">
       <div class="result-main">
         <span>${item.tag}</span>
         <h3>${item.name}</h3>
@@ -234,6 +277,35 @@ if (resultLedger) {
   `).join("");
 }
 
+const resultFocus = document.getElementById("resultFocus");
+const resultCards = Array.from(document.querySelectorAll(".result-card"));
+
+function setResultFocus(index) {
+  const data = submittedResults[index];
+  if (!data || !resultFocus) return;
+  resultCards.forEach((card) => {
+    const active = Number(card.dataset.result) === index;
+    card.classList.toggle("active", active);
+    card.setAttribute("aria-pressed", String(active));
+  });
+  resultFocus.innerHTML = `
+    <span>${data.tag}</span>
+    <strong>${data.name}: ${data.result}</strong>
+    <p>${data.oral}</p>
+  `;
+}
+
+resultCards.forEach((card) => {
+  const index = Number(card.dataset.result);
+  card.addEventListener("click", () => setResultFocus(index));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setResultFocus(index);
+    }
+  });
+});
+
 const contractButtons = Array.from(document.querySelectorAll(".contract-chip"));
 const contractLabel = document.getElementById("contractLabel");
 const contractTitle = document.getElementById("contractTitle");
@@ -255,6 +327,28 @@ function setContract(key) {
 contractButtons.forEach((button) => {
   button.setAttribute("aria-pressed", button.classList.contains("active") ? "true" : "false");
   button.addEventListener("click", () => setContract(button.dataset.contract));
+});
+
+const problemCards = Array.from(document.querySelectorAll(".problem-card"));
+const problemPanelTitle = document.getElementById("problemPanelTitle");
+const problemPanelText = document.getElementById("problemPanelText");
+
+function setProblem(key) {
+  const data = problemFacts[key];
+  if (!data) return;
+  problemCards.forEach((card) => card.classList.toggle("active", card.dataset.problem === key));
+  if (problemPanelTitle) problemPanelTitle.textContent = data.title;
+  if (problemPanelText) problemPanelText.textContent = data.text;
+}
+
+problemCards.forEach((card) => {
+  card.addEventListener("click", () => setProblem(card.dataset.problem));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setProblem(card.dataset.problem);
+    }
+  });
 });
 
 const stageButtons = Array.from(document.querySelectorAll(".stage-tab"));
@@ -383,4 +477,22 @@ document.getElementById("copyCommand")?.addEventListener("click", async (event) 
   setTimeout(() => {
     event.currentTarget.textContent = "Copy command";
   }, 1500);
+});
+
+const demoLinks = Array.from(document.querySelectorAll("[data-demo]"));
+const demoPanelTitle = document.getElementById("demoPanelTitle");
+const demoPanelText = document.getElementById("demoPanelText");
+
+function setDemo(key) {
+  const data = demoFacts[key];
+  if (!data) return;
+  demoLinks.forEach((link) => link.classList.toggle("active", link.dataset.demo === key));
+  if (demoPanelTitle) demoPanelTitle.textContent = data.title;
+  if (demoPanelText) demoPanelText.textContent = data.text;
+}
+
+demoLinks.forEach((link) => {
+  link.addEventListener("mouseenter", () => setDemo(link.dataset.demo));
+  link.addEventListener("focus", () => setDemo(link.dataset.demo));
+  link.addEventListener("click", () => setDemo(link.dataset.demo));
 });
