@@ -318,10 +318,29 @@
           <h2>Future work is visible, but it does not rewrite the submitted FYP evidence.</h2>
           <p>The submitted dissertation is the marking surface. The repositories below are continuation tracks for later paper submissions and should be discussed only after the main viva story is complete.</p>
         </div>
-        <details class="future-details">
-          <summary>Show continuation repositories and planned publication tracks</summary>
+        <div class="future-details">
           <div class="future-grid" id="futureGrid" aria-label="Continuation repositories"></div>
-        </details>
+          <aside class="future-panel" id="futurePanel" aria-live="polite">
+            <span id="futureVenue">Target venue</span>
+            <h3 id="futureName">Select a continuation track.</h3>
+            <p id="futureFocus">Use this area at the end of the viva to show how the submitted FYP grows into separate paper tracks without changing the dissertation evidence.</p>
+            <dl>
+              <div>
+                <dt>Repository</dt>
+                <dd id="futureRepo">Open a track on the left</dd>
+              </div>
+              <div>
+                <dt>Current state</dt>
+                <dd id="futureStatus">Post-FYP continuation only</dd>
+              </div>
+              <div>
+                <dt>Viva boundary</dt>
+                <dd id="futureBoundary">Do not use future work to replace the submitted FYP denominator.</dd>
+              </div>
+            </dl>
+            <div class="future-actions" id="futureActions"></div>
+          </aside>
+        </div>
       </section>
 
       <section class="section qa-section viva-step" id="qa" data-step="Q&amp;A">
