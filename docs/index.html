@@ -34,125 +34,48 @@
 
     <main id="main">
       <section class="hero viva-step" id="top" data-step="Opening">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Submitted FYP viva interface</p>
+        <div class="cover-shell">
+          <header class="cover-top">
+            <img class="university-logo" src="assets/xjtlu-logo-white.png" alt="Xi'an Jiaotong-Liverpool University logo">
+            <div>
+              <span>Final Year Project Viva</span>
+              <strong>Department of Computing</strong>
+            </div>
+          </header>
+
+          <div class="cover-main">
+            <p class="eyebrow">Submitted dissertation presentation</p>
             <h1>WatermarkScope</h1>
             <p class="title-line">A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models</p>
-            <p class="hero-lead">The project turns a detector score into inspectable evidence: fixed denominator, executable controls, preserved artifact, access model, and a claim boundary.</p>
-            <div class="hero-actions">
-              <a class="button primary" href="#route">Start 10-minute route</a>
-              <a class="button" href="#snapshot">Show submitted results</a>
-              <a class="button ghost" href="#demo">Inspect evidence</a>
-            </div>
+            <p class="hero-lead">A framework for turning source-code watermark detector outputs into inspectable, bounded evidence.</p>
           </div>
 
-          <figure class="contract-panel" aria-label="WatermarkScope evidence contract">
-            <figcaption>
-              <span>Core claim</span>
-              <strong>Do not ask only whether the detector fires. Ask what the evidence is allowed to mean.</strong>
-            </figcaption>
-            <div class="contract-flow" aria-hidden="true">
-              <span>Generated code</span>
-              <i></i>
-              <span>Evidence object</span>
-              <i></i>
-              <span>Bounded claim</span>
+          <footer class="cover-footer">
+            <div>
+              <span>Student</span>
+              <strong>Haoyi Zhang</strong>
             </div>
-            <div class="contract-parts">
-              <article>
-                <strong>Denominator</strong>
-                <span>Which rows count?</span>
-              </article>
-              <article>
-                <strong>Controls</strong>
-                <span>What would fail?</span>
-              </article>
-              <article>
-                <strong>Artifact</strong>
-                <span>Can it be inspected?</span>
-              </article>
-              <article>
-                <strong>Boundary</strong>
-                <span>What is forbidden?</span>
-              </article>
+            <div>
+              <span>Student ID</span>
+              <strong>2254912</strong>
             </div>
-          </figure>
+            <div>
+              <span>Supervisor</span>
+              <strong>Md Maruf Hasan</strong>
+            </div>
+            <div>
+              <span>Viva</span>
+              <strong>May 2026</strong>
+            </div>
+          </footer>
         </div>
-
-        <div class="hero-metrics" aria-label="Submitted FYP evidence metrics">
-          <article>
-            <span>CodeMarkBench</span>
-            <strong>140/140</strong>
-            <em>canonical runs</em>
-          </article>
-          <article>
-            <span>SemCodebook</span>
-            <strong>30,330/31,200</strong>
-            <em>recoveries</em>
-          </article>
-          <article>
-            <span>CodeDye</span>
-            <strong>4/300</strong>
-            <em>sparse audit signals</em>
-          </article>
-          <article>
-            <span>ProbeTrace</span>
-            <strong>6,000 rows</strong>
-            <em>five-owner surface</em>
-          </article>
-          <article>
-            <span>SealAudit</span>
-            <strong>320/960</strong>
-            <em>decisive triage</em>
-          </article>
-        </div>
-      </section>
-
-      <section class="section route-section viva-step" id="route" data-step="Route">
-        <div class="section-head">
-          <p class="eyebrow">10-minute speaking route</p>
-          <h2>Use the page as the presentation. Scroll once, explain only the evidence chain.</h2>
-          <p>The main viva story is the submitted dissertation version. Later repositories are separated at the end as continuation work.</p>
-        </div>
-        <div class="minute-map" aria-label="Suggested viva timing">
-          <article>
-            <span>0:00-1:00</span>
-            <strong>Problem</strong>
-            <p>Generated code moves outside the original session, so a watermark score alone is weak evidence.</p>
-          </article>
-          <article>
-            <span>1:00-2:30</span>
-            <strong>Evidence contract</strong>
-            <p>Every claim needs a denominator, controls, artifact, access model, and forbidden boundary.</p>
-          </article>
-          <article>
-            <span>2:30-6:30</span>
-            <strong>Five stages</strong>
-            <p>Benchmark, recover, audit, attribute, and triage. Each stage answers a different question.</p>
-          </article>
-          <article>
-            <span>6:30-8:30</span>
-            <strong>Demo route</strong>
-            <p>Open the repository evidence path and show the lightweight viva check.</p>
-          </article>
-          <article>
-            <span>8:30-10:00</span>
-            <strong>Limits and future</strong>
-            <p>State what is not claimed, then separate post-submission continuation work.</p>
-          </article>
-        </div>
-        <aside class="speak-card">
-          <strong>Oral opening</strong>
-          <p>My project is not trying to prove one universal watermark detector. The core idea is evidence admission: before I say what a result means, I fix the denominator, controls, artifact, access model, and claim boundary.</p>
-        </aside>
       </section>
 
       <section class="section problem-section viva-step" id="problem" data-step="Problem">
         <div class="section-head split">
           <div>
             <p class="eyebrow">Problem</p>
-            <h2>Source-code watermarking is an evidence problem, not only a detection problem.</h2>
+            <h2>Source-code watermarking is an evidence problem.</h2>
           </div>
           <p>When generated code is copied, edited, translated, or deployed, the original prompt session is no longer enough to support a provenance claim.</p>
         </div>
@@ -173,6 +96,10 @@
             <p>If a row cannot support a strong claim, the framework keeps it as null, support-only, or review evidence instead of forcing a label.</p>
           </article>
         </div>
+        <aside class="speak-card">
+          <strong>Oral opening</strong>
+          <p>My project is not trying to prove one universal watermark detector. The core idea is evidence admission: before I say what a result means, I fix the denominator, controls, artifact, access model, and claim boundary.</p>
+        </aside>
       </section>
 
       <section class="section contract-section viva-step" id="contract" data-step="Contract">
@@ -207,14 +134,29 @@
             <b>=</b>
             <strong>admissible claim</strong>
           </div>
+          <div class="contribution-strip" aria-label="Contribution summary">
+            <article><span>Framework</span><strong>Benchmark-to-audit lifecycle</strong></article>
+            <article><span>Main method</span><strong>SemCodebook program carriers</strong></article>
+            <article><span>Governance</span><strong>Explicit forbidden claims</strong></article>
+            <article><span>Reproducibility</span><strong>Manifest and viva check route</strong></article>
+          </div>
         </div>
       </section>
 
       <section class="section snapshot-section viva-step" id="snapshot" data-step="Submitted results">
         <div class="section-head">
           <p class="eyebrow">Submitted FYP snapshot</p>
-          <h2>These are the main viva numbers, aligned with the dissertation abstract and registration form.</h2>
+          <h2>Main results aligned with the submitted dissertation.</h2>
           <p>Use this section if the examiner asks for the core result surface. Do not mix these rows with later continuation experiments.</p>
+        </div>
+        <div class="benchmark-strip" aria-label="CodeMarkBench denominator">
+          <strong>Benchmark denominator</strong>
+          <span>4 baselines</span>
+          <i></i>
+          <span>5 local code models</span>
+          <i></i>
+          <span>7 source groups</span>
+          <b>140 canonical runs</b>
         </div>
         <div class="result-ledger" id="resultLedger" aria-label="Submitted FYP result ledger"></div>
       </section>
@@ -222,7 +164,7 @@
       <section class="section walkthrough-section viva-step" id="walkthrough" data-step="Walkthrough">
         <div class="section-head">
           <p class="eyebrow">Interactive walkthrough</p>
-          <h2>Five stages, five evidence questions, five bounded interpretations.</h2>
+          <h2>Five stages, five bounded evidence questions.</h2>
         </div>
         <div class="stage-layout">
           <div class="stage-rail" role="tablist" aria-label="WatermarkScope stages">
@@ -284,87 +226,10 @@
         </div>
       </section>
 
-      <section class="section benchmark-section viva-step" id="benchmark" data-step="Benchmark">
-        <div class="section-head split">
-          <div>
-            <p class="eyebrow">Dataset and benchmark</p>
-            <h2>CodeMarkBench defines the executable base surface.</h2>
-          </div>
-          <p>The denominator is designed to be inspectable: methods, models, source groups, and languages are listed before interpretation.</p>
-        </div>
-        <div class="benchmark-board">
-          <article class="benchmark-card large">
-            <span>Canonical equation</span>
-            <strong>4 x 5 x 7 = 140</strong>
-            <p>Four runtime watermark baselines, five local code models, and seven source groups create the canonical run-completion surface.</p>
-          </article>
-          <article class="benchmark-card">
-            <span>Watermark baselines</span>
-            <ul>
-              <li>STONE</li>
-              <li>SWEET</li>
-              <li>EWD</li>
-              <li>KGW</li>
-            </ul>
-          </article>
-          <article class="benchmark-card">
-            <span>Languages</span>
-            <ul>
-              <li>Python</li>
-              <li>C++</li>
-              <li>Java</li>
-              <li>JavaScript</li>
-              <li>Go</li>
-            </ul>
-          </article>
-          <article class="benchmark-card wide">
-            <span>Source groups</span>
-            <div class="source-grid">
-              <b>HumanEval+</b>
-              <b>MBPP+</b>
-              <b>HumanEval-X</b>
-              <b>MBXP-5lang</b>
-              <b>Crafted Original</b>
-              <b>Crafted Translation</b>
-              <b>Crafted Stress</b>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section contribution-section viva-step" id="contributions" data-step="Contributions">
-        <div class="section-head">
-          <p class="eyebrow">What I built</p>
-          <h2>The project contribution is both a framework and implemented evidence surfaces.</h2>
-        </div>
-        <div class="contribution-map">
-          <article>
-            <span>Framework</span>
-            <h3>Benchmark-to-audit lifecycle</h3>
-            <p>Connects executable benchmarking, provenance recovery, black-box audit, owner attribution, and security triage under one evidence discipline.</p>
-          </article>
-          <article>
-            <span>Main method</span>
-            <h3>SemCodebook carriers</h3>
-            <p>Uses typed program carriers over AST, CFG, and SSA structure with keyed scheduling and recovery logic.</p>
-          </article>
-          <article>
-            <span>Governance</span>
-            <h3>Claim boundaries</h3>
-            <p>Records forbidden interpretations so a result cannot become broader than its access model and denominator.</p>
-          </article>
-          <article>
-            <span>Reproducibility</span>
-            <h3>Inspection route</h3>
-            <p>Provides repository paths, manifests, result locks, traceability documents, and a lightweight viva check.</p>
-          </article>
-        </div>
-      </section>
-
       <section class="section demo-section viva-step" id="demo" data-step="Evidence demo">
         <div class="section-head">
           <p class="eyebrow">Live inspectability demo</p>
-          <h2>Show the examiner how one claim can be followed back to code and artifacts.</h2>
+          <h2>Show how one claim can be followed back to code and artifacts.</h2>
           <p>This demo is intentionally short. It verifies the repository is organized and inspectable; it does not rerun GPU or live-provider experiments during the viva.</p>
         </div>
         <div class="demo-grid">
