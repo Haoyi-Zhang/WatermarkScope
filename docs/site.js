@@ -339,6 +339,14 @@ window.addEventListener("scroll", updateScrollMeter, { passive: true });
 window.addEventListener("resize", updateScrollMeter);
 updateScrollMeter();
 
+window.addEventListener("load", () => {
+  if (!window.location.hash) return;
+  const target = document.querySelector(window.location.hash);
+  if (target) {
+    requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
+  }
+});
+
 function scrollToRelativeStep(direction) {
   const offsets = steps.map((section) => ({
     id: section.id,
