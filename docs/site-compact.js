@@ -220,7 +220,7 @@ const futureTracks = [
     route: "White-box method",
     venue: "EMNLP",
     repo: "https://github.com/Haoyi-Zhang/SemCodebook",
-    commit: "f243416",
+    commit: "69efebc",
     visibility: "Private continuation repository",
     status: "Structured provenance recovery beyond the submitted FYP slice.",
     focus: "Review: carrier/recovery pipeline and negative-control replay gates.",
@@ -233,7 +233,7 @@ const futureTracks = [
     route: "Black-box audit",
     venue: "EMNLP",
     repo: "https://github.com/Haoyi-Zhang/CodeDye",
-    commit: "6aa5d8c",
+    commit: "e8f9df3",
     visibility: "Private continuation repository",
     status: "Conservative black-box null-audit evidence.",
     focus: "Review: audit scripts, role-separated controls, and non-accusation boundary.",
@@ -246,7 +246,7 @@ const futureTracks = [
     route: "Owner attribution",
     venue: "EMNLP",
     repo: "https://github.com/Haoyi-Zhang/ProbeTrace",
-    commit: "a6e53b2",
+    commit: "9e459d4",
     visibility: "Private continuation repository",
     status: "Scoped owner verification with commitment/witness evidence.",
     focus: "Review: owner registry, split, and false-owner controls.",
@@ -259,7 +259,7 @@ const futureTracks = [
     route: "Security triage",
     venue: "EMNLP",
     repo: "https://github.com/Haoyi-Zhang/SealAudit",
-    commit: "5203c62",
+    commit: "039275d",
     visibility: "Private continuation repository",
     status: "Marker-hidden selective security triage.",
     focus: "Review: decision packets, abstention, and unsafe-pass accounting.",
@@ -462,7 +462,12 @@ setFutureTrack(0);
 
 const steps = Array.from(document.querySelectorAll(".viva-step"));
 const currentStep = document.getElementById("currentStep");
-const routeLinks = Array.from(document.querySelectorAll(".route-nav a"));
+const routeLinks = Array.from(document.querySelectorAll(".route-nav a, .cover-route a"));
+const startupParams = new URLSearchParams(window.location.search);
+
+if (startupParams.get("presenter") === "1") {
+  document.body.classList.add("presenter");
+}
 
 function updateCurrentStep(id) {
   const step = steps.find((section) => section.id === id);
@@ -497,18 +502,44 @@ window.addEventListener("resize", updateScrollMeter);
 updateScrollMeter();
 
 window.addEventListener("load", () => {
-  if (!window.location.hash) return;
-  const target = document.querySelector(window.location.hash);
+  const requestedStep = startupParams.get("step") || window.location.hash.slice(1);
+  if (!requestedStep) return;
+  const target = document.getElementById(requestedStep);
   if (target) {
-    requestAnimationFrame(() => scrollToStep(target, "auto"));
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        scrollToStep(target, "auto");
+        updateCurrentStep(target.id);
+      });
+    });
   }
 });
 
 function scrollToStep(target, behavior = "smooth") {
   const topbarOffset = document.body.classList.contains("presenter") ? 0 : 62;
-  const targetTop = target.getBoundingClientRect().top + window.scrollY - topbarOffset;
-  window.scrollTo({ top: Math.max(0, targetTop), behavior });
+  const anchor = target.querySelector(":scope > .cover-shell, :scope > .section-head") || target;
+  const targetTop = anchor.getBoundingClientRect().top + window.scrollY - topbarOffset - 22;
+  const top = Math.max(0, targetTop);
+  if (behavior === "auto") {
+    window.scrollTo(0, top);
+    document.documentElement.scrollTop = top;
+    document.body.scrollTop = top;
+    return;
+  }
+  window.scrollTo({ top, behavior });
 }
+
+routeLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const id = link.getAttribute("href")?.replace("#", "");
+    const target = id ? document.getElementById(id) : null;
+    if (!target) return;
+    event.preventDefault();
+    history.replaceState(null, "", `#${id}`);
+    scrollToStep(target);
+    updateCurrentStep(id);
+  });
+});
 
 function getCurrentStepIndex() {
   const topbarOffset = document.body.classList.contains("presenter") ? 0 : 62;
@@ -530,6 +561,11 @@ document.getElementById("nextStep")?.addEventListener("click", () => scrollToRel
 document.getElementById("prevStep")?.addEventListener("click", () => scrollToRelativeStep(-1));
 
 const presenterButton = document.getElementById("presenterMode");
+
+if (presenterButton && document.body.classList.contains("presenter")) {
+  presenterButton.setAttribute("aria-pressed", "true");
+  presenterButton.textContent = "Exit presenter";
+}
 
 presenterButton?.addEventListener("click", () => {
   const active = document.body.classList.toggle("presenter");
