@@ -2,7 +2,7 @@
 
 This file lists likely supervisor or examiner questions and the concise answers supported by the submitted FYP dissertation and repository.
 
-Use the submitted FYP snapshot numbers during the viva. Later paper-continuation runs may be mentioned only as future work, not as the defended submission result.
+Use the submitted FYP dissertation numbers during the viva. Later paper-continuation runs may be mentioned only as future work, not as the defended submission result.
 
 ## Core Story
 
@@ -21,13 +21,13 @@ A: SemCodebook is the main method contribution, because it moves provenance reco
 A: No. It means 140 canonical runs completed under the release matrix. The watermark method quality is reported through utility, robustness, stealth, efficiency, and false-positive tables.
 
 **Q: Does CodeDye prove contamination?**  
-A: No. In the submitted FYP snapshot, CodeDye reports 6/300 sparse live signals, 170/300 positive controls, and 0/300 negative controls. This is conservative null-audit evidence. It does not estimate contamination prevalence, prove absence, or accuse a provider.
+A: No. In the submitted FYP dissertation surface, CodeDye reports 4/300 sparse live signals, 170/300 positive controls, and 0/300 negative controls. This is conservative null-audit evidence. It does not estimate contamination prevalence, prove absence, or accuse a provider.
 
-**Q: ProbeTrace has 300/300. Is that overclaiming?**  
-A: It would be overclaiming if I presented it as universal authorship proof. In the submitted FYP snapshot, ProbeTrace supports 300/300 scoped owner decisions with 0/1,200 false-owner controls. The claim is limited to that registry, split, and control surface.
+**Q: ProbeTrace has 750/750 true-owner positives. Is that overclaiming?**  
+A: It would be overclaiming if I presented it as universal authorship proof. In the submitted FYP dissertation surface, ProbeTrace has 6,000 five-owner rows with 750/750 true-owner positives and 0/5,250 false-attribution controls. The claim is limited to that registry, split, and control surface.
 
 **Q: SealAudit is still selective. Is that weak?**  
-A: It is selective by design. In the submitted FYP snapshot, SealAudit reports 81/960 decisive triage outcomes with 0 observed unsafe passes. The remaining cases are treated as abstention or review load, not forced classification.
+A: It is selective by design. In the submitted FYP dissertation surface, SealAudit reports 320/960 decisive marker-hidden triage outcomes with 0/960 unsafe passes. The remaining cases are treated as abstention or review load, not forced classification.
 
 **Q: Why report confidence intervals for zero events?**  
 A: Because 0 observed events is not the same as zero risk. Wilson intervals make uncertainty explicit and prevent overclaiming.
