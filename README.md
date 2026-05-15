@@ -2,19 +2,19 @@
 
 This repository supports the submitted Final Year Project, **WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models**, and the post-FYP paper-continuation workstreams built from the same implementation base.
 
-For viva examination, use the submitted FYP snapshot below and the project page:
+For viva examination, use the submitted FYP dissertation surface below and the project page. The project page is the primary viva presentation interface.
 
 ```text
 https://Haoyi-Zhang.github.io/WatermarkScope/
 ```
 
-| Viva-facing submitted FYP surface | Registered snapshot result |
+| Viva-facing submitted FYP surface | Dissertation-aligned result |
 |---|---|
 | CodeMarkBench | 140/140 canonical runs |
-| SemCodebook | 23,342/24,000 recoveries; 0/48,000 negative-control hits |
-| CodeDye | 6/300 sparse live signals; 170/300 positive controls; 0/300 negative controls |
-| ProbeTrace | 300/300 scoped decisions; 0/1,200 false-owner controls |
-| SealAudit | 81/960 decisive triage outcomes; 0 observed unsafe passes |
+| SemCodebook | 30,330/31,200 recoveries; 0/62,400 fixed negative-control hits; 0/62,400 blind negative replay hits |
+| CodeDye | 4/300 sparse live signals; 170/300 positive controls; 0/300 negative controls |
+| ProbeTrace | 6,000 five-owner rows; 750/750 true-owner positives; 0/5,250 false-attribution controls |
+| SealAudit | 320/960 decisive marker-hidden triage outcomes; 0/960 unsafe passes |
 
 Run the lightweight viva check from the repository root:
 
@@ -27,10 +27,9 @@ This check verifies repository consistency and inspectability. It does not rerun
 Viva preparation materials:
 
 - `docs/VIVA_PREPARATION.md`: likely examiner questions and concise answers.
-- `docs/VIVA_REHEARSAL_SCRIPT.md`: 8-10 minute speaking plan, demo route, and short Q&A answers.
-- `docs/WatermarkScope_FYP_Viva.pptx`: editable viva slide deck.
+- `docs/VIVA_REHEARSAL_SCRIPT.md`: 8-10 minute project-page speaking plan, demo route, and short Q&A answers.
 
-The sections below describe the current paper-continuation artifact for four source-code watermarking papers. These continuation surfaces are preserved for traceability and future submission planning; they should not be confused with the registered FYP snapshot above.
+The sections below describe the current paper-continuation artifact for four source-code watermarking papers. These continuation surfaces are preserved for traceability and future submission planning; they should not be confused with the submitted FYP dissertation surface above.
 
 It contains implementation snapshots, reproducibility scripts, hash-bound result artifacts, final claim locks, and reviewer-facing documentation for:
 
@@ -39,7 +38,7 @@ It contains implementation snapshots, reproducibility scripts, hash-bound result
 3. **ProbeTrace**: active-owner, source-bound commitment/witness verification with false-owner controls.
 4. **SealAudit**: watermark-as-security-object selective audit and triage.
 
-The active submission surface is locked by `ACTIVE_CLAIM_SURFACE.json` and `results/watermark_submission_main_table_manifest_v1_20260508.json`. Local preserved archive material remains in the working tree for traceability, but it is excluded from the EMNLP anonymous bundle profile.
+The post-FYP paper-continuation surface is locked by `ACTIVE_CLAIM_SURFACE.json` and `results/watermark_submission_main_table_manifest_v1_20260508.json`. Local preserved archive material remains in the working tree for traceability, but it is excluded from the EMNLP anonymous bundle profile. For the viva, use the dissertation-aligned table at the top of this README and the project page.
 
 Project independence boundary: the four papers share repository infrastructure and hash/reproducibility gates, but they do not share a claim denominator, task population, prompt protocol, evidence object, or promotion rule. SemCodebook is white-box local-model provenance recovery; CodeDye is black-box sparse null-audit; ProbeTrace is active-owner commitment/witness verification; SealAudit is selective security triage.
 
@@ -77,7 +76,7 @@ The page visualizes the benchmark-to-audit pipeline, links claim boundaries and 
 `-- scripts/
 ```
 
-## Active Claim Surface
+## Post-FYP Paper-Continuation Claim Surface
 
 | Project | Locked claim | Main evidence surface | Current reviewer risk |
 |---|---|---|---|
