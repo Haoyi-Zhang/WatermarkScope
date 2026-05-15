@@ -1218,6 +1218,10 @@ code {
   font-size: 19px;
 }
 
+.future-track p {
+  margin-bottom: 8px;
+}
+
 .future-track em {
   display: block;
   margin-top: 8px;
@@ -1225,6 +1229,25 @@ code {
   font-size: 12px;
   font-style: normal;
   font-weight: 780;
+}
+
+.future-track a {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 6px 9px;
+  border: 1px solid rgba(106, 168, 255, 0.48);
+  border-radius: 6px;
+  color: var(--ink);
+  background: rgba(106, 168, 255, 0.12);
+  font-size: 12px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.future-track a:hover {
+  background: rgba(106, 168, 255, 0.20);
 }
 
 .future-panel {
@@ -1270,6 +1293,37 @@ code {
   border: 1px solid var(--line);
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.045);
+}
+
+.future-review {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid rgba(247, 198, 106, 0.28);
+  border-radius: var(--radius);
+  background: rgba(247, 198, 106, 0.06);
+}
+
+.future-review strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--amber);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.future-review ol {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.future-review li {
+  color: #dce8f8;
+  font-size: 14px;
+  line-height: 1.35;
 }
 
 .future-actions {
