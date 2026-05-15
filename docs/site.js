@@ -205,12 +205,12 @@ const futureTracks = [
     key: "codemarkbench",
     name: "CodeMarkBench",
     route: "Benchmark foundation",
-    venue: "Target journal: ACM TOSEM",
+    venue: "ACM TOSEM",
     repo: "https://github.com/Haoyi-Zhang/CodeMarkBench",
     commit: "2db2630",
     visibility: "Public repository",
-    status: "Benchmark infrastructure and denominator expansion.",
-    focus: "Review focus: benchmark repository, task/suite organization, and new admitted benchmark surfaces.",
+    status: "Benchmark expansion with separately admitted denominators.",
+    focus: "Review: task suites, release metadata, and admitted benchmark surfaces.",
     boundary: "Any new benchmark cell must be admitted as a new surface; it does not change the 140/140 submitted FYP denominator.",
     review: ["Open the benchmark repository", "Show task and suite organization", "Explain how new benchmark surfaces would be admitted"]
   },
@@ -218,12 +218,12 @@ const futureTracks = [
     key: "semcodebook",
     name: "SemCodebook",
     route: "White-box method",
-    venue: "Target conference: EMNLP",
+    venue: "EMNLP",
     repo: "https://github.com/Haoyi-Zhang/SemCodebook",
     commit: "f243416",
     visibility: "Private continuation repository",
-    status: "Structured provenance recovery method.",
-    focus: "Review focus: implementation modules, carrier/recovery pipeline, and negative-control replay gates.",
+    status: "Structured provenance recovery beyond the submitted FYP slice.",
+    focus: "Review: carrier/recovery pipeline and negative-control replay gates.",
     boundary: "Extra cells are future evidence. They should be reported separately from the submitted 30,330/31,200 FYP recovery surface.",
     review: ["Open implementation modules", "Show carrier and recovery pipeline", "Explain negative-control and replay gates"]
   },
@@ -231,12 +231,12 @@ const futureTracks = [
     key: "codedye",
     name: "CodeDye",
     route: "Black-box audit",
-    venue: "Target conference: EMNLP",
+    venue: "EMNLP",
     repo: "https://github.com/Haoyi-Zhang/CodeDye",
     commit: "6aa5d8c",
     visibility: "Private continuation repository",
-    status: "Conservative black-box null-audit track.",
-    focus: "Review focus: audit scripts, role-separated controls, and non-accusation boundary.",
+    status: "Conservative black-box null-audit evidence.",
+    focus: "Review: audit scripts, role-separated controls, and non-accusation boundary.",
     boundary: "The claim remains null-audit evidence, not prevalence, wrongdoing proof, or absence proof.",
     review: ["Open audit scripts", "Show role-separated control design", "Explain why sparse signals are not accusations"]
   },
@@ -244,12 +244,12 @@ const futureTracks = [
     key: "probetrace",
     name: "ProbeTrace",
     route: "Owner attribution",
-    venue: "Target conference: EMNLP",
+    venue: "EMNLP",
     repo: "https://github.com/Haoyi-Zhang/ProbeTrace",
     commit: "a6e53b2",
     visibility: "Private continuation repository",
-    status: "Active-owner commitment/witness verification.",
-    focus: "Review focus: commitment/witness code, owner registry, split, and false-owner controls.",
+    status: "Scoped owner verification with commitment/witness evidence.",
+    focus: "Review: owner registry, split, and false-owner controls.",
     boundary: "It is scoped owner verification, not universal authorship proof or cross-provider attribution.",
     review: ["Open commitment and witness code", "Show owner registry and split", "Explain false-owner controls"]
   },
@@ -257,12 +257,12 @@ const futureTracks = [
     key: "sealaudit",
     name: "SealAudit",
     route: "Security triage",
-    venue: "Target conference: EMNLP",
+    venue: "EMNLP",
     repo: "https://github.com/Haoyi-Zhang/SealAudit",
     commit: "5203c62",
     visibility: "Private continuation repository",
     status: "Marker-hidden selective security triage.",
-    focus: "Review focus: triage pipeline, decision packets, abstention, and unsafe-pass accounting.",
+    focus: "Review: decision packets, abstention, and unsafe-pass accounting.",
     boundary: "It is selective triage, not a classifier, safety certificate, or automatic harmlessness guarantee.",
     review: ["Open triage pipeline", "Show marker-hidden decision packets", "Explain abstention and unsafe-pass accounting"]
   }
@@ -426,10 +426,10 @@ const futureNote = document.getElementById("futureNote");
 if (futureGrid) {
   futureGrid.innerHTML = futureTracks.map((track, index) => `
     <article class="future-track ${index === 0 ? "active" : ""}" data-future="${index}" tabindex="0" role="button" aria-pressed="${index === 0 ? "true" : "false"}">
-      <span>${track.venue}</span>
+      <span>Target: ${track.venue}</span>
       <h3>${track.name}</h3>
       <p>${track.route}</p>
-      <em>${track.commit}</em>
+      <em>${track.visibility} / ${track.commit}</em>
       <a href="${track.repo}" target="_blank" rel="noopener" aria-label="Review ${track.name} repository">Review repo</a>
     </article>
   `).join("");
@@ -519,13 +519,18 @@ function scrollToStep(target, behavior = "smooth") {
   window.scrollTo({ top: Math.max(0, targetTop), behavior });
 }
 
+function getCurrentStepIndex() {
+  const topbarOffset = document.body.classList.contains("presenter") ? 0 : 62;
+  const anchor = window.scrollY + topbarOffset + 4;
+  let currentIndex = 0;
+  steps.forEach((section, index) => {
+    if (section.offsetTop <= anchor) currentIndex = index;
+  });
+  return currentIndex;
+}
+
 function scrollToRelativeStep(direction) {
-  const offsets = steps.map((section) => ({
-    id: section.id,
-    top: Math.abs(section.getBoundingClientRect().top)
-  }));
-  const current = offsets.sort((a, b) => a.top - b.top)[0];
-  const index = steps.findIndex((section) => section.id === current.id);
+  const index = getCurrentStepIndex();
   const target = steps[Math.min(steps.length - 1, Math.max(0, index + direction))];
   if (target) scrollToStep(target);
 }
@@ -543,8 +548,15 @@ presenterButton?.addEventListener("click", () => {
 
 document.addEventListener("keydown", (event) => {
   if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
-  if (event.key.toLowerCase() === "n" || event.key === "ArrowDown") scrollToRelativeStep(1);
-  if (event.key.toLowerCase() === "p" || event.key === "ArrowUp") scrollToRelativeStep(-1);
+  if (event.metaKey || event.ctrlKey || event.altKey) return;
+  if (event.key.toLowerCase() === "n" || event.key === "ArrowDown") {
+    event.preventDefault();
+    scrollToRelativeStep(1);
+  }
+  if (event.key.toLowerCase() === "p" || event.key === "ArrowUp") {
+    event.preventDefault();
+    scrollToRelativeStep(-1);
+  }
 });
 
 document.getElementById("copyCommand")?.addEventListener("click", async (event) => {
