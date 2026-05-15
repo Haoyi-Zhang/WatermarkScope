@@ -488,6 +488,26 @@ h3 {
   align-items: end;
 }
 
+.future-section {
+  align-content: center;
+}
+
+.future-section .section-head {
+  max-width: 900px;
+  margin-bottom: 16px;
+}
+
+.future-section h2 {
+  max-width: 780px;
+  font-size: clamp(24px, 2.55vw, 34px);
+}
+
+.future-section .section-head p:not(.eyebrow) {
+  max-width: 720px;
+  font-size: 15px;
+  line-height: 1.36;
+}
+
 .problem-grid,
 .limit-grid,
 .qa-grid {
@@ -1163,47 +1183,23 @@ code {
 .future-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
+  align-items: stretch;
 }
 
 .future-track {
   position: relative;
-  min-height: 220px;
+  min-height: 164px;
   display: grid;
-  align-content: space-between;
-  padding: 16px;
+  align-content: start;
+  gap: 8px;
+  padding: 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background:
-    linear-gradient(160deg, rgba(85, 215, 231, 0.10), rgba(255, 255, 255, 0.035) 48%),
-    rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.04);
   cursor: pointer;
   overflow: hidden;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
-}
-
-.future-track:nth-child(2) {
-  background:
-    linear-gradient(160deg, rgba(181, 156, 255, 0.12), rgba(255, 255, 255, 0.035) 48%),
-    rgba(255, 255, 255, 0.035);
-}
-
-.future-track:nth-child(3) {
-  background:
-    linear-gradient(160deg, rgba(247, 198, 106, 0.13), rgba(255, 255, 255, 0.035) 48%),
-    rgba(255, 255, 255, 0.035);
-}
-
-.future-track:nth-child(4) {
-  background:
-    linear-gradient(160deg, rgba(106, 168, 255, 0.12), rgba(255, 255, 255, 0.035) 48%),
-    rgba(255, 255, 255, 0.035);
-}
-
-.future-track:nth-child(5) {
-  background:
-    linear-gradient(160deg, rgba(112, 214, 164, 0.12), rgba(255, 255, 255, 0.035) 48%),
-    rgba(255, 255, 255, 0.035);
 }
 
 .future-track::before {
@@ -1216,11 +1212,16 @@ code {
   transition: opacity 160ms ease;
 }
 
+.future-track:nth-child(2)::before { background: linear-gradient(90deg, var(--violet), var(--blue)); }
+.future-track:nth-child(3)::before { background: linear-gradient(90deg, var(--amber), var(--cyan)); }
+.future-track:nth-child(4)::before { background: linear-gradient(90deg, var(--green), var(--cyan)); }
+.future-track:nth-child(5)::before { background: linear-gradient(90deg, var(--red), var(--amber)); }
+
 .future-track:hover,
 .future-track.active {
   transform: translateY(-1px);
   border-color: rgba(85, 215, 231, 0.48);
-  background: rgba(85, 215, 231, 0.075);
+  background: rgba(85, 215, 231, 0.070);
 }
 
 .future-track.active {
@@ -1233,39 +1234,40 @@ code {
 }
 
 .future-track h3 {
-  margin: 16px 0 8px;
-  font-size: clamp(17px, 1.45vw, 22px);
+  margin: 12px 0 0;
+  font-size: clamp(16px, 1.35vw, 20px);
+  line-height: 1.12;
 }
 
 .future-track p {
   margin-bottom: 0;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.32;
+  font-size: 13px;
+  line-height: 1.28;
 }
 
 .future-track em {
   display: block;
-  margin-top: 12px;
+  margin-top: 0;
   color: var(--faint);
-  font-size: 12px;
+  font-size: 11px;
   font-style: normal;
   font-weight: 780;
 }
 
 .future-track a {
-  min-height: 34px;
+  min-height: 28px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 14px;
-  padding: 6px 9px;
+  margin-top: 2px;
+  padding: 5px 8px;
   border: 1px solid rgba(106, 168, 255, 0.48);
   border-radius: 6px;
   color: var(--ink);
   background: rgba(106, 168, 255, 0.12);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 850;
   text-decoration: none;
 }
@@ -1275,23 +1277,23 @@ code {
 }
 
 .future-note {
-  min-height: 66px;
+  min-height: 46px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 12px;
+  gap: 6px 10px;
   align-items: center;
-  margin-top: 14px;
-  padding: 13px 15px;
+  margin-top: 12px;
+  padding: 10px 13px;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   color: var(--muted);
   background: rgba(255, 255, 255, 0.04);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .future-note strong {
   color: var(--ink);
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .future-note span {
@@ -1301,6 +1303,7 @@ code {
 
 .future-note em {
   font-style: normal;
+  color: var(--faint);
 }
 
 .qa-grid details {
@@ -1391,6 +1394,18 @@ body.presenter .viva-step {
 body.presenter .section,
 body.presenter .hero {
   padding: clamp(28px, 5vh, 52px) 0;
+}
+
+body.presenter .future-section {
+  padding: 28px 0;
+}
+
+body.presenter .future-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+body.presenter .future-track {
+  min-height: 150px;
 }
 
 body.presenter .floating-controls {
