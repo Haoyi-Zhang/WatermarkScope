@@ -454,6 +454,47 @@ h3 {
   text-decoration: none;
 }
 
+.route-timer {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 7px;
+  max-width: 820px;
+  margin-top: 14px;
+}
+
+.route-timer span {
+  position: relative;
+  min-height: 38px;
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  padding: 7px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 11px;
+  font-weight: 840;
+  overflow: hidden;
+}
+
+.route-timer span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: var(--w);
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  opacity: 0.9;
+}
+
+.route-timer b {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+}
+
 .cover-footer {
   grid-template-columns: repeat(4, 1fr);
   padding-top: 18px;
@@ -884,6 +925,50 @@ h3 {
 .benchmark-strip b {
   color: #06111f;
   background: var(--amber);
+}
+
+.result-thesis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.result-thesis article {
+  min-height: 72px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.042);
+}
+
+.result-thesis article:nth-child(1) {
+  border-left: 4px solid var(--red);
+}
+
+.result-thesis article:nth-child(2) {
+  border-left: 4px solid var(--cyan);
+}
+
+.result-thesis article:nth-child(3) {
+  border-left: 4px solid var(--green);
+}
+
+.result-thesis span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--faint);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.result-thesis strong {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.22;
 }
 
 .snapshot-section .section-head {
@@ -1487,6 +1572,48 @@ code {
   background: rgba(106, 168, 255, 0.20);
 }
 
+.future-boundary-strip {
+  display: grid;
+  grid-template-columns: 0.55fr 1fr 26px 0.65fr 1fr 26px 0.55fr 1fr;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.038);
+}
+
+.future-boundary-strip span,
+.future-boundary-strip b {
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.future-boundary-strip span {
+  color: var(--faint);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 10px;
+  font-weight: 860;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.future-boundary-strip b {
+  color: var(--ink);
+  background: rgba(85, 215, 231, 0.085);
+  font-size: 12px;
+}
+
+.future-boundary-strip i {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(85, 215, 231, 0.74), transparent);
+}
+
 .future-note {
   min-height: 96px;
   display: grid;
@@ -1999,6 +2126,7 @@ body.presenter .floating-controls {
   .problem-grid,
   .limit-grid,
   .contribution-strip,
+  .result-thesis,
   .result-ledger,
   .stage-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2014,6 +2142,7 @@ body.presenter .floating-controls {
   .claim-readout,
   .answer-formula,
   .future-note,
+  .future-boundary-strip,
   .qa-hotseat,
   .demo-route {
     grid-template-columns: 1fr;
@@ -2021,6 +2150,7 @@ body.presenter .floating-controls {
 
   .benchmark-strip i,
   .answer-formula i,
+  .future-boundary-strip i,
   .demo-route span {
     display: none;
   }
@@ -2068,6 +2198,7 @@ body.presenter .floating-controls {
   }
 
   .cover-footer,
+  .route-timer,
   .problem-grid,
   .limit-grid,
   .qa-grid,
@@ -2076,9 +2207,11 @@ body.presenter .floating-controls {
   .answer-formula,
   .claim-readout,
   .contribution-strip,
+  .result-thesis,
   .result-ledger,
   .future-grid,
   .future-note,
+  .future-boundary-strip,
   .stage-grid,
   .contract-stack,
   .method-pipeline {
@@ -2167,6 +2300,14 @@ body.presenter .floating-controls {
               <a href="#demo">4 Demo</a>
               <a href="#future">5 Future</a>
               <a href="#qa">6 Q&amp;A</a>
+            </div>
+            <div class="route-timer" aria-label="10-minute viva timing plan">
+              <span style="--w: 8%">Opening <b>0:45</b></span>
+              <span style="--w: 14%">Problem <b>1:15</b></span>
+              <span style="--w: 19%">Method <b>1:45</b></span>
+              <span style="--w: 22%">Results <b>2:00</b></span>
+              <span style="--w: 17%">Demo <b>1:30</b></span>
+              <span style="--w: 8%">Future <b>0:45</b></span>
             </div>
           </div>
 
@@ -2290,6 +2431,20 @@ body.presenter .floating-controls {
           <span>7 source groups</span>
           <b>140 canonical runs</b>
         </div>
+        <div class="result-thesis" aria-label="Result interpretation summary">
+          <article>
+            <span>Do not say</span>
+            <strong>One detector score proves everything.</strong>
+          </article>
+          <article>
+            <span>Main evidence</span>
+            <strong>Each number is read with denominator and controls.</strong>
+          </article>
+          <article>
+            <span>Safe conclusion</span>
+            <strong>Claims are access-specific and explicitly bounded.</strong>
+          </article>
+        </div>
         <div class="result-ledger" id="resultLedger" aria-label="Submitted FYP result ledger"></div>
         <aside class="result-focus" id="resultFocus" aria-live="polite">
           <span>Click a result card</span>
@@ -2371,15 +2526,15 @@ body.presenter .floating-controls {
         </div>
         <div class="demo-grid">
           <div class="demo-route" aria-label="Repository inspection route">
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/README.md" data-demo="readme">README</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/README.md" target="_blank" rel="noopener" data-demo="readme">README</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/CLAIM_BOUNDARIES.md" data-demo="boundaries">Claim boundaries</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/CLAIM_BOUNDARIES.md" target="_blank" rel="noopener" data-demo="boundaries">Claim boundaries</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/docs/TRACEABILITY_MATRIX.md" data-demo="traceability">Traceability</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/docs/TRACEABILITY_MATRIX.md" target="_blank" rel="noopener" data-demo="traceability">Traceability</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/RESULT_MANIFEST.jsonl" data-demo="manifest">Manifest</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/RESULT_MANIFEST.jsonl" target="_blank" rel="noopener" data-demo="manifest">Manifest</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/scripts/viva_check.py" data-demo="check">viva_check.py</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/scripts/viva_check.py" target="_blank" rel="noopener" data-demo="check">viva_check.py</a>
           </div>
           <div class="terminal-card">
             <div class="terminal-top">
@@ -2439,6 +2594,16 @@ body.presenter .floating-controls {
           <p>If there is time, I can briefly open these repositories to show how the work can be extended. They do not change the submitted dissertation evidence.</p>
         </div>
         <div class="future-grid" id="futureGrid" aria-label="Continuation repositories"></div>
+        <div class="future-boundary-strip" aria-label="Submitted and future work separation">
+          <span>Submitted FYP</span>
+          <b>Fixed evidence surface</b>
+          <i></i>
+          <span>Continuation repos</span>
+          <b>Paper development only</b>
+          <i></i>
+          <span>Viva rule</span>
+          <b>Open if examiner asks</b>
+        </div>
         <aside class="future-note" id="futureNote" aria-live="polite">
           Select a track to show the review focus. These repositories do not change the submitted dissertation evidence.
         </aside>
