@@ -19,6 +19,18 @@ WatermarkScope is my framework for checking source-code watermarking as evidence
 | Q&A landing | 15 sec | Stop on the Q&A page and use the hot-seat rule. |
 | Buffer | 1 min 30 sec | Slow down, answer interruption, or skip demo details if needed. |
 
+## Homepage Controls
+
+Use the homepage mainly in manual mode during the real viva. Press **Next** page by page and speak naturally.
+
+The **Auto demo** button is useful for rehearsal or for a smooth backup route. It automatically moves through the same story, shows a small cue box, and highlights the evidence route on the demo page.
+
+If I click anything, press Next/Previous, or scroll by mistake, the auto demo pauses. That is fine. I can either press **Resume** or continue manually.
+
+When I reach the live demo page, I should say:
+
+"This automatic highlight is only a guide. If you want to inspect a file, I can open the repository link manually. The purpose here is inspectability, not a full experimental rerun."
+
 ## Full Oral Script
 
 ### Opening
