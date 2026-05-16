@@ -1977,6 +1977,38 @@ body.presenter .floating-controls {
   bottom: 22px;
 }
 
+body.presenter .step-dots {
+  display: none;
+}
+
+@media (max-height: 940px) and (min-width: 900px) {
+  body.presenter .contract-section {
+    padding: 22px 0 74px;
+  }
+
+  body.presenter .contract-section .section-head {
+    margin-bottom: 10px;
+  }
+
+  body.presenter .contract-lab {
+    gap: 9px;
+  }
+
+  body.presenter .contract-detail {
+    min-height: 170px;
+    padding: 16px 20px;
+  }
+
+  body.presenter .contract-detail h3 {
+    font-size: clamp(24px, 2.5vw, 32px);
+  }
+
+  body.presenter .contribution-strip article {
+    min-height: 74px;
+    padding: 12px 14px;
+  }
+}
+
 @keyframes ambientBreath {
   0%, 100% {
     opacity: 0.34;
