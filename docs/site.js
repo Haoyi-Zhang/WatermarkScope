@@ -138,9 +138,106 @@ const demoFacts = {
   },
   check: {
     title: "Finish with the lightweight evidence check.",
-    text: "This verifies the inspection route and key artifacts; it is not a replacement for the full GPU/API experiments."
+    text: "This verifies repository consistency and artifact presence; it is not a replacement for the full GPU/API experiments."
   }
 };
+
+const autoDemoPlan = [
+  {
+    id: "top",
+    duration: 45,
+    title: "Opening",
+    cue: "Start with the one-sentence story: watermarking is evidence, not one detector score.",
+    next: "Problem"
+  },
+  {
+    id: "problem",
+    duration: 75,
+    title: "Problem",
+    cue: "Explain why generated code loses context after reuse, and why code has to remain executable.",
+    next: "Method",
+    actions: [
+      { at: 10, type: "problem", key: "execution" },
+      { at: 34, type: "problem", key: "access" },
+      { at: 58, type: "problem", key: "abstention" }
+    ]
+  },
+  {
+    id: "contract",
+    duration: 105,
+    title: "Method",
+    cue: "Use the contract: denominator, controls, artifact, access model, and boundary.",
+    next: "Results",
+    actions: [
+      { at: 8, type: "contract", key: "denominator" },
+      { at: 28, type: "contract", key: "controls" },
+      { at: 48, type: "contract", key: "artifact" },
+      { at: 68, type: "contract", key: "access" },
+      { at: 88, type: "contract", key: "boundary" }
+    ]
+  },
+  {
+    id: "snapshot",
+    duration: 120,
+    title: "Submitted results",
+    cue: "Do not read every table. Say what each number can safely support.",
+    next: "Evidence demo",
+    actions: [
+      { at: 4, type: "result", index: 0 },
+      { at: 28, type: "result", index: 1 },
+      { at: 56, type: "result", index: 2 },
+      { at: 80, type: "result", index: 3 },
+      { at: 102, type: "result", index: 4 }
+    ]
+  },
+  {
+    id: "demo",
+    duration: 90,
+    title: "Evidence demo",
+    cue: "This is an inspectability demo, not a full rerun. Follow the evidence route.",
+    next: "Future",
+    actions: [
+      { at: 0, type: "demo", key: "readme" },
+      { at: 18, type: "demo", key: "boundaries" },
+      { at: 36, type: "demo", key: "traceability" },
+      { at: 54, type: "demo", key: "manifest" },
+      { at: 72, type: "demo", key: "check" },
+      { at: 84, type: "terminal-final" }
+    ]
+  },
+  {
+    id: "future",
+    duration: 45,
+    title: "Future work",
+    cue: "Keep this short: future repositories are separate paper tracks, not changes to the submitted FYP.",
+    next: "Q&A",
+    actions: [
+      { at: 2, type: "future", index: 0 },
+      { at: 10, type: "future", index: 1 },
+      { at: 18, type: "future", index: 2 },
+      { at: 26, type: "future", index: 3 },
+      { at: 34, type: "future", index: 4 }
+    ]
+  },
+  {
+    id: "qa",
+    duration: 15,
+    title: "Q&A landing",
+    cue: "Stop here. Answer directly, give one evidence number, then state the boundary.",
+    next: "Q&A hold",
+    actions: [
+      { at: 2, type: "qa", key: "broad" },
+      { at: 7, type: "qa", key: "rerun" }
+    ]
+  },
+  {
+    id: "qa",
+    duration: 105,
+    title: "Q&A hold",
+    cue: "Stay on this page. Use the answer rule and let the examiner lead.",
+    next: "Finished"
+  }
+];
 
 const qaFacts = {
   broad: {
@@ -356,10 +453,14 @@ function setResultFocus(index) {
 
 resultCards.forEach((card) => {
   const index = Number(card.dataset.result);
-  card.addEventListener("click", () => setResultFocus(index));
+  card.addEventListener("click", (event) => {
+    handleManualInteraction(event);
+    setResultFocus(index);
+  });
   card.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
+      handleManualInteraction(event);
       setResultFocus(index);
     }
   });
@@ -390,7 +491,10 @@ function setContract(key) {
 
 contractButtons.forEach((button) => {
   button.setAttribute("aria-pressed", button.classList.contains("active") ? "true" : "false");
-  button.addEventListener("click", () => setContract(button.dataset.contract));
+  button.addEventListener("click", (event) => {
+    handleManualInteraction(event);
+    setContract(button.dataset.contract);
+  });
 });
 
 const problemCards = Array.from(document.querySelectorAll(".problem-card"));
@@ -409,10 +513,14 @@ function setProblem(key) {
 }
 
 problemCards.forEach((card) => {
-  card.addEventListener("click", () => setProblem(card.dataset.problem));
+  card.addEventListener("click", (event) => {
+    handleManualInteraction(event);
+    setProblem(card.dataset.problem);
+  });
   card.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
+      handleManualInteraction(event);
       setProblem(card.dataset.problem);
     }
   });
@@ -453,7 +561,10 @@ function setStage(key) {
 
 stageButtons.forEach((button) => {
   button.setAttribute("aria-pressed", button.classList.contains("active") ? "true" : "false");
-  button.addEventListener("click", () => setStage(button.dataset.stage));
+  button.addEventListener("click", (event) => {
+    handleManualInteraction(event);
+    setStage(button.dataset.stage);
+  });
 });
 
 const futureGrid = document.getElementById("futureGrid");
@@ -500,10 +611,14 @@ function setFutureTrack(index) {
 
 futureCards.forEach((card) => {
   const index = Number(card.dataset.future);
-  card.addEventListener("click", () => setFutureTrack(index));
+  card.addEventListener("click", (event) => {
+    handleManualInteraction(event);
+    setFutureTrack(index);
+  });
   card.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
+      handleManualInteraction(event);
       setFutureTrack(index);
     }
   });
@@ -556,6 +671,16 @@ if ("IntersectionObserver" in window) {
 }
 
 const scrollMeter = document.getElementById("scrollMeter");
+const cueTitle = document.getElementById("cueTitle");
+const cueText = document.getElementById("cueText");
+const cueStatus = document.getElementById("cueStatus");
+const cueClock = document.getElementById("cueClock");
+const cueNext = document.getElementById("cueNext");
+const cueProgress = document.getElementById("cueProgress");
+const demoCue = document.getElementById("demoCue");
+const autoDemoButton = document.getElementById("autoDemo");
+let autoDemoState = null;
+let autoDemoTick = null;
 
 function updateScrollMeter() {
   if (!scrollMeter) return;
@@ -595,8 +720,200 @@ function scrollToStep(target, behavior = "smooth") {
   window.scrollTo({ top, behavior });
 }
 
+function formatTime(totalSeconds) {
+  const seconds = Math.max(0, Math.round(totalSeconds));
+  const minutes = Math.floor(seconds / 60);
+  const rest = seconds % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(rest).padStart(2, "0")}`;
+}
+
+function getElapsedBefore(planIndex) {
+  return autoDemoPlan.slice(0, planIndex).reduce((sum, step) => sum + step.duration, 0);
+}
+
+function getPlanTotal() {
+  return autoDemoPlan.reduce((sum, step) => sum + step.duration, 0);
+}
+
+function setAutoDemoButton(label, pressed) {
+  if (!autoDemoButton) return;
+  autoDemoButton.textContent = label;
+  autoDemoButton.setAttribute("aria-pressed", String(pressed));
+  autoDemoButton.dataset.state = label.toLowerCase().replace(/\s+/g, "-");
+}
+
+function setCueVisible(visible) {
+  if (demoCue) demoCue.setAttribute("aria-hidden", String(!visible));
+}
+
+function setCue(planIndex, elapsedInStep, paused = false) {
+  const item = autoDemoPlan[planIndex] || autoDemoPlan[autoDemoPlan.length - 1];
+  const totalElapsed = getElapsedBefore(planIndex) + elapsedInStep;
+  const total = getPlanTotal();
+  document.documentElement.style.setProperty("--cue-progress", total ? String(Math.min(1, totalElapsed / total)) : "0");
+  if (cueStatus) cueStatus.textContent = paused ? "Paused" : "Auto demo";
+  if (cueTitle) cueTitle.textContent = item.title;
+  if (cueText) cueText.textContent = item.cue;
+  if (cueClock) cueClock.textContent = `${formatTime(totalElapsed)} / ${formatTime(total)}`;
+  if (cueNext) cueNext.textContent = `Next: ${item.next}`;
+  cueProgress?.style.setProperty("--cue-progress", total ? String(Math.min(1, totalElapsed / total)) : "0");
+}
+
+function runAutoAction(action) {
+  if (!action) return;
+  if (action.type === "problem") setProblem(action.key);
+  if (action.type === "contract") setContract(action.key);
+  if (action.type === "result") setResultFocus(action.index);
+  if (action.type === "demo") setDemo(action.key);
+  if (action.type === "future") setFutureTrack(action.index);
+  if (action.type === "qa") setQaAnswer(action.key);
+  if (action.type === "terminal-final") {
+    document.querySelector(".terminal-card")?.classList.add("demo-final");
+  }
+}
+
+function enterAutoStep(planIndex, behavior = "smooth") {
+  const item = autoDemoPlan[planIndex];
+  if (!item) return;
+  const target = document.getElementById(item.id);
+  if (target) {
+    scrollToStep(target, behavior);
+    updateCurrentStep(target.id);
+  }
+  if (item.id !== "demo") document.querySelector(".terminal-card")?.classList.remove("demo-final");
+  (item.actions || []).forEach((action, actionIndex) => {
+    if (action.at !== 0) return;
+    autoDemoState?.fired.add(`${planIndex}:${actionIndex}`);
+    runAutoAction(action);
+  });
+  setCue(planIndex, 0, false);
+}
+
+function clearAutoTimer() {
+  if (autoDemoTick) window.clearInterval(autoDemoTick);
+  autoDemoTick = null;
+}
+
+function stopAutoDemo(holdCue = false) {
+  clearAutoTimer();
+  if (!autoDemoState) return;
+  autoDemoState = null;
+  document.body.classList.remove("auto-demo", "demo-paused", "demo-complete");
+  if (holdCue) {
+    document.body.classList.add("demo-complete");
+    document.documentElement.style.setProperty("--cue-progress", "1");
+    cueProgress?.style.setProperty("--cue-progress", "1");
+    if (cueStatus) cueStatus.textContent = "Finished";
+    if (cueTitle) cueTitle.textContent = "Q&A";
+    if (cueText) cueText.textContent = "Stay here. Answer directly, give one evidence number, then state the boundary.";
+    if (cueClock) cueClock.textContent = `${formatTime(getPlanTotal())} / ${formatTime(getPlanTotal())}`;
+    if (cueNext) cueNext.textContent = "Next: examiner questions";
+    setAutoDemoButton("Restart demo", false);
+    setCueVisible(true);
+  } else {
+    setAutoDemoButton("Auto demo", false);
+    document.documentElement.style.setProperty("--cue-progress", "0");
+    cueProgress?.style.setProperty("--cue-progress", "0");
+    if (cueStatus) cueStatus.textContent = "Manual mode";
+    setCueVisible(false);
+  }
+}
+
+function pauseAutoDemo(reason = "manual") {
+  if (!autoDemoState || autoDemoState.paused) return;
+  const now = performance.now();
+  autoDemoState.elapsed += (now - autoDemoState.startedAt) / 1000;
+  autoDemoState.paused = true;
+  autoDemoState.pauseReason = reason;
+  clearAutoTimer();
+  document.body.classList.remove("auto-demo");
+  document.body.classList.remove("demo-complete");
+  document.body.classList.add("demo-paused");
+  setAutoDemoButton("Resume", true);
+  setCue(autoDemoState.index, autoDemoState.elapsed, true);
+  if (cueNext) cueNext.textContent = "Next: resume or continue manually";
+  setCueVisible(true);
+}
+
+function resumeAutoDemo() {
+  if (!autoDemoState || !autoDemoState.paused) return;
+  autoDemoState.paused = false;
+  autoDemoState.startedAt = performance.now();
+  document.body.classList.add("auto-demo");
+  document.body.classList.remove("demo-paused", "demo-complete");
+  setAutoDemoButton("Pause", true);
+  setCueVisible(true);
+  autoDemoTick = window.setInterval(updateAutoDemo, 250);
+}
+
+function startAutoDemo() {
+  clearAutoTimer();
+  document.body.classList.add("presenter", "auto-demo");
+  document.body.classList.remove("demo-paused", "demo-complete");
+  if (presenterButton) {
+    presenterButton.setAttribute("aria-pressed", "true");
+    presenterButton.textContent = "Exit presenter";
+  }
+  autoDemoState = {
+    index: 0,
+    startedAt: performance.now(),
+    elapsed: 0,
+    fired: new Set(),
+    paused: false
+  };
+  setAutoDemoButton("Pause", true);
+  setCueVisible(true);
+  enterAutoStep(0, "auto");
+  autoDemoTick = window.setInterval(updateAutoDemo, 250);
+}
+
+function updateAutoDemo() {
+  if (!autoDemoState || autoDemoState.paused) return;
+  const item = autoDemoPlan[autoDemoState.index];
+  if (!item) {
+    stopAutoDemo(true);
+    return;
+  }
+  const elapsed = autoDemoState.elapsed + (performance.now() - autoDemoState.startedAt) / 1000;
+  (item.actions || []).forEach((action, actionIndex) => {
+    const key = `${autoDemoState.index}:${actionIndex}`;
+    if (elapsed >= action.at && !autoDemoState.fired.has(key)) {
+      autoDemoState.fired.add(key);
+      runAutoAction(action);
+    }
+  });
+  setCue(autoDemoState.index, Math.min(elapsed, item.duration), false);
+  if (elapsed < item.duration) return;
+  autoDemoState.index += 1;
+  if (autoDemoState.index >= autoDemoPlan.length) {
+    setCue(autoDemoPlan.length - 1, autoDemoPlan[autoDemoPlan.length - 1].duration, false);
+    stopAutoDemo(true);
+    return;
+  }
+  autoDemoState.elapsed = 0;
+  autoDemoState.startedAt = performance.now();
+  autoDemoState.fired = new Set();
+  enterAutoStep(autoDemoState.index);
+}
+
+function handleManualInteraction(event) {
+  if (!autoDemoState) {
+    if (document.body.classList.contains("demo-complete")) {
+      document.body.classList.remove("demo-complete");
+      setCueVisible(false);
+      setAutoDemoButton("Auto demo", false);
+    }
+    return;
+  }
+  if (autoDemoState.paused) return;
+  const target = event.target;
+  if (target?.closest?.("#autoDemo, #copyCommand")) return;
+  pauseAutoDemo("manual");
+}
+
 routeLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
+    handleManualInteraction(event);
     const id = link.getAttribute("href")?.replace("#", "");
     const target = id ? document.getElementById(id) : null;
     if (!target) return;
@@ -623,8 +940,29 @@ function scrollToRelativeStep(direction) {
   if (target) scrollToStep(target);
 }
 
-document.getElementById("nextStep")?.addEventListener("click", () => scrollToRelativeStep(1));
-document.getElementById("prevStep")?.addEventListener("click", () => scrollToRelativeStep(-1));
+document.getElementById("nextStep")?.addEventListener("click", (event) => {
+  handleManualInteraction(event);
+  scrollToRelativeStep(1);
+});
+document.getElementById("prevStep")?.addEventListener("click", (event) => {
+  handleManualInteraction(event);
+  scrollToRelativeStep(-1);
+});
+
+window.addEventListener("wheel", handleManualInteraction, { passive: true });
+window.addEventListener("touchstart", handleManualInteraction, { passive: true });
+
+autoDemoButton?.addEventListener("click", () => {
+  if (!autoDemoState) {
+    startAutoDemo();
+    return;
+  }
+  if (autoDemoState.paused) {
+    resumeAutoDemo();
+  } else {
+    pauseAutoDemo("button");
+  }
+});
 
 const presenterButton = document.getElementById("presenterMode");
 
@@ -634,6 +972,7 @@ if (presenterButton && document.body.classList.contains("presenter")) {
 }
 
 presenterButton?.addEventListener("click", () => {
+  if (autoDemoState) pauseAutoDemo("presenter-toggle");
   const active = document.body.classList.toggle("presenter");
   presenterButton.setAttribute("aria-pressed", String(active));
   presenterButton.textContent = active ? "Exit presenter" : "Presenter mode";
@@ -644,20 +983,37 @@ document.addEventListener("keydown", (event) => {
   const interactiveTarget = event.target?.closest?.("button, a, summary");
   if (interactiveTarget && [" ", "Enter", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) return;
   if (event.metaKey || event.ctrlKey || event.altKey) return;
+  if (event.key.toLowerCase() === "a") {
+    event.preventDefault();
+    if (!autoDemoState) startAutoDemo();
+    else if (autoDemoState.paused) resumeAutoDemo();
+    else pauseAutoDemo("keyboard");
+    return;
+  }
+  if (event.key.toLowerCase() === "k" && autoDemoState) {
+    event.preventDefault();
+    if (autoDemoState.paused) resumeAutoDemo();
+    else pauseAutoDemo("keyboard");
+    return;
+  }
   if (event.key.toLowerCase() === "n" || event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
     event.preventDefault();
+    handleManualInteraction(event);
     scrollToRelativeStep(1);
   }
   if (event.key.toLowerCase() === "p" || event.key === "ArrowUp" || event.key === "ArrowLeft" || event.key === "PageUp") {
     event.preventDefault();
+    handleManualInteraction(event);
     scrollToRelativeStep(-1);
   }
   if (event.key === "Home") {
     event.preventDefault();
+    handleManualInteraction(event);
     if (steps[0]) scrollToStep(steps[0]);
   }
   if (event.key === "End") {
     event.preventDefault();
+    handleManualInteraction(event);
     if (steps[steps.length - 1]) scrollToStep(steps[steps.length - 1]);
   }
 });
@@ -700,7 +1056,10 @@ function setDemo(key) {
 demoLinks.forEach((link) => {
   link.addEventListener("mouseenter", () => setDemo(link.dataset.demo));
   link.addEventListener("focus", () => setDemo(link.dataset.demo));
-  link.addEventListener("click", () => setDemo(link.dataset.demo));
+  link.addEventListener("click", (event) => {
+    handleManualInteraction(event);
+    setDemo(link.dataset.demo);
+  });
 });
 
 const qaButtons = Array.from(document.querySelectorAll("[data-qa]"));
@@ -725,7 +1084,10 @@ function setQaAnswer(key) {
 
 qaButtons.forEach((button) => {
   button.setAttribute("aria-pressed", "false");
-  button.addEventListener("click", () => setQaAnswer(button.dataset.qa));
+  button.addEventListener("click", (event) => {
+    handleManualInteraction(event);
+    setQaAnswer(button.dataset.qa);
+  });
 });
 
 if (qaButtons.length) setQaAnswer(qaButtons[0].dataset.qa);
