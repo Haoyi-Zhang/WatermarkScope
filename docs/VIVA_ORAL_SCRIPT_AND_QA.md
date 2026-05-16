@@ -1,10 +1,10 @@
 # WatermarkScope Viva Oral Script and Q&A
 
-Use this as a speaking guide, not as a text to read word by word. The style should sound like a student explaining his own work: clear, direct, and honest.
+Use this as a speaking guide, not as a text to read word by word. The style should sound like a student explaining his own work: clear, direct, and honest. Short sentences are preferred because the viva is spoken, not read.
 
 ## One-Sentence Story
 
-WatermarkScope is my framework for evaluating source-code watermarking as inspectable evidence, not just as one detector score.
+WatermarkScope is my framework for checking source-code watermarking as evidence that people can inspect, not just as one detector score.
 
 ## 10-Minute Route
 
@@ -13,7 +13,7 @@ WatermarkScope is my framework for evaluating source-code watermarking as inspec
 | Opening | 45 sec | Project title, one-sentence story, why this matters. |
 | Problem | 1 min 15 sec | Generated code moves; a score alone is weak. |
 | Method | 1 min 45 sec | Evidence contract plus five-stage pipeline. |
-| Results | 2 min | Five submitted result surfaces, but only the core message. |
+| Results | 2 min | Five submitted result surfaces; focus on what each number can safely mean. |
 | Demo | 1 min 30 sec | Repository, claim boundary, traceability, manifest, viva check. |
 | Future and close | 45 sec | Submitted FYP is fixed; future work is separate. |
 | Q&A landing | 15 sec | Stop on the Q&A page and use the hot-seat rule. |
@@ -23,71 +23,67 @@ WatermarkScope is my framework for evaluating source-code watermarking as inspec
 
 ### Opening
 
-Good afternoon. I am Haoyi Zhang. My final year project is called WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models.
+Good afternoon. I am Haoyi Zhang. My project is WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models.
 
-I will use the homepage as my presentation route, so I can move section by section and keep the talk close to ten minutes.
+I will use this homepage as my presentation route. I will move through the pages one by one, so the talk stays close to ten minutes.
 
-The simple idea is this: when a large language model generates code, the code may later be copied, edited, translated, or deployed somewhere else. At that point, if I only say "the detector score is high", that is not enough. I need to show what was counted, what controls were used, what artifact supports the result, and what claim I am allowed to make.
+The main idea is simple. Large language models can generate code, but later that code may be copied, edited, translated, or used in another project. When that happens, one detector score is not enough for a strong watermark claim.
 
-So my project treats source-code watermarking as an evidence problem. I am not trying to claim that one universal watermark detector solves everything. I am trying to make watermark evidence inspectable and bounded.
+So in this project I ask a practical question: if I see a watermark signal, what evidence can I really defend?
+
+My answer is WatermarkScope. It treats source-code watermarking as an evidence problem. I look at what was counted, what controls were used, where the artifacts are, what access setting was assumed, and what claim boundary I should not cross.
 
 ### Problem
 
-When I started the project, I found one main gap. A lot of watermarking work reports a detection score, but for generated source code that score is hard to defend on its own.
+When I started this work, the main gap I saw was not only detection performance. The bigger problem was how to defend the evidence.
 
-There are three reasons. First, generated code moves away from the original prompt session. Second, code is different from plain text because it should still execute. Third, different access settings mean different claims. A white-box recovery method, a black-box audit, an owner-attribution protocol, and a security triage system are not the same problem.
+There are three reasons. First, generated code can leave the original prompt session. Second, source code is not only text; it should still run. Third, different access settings mean different claims. A white-box recovery method, a black-box audit, an owner-attribution protocol, and a security triage system are different questions.
 
-That is why my question became: before I interpret a watermark result, can I first define the evidence surface clearly?
+So before I interpret any number, I first need to define the evidence surface clearly. That means I need to know the denominator, the controls, and the boundary.
 
 ### Method
 
-My answer is WatermarkScope. The main design is an evidence contract.
+The method has two parts. The first part is an evidence contract. The second part is a five-stage implementation.
 
-In my project, a result becomes a defensible claim only when it has five parts: a denominator, controls, an artifact, an access model, and a boundary.
+The evidence contract is my rule for making a claim. A result should have five things before I treat it as evidence: a denominator, controls, an artifact, an access model, and a boundary.
 
-The denominator says what was counted. The controls say what would make the signal fail. The artifact says where the evidence is stored. The access model says whether the method is white-box, black-box, active-owner, or security-facing. The boundary says what I am not allowed to claim.
+The denominator tells me what was counted. The controls tell me what would make the signal fail. The artifact tells me where the evidence is stored. The access model tells me whether this is white-box, black-box, active-owner, or security-facing. The boundary tells me what I must not claim.
 
-I then implemented this idea as a five-stage pipeline.
+Then I implemented this through five stages.
 
 CodeMarkBench gives the executable benchmark foundation. SemCodebook is the main white-box provenance recovery method. CodeDye is a conservative black-box audit. ProbeTrace studies scoped active-owner attribution. SealAudit studies marker-hidden security triage.
 
-The important point is that these five stages are connected by the same evidence discipline, but they do not share one universal accuracy score.
+The key point is this: the five stages are connected by the same evidence discipline, but I do not merge them into one universal accuracy score.
 
 ### Results
 
-For the results page, I will not read every table. I will explain it in three messages.
+On the results page, I will not read every number. I will explain the results in three points.
 
-The sentence at the top is the main point: do not read a watermark result as one detector score. Read it as denominator, controls, and boundary.
+First, the benchmark foundation is complete. CodeMarkBench has 140 out of 140 canonical runs. This tells me the benchmark rows are executable and countable. It does not mean every watermark method succeeds.
 
-The first message is benchmark grounding. CodeMarkBench completed 140 out of 140 canonical runs. I use this to say that the benchmark rows are executable and countable. I do not use it to claim that every watermark method succeeded.
+Second, SemCodebook is the main method result. It recovers 30,330 out of 31,200 positive cases. It also has 0 hits in 62,400 fixed negative controls and 0 hits in 62,400 blind replay negative controls. So the safe claim is structured white-box provenance recovery inside the admitted cells.
 
-The second message is the main method result. SemCodebook recovered 30,330 out of 31,200 positive cases, with 0 hits in 62,400 fixed negative controls and 0 hits in 62,400 blind negative replay controls. So my safe claim is structured white-box provenance recovery within the admitted cells.
+Third, the other stages show why boundaries matter. CodeDye has sparse black-box evidence, so I do not call it contamination proof. ProbeTrace has strong scoped owner verification, but I do not call it general authorship proof. SealAudit gives selective triage, but I do not call it a safety certificate.
 
-The third message is why boundaries matter. CodeDye has 4 sparse live signals out of 300, so I do not call it contamination proof. ProbeTrace has 750 out of 750 true-owner positives with 0 out of 5,250 false-attribution controls, so I call it scoped owner verification, not general authorship proof. SealAudit has 320 decisive triage outcomes out of 960, with 0 observed unsafe passes, so I call it selective triage, not a safety certificate.
-
-So the result conclusion is simple: WatermarkScope is not asking the examiner to trust one big detector score. It shows how to make each result inspectable, with its own denominator, controls, and boundary.
+So the result message is: do not trust one big detector score. Check the denominator, the controls, and the boundary for each claim.
 
 ### Demo
 
-For the live demo, I will not rerun the full experiments in the room. Some experiments need GPUs, model weights, or provider APIs, so a full rerun is not realistic during a viva.
+For the demo, I will not rerun the full experiments in the room. Some experiments need GPUs, model weights, or provider APIs, so a full rerun is not realistic in a viva.
 
-Instead, I will show inspectability. I will open the repository, then show the claim boundary document, the traceability matrix, the result manifest, and the quick viva check.
+Instead, I will show inspectability. I will open the repository, then the claim boundary document, the traceability matrix, the result manifest, and the quick viva check.
 
-These links open separately, so I can return to the homepage after each inspection step.
-
-The point of this demo is not to prove the experiments again from zero. The point is to show that the submitted result is organized in a way that the examiner can inspect: each claim points to code, artifacts, manifests, and boundaries.
+The point is not to prove everything again from zero. The point is to show that the submitted work is organized so it can be checked. Each claim points to code, artifacts, manifests, and boundaries.
 
 ### Future Work and Close
 
-The submitted FYP version is the version I am defending today. After that, I have five continuation tracks: the benchmark track toward TOSEM, and four watermarking tracks toward EMNLP-style papers.
+The submitted FYP version is the version I am defending today. The future page shows five continuation tracks, but I keep them separate from the submitted evidence.
 
-I keep these future repositories separate from the submitted FYP evidence. They show where the work can go next, but they do not change the dissertation result I am defending.
+If the examiner is interested, I can briefly show these repositories. But I will not mix them with the dissertation result, because the submitted FYP has its own fixed evidence surface.
 
-On the Future page, I will only point to the five cards briefly. I will not open every continuation repository unless the examiner asks, because the defended work is still the submitted FYP surface.
+To summarize, my contribution is a practical framework for making source-code watermarking evidence more honest and inspectable. I built the benchmark, the method modules, the controls, the artifacts, and the claim boundaries so the result can be checked instead of only trusted.
 
-To summarize, my contribution is a practical framework for making source-code watermarking evidence more honest and inspectable. I built the benchmark, methods, controls, artifacts, and claim boundaries so that the result can be checked instead of only trusted.
-
-Then I will stop on the Q&A page. I will use a simple answer rule: direct answer first, one evidence number second, and the boundary third. Thank you. I am happy to answer questions.
+Then I will stop on the Q&A page. My answer rule is simple: direct answer first, one evidence number second, and the boundary third. Thank you. I am happy to answer questions.
 
 ## Short Version If Time Is Tight
 
