@@ -7,7 +7,7 @@ const contractFacts = {
   denominator: {
     label: "What is counted?",
     title: "A result only means something after the denominator is fixed.",
-    text: "For example, SemCodebook reports 30,330 recoveries over 31,200 admitted positive rows. I keep the misses inside the denominator, so the result is easier to defend."
+    text: "For example, SemCodebook reports 30,330 recoveries over 31,200 admitted positive rows. The misses remain inside the denominator, so the result is easier to inspect."
   },
   controls: {
     label: "What would fail?",
@@ -16,8 +16,8 @@ const contractFacts = {
   },
   artifact: {
     label: "Can it be inspected?",
-    title: "A viva claim should point to code, manifests, and preserved result files.",
-    text: "The repository route is README, claim boundaries, traceability matrix, result manifest, and viva_check.py. This lets me show the work live without pretending I can rerun every expensive experiment in the room."
+    title: "A defended claim should point to code, manifests, and preserved result files.",
+    text: "The repository route is README, claim boundaries, traceability matrix, result manifest, and viva_check.py. It supports live inspection without requiring an expensive full experimental rerun in the room."
   },
   access: {
     label: "What access is assumed?",
@@ -27,7 +27,7 @@ const contractFacts = {
   boundary: {
     label: "What is forbidden?",
     title: "The boundary prevents the result from becoming broader than the evidence.",
-    text: "The framework explicitly says what I cannot claim: no universal watermarking claim, no provider accusation, no general authorship proof, and no safety certificate unless a new admitted surface supports it."
+    text: "The framework explicitly blocks unsupported claims: no universal watermarking claim, no provider accusation, no general authorship proof, and no safety certificate unless a new admitted surface supports it."
   }
 };
 
@@ -40,7 +40,7 @@ const submittedResults = [
     controls: "Canonical run-completion inventory before interpretation",
     claim: "The benchmark foundation is executable and countable.",
     boundary: "This is benchmark support, not watermark success.",
-    oral: "I use this first because code watermark evaluation must start from executable rows, not only text similarity.",
+    oral: "This comes first because code watermark evaluation must start from executable rows, not only text similarity.",
     meter: 100,
     meterLabel: "completed",
     controlLabel: "inventory locked",
@@ -54,7 +54,7 @@ const submittedResults = [
     controls: "0/62,400 fixed negative-control hits and 0/62,400 blind replay hits",
     claim: "Structured provenance recovery within admitted white-box cells.",
     boundary: "Not universal natural-generation watermarking.",
-    oral: "This is the main method contribution. The key defense is that recoveries, misses, and two negative surfaces are all reported together.",
+    oral: "This is the main method contribution: recoveries, misses, and two negative surfaces are reported together.",
     meter: 97.2,
     meterLabel: "recovered",
     controlLabel: "0 fixed / 0 blind hits",
@@ -68,7 +68,7 @@ const submittedResults = [
     controls: "170/300 positive controls and 0/300 negative controls",
     claim: "Conservative sparse black-box audit evidence.",
     boundary: "Not prevalence, provider accusation, high-recall detection, or proof of absence.",
-    oral: "A sparse signal is not a failed story; it tells us the honest claim is conservative audit evidence, not contamination prevalence.",
+    oral: "The sparse signal supports a conservative audit claim, not a contamination-prevalence claim.",
     meter: 1.3,
     meterLabel: "sparse signal",
     controlLabel: "0/300 negative controls",
@@ -82,7 +82,7 @@ const submittedResults = [
     controls: "750/750 true-owner positives and 0/5,250 false-attribution controls",
     claim: "Scoped active-owner commitment and witness verification.",
     boundary: "Not provider-general or cross-provider authorship proof.",
-    oral: "The strong positive result is only safe because it is paired with false-owner controls and a fixed owner registry.",
+    oral: "The strong positive result is bounded by false-owner controls and a fixed owner registry.",
     meter: 100,
     meterLabel: "true owner",
     controlLabel: "0 false-attribution hits",
@@ -96,7 +96,7 @@ const submittedResults = [
     controls: "0/960 observed unsafe passes; nondecisive rows retained as review load",
     claim: "Selective marker-hidden triage with explicit abstention.",
     boundary: "Not an automatic safety classifier or harmlessness certificate.",
-    oral: "For security-facing evidence, abstention is part of the design because forced labels would overstate what the evidence supports.",
+    oral: "For security-facing evidence, abstention is part of the design because forced labels would overstate the evidence.",
     meter: 33.3,
     meterLabel: "decisive",
     controlLabel: "0 unsafe passes",
@@ -107,45 +107,45 @@ const submittedResults = [
 const problemFacts = {
   execution: {
     title: "The original prompt session is not enough.",
-    text: "This is why I treat provenance as an evidence problem: after code is copied or edited, I need an artifact and a boundary, not just a detector score."
+    text: "This is why provenance is treated as an evidence problem: after code is copied or edited, the claim needs an artifact and a boundary, not just a detector score."
   },
   access: {
     title: "Executable rows protect the denominator.",
-    text: "For code, the benchmark row must be runnable and countable before I interpret any watermark signal."
+    text: "For code, the benchmark row must be runnable and countable before any watermark signal is interpreted."
   },
   abstention: {
     title: "Different access models need different claims.",
-    text: "White-box recovery, black-box audit, active-owner attribution, and security triage answer different questions, so I keep their claims separate."
+    text: "White-box recovery, black-box audit, active-owner attribution, and security triage answer different questions, so their claims stay separate."
   }
 };
 
 const demoFacts = {
   readme: {
     title: "Start with the repository README.",
-    text: "Use it to show the examiner the submitted FYP surface and the exact page route before opening deeper artifacts."
+    text: "The README defines the submitted FYP surface and the route into deeper artifacts."
   },
   boundaries: {
     title: "Then show the claim boundaries.",
-    text: "This is the strongest defense document: it states both the allowed claim and the forbidden interpretation."
+    text: "This document states both the allowed claim and the forbidden interpretation."
   },
   traceability: {
     title: "Traceability connects claims to files.",
-    text: "Use this to show that each module has code paths, result paths, and a safe interpretation."
+    text: "Each module is connected to code paths, result paths, and a safe interpretation."
   },
   manifest: {
     title: "The manifest preserves evidence records.",
     text: "This shows the evidence is not just prose on the page; rows are recorded and hash-addressed for inspection."
   },
   check: {
-    title: "Finish with the lightweight viva check.",
-    text: "Say clearly that this verifies inspectability, not a full GPU/API rerun."
+    title: "Finish with the lightweight evidence check.",
+    text: "This verifies the inspection route and key artifacts; it is not a replacement for the full GPU/API experiments."
   }
 };
 
 const qaFacts = {
   broad: {
     title: "Is this too broad for one FYP?",
-    answer: "It is broad in modules, but narrow in principle: every stage follows the same evidence contract. I defend the submitted FYP surface, not five final papers."
+    answer: "It is broad in modules, but narrow in principle: every stage follows the same evidence contract. The defended surface is the submitted FYP, not five final papers."
   },
   stages: {
     title: "Why do you need five stages?",
@@ -153,11 +153,11 @@ const qaFacts = {
   },
   rerun: {
     title: "Why not rerun everything live?",
-    answer: "A full rerun needs GPUs, model weights, or provider APIs. In the viva I prove inspectability: repository, claim boundaries, traceability, manifest, and the quick check."
+    answer: "A full rerun needs GPUs, model weights, or provider APIs. The defensible live evidence is inspectability: repository, claim boundaries, traceability, manifest, and the quick check."
   },
   generalize: {
     title: "Can the result generalize?",
-    answer: "Possibly, but I would not claim it without a new admitted surface. The correct next step is to add model cells and report them separately."
+    answer: "Possibly, but a broader claim needs a new admitted surface. The correct next step is to add model cells and report them separately."
   },
   sparse: {
     title: "Is CodeDye too sparse?",
@@ -177,7 +177,7 @@ const stages = {
     denominator: "4 baselines x 5 local code models x 7 source groups = 140 canonical runs.",
     observed: "140/140 canonical runs completed.",
     boundary: "Run completion is benchmark support, not watermark success.",
-    speak: "This stage is the foundation: before comparing watermark methods, I first make the benchmark rows executable and countable.",
+    speak: "This stage is the foundation: before comparing watermark methods, the benchmark rows are made executable and countable.",
     links: [
       ["Code snapshot", `${repoTree}/projects/CodeMarkBench`],
       ["Result tables", `${repoTree}/projects/CodeMarkBench/results/tables/suite_all_models_methods`],
@@ -247,66 +247,61 @@ const futureTracks = [
     key: "codemarkbench",
     name: "CodeMarkBench",
     route: "Benchmark foundation",
-    venue: "ACM TOSEM",
+    venue: "Software-engineering paper",
     repo: "https://github.com/Haoyi-Zhang/CodeMarkBench",
-    commit: "2db2630",
-    visibility: "Public repository",
+    visibility: "Continuation artifact",
     status: "Benchmark expansion with separately admitted denominators.",
-    focus: "Review: task suites, release metadata, and admitted benchmark surfaces.",
+    focus: "Task suites, release metadata, and admitted benchmark surfaces.",
     boundary: "Any new benchmark cell must be admitted as a new surface; it does not change the 140/140 submitted FYP denominator.",
-    review: ["Open the benchmark repository", "Show task and suite organization", "Explain how new benchmark surfaces would be admitted"]
+    review: ["Repository", "Task suites", "New denominator rule"]
   },
   {
     key: "semcodebook",
     name: "SemCodebook",
     route: "White-box method",
-    venue: "EMNLP",
+    venue: "NLP paper",
     repo: "https://github.com/Haoyi-Zhang/SemCodebook",
-    commit: "69efebc",
-    visibility: "Private continuation repository",
+    visibility: "Continuation artifact",
     status: "Structured provenance recovery beyond the submitted FYP slice.",
-    focus: "Review: carrier/recovery pipeline and negative-control replay gates.",
+    focus: "Carrier/recovery pipeline and negative-control replay gates.",
     boundary: "Extra cells are future evidence. They should be reported separately from the submitted 30,330/31,200 FYP recovery surface.",
-    review: ["Open implementation modules", "Show carrier and recovery pipeline", "Explain negative-control and replay gates"]
+    review: ["Repository", "Carrier pipeline", "Negative controls"]
   },
   {
     key: "codedye",
     name: "CodeDye",
     route: "Black-box audit",
-    venue: "EMNLP",
+    venue: "NLP paper",
     repo: "https://github.com/Haoyi-Zhang/CodeDye",
-    commit: "e8f9df3",
-    visibility: "Private continuation repository",
+    visibility: "Continuation artifact",
     status: "Conservative black-box null-audit evidence.",
-    focus: "Review: audit scripts, role-separated controls, and non-accusation boundary.",
+    focus: "Audit scripts, role-separated controls, and non-accusation boundary.",
     boundary: "The claim remains null-audit evidence, not prevalence, wrongdoing proof, or absence proof.",
-    review: ["Open audit scripts", "Show role-separated control design", "Explain why sparse signals are not accusations"]
+    review: ["Repository", "Audit scripts", "Control design"]
   },
   {
     key: "probetrace",
     name: "ProbeTrace",
     route: "Owner attribution",
-    venue: "EMNLP",
+    venue: "NLP paper",
     repo: "https://github.com/Haoyi-Zhang/ProbeTrace",
-    commit: "9e459d4",
-    visibility: "Private continuation repository",
+    visibility: "Continuation artifact",
     status: "Scoped owner verification with commitment/witness evidence.",
-    focus: "Review: owner registry, split, and false-owner controls.",
+    focus: "Owner registry, split, and false-owner controls.",
     boundary: "It is scoped owner verification, not universal authorship proof or cross-provider attribution.",
-    review: ["Open commitment and witness code", "Show owner registry and split", "Explain false-owner controls"]
+    review: ["Repository", "Owner registry", "False-owner controls"]
   },
   {
     key: "sealaudit",
     name: "SealAudit",
     route: "Security triage",
-    venue: "EMNLP",
+    venue: "NLP paper",
     repo: "https://github.com/Haoyi-Zhang/SealAudit",
-    commit: "039275d",
-    visibility: "Private continuation repository",
+    visibility: "Continuation artifact",
     status: "Marker-hidden selective security triage.",
-    focus: "Review: decision packets, abstention, and unsafe-pass accounting.",
+    focus: "Decision packets, abstention, and unsafe-pass accounting.",
     boundary: "It is selective triage, not a classifier, safety certificate, or automatic harmlessness guarantee.",
-    review: ["Open triage pipeline", "Show marker-hidden decision packets", "Explain abstention and unsafe-pass accounting"]
+    review: ["Repository", "Triage pipeline", "Abstention rule"]
   }
 ];
 
@@ -328,7 +323,6 @@ if (resultLedger) {
         <b>${item.controlLabel}</b>
       </div>
       <p class="result-claim">${item.claim}</p>
-      <small>${item.boundary}</small>
     </article>
   `).join("");
 }
@@ -346,13 +340,10 @@ function setResultFocus(index) {
     card.setAttribute("aria-pressed", String(active));
   });
   resultFocus.innerHTML = `
-    <span>${data.tag}</span>
-    <strong>${data.name}: ${data.result}</strong>
-    <p>${data.oral}</p>
-    <div class="claim-readout" aria-label="How to read this result">
-      <span>number</span><b>${data.result}</b>
-      <span>read through</span><b>${data.meterLabel}</b>
-      <span>bounded by</span><b>${data.controlLabel}</b>
+    <div class="result-focus-lead">
+      <span>${data.tag}</span>
+      <strong>${data.name}: ${data.result}</strong>
+      <p>${data.oral}</p>
     </div>
     <div class="result-focus-grid">
       <div><b>Denominator</b><em>${data.denominator}</em></div>
@@ -471,11 +462,11 @@ const futureNote = document.getElementById("futureNote");
 if (futureGrid) {
   futureGrid.innerHTML = futureTracks.map((track, index) => `
     <article class="future-track ${index === 0 ? "active" : ""}" data-future="${index}" tabindex="0" role="button" aria-pressed="${index === 0 ? "true" : "false"}">
-      <span>Target: ${track.venue}</span>
+      <span>${track.venue}</span>
       <h3>${track.name}</h3>
       <p>${track.route}</p>
-      <em>${track.visibility} / ${track.commit}</em>
-      <a href="${track.repo}" target="_blank" rel="noopener" aria-label="Review ${track.name} repository">Review repo</a>
+      <em>${track.visibility}</em>
+      <a href="${track.repo}" target="_blank" rel="noopener" aria-label="Open ${track.name} repository">Open repo</a>
     </article>
   `).join("");
 }
@@ -593,8 +584,7 @@ window.addEventListener("load", () => {
 
 function scrollToStep(target, behavior = "smooth") {
   const topbarOffset = document.body.classList.contains("presenter") ? 0 : 62;
-  const anchor = target.querySelector(":scope > .cover-shell, :scope > .section-head") || target;
-  const targetTop = anchor.getBoundingClientRect().top + window.scrollY - topbarOffset - 22;
+  const targetTop = target.getBoundingClientRect().top + window.scrollY - topbarOffset;
   const top = Math.max(0, targetTop);
   if (behavior === "auto") {
     window.scrollTo(0, top);
@@ -726,7 +716,7 @@ function setQaAnswer(key) {
     button.setAttribute("aria-pressed", String(active));
   });
   qaAnswer.innerHTML = `
-    <span>Concise viva answer</span>
+    <span>Evidence-based response</span>
     <strong>${data.title}</strong>
     <p>${data.answer}</p>
   `;
