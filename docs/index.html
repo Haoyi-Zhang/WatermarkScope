@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1985,6 +1985,38 @@ body.presenter .floating-controls {
   bottom: 22px;
 }
 
+body.presenter .step-dots {
+  display: none;
+}
+
+@media (max-height: 940px) and (min-width: 900px) {
+  body.presenter .contract-section {
+    padding: 22px 0 74px;
+  }
+
+  body.presenter .contract-section .section-head {
+    margin-bottom: 10px;
+  }
+
+  body.presenter .contract-lab {
+    gap: 9px;
+  }
+
+  body.presenter .contract-detail {
+    min-height: 170px;
+    padding: 16px 20px;
+  }
+
+  body.presenter .contract-detail h3 {
+    font-size: clamp(24px, 2.5vw, 32px);
+  }
+
+  body.presenter .contribution-strip article {
+    min-height: 74px;
+    padding: 12px 14px;
+  }
+}
+
 @keyframes ambientBreath {
   0%, 100% {
     opacity: 0.34;
@@ -2470,6 +2502,7 @@ body.presenter .floating-controls {
     flex-direction: column;
   }
 }
+
 </style>
   </head>
   <body>
@@ -3143,7 +3176,7 @@ const futureTracks = [
     key: "codemarkbench",
     name: "CodeMarkBench",
     route: "Benchmark foundation",
-    venue: "Software-engineering paper",
+    venue: "EMNLP Findings / ARR resource track",
     repo: "https://github.com/Haoyi-Zhang/CodeMarkBench",
     visibility: "Continuation artifact",
     status: "Benchmark expansion with separately admitted denominators.",
@@ -3155,7 +3188,7 @@ const futureTracks = [
     key: "semcodebook",
     name: "SemCodebook",
     route: "White-box method",
-    venue: "NLP paper",
+    venue: "EMNLP Main / ACL Main",
     repo: "https://github.com/Haoyi-Zhang/SemCodebook",
     visibility: "Continuation artifact",
     status: "Structured provenance recovery beyond the submitted FYP slice.",
@@ -3167,7 +3200,7 @@ const futureTracks = [
     key: "codedye",
     name: "CodeDye",
     route: "Black-box audit",
-    venue: "NLP paper",
+    venue: "Findings / audit workshop",
     repo: "https://github.com/Haoyi-Zhang/CodeDye",
     visibility: "Continuation artifact",
     status: "Conservative black-box null-audit evidence.",
@@ -3179,7 +3212,7 @@ const futureTracks = [
     key: "probetrace",
     name: "ProbeTrace",
     route: "Owner attribution",
-    venue: "NLP paper",
+    venue: "EMNLP / USENIX-style crossover",
     repo: "https://github.com/Haoyi-Zhang/ProbeTrace",
     visibility: "Continuation artifact",
     status: "Scoped owner verification with commitment/witness evidence.",
@@ -3191,7 +3224,7 @@ const futureTracks = [
     key: "sealaudit",
     name: "SealAudit",
     route: "Security triage",
-    venue: "NLP paper",
+    venue: "Responsible NLP / safety track",
     repo: "https://github.com/Haoyi-Zhang/SealAudit",
     visibility: "Continuation artifact",
     status: "Marker-hidden selective security triage.",
@@ -3625,7 +3658,9 @@ qaButtons.forEach((button) => {
 });
 
 if (qaButtons.length) setQaAnswer(qaButtons[0].dataset.qa);
+
 </script>
   </body>
 </html>
+
 
