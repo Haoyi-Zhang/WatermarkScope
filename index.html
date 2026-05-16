@@ -1,0 +1,3666 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WatermarkScope submitted FYP viva walkthrough: bounded evidence for source-code watermarking in code generation models.">
+    <title>WatermarkScope | FYP Viva Route</title>
+    <style>
+:root {
+  --bg: #07111f;
+  --bg-2: #0a1627;
+  --panel: rgba(10, 22, 39, 0.82);
+  --panel-strong: rgba(13, 29, 51, 0.96);
+  --ink: #eef4ff;
+  --muted: #a9b7ca;
+  --faint: #748399;
+  --line: rgba(214, 226, 244, 0.15);
+  --line-strong: rgba(214, 226, 244, 0.28);
+  --blue: #6aa8ff;
+  --cyan: #55d7e7;
+  --violet: #b59cff;
+  --amber: #f7c66a;
+  --green: #70d6a4;
+  --red: #ff8a8a;
+  --shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+  --radius: 8px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 62px;
+  scroll-snap-type: y proximity;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--ink);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 75% 18%, rgba(85, 215, 231, 0.11), transparent 30%),
+    radial-gradient(circle at 10% 82%, rgba(106, 168, 255, 0.10), transparent 34%),
+    var(--bg);
+  background-size: 34px 34px, 34px 34px, auto, auto, auto;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::before {
+  opacity: 0.42;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(85, 215, 231, 0.10), transparent 24%),
+    radial-gradient(circle at 82% 76%, rgba(247, 198, 106, 0.07), transparent 26%);
+  animation: ambientBreath 18s ease-in-out infinite;
+}
+
+body::after {
+  opacity: 0.28;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  animation: gridDrift 42s linear infinite;
+}
+
+main,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+body.presenter {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    var(--bg);
+  background-size: 34px 34px;
+}
+
+::selection {
+  color: #031020;
+  background: #b8ecff;
+}
+
+a {
+  color: inherit;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 90;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--panel-strong);
+  font-weight: 800;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.scroll-meter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan), var(--amber), var(--green));
+  transform: scaleX(0);
+  transform-origin: left center;
+  box-shadow: 0 0 18px rgba(85, 215, 231, 0.22);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  border-bottom: 1px solid var(--line);
+  background: rgba(7, 17, 31, 0.88);
+  backdrop-filter: blur(16px);
+}
+
+.nav {
+  width: min(1240px, calc(100% - 48px));
+  min-height: 62px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(106, 168, 255, 0.42);
+  border-radius: var(--radius);
+  color: #d8e8ff;
+  background: rgba(106, 168, 255, 0.14);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.route-nav {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.route-nav a {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 7px 10px;
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 760;
+  text-decoration: none;
+}
+
+.route-nav a::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 5px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 180ms ease;
+}
+
+.route-nav a:hover,
+.route-nav a.active {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.route-nav a:hover::after,
+.route-nav a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.mode-button,
+.repo-button,
+.button,
+.floating-controls button,
+.terminal-top button {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.06);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 820;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.repo-button,
+.button.primary {
+  border-color: rgba(106, 168, 255, 0.58);
+  background: rgba(106, 168, 255, 0.18);
+}
+
+.mode-button:hover,
+.repo-button:hover,
+.button:hover,
+.floating-controls button:hover,
+.terminal-top button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.button.ghost {
+  background: transparent;
+}
+
+.hero,
+.section,
+.footer {
+  width: min(1380px, calc(100% - 56px));
+  margin: 0 auto;
+}
+
+.viva-step {
+  min-height: calc(100svh - 62px);
+  scroll-margin-top: 62px;
+  scroll-snap-align: start;
+}
+
+.viva-step .section-head,
+.viva-step .cover-shell,
+.viva-step .problem-grid article,
+.viva-step .result-ledger,
+.viva-step .stage-layout,
+.viva-step .demo-grid,
+.viva-step .limit-grid,
+.viva-step .future-grid,
+.viva-step .qa-grid {
+  transition: opacity 260ms ease, transform 260ms ease, filter 260ms ease;
+}
+
+.viva-step:not(.active-step) .section-head,
+.viva-step:not(.active-step) .cover-shell,
+.viva-step:not(.active-step) .problem-grid article,
+.viva-step:not(.active-step) .result-ledger,
+.viva-step:not(.active-step) .stage-layout,
+.viva-step:not(.active-step) .demo-grid,
+.viva-step:not(.active-step) .limit-grid,
+.viva-step:not(.active-step) .future-grid,
+.viva-step:not(.active-step) .qa-grid {
+  opacity: 0.88;
+}
+
+.viva-step.active-step .section-head,
+.viva-step.active-step .cover-shell,
+.viva-step.active-step .result-ledger,
+.viva-step.active-step .stage-layout,
+.viva-step.active-step .demo-grid,
+.viva-step.active-step .future-grid,
+.viva-step.active-step .qa-grid {
+  opacity: 1;
+  filter: saturate(1.04);
+}
+
+.hero {
+  display: grid;
+  align-content: center;
+  padding: clamp(28px, 5vh, 52px) 0;
+}
+
+.cover-shell {
+  min-height: min(760px, calc(100svh - 112px));
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 28px;
+  padding: clamp(30px, 5vw, 56px);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(7, 17, 31, 0.98), rgba(11, 30, 52, 0.95));
+  background-size: 34px 34px, 34px 34px, auto;
+  box-shadow: var(--shadow);
+}
+
+.active-step .cover-shell {
+  animation: panelBreath 10s ease-in-out infinite;
+}
+
+.cover-top,
+.cover-footer {
+  display: grid;
+  align-items: center;
+  gap: 16px;
+}
+
+.cover-top {
+  grid-template-columns: auto 1fr;
+}
+
+.university-logo {
+  width: min(420px, 38vw);
+  max-height: 74px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.cover-top span,
+.cover-footer span,
+.eyebrow {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cover-top strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.cover-main {
+  align-self: center;
+  max-width: 980px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 14px;
+  max-width: 100%;
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+h2 {
+  max-width: 820px;
+  margin-bottom: 14px;
+  color: var(--ink);
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 1.18;
+}
+
+.title-line {
+  max-width: 880px;
+  margin-bottom: 16px;
+  color: #f6f9ff;
+  font-size: clamp(22px, 2.7vw, 34px);
+  font-weight: 820;
+  line-height: 1.15;
+}
+
+.hero-lead {
+  max-width: 780px;
+  color: #c9d6e8;
+  font-size: clamp(16px, 1.45vw, 20px);
+  line-height: 1.42;
+}
+
+.cover-route {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.cover-route a {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.055);
+  font-size: 13px;
+  font-weight: 780;
+  text-decoration: none;
+}
+
+.route-timer {
+  display: flex;
+  gap: 6px;
+  max-width: 820px;
+  margin-top: 13px;
+}
+
+.route-timer span {
+  position: relative;
+  flex: 1 1 var(--w);
+  min-width: 76px;
+  min-height: 34px;
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 11px;
+  font-weight: 840;
+  overflow: hidden;
+}
+
+.route-timer span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  opacity: 0.9;
+}
+
+.route-timer b {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 820;
+}
+
+.cover-footer {
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.cover-footer div {
+  min-width: 0;
+}
+
+.cover-footer strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.section {
+  position: relative;
+  display: grid;
+  align-content: center;
+  padding: clamp(30px, 5vh, 56px) 0;
+}
+
+.section-head {
+  position: relative;
+  max-width: 920px;
+  margin-bottom: 24px;
+}
+
+.section-head::after {
+  content: "";
+  display: block;
+  width: 84px;
+  height: 3px;
+  margin-top: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan), transparent);
+  opacity: 0.72;
+}
+
+.section-head p:not(.eyebrow) {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.44;
+}
+
+.section-head.split {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 0.54fr);
+  gap: 32px;
+  align-items: end;
+}
+
+.optional-section {
+  display: none;
+}
+
+.future-section {
+  align-content: center;
+}
+
+.future-section .section-head {
+  max-width: 900px;
+  margin-bottom: 16px;
+}
+
+.future-section h2 {
+  max-width: 780px;
+  font-size: clamp(24px, 2.55vw, 34px);
+}
+
+.future-section .section-head p:not(.eyebrow) {
+  max-width: 720px;
+  font-size: 15px;
+  line-height: 1.36;
+}
+
+.problem-grid,
+.limit-grid,
+.qa-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.problem-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.limit-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.qa-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.problem-grid article,
+.limit-grid article,
+.qa-grid article,
+.contribution-strip article,
+.result-card,
+.stage-detail,
+.contract-detail,
+.terminal-card,
+.speak-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.20);
+}
+
+.problem-grid article,
+.limit-grid article,
+.qa-grid article,
+.qa-grid details {
+  min-height: 170px;
+  padding: 18px;
+}
+
+.problem-grid span {
+  display: inline-grid;
+  min-height: 28px;
+  align-items: center;
+  margin-bottom: 18px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  color: #06111f;
+  background: var(--cyan);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.problem-card {
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.problem-card:hover,
+.problem-card.active {
+  transform: translateY(-2px);
+  border-color: rgba(85, 215, 231, 0.56);
+  background: rgba(85, 215, 231, 0.08);
+  animation: statePulse 8s ease-in-out infinite;
+}
+
+.problem-grid p,
+.limit-grid p,
+.qa-grid p,
+.future-grid p,
+.future-grid em {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.speak-card {
+  margin-top: 14px;
+  padding: 16px 18px;
+  border-left: 5px solid var(--blue);
+}
+
+.interaction-panel,
+.result-focus {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.interaction-panel.content-refresh,
+.result-focus.content-refresh,
+.contract-detail.content-refresh,
+.stage-detail.content-refresh {
+  animation: contentFade 220ms ease both;
+}
+
+.interaction-panel span,
+.result-focus span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.interaction-panel strong,
+.result-focus strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.interaction-panel p,
+.result-focus p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.speak-card strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #d9e8ff;
+  font-size: 15px;
+}
+
+.speak-card p {
+  margin-bottom: 0;
+  color: #c8d6e8;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+.speak-card.compact {
+  margin-top: 14px;
+  border-left-color: var(--green);
+  box-shadow: none;
+}
+
+.contract-lab {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-areas:
+    "chips detail"
+    "equation equation"
+    "pipeline pipeline"
+    "contrib contrib";
+  gap: 12px;
+}
+
+.contract-stack {
+  grid-area: chips;
+  display: grid;
+  gap: 8px;
+}
+
+.contract-chip {
+  min-height: 50px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.045);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 820;
+  text-align: left;
+  padding: 11px 13px;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.contract-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(85, 215, 231, 0.46);
+}
+
+.contract-chip.active {
+  color: #06111f;
+  border-color: var(--cyan);
+  background: var(--cyan);
+  box-shadow: 0 0 0 1px rgba(85, 215, 231, 0.28), 0 10px 26px rgba(85, 215, 231, 0.16);
+  animation: statePulseDark 8s ease-in-out infinite;
+}
+
+.contract-detail {
+  grid-area: detail;
+  min-height: 250px;
+  padding: 24px;
+}
+
+.contract-detail h3 {
+  max-width: 780px;
+  font-size: clamp(24px, 2.8vw, 34px);
+}
+
+.contract-detail p:not(.eyebrow) {
+  max-width: 820px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.contract-equation {
+  grid-area: equation;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.active-step .contract-equation strong {
+  animation: quietGlow 9s ease-in-out infinite;
+}
+
+.contract-equation span,
+.contract-equation strong {
+  flex: 1 1 0;
+  min-height: 42px;
+  display: grid;
+  place-items: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 820;
+  text-align: center;
+}
+
+.contract-equation strong {
+  color: #06111f;
+  background: var(--blue);
+}
+
+.contract-equation b {
+  flex: 0 0 auto;
+  color: var(--faint);
+  font-size: 18px;
+}
+
+.method-pipeline {
+  grid-area: pipeline;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.method-pipeline span {
+  min-height: 74px;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 15px;
+  font-weight: 850;
+  text-align: center;
+}
+
+.method-pipeline em {
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.contribution-strip {
+  grid-area: contrib;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.contribution-strip article {
+  min-height: 88px;
+  padding: 13px;
+}
+
+.contribution-strip span,
+.result-card span,
+.stage-grid span,
+.benchmark-strip strong,
+.future-grid span {
+  display: block;
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contribution-strip strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.benchmark-strip {
+  display: grid;
+  grid-template-columns: auto 1fr 28px 1fr 28px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.benchmark-strip span,
+.benchmark-strip b {
+  min-height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.065);
+  color: var(--ink);
+  font-size: 14px;
+  text-align: center;
+}
+
+.benchmark-strip i {
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.benchmark-strip b {
+  color: #06111f;
+  background: var(--amber);
+}
+
+.result-thesis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.result-thesis article {
+  min-height: 58px;
+  padding: 10px 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.042);
+}
+
+.result-thesis article:nth-child(1) {
+  border-left: 4px solid var(--red);
+}
+
+.result-thesis article:nth-child(2) {
+  border-left: 4px solid var(--cyan);
+}
+
+.result-thesis article:nth-child(3) {
+  border-left: 4px solid var(--green);
+}
+
+.result-thesis span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--faint);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.result-thesis strong {
+  display: block;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.22;
+}
+
+.snapshot-section .section-head {
+  margin-bottom: 16px;
+}
+
+.snapshot-section .section-head p:not(.eyebrow) {
+  max-width: 760px;
+  font-size: 15px;
+  line-height: 1.36;
+}
+
+.result-ledger {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.result-card {
+  min-height: 212px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-top: 4px solid var(--blue);
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.result-card:hover,
+.result-card.active {
+  transform: translateY(-2px);
+  border-color: rgba(106, 168, 255, 0.42);
+  background: rgba(106, 168, 255, 0.08);
+  animation: statePulse 8s ease-in-out infinite;
+}
+
+.result-card.blue { border-top-color: var(--blue); }
+.result-card.cyan { border-top-color: var(--cyan); }
+.result-card.violet { border-top-color: var(--violet); }
+.result-card.amber { border-top-color: var(--amber); }
+.result-card.green { border-top-color: var(--green); }
+
+.result-main h3 {
+  margin: 7px 0 7px;
+  font-size: 19px;
+}
+
+.result-main strong {
+  display: block;
+  min-height: 42px;
+  color: var(--ink);
+  font-size: clamp(29px, 2.45vw, 38px);
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+
+.result-meter {
+  height: 8px;
+  margin: 7px 0 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.075);
+  overflow: hidden;
+}
+
+.result-meter i {
+  display: block;
+  width: var(--value);
+  min-width: 5px;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  box-shadow: 0 0 18px rgba(85, 215, 231, 0.30);
+}
+
+.result-card.cyan .result-meter i { background: linear-gradient(90deg, var(--cyan), #9ff3ff); }
+.result-card.violet .result-meter i { background: linear-gradient(90deg, var(--violet), var(--blue)); }
+.result-card.amber .result-meter i { background: linear-gradient(90deg, var(--amber), #ffe2a0); }
+.result-card.green .result-meter i { background: linear-gradient(90deg, var(--green), var(--cyan)); }
+
+.active-step .result-meter i {
+  animation: meterPulse 7s ease-in-out infinite;
+}
+
+.result-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 7px;
+}
+
+.result-badges b {
+  min-height: 22px;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.result-claim {
+  margin: 8px 0 0;
+  color: #dce8f8;
+  font-size: 13.5px;
+  font-weight: 760;
+  line-height: 1.26;
+}
+
+.result-card small {
+  display: none;
+  margin-top: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 720;
+  line-height: 1.24;
+}
+
+.result-card dl {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.result-focus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 0;
+}
+
+.result-focus-grid div {
+  min-height: 72px;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.result-focus-grid b,
+.result-focus-grid em {
+  display: block;
+}
+
+.result-focus-grid b {
+  margin-bottom: 4px;
+  color: var(--faint);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.result-focus-grid em {
+  color: #dce8f8;
+  font-size: 12.5px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.22;
+}
+
+.result-focus {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.42fr) 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.result-focus-lead {
+  display: grid;
+  align-content: center;
+  min-height: 96px;
+}
+
+.result-focus-lead span {
+  display: block;
+}
+
+.result-focus-lead strong {
+  font-size: 18px;
+}
+
+.result-focus-lead p {
+  font-size: 14px;
+  line-height: 1.34;
+}
+
+.claim-readout {
+  display: grid;
+  grid-template-columns: auto minmax(90px, 0.7fr) auto minmax(90px, 0.7fr) auto minmax(130px, 1fr);
+  gap: 6px;
+  align-items: center;
+  margin-top: 9px;
+}
+
+.claim-readout span,
+.claim-readout b {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.claim-readout span {
+  color: var(--faint);
+  background: rgba(255, 255, 255, 0.045);
+  text-transform: uppercase;
+  font-weight: 840;
+}
+
+.claim-readout b {
+  color: #06111f;
+  background: rgba(85, 215, 231, 0.88);
+  font-weight: 880;
+}
+
+.result-card dl div,
+.stage-grid div {
+  min-height: 72px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+dt {
+  margin-bottom: 5px;
+  color: var(--faint);
+  font-size: 10px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 0;
+  color: #dce8f8;
+  font-size: 13px;
+  font-weight: 680;
+  line-height: 1.28;
+}
+
+.stage-layout {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 14px;
+}
+
+.stage-rail {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.stage-tab {
+  min-height: 76px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.045);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.stage-tab:hover {
+  transform: translateY(-1px);
+  border-color: rgba(85, 215, 231, 0.42);
+}
+
+.stage-tab.active {
+  color: #06111f;
+  border-color: var(--cyan);
+  background: var(--cyan);
+  box-shadow: 0 12px 30px rgba(85, 215, 231, 0.15);
+  animation: statePulseDark 8s ease-in-out infinite;
+}
+
+.stage-tab span,
+.stage-tab em,
+.stage-tab strong {
+  display: block;
+}
+
+.stage-tab span,
+.stage-tab em {
+  color: currentColor;
+  opacity: 0.78;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.stage-tab strong {
+  margin: 6px 0 3px;
+  font-size: 17px;
+}
+
+.stage-detail {
+  min-height: 470px;
+  padding: 22px;
+}
+
+.stage-detail h3 {
+  max-width: 860px;
+  font-size: clamp(24px, 2.7vw, 34px);
+}
+
+.stage-detail > p:not(.eyebrow) {
+  max-width: 850px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.stage-grid strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.28;
+}
+
+.code-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.code-links a,
+.future-grid a {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.055);
+  font-size: 13px;
+  font-weight: 780;
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.code-links a:hover,
+.future-grid a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(106, 168, 255, 0.48);
+  background: rgba(106, 168, 255, 0.11);
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(360px, 0.74fr);
+  gap: 14px;
+}
+
+.demo-route {
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr 28px 1fr 28px 1fr 28px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.demo-route a,
+.demo-route span {
+  min-height: 78px;
+  display: grid;
+  place-items: center;
+}
+
+.demo-route a {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 820;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.demo-route a:hover,
+.demo-route a.active {
+  transform: translateY(-2px);
+  border-color: rgba(247, 198, 106, 0.58);
+  background: rgba(247, 198, 106, 0.10);
+  animation: statePulseAmber 8s ease-in-out infinite;
+}
+
+.demo-panel {
+  border-left-color: var(--amber);
+}
+
+.demo-route span {
+  position: relative;
+}
+
+.demo-route span::before,
+.demo-route span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  background: var(--line-strong);
+}
+
+.demo-route span::before {
+  left: 3px;
+  right: 3px;
+  height: 1px;
+}
+
+.demo-route span.passed::before,
+.active-step .demo-route span::before {
+  background: linear-gradient(90deg, rgba(247, 198, 106, 0.14), rgba(247, 198, 106, 0.92), rgba(85, 215, 231, 0.48), rgba(247, 198, 106, 0.14));
+  background-size: 220% 100%;
+  animation: evidenceFlow 7s linear infinite;
+}
+
+.demo-route span.passed::after,
+.active-step .demo-route span::after {
+  border-color: rgba(247, 198, 106, 0.72);
+}
+
+.demo-route span::after {
+  right: 4px;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid var(--line-strong);
+  border-right: 1px solid var(--line-strong);
+  transform: translateY(-50%) rotate(45deg);
+  background: transparent;
+}
+
+.terminal-card {
+  overflow: hidden;
+  background: rgba(4, 10, 18, 0.92);
+}
+
+.active-step .terminal-card {
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.20), inset 0 0 34px rgba(85, 215, 231, 0.035);
+}
+
+.active-step .terminal-card pre:last-child code {
+  animation: terminalWake 9s ease-in-out infinite;
+}
+
+.terminal-top {
+  display: grid;
+  grid-template-columns: 10px 10px 10px 1fr auto;
+  gap: 7px;
+  align-items: center;
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.terminal-top span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #f97316;
+}
+
+.terminal-top span:nth-child(2) { background: #facc15; }
+.terminal-top span:nth-child(3) { background: #22c55e; }
+
+.terminal-top strong {
+  margin-left: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.terminal-top button {
+  min-height: 30px;
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+pre {
+  margin: 0;
+  padding: 13px 15px;
+  overflow: auto;
+}
+
+code {
+  font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+  color: #d8e6f8;
+  font-size: 13px;
+  line-height: 1.42;
+}
+
+.limit-grid article {
+  min-height: 160px;
+  border-top: 4px solid var(--red);
+}
+
+.limit-grid article:nth-child(2) { border-top-color: var(--violet); }
+.limit-grid article:nth-child(3) { border-top-color: var(--amber); }
+.limit-grid article:nth-child(4) { border-top-color: var(--green); }
+
+.limit-grid strong,
+.qa-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.future-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+
+.future-track {
+  position: relative;
+  min-height: 164px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.future-track::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  opacity: 0.75;
+  transition: opacity 160ms ease;
+}
+
+.future-track:nth-child(2)::before { background: linear-gradient(90deg, var(--violet), var(--blue)); }
+.future-track:nth-child(3)::before { background: linear-gradient(90deg, var(--amber), var(--cyan)); }
+.future-track:nth-child(4)::before { background: linear-gradient(90deg, var(--green), var(--cyan)); }
+.future-track:nth-child(5)::before { background: linear-gradient(90deg, var(--red), var(--amber)); }
+
+.future-track:hover,
+.future-track.active {
+  transform: translateY(-1px);
+  border-color: rgba(85, 215, 231, 0.48);
+  background: rgba(85, 215, 231, 0.070);
+}
+
+.future-section.active-step .future-track:not(.active) {
+  animation: quietFloat 9s ease-in-out infinite;
+}
+
+.future-section.active-step .future-track:nth-child(2) { animation-delay: 120ms; }
+.future-section.active-step .future-track:nth-child(3) { animation-delay: 240ms; }
+.future-section.active-step .future-track:nth-child(4) { animation-delay: 360ms; }
+.future-section.active-step .future-track:nth-child(5) { animation-delay: 480ms; }
+
+.future-track.active {
+  animation: statePulse 8s ease-in-out infinite;
+}
+
+.future-track:hover::before,
+.future-track.active::before {
+  opacity: 1;
+}
+
+.future-track h3 {
+  margin: 12px 0 0;
+  font-size: clamp(16px, 1.35vw, 20px);
+  line-height: 1.12;
+}
+
+.future-track p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.28;
+}
+
+.future-track em {
+  display: block;
+  margin-top: 0;
+  color: var(--faint);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 780;
+}
+
+.future-track a {
+  min-height: 28px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 2px;
+  padding: 5px 8px;
+  border: 1px solid rgba(106, 168, 255, 0.48);
+  border-radius: 6px;
+  color: var(--ink);
+  background: rgba(106, 168, 255, 0.12);
+  font-size: 11px;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.future-track a:hover {
+  background: rgba(106, 168, 255, 0.20);
+}
+
+.future-boundary-strip {
+  display: grid;
+  grid-template-columns: 0.55fr 1fr 26px 0.65fr 1fr 26px 0.55fr 1fr;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.038);
+}
+
+.future-boundary-strip span,
+.future-boundary-strip b {
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 6px 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.future-boundary-strip span {
+  color: var(--faint);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 10px;
+  font-weight: 860;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.future-boundary-strip b {
+  color: var(--ink);
+  background: rgba(85, 215, 231, 0.085);
+  font-size: 12px;
+}
+
+.future-boundary-strip i {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(85, 215, 231, 0.74), transparent);
+}
+
+.future-note {
+  min-height: 96px;
+  display: grid;
+  grid-template-columns: minmax(240px, 0.62fr) 1fr;
+  gap: 8px 14px;
+  align-items: start;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 13px;
+}
+
+.future-note-main {
+  display: grid;
+  gap: 4px;
+}
+
+.future-note strong {
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.future-note span {
+  color: var(--cyan);
+  font-weight: 820;
+}
+
+.future-note em {
+  font-style: normal;
+  color: var(--faint);
+}
+
+.future-note p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.32;
+}
+
+.future-review {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.future-review b {
+  min-height: 26px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 8px;
+  border: 1px solid rgba(85, 215, 231, 0.28);
+  border-radius: 999px;
+  color: #dce8f8;
+  background: rgba(85, 215, 231, 0.075);
+  font-size: 11px;
+}
+
+.qa-section .section-head {
+  margin-bottom: 14px;
+}
+
+.answer-formula {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 36px minmax(160px, 1fr) 36px minmax(160px, 1fr);
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 10px;
+}
+
+.answer-formula span {
+  min-height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: rgba(106, 168, 255, 0.08);
+  font-size: 14px;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.answer-formula i {
+  height: 1px;
+  position: relative;
+  background: linear-gradient(90deg, transparent, rgba(85, 215, 231, 0.74), transparent);
+}
+
+.answer-formula i::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid rgba(85, 215, 231, 0.82);
+  border-right: 1px solid rgba(85, 215, 231, 0.82);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.qa-grid details {
+  min-height: 112px;
+  padding: 0;
+  box-shadow: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  overflow: hidden;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.qa-grid details[open],
+.qa-grid details:hover {
+  border-color: rgba(106, 168, 255, 0.42);
+  background: rgba(106, 168, 255, 0.06);
+}
+
+.qa-grid summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px 7px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 820;
+  cursor: pointer;
+}
+
+.qa-grid details p {
+  padding: 0 16px 14px;
+  font-size: 14px;
+  line-height: 1.34;
+}
+
+.qa-challenges {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.qa-challenges button {
+  min-height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.045);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 820;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.qa-challenges button:hover,
+.qa-challenges button.active {
+  transform: translateY(-1px);
+  color: var(--ink);
+  border-color: rgba(85, 215, 231, 0.45);
+  background: rgba(85, 215, 231, 0.09);
+}
+
+.qa-section.active-step .qa-challenges button {
+  animation: quietFloat 9s ease-in-out infinite;
+}
+
+.qa-section.active-step .qa-challenges button:nth-child(2) { animation-delay: 100ms; }
+.qa-section.active-step .qa-challenges button:nth-child(3) { animation-delay: 200ms; }
+.qa-section.active-step .qa-challenges button:nth-child(4) { animation-delay: 300ms; }
+.qa-section.active-step .qa-challenges button:nth-child(5) { animation-delay: 400ms; }
+.qa-section.active-step .qa-challenges button:nth-child(6) { animation-delay: 500ms; }
+
+.qa-hotseat {
+  display: grid;
+  grid-template-columns: 0.34fr 1fr;
+  gap: 10px;
+  align-items: start;
+  margin-top: 10px;
+}
+
+.qa-hotseat-card,
+.qa-answer {
+  min-height: 104px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.qa-hotseat-card {
+  border-left: 4px solid var(--cyan);
+}
+
+.qa-hotseat-card span,
+.qa-answer span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.qa-hotseat-card strong,
+.qa-answer strong {
+  display: block;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.24;
+}
+
+.qa-answer p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.34;
+}
+
+.qa-answer.content-refresh {
+  animation: contentFade 220ms ease both;
+}
+
+.step-dots {
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  z-index: 65;
+  display: grid;
+  gap: 8px;
+  transform: translateY(-50%);
+}
+
+.step-dots button {
+  width: 9px;
+  height: 32px;
+  border: 1px solid rgba(214, 226, 244, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.055);
+  cursor: pointer;
+  transition: height 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.step-dots button:hover,
+.step-dots button.active {
+  height: 48px;
+  border-color: rgba(85, 215, 231, 0.70);
+  background: linear-gradient(180deg, var(--blue), var(--cyan));
+  transform: translateX(2px);
+}
+
+.floating-controls {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 70;
+  display: grid;
+  grid-template-columns: auto minmax(112px, auto) auto;
+  gap: 7px;
+  align-items: center;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(7, 17, 31, 0.86);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.30);
+  backdrop-filter: blur(16px);
+  transition: opacity 220ms ease, transform 220ms ease, background 220ms ease;
+  animation: controlsIdle 8s ease-in-out infinite;
+}
+
+.floating-controls:hover,
+.floating-controls:focus-within {
+  opacity: 1;
+  transform: translateY(-1px);
+  background: rgba(7, 17, 31, 0.94);
+  animation-play-state: paused;
+}
+
+.floating-controls span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 820;
+  text-align: center;
+}
+
+.floating-controls button {
+  min-height: 32px;
+  padding: 6px 9px;
+  font-size: 12px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 0 34px;
+  border-top: 1px solid var(--line);
+  color: var(--faint);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+body.presenter .topbar {
+  display: none;
+}
+
+body.presenter .viva-step {
+  min-height: 100svh;
+  scroll-margin-top: 0;
+}
+
+body.presenter .section,
+body.presenter .hero {
+  min-height: 100svh;
+  padding: clamp(28px, 5vh, 52px) 0 84px;
+}
+
+body.presenter .future-section {
+  padding: 28px 0 92px;
+}
+
+body.presenter .future-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+body.presenter .future-track {
+  min-height: 150px;
+}
+
+body.presenter .floating-controls {
+  right: 22px;
+  bottom: 22px;
+}
+
+body.presenter .step-dots {
+  display: none;
+}
+
+@media (max-height: 940px) and (min-width: 900px) {
+  body.presenter .contract-section {
+    padding: 22px 0 74px;
+  }
+
+  body.presenter .contract-section .section-head {
+    margin-bottom: 10px;
+  }
+
+  body.presenter .contract-lab {
+    gap: 9px;
+  }
+
+  body.presenter .contract-detail {
+    min-height: 170px;
+    padding: 16px 20px;
+  }
+
+  body.presenter .contract-detail h3 {
+    font-size: clamp(24px, 2.5vw, 32px);
+  }
+
+  body.presenter .contribution-strip article {
+    min-height: 74px;
+    padding: 12px 14px;
+  }
+}
+
+@keyframes ambientBreath {
+  0%, 100% {
+    opacity: 0.34;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.50;
+    transform: translate3d(0, -6px, 0) scale(1.018);
+  }
+}
+
+@keyframes gridDrift {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 34px 34px, 34px 34px;
+  }
+}
+
+@keyframes panelBreath {
+  0%, 100% {
+    box-shadow: var(--shadow);
+    border-color: var(--line-strong);
+  }
+  50% {
+    box-shadow: var(--shadow), 0 0 38px rgba(85, 215, 231, 0.09);
+    border-color: rgba(85, 215, 231, 0.34);
+  }
+}
+
+@keyframes statePulse {
+  0%, 100% {
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.20);
+  }
+  50% {
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.20), 0 0 28px rgba(85, 215, 231, 0.13);
+  }
+}
+
+@keyframes statePulseDark {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.08);
+  }
+}
+
+@keyframes statePulseAmber {
+  0%, 100% {
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.20);
+  }
+  50% {
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.20), 0 0 30px rgba(247, 198, 106, 0.15);
+  }
+}
+
+@keyframes quietFloat {
+  0%, 100% {
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+  }
+}
+
+@keyframes meterPulse {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.18);
+  }
+}
+
+@keyframes quietGlow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.10);
+  }
+}
+
+@keyframes contentFade {
+  from {
+    opacity: 0.72;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes evidenceFlow {
+  from {
+    background-position: 220% 0;
+  }
+  to {
+    background-position: -20% 0;
+  }
+}
+
+@keyframes terminalWake {
+  0%, 100% {
+    opacity: 0.92;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes controlsIdle {
+  0%, 100% {
+    opacity: 0.82;
+  }
+  50% {
+    opacity: 0.58;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (max-height: 820px) and (min-width: 900px) {
+  body.presenter .section,
+  body.presenter .hero {
+    padding: 22px 0 72px;
+  }
+
+  body.presenter .hero .cover-shell {
+    min-height: auto;
+    padding: 34px 56px;
+    gap: 18px;
+  }
+
+  body.presenter .cover-route,
+  body.presenter .route-timer {
+    display: none;
+  }
+
+  body.presenter h1 {
+    font-size: clamp(40px, 5vw, 56px);
+  }
+
+  body.presenter h2 {
+    font-size: clamp(30px, 3.2vw, 40px);
+  }
+
+  body.presenter .section-head {
+    margin-bottom: 12px;
+  }
+
+  body.presenter .section-head p:not(.eyebrow) {
+    font-size: 15px;
+    line-height: 1.32;
+  }
+
+  body.presenter .contract-lab {
+    gap: 8px;
+  }
+
+  body.presenter .contract-chip {
+    min-height: 42px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  body.presenter .contract-detail {
+    min-height: 182px;
+    padding: 18px 22px;
+  }
+
+  body.presenter .contract-detail h3 {
+    font-size: clamp(24px, 2.6vw, 31px);
+  }
+
+  body.presenter .contract-detail p:not(.eyebrow) {
+    font-size: 15px;
+    line-height: 1.32;
+  }
+
+  body.presenter .contract-equation {
+    padding: 8px;
+  }
+
+  body.presenter .contract-equation span,
+  body.presenter .contract-equation strong {
+    min-height: 34px;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  body.presenter .method-pipeline {
+    margin-top: 6px;
+  }
+
+  body.presenter .method-pipeline span {
+    min-height: 52px;
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  body.presenter .method-pipeline em {
+    font-size: 9px;
+  }
+
+  body.presenter .contribution-strip {
+    display: none;
+  }
+
+  body.presenter .benchmark-strip {
+    margin-bottom: 8px;
+    padding: 9px;
+  }
+
+  body.presenter .benchmark-strip span,
+  body.presenter .benchmark-strip b {
+    min-height: 32px;
+    font-size: 12px;
+  }
+
+  body.presenter .result-thesis {
+    display: none;
+  }
+
+  body.presenter .result-card {
+    min-height: 160px;
+    padding: 12px;
+  }
+
+  body.presenter .result-main h3 {
+    margin: 5px 0;
+    font-size: 17px;
+  }
+
+  body.presenter .result-main strong {
+    min-height: 34px;
+    font-size: clamp(25px, 2.25vw, 32px);
+  }
+
+  body.presenter .result-badges {
+    display: none;
+  }
+
+  body.presenter .result-claim {
+    font-size: 12.5px;
+    line-height: 1.22;
+  }
+
+  body.presenter .result-focus {
+    margin-top: 8px;
+    grid-template-columns: minmax(220px, 0.36fr) 1fr;
+  }
+
+  body.presenter .result-focus-lead {
+    min-height: 72px;
+  }
+
+  body.presenter .result-focus-grid div {
+    min-height: 58px;
+    padding: 7px 8px;
+  }
+
+  body.presenter .result-focus-grid em {
+    font-size: 11px;
+    line-height: 1.18;
+  }
+
+  body.presenter .demo-grid {
+    align-items: center;
+  }
+
+  body.presenter .demo-route a,
+  body.presenter .demo-route span {
+    min-height: 58px;
+  }
+
+  body.presenter .terminal-top {
+    padding: 8px 10px;
+  }
+
+  body.presenter pre {
+    padding: 9px 12px;
+  }
+
+  body.presenter code {
+    font-size: 12px;
+    line-height: 1.32;
+  }
+
+  body.presenter .demo-section .speak-card {
+    display: none;
+  }
+
+  body.presenter .future-section {
+    padding: 22px 0 72px;
+  }
+
+  body.presenter .future-track {
+    min-height: 126px;
+    padding: 12px;
+  }
+
+  body.presenter .future-note {
+    min-height: 74px;
+    margin-top: 10px;
+    padding: 10px 12px;
+  }
+
+  body.presenter .step-dots {
+    display: none;
+  }
+}
+
+@media (max-width: 1180px) {
+  .nav {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px 0;
+  }
+
+  .route-nav {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .section-head.split,
+  .contract-lab,
+  .stage-layout,
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contract-lab {
+    grid-template-areas:
+      "chips"
+      "detail"
+      "equation"
+      "pipeline"
+      "contrib";
+  }
+
+  .contract-stack {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .problem-grid,
+  .limit-grid,
+  .contribution-strip,
+  .result-thesis,
+  .result-ledger,
+  .stage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .future-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .benchmark-strip,
+  .method-pipeline,
+  .result-focus-grid,
+  .claim-readout,
+  .answer-formula,
+  .future-note,
+  .future-boundary-strip,
+  .qa-hotseat,
+  .demo-route {
+    grid-template-columns: 1fr;
+  }
+
+  .benchmark-strip i,
+  .answer-formula i,
+  .future-boundary-strip i,
+  .demo-route span {
+    display: none;
+  }
+
+  .future-review {
+    justify-content: flex-start;
+  }
+
+  .qa-challenges {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .step-dots {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .section,
+  .footer,
+  .nav {
+    width: calc(100% - 28px);
+  }
+
+  .cover-shell {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .university-logo {
+    width: min(320px, 82vw);
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .title-line {
+    font-size: 22px;
+  }
+
+  .cover-footer,
+  .route-timer,
+  .problem-grid,
+  .limit-grid,
+  .qa-grid,
+  .qa-challenges,
+  .qa-hotseat,
+  .answer-formula,
+  .claim-readout,
+  .contribution-strip,
+  .result-thesis,
+  .result-ledger,
+  .future-grid,
+  .future-note,
+  .future-boundary-strip,
+  .stage-grid,
+  .contract-stack,
+  .method-pipeline {
+    grid-template-columns: 1fr;
+  }
+
+  .contract-equation {
+    flex-wrap: wrap;
+  }
+
+  .contract-equation span,
+  .contract-equation strong {
+    flex-basis: 42%;
+  }
+
+  .result-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-formula i {
+    display: none;
+  }
+
+  .result-card {
+    min-height: auto;
+  }
+
+  .floating-controls {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
+
+</style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-meter" id="scrollMeter" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <nav class="nav" aria-label="Viva route">
+        <a class="brand" href="#top" aria-label="WatermarkScope home">
+          <span class="brand-mark">WS</span>
+          <span>WatermarkScope</span>
+        </a>
+        <div class="route-nav" aria-label="10-minute presentation route">
+          <a href="#problem">Problem</a>
+          <a href="#contract">Method</a>
+          <a href="#snapshot">Results</a>
+          <a href="#demo">Demo</a>
+          <a href="#future">Future</a>
+          <a href="#qa">Q&amp;A</a>
+        </div>
+        <div class="nav-actions">
+          <button class="mode-button" id="presenterMode" type="button" aria-pressed="false">Presenter mode</button>
+          <a class="repo-button" href="https://github.com/Haoyi-Zhang/WatermarkScope">Repository</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero viva-step" id="top" data-step="Opening">
+        <div class="cover-shell">
+          <header class="cover-top">
+            <img class="university-logo" src="data:image/png;base64,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" alt="Xi'an Jiaotong-Liverpool University logo">
+            <div>
+              <span>Final Year Project Viva</span>
+              <strong>School of AI and Advanced Computing</strong>
+            </div>
+          </header>
+
+          <div class="cover-main">
+            <p class="eyebrow">Submitted dissertation presentation</p>
+            <h1>WatermarkScope</h1>
+            <p class="title-line">A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models</p>
+            <p class="hero-lead">A framework for turning source-code watermark detector outputs into inspectable, bounded evidence.</p>
+            <div class="cover-route" aria-label="Interactive viva route">
+              <a href="#problem">1 Problem</a>
+              <a href="#contract">2 Method</a>
+              <a href="#snapshot">3 Results</a>
+              <a href="#demo">4 Demo</a>
+              <a href="#future">5 Future</a>
+              <a href="#qa">6 Q&amp;A</a>
+            </div>
+            <div class="route-timer" aria-label="10-minute viva timing plan">
+              <span style="--w: 8%">Opening <b>0:45</b></span>
+              <span style="--w: 14%">Problem <b>1:15</b></span>
+              <span style="--w: 19%">Method <b>1:45</b></span>
+              <span style="--w: 22%">Results <b>2:00</b></span>
+              <span style="--w: 17%">Demo <b>1:30</b></span>
+              <span style="--w: 8%">Future <b>0:45</b></span>
+            </div>
+          </div>
+
+          <footer class="cover-footer">
+            <div>
+              <span>Student</span>
+              <strong>Haoyi Zhang</strong>
+            </div>
+            <div>
+              <span>Student ID</span>
+              <strong>2254912</strong>
+            </div>
+            <div>
+              <span>Supervisor</span>
+              <strong>Md Maruf Hasan</strong>
+            </div>
+            <div>
+              <span>Viva</span>
+              <strong>21 May 2026</strong>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+      <section class="section problem-section viva-step" id="problem" data-step="Problem">
+        <div class="section-head split">
+          <div>
+            <p class="eyebrow">Research gap</p>
+            <h2>The gap is not only detection. It is trustworthy evidence after code leaves the prompt.</h2>
+          </div>
+          <p>Generated code may be copied, edited, translated, or deployed outside the original session. At that point, a detector score alone is too weak unless the counted rows, controls, and claim boundary are clear.</p>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-card active" data-problem="execution" tabindex="0">
+            <span>01</span>
+            <h3>Code moves</h3>
+            <p>The generated snippet may no longer have its original prompt, model session, or owner context.</p>
+          </article>
+          <article class="problem-card" data-problem="access" tabindex="0">
+            <span>02</span>
+            <h3>Code must run</h3>
+            <p>For source code, a watermark claim is weak if the benchmark row is not executable and countable.</p>
+          </article>
+          <article class="problem-card" data-problem="abstention" tabindex="0">
+            <span>03</span>
+            <h3>Claims need limits</h3>
+            <p>White-box recovery, black-box audit, owner attribution, and security triage should not share one score.</p>
+          </article>
+        </div>
+        <aside class="interaction-panel" aria-live="polite">
+          <span id="problemPanelLabel">Why this matters</span>
+          <strong id="problemPanelTitle">Executable rows protect the denominator.</strong>
+          <p id="problemPanelText">This fixes exactly which code-generation rows were counted before interpreting any watermark signal.</p>
+        </aside>
+        <aside class="speak-card">
+          <strong>Design decision</strong>
+          <p>The project treats watermarking as an evidence problem: a result is interpreted only after the counted rows, controls, artifact, access model, and claim boundary are fixed.</p>
+        </aside>
+      </section>
+
+      <section class="section contract-section viva-step" id="contract" data-step="Method">
+        <div class="section-head">
+          <p class="eyebrow">Method</p>
+          <h2>The method is an evidence contract plus a five-stage pipeline.</h2>
+          <p>The method is simple to explain: admit an evidence object first, then interpret the watermark result only inside that admitted scope.</p>
+        </div>
+        <div class="contract-lab">
+          <div class="contract-stack" role="tablist" aria-label="Evidence contract parts">
+            <button class="contract-chip active" type="button" data-contract="denominator">Denominator</button>
+            <button class="contract-chip" type="button" data-contract="controls">Controls</button>
+            <button class="contract-chip" type="button" data-contract="artifact">Artifact</button>
+            <button class="contract-chip" type="button" data-contract="access">Access model</button>
+            <button class="contract-chip" type="button" data-contract="boundary">Boundary</button>
+          </div>
+          <article class="contract-detail" aria-live="polite">
+            <p class="eyebrow" id="contractLabel">What is counted?</p>
+            <h3 id="contractTitle">A result only means something after the denominator is fixed.</h3>
+            <p id="contractText">For example, SemCodebook reports 30,330 recoveries over 31,200 admitted positive rows. Misses remain inside the denominator; they are not hidden by the aggregate.</p>
+          </article>
+          <div class="contract-equation" aria-label="Evidence contract equation">
+            <span>detector output</span>
+            <b>+</b>
+            <span>denominator</span>
+            <b>+</b>
+            <span>controls</span>
+            <b>+</b>
+            <span>artifact</span>
+            <b>+</b>
+            <span>boundary</span>
+            <b>=</b>
+            <strong>admissible claim</strong>
+          </div>
+          <div class="method-pipeline" aria-label="Five-stage WatermarkScope pipeline">
+            <span>CodeMarkBench<em>benchmark</em></span>
+            <span>SemCodebook<em>white-box recovery</em></span>
+            <span>CodeDye<em>black-box audit</em></span>
+            <span>ProbeTrace<em>owner attribution</em></span>
+            <span>SealAudit<em>security triage</em></span>
+          </div>
+          <div class="contribution-strip" aria-label="Contribution summary">
+            <article><span>Gap</span><strong>One detector score is not enough</strong></article>
+            <article><span>Method</span><strong>Evidence contract before claim</strong></article>
+            <article><span>Build</span><strong>Five connected code modules</strong></article>
+            <article><span>Defense</span><strong>Allowed and forbidden claims</strong></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section snapshot-section viva-step" id="snapshot" data-step="Submitted results">
+        <div class="section-head">
+          <p class="eyebrow">Key results</p>
+          <h2>The result story is denominator, control, and boundary.</h2>
+          <p>The five result surfaces show what was counted, what controls were checked, and which conclusion each evidence object can safely support.</p>
+        </div>
+        <div class="benchmark-strip" aria-label="CodeMarkBench denominator">
+          <strong>Benchmark denominator</strong>
+          <span>4 baselines</span>
+          <i></i>
+          <span>5 local code models</span>
+          <i></i>
+          <span>7 source groups</span>
+          <b>140 canonical runs</b>
+        </div>
+        <div class="result-thesis" aria-label="Result interpretation summary">
+          <article>
+            <span>Avoided claim</span>
+            <strong>One detector score proves everything.</strong>
+          </article>
+          <article>
+            <span>Main evidence</span>
+            <strong>Each number is read with denominator and controls.</strong>
+          </article>
+          <article>
+            <span>Safe conclusion</span>
+            <strong>Claims are access-specific and explicitly bounded.</strong>
+          </article>
+        </div>
+        <div class="result-ledger" id="resultLedger" aria-label="Submitted FYP result ledger"></div>
+        <aside class="result-focus" id="resultFocus" aria-live="polite">
+          <span>Result detail</span>
+          <strong>Use each number with its denominator and boundary.</strong>
+          <p>A defensible interpretation states what was counted, which controls were run, and what claim is allowed.</p>
+        </aside>
+      </section>
+
+      <section class="section walkthrough-section optional-section" id="walkthrough" data-step="Walkthrough">
+        <div class="section-head">
+          <p class="eyebrow">Interactive walkthrough</p>
+          <h2>Five stages, five bounded evidence questions.</h2>
+        </div>
+        <div class="stage-layout">
+          <div class="stage-rail" role="tablist" aria-label="WatermarkScope stages">
+            <button class="stage-tab active" type="button" data-stage="codemarkbench">
+              <span>01</span>
+              <strong>CodeMarkBench</strong>
+              <em>Evaluate</em>
+            </button>
+            <button class="stage-tab" type="button" data-stage="semcodebook">
+              <span>02</span>
+              <strong>SemCodebook</strong>
+              <em>Recover</em>
+            </button>
+            <button class="stage-tab" type="button" data-stage="codedye">
+              <span>03</span>
+              <strong>CodeDye</strong>
+              <em>Audit</em>
+            </button>
+            <button class="stage-tab" type="button" data-stage="probetrace">
+              <span>04</span>
+              <strong>ProbeTrace</strong>
+              <em>Attribute</em>
+            </button>
+            <button class="stage-tab" type="button" data-stage="sealaudit">
+              <span>05</span>
+              <strong>SealAudit</strong>
+              <em>Triage</em>
+            </button>
+          </div>
+
+          <article class="stage-detail" aria-live="polite">
+            <p class="eyebrow" id="stageQuestionLabel">Stage question</p>
+            <h3 id="stageQuestion">Can we evaluate code watermarking on executable benchmark rows?</h3>
+            <p id="stagePlain">CodeMarkBench fixes a benchmark denominator before any detector interpretation.</p>
+            <div class="stage-grid">
+              <div>
+                <span>Contribution</span>
+                <strong id="stageContribution">Executable benchmark denominator.</strong>
+              </div>
+              <div>
+                <span>Denominator</span>
+                <strong id="stageDenominator">4 baselines x 5 models x 7 source groups = 140 canonical runs.</strong>
+              </div>
+              <div>
+                <span>Observed</span>
+                <strong id="stageObserved">140/140 canonical runs completed.</strong>
+              </div>
+              <div>
+                <span>Boundary</span>
+                <strong id="stageBoundary">Run completion is benchmark support, not watermark success.</strong>
+              </div>
+            </div>
+            <div class="code-links" id="stageLinks" aria-label="Code and artifact links"></div>
+            <aside class="speak-card compact">
+              <strong>Say this</strong>
+              <p id="stageSpeak">This stage is the foundation: before comparing watermark methods, the benchmark rows are made executable and countable.</p>
+            </aside>
+          </article>
+        </div>
+      </section>
+
+      <section class="section demo-section viva-step" id="demo" data-step="Evidence demo">
+        <div class="section-head">
+          <p class="eyebrow">Live inspectability demo</p>
+          <h2>The live demo shows inspectability, not a full rerun.</h2>
+          <p>The inspection route is repository, claim boundary, traceability, manifest, and a lightweight consistency check.</p>
+        </div>
+        <div class="demo-grid">
+          <div class="demo-route" aria-label="Repository inspection route">
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/README.md" target="_blank" rel="noopener" data-demo="readme">README</a>
+            <span></span>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/CLAIM_BOUNDARIES.md" target="_blank" rel="noopener" data-demo="boundaries">Claim boundaries</a>
+            <span></span>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/docs/TRACEABILITY_MATRIX.md" target="_blank" rel="noopener" data-demo="traceability">Traceability</a>
+            <span></span>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/RESULT_MANIFEST.jsonl" target="_blank" rel="noopener" data-demo="manifest">Manifest</a>
+            <span></span>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/scripts/viva_check.py" target="_blank" rel="noopener" data-demo="check">viva_check.py</a>
+          </div>
+          <div class="terminal-card">
+            <div class="terminal-top">
+              <span></span><span></span><span></span>
+              <strong>local evidence check</strong>
+              <button type="button" id="copyCommand">Copy command</button>
+            </div>
+            <pre><code id="checkCommand">python scripts/viva_check.py</code></pre>
+            <pre><code>[OK] Evidence-facing documents present
+[OK] Result manifest covers modules
+[OK] Manifest rows are hash-addressed
+[OK] Key inspection artifacts present
+[OK] Claim boundaries are present
+[OK] Evidence check passed</code></pre>
+          </div>
+        </div>
+        <aside class="interaction-panel demo-panel" aria-live="polite">
+          <span id="demoPanelLabel">Demo step</span>
+          <strong id="demoPanelTitle">Start with the repository README.</strong>
+          <p id="demoPanelText">The README defines the submitted FYP surface and the route into deeper artifacts.</p>
+        </aside>
+        <aside class="speak-card">
+          <strong>Demo boundary</strong>
+          <p>Full experimental reruns require GPUs, model weights, or provider APIs. The live evidence focuses on inspectability: each claim points to a boundary, code path, artifact, and manifest entry.</p>
+        </aside>
+      </section>
+
+      <section class="section limits-section optional-section" id="limits" data-step="Limits">
+        <div class="section-head">
+          <p class="eyebrow">Limits and examiner-safe claims</p>
+          <h2>The strongest part of the work is that it says what it does not prove.</h2>
+        </div>
+        <div class="limit-grid">
+          <article>
+            <strong>No universal watermark claim</strong>
+            <p>SemCodebook supports admitted white-box cells; it is not a universal natural-generation theorem.</p>
+          </article>
+          <article>
+            <strong>No provider accusation</strong>
+            <p>CodeDye reports conservative black-box audit evidence; it is not contamination prevalence or wrongdoing evidence.</p>
+          </article>
+          <article>
+            <strong>No general authorship proof</strong>
+            <p>ProbeTrace is scoped active-owner verification under a fixed registry and split.</p>
+          </article>
+          <article>
+            <strong>No safety certificate</strong>
+            <p>SealAudit is selective triage with abstention; it is not automatic harmlessness certification.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section future-section viva-step" id="future" data-step="Future work">
+        <div class="section-head future-head">
+          <p class="eyebrow">Future work</p>
+          <h2>The submitted FYP stays fixed; later repositories become separate paper tracks.</h2>
+          <p>The continuation tracks show how the same research line can be extended without rewriting the submitted dissertation evidence.</p>
+        </div>
+        <div class="future-grid" id="futureGrid" aria-label="Continuation repositories"></div>
+        <div class="future-boundary-strip" aria-label="Submitted and future work separation">
+          <span>Submitted FYP</span>
+          <b>Fixed evidence surface</b>
+          <i></i>
+          <span>Continuation repos</span>
+          <b>Separate evidence surfaces</b>
+          <i></i>
+          <span>Boundary rule</span>
+          <b>No retroactive denominator change</b>
+        </div>
+        <aside class="future-note" id="futureNote" aria-live="polite">
+          Continuation tracks are separated from the defended dissertation evidence.
+        </aside>
+      </section>
+
+      <section class="section qa-section viva-step" id="qa" data-step="Q&amp;A">
+        <div class="section-head">
+          <p class="eyebrow">Q&amp;A reference</p>
+          <h2>Answer with evidence and boundary.</h2>
+          <p>The answer pattern is: first answer directly, then give one evidence number, then state the claim boundary.</p>
+        </div>
+        <div class="answer-formula" aria-label="Q&A answer formula">
+          <span>direct answer</span>
+          <i></i>
+          <span>one evidence number</span>
+          <i></i>
+          <span>claim boundary</span>
+        </div>
+        <div class="qa-grid">
+          <details open>
+            <summary>What is the novelty?</summary>
+            <p>WatermarkScope makes code watermarking evidence auditable by tying each result to denominator, controls, artifact, access model, and claim boundary.</p>
+          </details>
+          <details open>
+            <summary>Which part is the main method?</summary>
+            <p>SemCodebook is the main method contribution: structured white-box provenance recovery using typed program carriers and keyed scheduling.</p>
+          </details>
+          <details open>
+            <summary>Why not one accuracy score?</summary>
+            <p>Benchmark completion, provenance recovery, black-box audit, attribution, and triage answer different questions under different access assumptions.</p>
+          </details>
+          <details open>
+            <summary>What would you improve next?</summary>
+            <p>The next step is to add new admitted evidence surfaces rather than changing old denominators: more model cells, stronger black-box calibration, and broader owner registries.</p>
+          </details>
+        </div>
+        <div class="qa-hotseat" aria-label="Fast Q&A answer panel">
+          <div class="qa-hotseat-card">
+            <span>Answer discipline</span>
+            <strong>Short answer first. Then one number. Then the boundary.</strong>
+          </div>
+          <aside class="qa-answer" id="qaAnswer" aria-live="polite">
+            <span>Evidence-based response</span>
+            <strong>Choose a likely challenge.</strong>
+            <p>The answer will stay short enough to speak naturally during Q&amp;A.</p>
+          </aside>
+        </div>
+        <div class="qa-challenges" aria-label="Discussion prompts">
+          <button type="button" data-qa="broad">Too broad?</button>
+          <button type="button" data-qa="stages">Why five stages?</button>
+          <button type="button" data-qa="rerun">Why no full rerun?</button>
+          <button type="button" data-qa="generalize">Can it generalize?</button>
+          <button type="button" data-qa="sparse">Is CodeDye too sparse?</button>
+          <button type="button" data-qa="code">Where is the code?</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="floating-controls" aria-label="Presentation controls">
+      <button type="button" id="prevStep">Previous</button>
+      <span id="currentStep">Opening</span>
+      <button type="button" id="nextStep">Next</button>
+    </div>
+
+    <footer class="footer">
+      <span>WatermarkScope</span>
+      <span>Submitted FYP evidence surface, separated from post-submission continuation work.</span>
+    </footer>
+
+    <script>
+const repoBase = "https://github.com/Haoyi-Zhang/WatermarkScope";
+const submittedRef = "e0851409c3fe14d1813b714ff9b2d1fa2da965cb";
+const repoTree = `${repoBase}/tree/${submittedRef}`;
+const repoBlob = `${repoBase}/blob/${submittedRef}`;
+
+const contractFacts = {
+  denominator: {
+    label: "What is counted?",
+    title: "A result only means something after the denominator is fixed.",
+    text: "For example, SemCodebook reports 30,330 recoveries over 31,200 admitted positive rows. The misses remain inside the denominator, so the result is easier to inspect."
+  },
+  controls: {
+    label: "What would fail?",
+    title: "Controls decide whether a signal is evidence or a shortcut.",
+    text: "The main results are paired with negative controls, false-owner controls, or unsafe-pass tracking. Zero observed events are reported as finite-sample evidence, not as zero risk."
+  },
+  artifact: {
+    label: "Can it be inspected?",
+    title: "A defended claim should point to code, manifests, and preserved result files.",
+    text: "The repository route is README, claim boundaries, traceability matrix, result manifest, and viva_check.py. It supports live inspection without requiring an expensive full experimental rerun in the room."
+  },
+  access: {
+    label: "What access is assumed?",
+    title: "Changing access changes the claim.",
+    text: "White-box provenance recovery, black-box null audit, active-owner verification, and marker-hidden triage are different evidence questions. They should not be collapsed into one detector score."
+  },
+  boundary: {
+    label: "What is forbidden?",
+    title: "The boundary prevents the result from becoming broader than the evidence.",
+    text: "The framework explicitly blocks unsupported claims: no universal watermarking claim, no provider accusation, no general authorship proof, and no safety certificate unless a new admitted surface supports it."
+  }
+};
+
+const submittedResults = [
+  {
+    name: "CodeMarkBench",
+    tag: "Executable benchmark",
+    result: "140/140",
+    denominator: "4 baselines x 5 local code models x 7 source groups",
+    controls: "Canonical run-completion inventory before interpretation",
+    claim: "The benchmark foundation is executable and countable.",
+    boundary: "This is benchmark support, not watermark success.",
+    oral: "This comes first because code watermark evaluation must start from executable rows, not only text similarity.",
+    meter: 100,
+    meterLabel: "completed",
+    controlLabel: "inventory locked",
+    accent: "blue"
+  },
+  {
+    name: "SemCodebook",
+    tag: "White-box provenance",
+    result: "30.3k/31.2k",
+    denominator: "31,200 positive rows; 62,400 fixed negatives; 62,400 blind replay negatives",
+    controls: "0/62,400 fixed negative-control hits and 0/62,400 blind replay hits",
+    claim: "Structured provenance recovery within admitted white-box cells.",
+    boundary: "Not universal natural-generation watermarking.",
+    oral: "This is the main method contribution: recoveries, misses, and two negative surfaces are reported together.",
+    meter: 97.2,
+    meterLabel: "recovered",
+    controlLabel: "0 fixed / 0 blind hits",
+    accent: "cyan"
+  },
+  {
+    name: "CodeDye",
+    tag: "Black-box null audit",
+    result: "4/300",
+    denominator: "300 live audit samples, 300 positive controls, 300 negative controls",
+    controls: "170/300 positive controls and 0/300 negative controls",
+    claim: "Conservative sparse black-box audit evidence.",
+    boundary: "Not prevalence, provider accusation, high-recall detection, or proof of absence.",
+    oral: "The sparse signal supports a conservative audit claim, not a contamination-prevalence claim.",
+    meter: 1.3,
+    meterLabel: "sparse signal",
+    controlLabel: "0/300 negative controls",
+    accent: "violet"
+  },
+  {
+    name: "ProbeTrace",
+    tag: "Active-owner attribution",
+    result: "750/750",
+    denominator: "Five-owner DeepSeek commitment/witness surface",
+    controls: "750/750 true-owner positives and 0/5,250 false-attribution controls",
+    claim: "Scoped active-owner commitment and witness verification.",
+    boundary: "Not provider-general or cross-provider authorship proof.",
+    oral: "The strong positive result is bounded by false-owner controls and a fixed owner registry.",
+    meter: 100,
+    meterLabel: "true owner",
+    controlLabel: "0 false-attribution hits",
+    accent: "amber"
+  },
+  {
+    name: "SealAudit",
+    tag: "Security triage",
+    result: "320/960",
+    denominator: "960 marker-hidden triage rows",
+    controls: "0/960 observed unsafe passes; nondecisive rows retained as review load",
+    claim: "Selective marker-hidden triage with explicit abstention.",
+    boundary: "Not an automatic safety classifier or harmlessness certificate.",
+    oral: "For security-facing evidence, abstention is part of the design because forced labels would overstate the evidence.",
+    meter: 33.3,
+    meterLabel: "decisive",
+    controlLabel: "0 unsafe passes",
+    accent: "green"
+  }
+];
+
+const problemFacts = {
+  execution: {
+    title: "The original prompt session is not enough.",
+    text: "This is why provenance is treated as an evidence problem: after code is copied or edited, the claim needs an artifact and a boundary, not just a detector score."
+  },
+  access: {
+    title: "Executable rows protect the denominator.",
+    text: "For code, the benchmark row must be runnable and countable before any watermark signal is interpreted."
+  },
+  abstention: {
+    title: "Different access models need different claims.",
+    text: "White-box recovery, black-box audit, active-owner attribution, and security triage answer different questions, so their claims stay separate."
+  }
+};
+
+const demoFacts = {
+  readme: {
+    title: "Start with the repository README.",
+    text: "The README defines the submitted FYP surface and the route into deeper artifacts."
+  },
+  boundaries: {
+    title: "Then show the claim boundaries.",
+    text: "This document states both the allowed claim and the forbidden interpretation."
+  },
+  traceability: {
+    title: "Traceability connects claims to files.",
+    text: "Each module is connected to code paths, result paths, and a safe interpretation."
+  },
+  manifest: {
+    title: "The manifest preserves evidence records.",
+    text: "This shows the evidence is not just prose on the page; rows are recorded and hash-addressed for inspection."
+  },
+  check: {
+    title: "Finish with the lightweight evidence check.",
+    text: "This verifies the inspection route and key artifacts; it is not a replacement for the full GPU/API experiments."
+  }
+};
+
+const qaFacts = {
+  broad: {
+    title: "Is this too broad for one FYP?",
+    answer: "It is broad in modules, but narrow in principle: every stage follows the same evidence contract. The defended surface is the submitted FYP, not five final papers."
+  },
+  stages: {
+    title: "Why do you need five stages?",
+    answer: "Because access changes the claim. White-box recovery, black-box audit, owner attribution, and triage cannot honestly share one accuracy score."
+  },
+  rerun: {
+    title: "Why not rerun everything live?",
+    answer: "A full rerun needs GPUs, model weights, or provider APIs. The defensible live evidence is inspectability: repository, claim boundaries, traceability, manifest, and the quick check."
+  },
+  generalize: {
+    title: "Can the result generalize?",
+    answer: "Possibly, but a broader claim needs a new admitted surface. The correct next step is to add model cells and report them separately."
+  },
+  sparse: {
+    title: "Is CodeDye too sparse?",
+    answer: "It would be too sparse for a high-recall detector claim. My claim is conservative black-box audit evidence: 4/300 live signals with 0/300 negative controls."
+  },
+  code: {
+    title: "Where is the code evidence?",
+    answer: "The submitted repository is the defended artifact. The strongest live route is README, CLAIM_BOUNDARIES.md, TRACEABILITY_MATRIX.md, RESULT_MANIFEST.jsonl, then viva_check.py."
+  }
+};
+
+const stages = {
+  codemarkbench: {
+    question: "Can we evaluate code watermarking on executable benchmark rows?",
+    plain: "CodeMarkBench fixes the benchmark denominator before any detector interpretation.",
+    contribution: "Executable benchmark denominator.",
+    denominator: "4 baselines x 5 local code models x 7 source groups = 140 canonical runs.",
+    observed: "140/140 canonical runs completed.",
+    boundary: "Run completion is benchmark support, not watermark success.",
+    speak: "This stage is the foundation: before comparing watermark methods, the benchmark rows are made executable and countable.",
+    links: [
+      ["Code snapshot", `${repoTree}/projects/CodeMarkBench`],
+      ["Result tables", `${repoTree}/projects/CodeMarkBench/results/tables/suite_all_models_methods`],
+      ["Dissertation appendix", `${repoTree}/dissertation/latex/appendix`]
+    ]
+  },
+  semcodebook: {
+    question: "Can we recover provenance when local white-box carrier evidence exists?",
+    plain: "SemCodebook is the main method contribution: structured carriers over program representations, with recovery and controls reported separately.",
+    contribution: "Typed carriers over AST, CFG, and SSA structure, with keyed scheduling and recovery logic.",
+    denominator: "31,200 positives, 62,400 fixed negatives, and 62,400 blind replay negatives.",
+    observed: "30,330/31,200 recoveries; 0/62,400 fixed hits; 0/62,400 blind replay hits.",
+    boundary: "White-box admitted-cell provenance, not universal semantic watermarking.",
+    speak: "The important point is not just a high recovery rate. The important point is that the misses and the negative controls stay inside the admitted evidence surface.",
+    links: [
+      ["Implementation", `${repoTree}/projects/SemCodebook`],
+      ["Result artifacts", `${repoTree}/results/SemCodebook/artifacts/generated`],
+      ["Method index", `${repoBlob}/docs/METHOD_INDEX.md`]
+    ]
+  },
+  codedye: {
+    question: "What can still be claimed when only black-box audit transcripts exist?",
+    plain: "CodeDye keeps a conservative null-audit surface instead of turning sparse evidence into a provider accusation.",
+    contribution: "Hash-bound black-box audit evidence with positive and negative controls.",
+    denominator: "300 live audit samples, 300 positive controls, and 300 negative controls.",
+    observed: "4/300 sparse live signals; 170/300 positive controls; 0/300 negative controls.",
+    boundary: "Not contamination prevalence, high-recall detection, provider accusation, or proof of absence.",
+    speak: "A sparse signal is still useful if it tells us what not to claim. Here the correct claim is conservative audit evidence, not prevalence.",
+    links: [
+      ["Implementation", `${repoTree}/projects/CodeDye`],
+      ["Result artifacts", `${repoTree}/results/CodeDye/artifacts/generated`],
+      ["Claim boundaries", `${repoBlob}/CLAIM_BOUNDARIES.md`]
+    ]
+  },
+  probetrace: {
+    question: "Can an active owner make a scoped source claim under a fixed registry?",
+    plain: "ProbeTrace treats attribution as commitment and witness verification, not as open-ended authorship inference.",
+    contribution: "Five-owner source-bound commitment/witness verification with false-owner controls.",
+    denominator: "6,000 five-owner rows with 5,250 false-attribution controls.",
+    observed: "750/750 true-owner positives and 0/5,250 false-attribution controls.",
+    boundary: "Scoped DeepSeek-only owner evidence, not provider-general authorship proof.",
+    speak: "The perfect-looking true-owner result is not presented as universal authorship. It is read together with the false-owner controls and the fixed registry.",
+    links: [
+      ["Implementation", `${repoTree}/projects/ProbeTrace`],
+      ["Result artifacts", `${repoTree}/results/ProbeTrace/artifacts/generated`],
+      ["Traceability", `${repoBlob}/docs/TRACEABILITY_MATRIX.md`]
+    ]
+  },
+  sealaudit: {
+    question: "Should watermark evidence trigger security review instead of automatic acceptance?",
+    plain: "SealAudit treats marker-hidden evidence as a triage problem and keeps ambiguous rows as review load.",
+    contribution: "Marker-hidden selective triage with abstention and unsafe-pass accounting.",
+    denominator: "960 marker-hidden triage rows.",
+    observed: "320/960 decisive outcomes and 0/960 unsafe passes.",
+    boundary: "Selective triage, not an automatic safety classifier or security certificate.",
+    speak: "For this stage, abstention is not a failure of presentation. It is part of the design because forced labels would make the claim less honest.",
+    links: [
+      ["Implementation", `${repoTree}/projects/SealAudit`],
+      ["Result artifacts", `${repoTree}/results/SealAudit/artifacts/generated`],
+      ["Results summary", `${repoBlob}/docs/RESULTS_SUMMARY.md`]
+    ]
+  }
+};
+
+const futureTracks = [
+  {
+    key: "codemarkbench",
+    name: "CodeMarkBench",
+    route: "Benchmark foundation",
+    venue: "EMNLP Findings / ARR resource track",
+    repo: "https://github.com/Haoyi-Zhang/CodeMarkBench",
+    visibility: "Continuation artifact",
+    status: "Benchmark expansion with separately admitted denominators.",
+    focus: "Task suites, release metadata, and admitted benchmark surfaces.",
+    boundary: "Any new benchmark cell must be admitted as a new surface; it does not change the 140/140 submitted FYP denominator.",
+    review: ["Repository", "Task suites", "New denominator rule"]
+  },
+  {
+    key: "semcodebook",
+    name: "SemCodebook",
+    route: "White-box method",
+    venue: "EMNLP Main / ACL Main",
+    repo: "https://github.com/Haoyi-Zhang/SemCodebook",
+    visibility: "Continuation artifact",
+    status: "Structured provenance recovery beyond the submitted FYP slice.",
+    focus: "Carrier/recovery pipeline and negative-control replay gates.",
+    boundary: "Extra cells are future evidence. They should be reported separately from the submitted 30,330/31,200 FYP recovery surface.",
+    review: ["Repository", "Carrier pipeline", "Negative controls"]
+  },
+  {
+    key: "codedye",
+    name: "CodeDye",
+    route: "Black-box audit",
+    venue: "Findings / audit workshop",
+    repo: "https://github.com/Haoyi-Zhang/CodeDye",
+    visibility: "Continuation artifact",
+    status: "Conservative black-box null-audit evidence.",
+    focus: "Audit scripts, role-separated controls, and non-accusation boundary.",
+    boundary: "The claim remains null-audit evidence, not prevalence, wrongdoing proof, or absence proof.",
+    review: ["Repository", "Audit scripts", "Control design"]
+  },
+  {
+    key: "probetrace",
+    name: "ProbeTrace",
+    route: "Owner attribution",
+    venue: "EMNLP / USENIX-style crossover",
+    repo: "https://github.com/Haoyi-Zhang/ProbeTrace",
+    visibility: "Continuation artifact",
+    status: "Scoped owner verification with commitment/witness evidence.",
+    focus: "Owner registry, split, and false-owner controls.",
+    boundary: "It is scoped owner verification, not universal authorship proof or cross-provider attribution.",
+    review: ["Repository", "Owner registry", "False-owner controls"]
+  },
+  {
+    key: "sealaudit",
+    name: "SealAudit",
+    route: "Security triage",
+    venue: "Responsible NLP / safety track",
+    repo: "https://github.com/Haoyi-Zhang/SealAudit",
+    visibility: "Continuation artifact",
+    status: "Marker-hidden selective security triage.",
+    focus: "Decision packets, abstention, and unsafe-pass accounting.",
+    boundary: "It is selective triage, not a classifier, safety certificate, or automatic harmlessness guarantee.",
+    review: ["Repository", "Triage pipeline", "Abstention rule"]
+  }
+];
+
+const resultLedger = document.getElementById("resultLedger");
+
+if (resultLedger) {
+  resultLedger.innerHTML = submittedResults.map((item, index) => `
+    <article class="result-card ${item.accent}" data-result="${index}" tabindex="0" role="button" aria-pressed="false">
+      <div class="result-main">
+        <span>${item.tag}</span>
+        <h3>${item.name}</h3>
+        <strong>${item.result}</strong>
+      </div>
+      <div class="result-meter" aria-label="${item.name} ${item.meterLabel}">
+        <i style="--value: ${item.meter}%"></i>
+      </div>
+      <div class="result-badges">
+        <b>${item.meterLabel}</b>
+        <b>${item.controlLabel}</b>
+      </div>
+      <p class="result-claim">${item.claim}</p>
+    </article>
+  `).join("");
+}
+
+const resultFocus = document.getElementById("resultFocus");
+const resultCards = Array.from(document.querySelectorAll(".result-card"));
+
+function setResultFocus(index) {
+  const data = submittedResults[index];
+  if (!data || !resultFocus) return;
+  resultFocus.classList.remove("content-refresh");
+  resultCards.forEach((card) => {
+    const active = Number(card.dataset.result) === index;
+    card.classList.toggle("active", active);
+    card.setAttribute("aria-pressed", String(active));
+  });
+  resultFocus.innerHTML = `
+    <div class="result-focus-lead">
+      <span>${data.tag}</span>
+      <strong>${data.name}: ${data.result}</strong>
+      <p>${data.oral}</p>
+    </div>
+    <div class="result-focus-grid">
+      <div><b>Denominator</b><em>${data.denominator}</em></div>
+      <div><b>Controls</b><em>${data.controls}</em></div>
+      <div><b>Boundary</b><em>${data.boundary}</em></div>
+    </div>
+  `;
+  requestAnimationFrame(() => resultFocus.classList.add("content-refresh"));
+}
+
+resultCards.forEach((card) => {
+  const index = Number(card.dataset.result);
+  card.addEventListener("click", () => setResultFocus(index));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setResultFocus(index);
+    }
+  });
+});
+
+if (resultCards.length) setResultFocus(0);
+
+const contractButtons = Array.from(document.querySelectorAll(".contract-chip"));
+const contractLabel = document.getElementById("contractLabel");
+const contractTitle = document.getElementById("contractTitle");
+const contractText = document.getElementById("contractText");
+
+function setContract(key) {
+  const data = contractFacts[key];
+  if (!data) return;
+  const detail = contractTitle?.closest(".contract-detail");
+  detail?.classList.remove("content-refresh");
+  contractButtons.forEach((button) => {
+    const active = button.dataset.contract === key;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  contractLabel.textContent = data.label;
+  contractTitle.textContent = data.title;
+  contractText.textContent = data.text;
+  requestAnimationFrame(() => detail?.classList.add("content-refresh"));
+}
+
+contractButtons.forEach((button) => {
+  button.setAttribute("aria-pressed", button.classList.contains("active") ? "true" : "false");
+  button.addEventListener("click", () => setContract(button.dataset.contract));
+});
+
+const problemCards = Array.from(document.querySelectorAll(".problem-card"));
+const problemPanelTitle = document.getElementById("problemPanelTitle");
+const problemPanelText = document.getElementById("problemPanelText");
+
+function setProblem(key) {
+  const data = problemFacts[key];
+  if (!data) return;
+  const panel = problemPanelTitle?.closest(".interaction-panel");
+  panel?.classList.remove("content-refresh");
+  problemCards.forEach((card) => card.classList.toggle("active", card.dataset.problem === key));
+  if (problemPanelTitle) problemPanelTitle.textContent = data.title;
+  if (problemPanelText) problemPanelText.textContent = data.text;
+  requestAnimationFrame(() => panel?.classList.add("content-refresh"));
+}
+
+problemCards.forEach((card) => {
+  card.addEventListener("click", () => setProblem(card.dataset.problem));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setProblem(card.dataset.problem);
+    }
+  });
+});
+
+const stageButtons = Array.from(document.querySelectorAll(".stage-tab"));
+const stageFields = {
+  question: document.getElementById("stageQuestion"),
+  plain: document.getElementById("stagePlain"),
+  contribution: document.getElementById("stageContribution"),
+  denominator: document.getElementById("stageDenominator"),
+  observed: document.getElementById("stageObserved"),
+  boundary: document.getElementById("stageBoundary"),
+  speak: document.getElementById("stageSpeak"),
+  links: document.getElementById("stageLinks")
+};
+
+function setStage(key) {
+  const data = stages[key];
+  if (!data) return;
+  const detail = stageFields.question?.closest(".stage-detail");
+  detail?.classList.remove("content-refresh");
+  stageButtons.forEach((button) => {
+    const active = button.dataset.stage === key;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  stageFields.question.textContent = data.question;
+  stageFields.plain.textContent = data.plain;
+  stageFields.contribution.textContent = data.contribution;
+  stageFields.denominator.textContent = data.denominator;
+  stageFields.observed.textContent = data.observed;
+  stageFields.boundary.textContent = data.boundary;
+  stageFields.speak.textContent = data.speak;
+  stageFields.links.innerHTML = data.links.map(([label, href]) => `<a href="${href}">${label}</a>`).join("");
+  requestAnimationFrame(() => detail?.classList.add("content-refresh"));
+}
+
+stageButtons.forEach((button) => {
+  button.setAttribute("aria-pressed", button.classList.contains("active") ? "true" : "false");
+  button.addEventListener("click", () => setStage(button.dataset.stage));
+});
+
+const futureGrid = document.getElementById("futureGrid");
+const futureNote = document.getElementById("futureNote");
+
+if (futureGrid) {
+  futureGrid.innerHTML = futureTracks.map((track, index) => `
+    <article class="future-track ${index === 0 ? "active" : ""}" data-future="${index}" tabindex="0" role="button" aria-pressed="${index === 0 ? "true" : "false"}">
+      <span>${track.venue}</span>
+      <h3>${track.name}</h3>
+      <p>${track.route}</p>
+      <em>${track.visibility}</em>
+      <a href="${track.repo}" target="_blank" rel="noopener" aria-label="Open ${track.name} repository">Open repo</a>
+    </article>
+  `).join("");
+}
+
+const futureCards = Array.from(document.querySelectorAll(".future-track"));
+
+function setFutureTrack(index) {
+  const track = futureTracks[index];
+  if (!track) return;
+  futureNote?.classList.remove("content-refresh");
+  futureCards.forEach((card) => {
+    const active = Number(card.dataset.future) === index;
+    card.classList.toggle("active", active);
+    card.setAttribute("aria-pressed", String(active));
+  });
+  if (futureNote) {
+    futureNote.innerHTML = `
+      <div class="future-note-main">
+        <strong>${track.name}</strong>
+        <span>${track.status}</span>
+        <em>${track.focus}</em>
+      </div>
+      <div class="future-review">
+        ${track.review.map((item) => `<b>${item}</b>`).join("")}
+      </div>
+      <p>${track.boundary}</p>
+    `;
+  }
+  requestAnimationFrame(() => futureNote?.classList.add("content-refresh"));
+}
+
+futureCards.forEach((card) => {
+  const index = Number(card.dataset.future);
+  card.addEventListener("click", () => setFutureTrack(index));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setFutureTrack(index);
+    }
+  });
+});
+
+setFutureTrack(0);
+
+const steps = Array.from(document.querySelectorAll(".viva-step"));
+const currentStep = document.getElementById("currentStep");
+const routeLinks = Array.from(document.querySelectorAll(".route-nav a, .cover-route a"));
+const startupParams = new URLSearchParams(window.location.search);
+const stepDots = document.createElement("div");
+
+stepDots.className = "step-dots";
+stepDots.setAttribute("aria-label", "Presentation section dots");
+steps.forEach((section, index) => {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.setAttribute("aria-label", `${index + 1}. ${section.dataset.step || section.id}`);
+  button.addEventListener("click", () => scrollToStep(section));
+  stepDots.appendChild(button);
+});
+
+if (steps.length) document.body.appendChild(stepDots);
+
+if (startupParams.get("presenter") === "1") {
+  document.body.classList.add("presenter");
+}
+
+function updateCurrentStep(id) {
+  const step = steps.find((section) => section.id === id);
+  if (step && currentStep) currentStep.textContent = step.dataset.step || step.id;
+  steps.forEach((section) => section.classList.toggle("active-step", section.id === id));
+  routeLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${id}`));
+  Array.from(stepDots.children).forEach((button, index) => {
+    button.classList.toggle("active", steps[index]?.id === id);
+  });
+}
+
+if (steps.length) updateCurrentStep(steps[0].id);
+
+if ("IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) updateCurrentStep(visible.target.id);
+  }, { threshold: [0.32, 0.5, 0.68] });
+  steps.forEach((section) => sectionObserver.observe(section));
+}
+
+const scrollMeter = document.getElementById("scrollMeter");
+
+function updateScrollMeter() {
+  if (!scrollMeter) return;
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+  scrollMeter.style.transform = `scaleX(${progress})`;
+}
+
+window.addEventListener("scroll", updateScrollMeter, { passive: true });
+window.addEventListener("resize", updateScrollMeter);
+updateScrollMeter();
+
+window.addEventListener("load", () => {
+  const requestedStep = startupParams.get("step") || window.location.hash.slice(1);
+  if (!requestedStep) return;
+  const target = document.getElementById(requestedStep);
+  if (target) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        scrollToStep(target, "auto");
+        updateCurrentStep(target.id);
+      });
+    });
+  }
+});
+
+function scrollToStep(target, behavior = "smooth") {
+  const topbarOffset = document.body.classList.contains("presenter") ? 0 : 62;
+  const targetTop = target.getBoundingClientRect().top + window.scrollY - topbarOffset;
+  const top = Math.max(0, targetTop);
+  if (behavior === "auto") {
+    window.scrollTo(0, top);
+    document.documentElement.scrollTop = top;
+    document.body.scrollTop = top;
+    return;
+  }
+  window.scrollTo({ top, behavior });
+}
+
+routeLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const id = link.getAttribute("href")?.replace("#", "");
+    const target = id ? document.getElementById(id) : null;
+    if (!target) return;
+    event.preventDefault();
+    history.replaceState(null, "", `#${id}`);
+    scrollToStep(target);
+    updateCurrentStep(id);
+  });
+});
+
+function getCurrentStepIndex() {
+  const topbarOffset = document.body.classList.contains("presenter") ? 0 : 62;
+  const anchor = window.scrollY + topbarOffset + 4;
+  let currentIndex = 0;
+  steps.forEach((section, index) => {
+    if (section.offsetTop <= anchor) currentIndex = index;
+  });
+  return currentIndex;
+}
+
+function scrollToRelativeStep(direction) {
+  const index = getCurrentStepIndex();
+  const target = steps[Math.min(steps.length - 1, Math.max(0, index + direction))];
+  if (target) scrollToStep(target);
+}
+
+document.getElementById("nextStep")?.addEventListener("click", () => scrollToRelativeStep(1));
+document.getElementById("prevStep")?.addEventListener("click", () => scrollToRelativeStep(-1));
+
+const presenterButton = document.getElementById("presenterMode");
+
+if (presenterButton && document.body.classList.contains("presenter")) {
+  presenterButton.setAttribute("aria-pressed", "true");
+  presenterButton.textContent = "Exit presenter";
+}
+
+presenterButton?.addEventListener("click", () => {
+  const active = document.body.classList.toggle("presenter");
+  presenterButton.setAttribute("aria-pressed", String(active));
+  presenterButton.textContent = active ? "Exit presenter" : "Presenter mode";
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) return;
+  const interactiveTarget = event.target?.closest?.("button, a, summary");
+  if (interactiveTarget && [" ", "Enter", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) return;
+  if (event.metaKey || event.ctrlKey || event.altKey) return;
+  if (event.key.toLowerCase() === "n" || event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
+    event.preventDefault();
+    scrollToRelativeStep(1);
+  }
+  if (event.key.toLowerCase() === "p" || event.key === "ArrowUp" || event.key === "ArrowLeft" || event.key === "PageUp") {
+    event.preventDefault();
+    scrollToRelativeStep(-1);
+  }
+  if (event.key === "Home") {
+    event.preventDefault();
+    if (steps[0]) scrollToStep(steps[0]);
+  }
+  if (event.key === "End") {
+    event.preventDefault();
+    if (steps[steps.length - 1]) scrollToStep(steps[steps.length - 1]);
+  }
+});
+
+document.getElementById("copyCommand")?.addEventListener("click", async (event) => {
+  const command = document.getElementById("checkCommand")?.textContent?.trim();
+  if (!command || !navigator.clipboard) return;
+  await navigator.clipboard.writeText(command);
+  event.currentTarget.textContent = "Copied";
+  setTimeout(() => {
+    event.currentTarget.textContent = "Copy command";
+  }, 1500);
+});
+
+const demoLinks = Array.from(document.querySelectorAll("[data-demo]"));
+const demoPanelTitle = document.getElementById("demoPanelTitle");
+const demoPanelText = document.getElementById("demoPanelText");
+
+function setDemo(key) {
+  const data = demoFacts[key];
+  if (!data) return;
+  let activeIndex = -1;
+  demoLinks.forEach((link, index) => {
+    const active = link.dataset.demo === key;
+    link.classList.toggle("active", active);
+    if (active) activeIndex = index;
+  });
+  const routeItems = Array.from(document.querySelectorAll(".demo-route > *"));
+  routeItems.forEach((item, index) => {
+    const routeIndex = Math.floor(index / 2);
+    item.classList.toggle("passed", item.tagName === "SPAN" && routeIndex < activeIndex);
+  });
+  const panel = demoPanelTitle?.closest(".interaction-panel");
+  panel?.classList.remove("content-refresh");
+  if (demoPanelTitle) demoPanelTitle.textContent = data.title;
+  if (demoPanelText) demoPanelText.textContent = data.text;
+  requestAnimationFrame(() => panel?.classList.add("content-refresh"));
+}
+
+demoLinks.forEach((link) => {
+  link.addEventListener("mouseenter", () => setDemo(link.dataset.demo));
+  link.addEventListener("focus", () => setDemo(link.dataset.demo));
+  link.addEventListener("click", () => setDemo(link.dataset.demo));
+});
+
+const qaButtons = Array.from(document.querySelectorAll("[data-qa]"));
+const qaAnswer = document.getElementById("qaAnswer");
+
+function setQaAnswer(key) {
+  const data = qaFacts[key];
+  if (!data || !qaAnswer) return;
+  qaAnswer.classList.remove("content-refresh");
+  qaButtons.forEach((button) => {
+    const active = button.dataset.qa === key;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  qaAnswer.innerHTML = `
+    <span>Evidence-based response</span>
+    <strong>${data.title}</strong>
+    <p>${data.answer}</p>
+  `;
+  requestAnimationFrame(() => qaAnswer.classList.add("content-refresh"));
+}
+
+qaButtons.forEach((button) => {
+  button.setAttribute("aria-pressed", "false");
+  button.addEventListener("click", () => setQaAnswer(button.dataset.qa));
+});
+
+if (qaButtons.length) setQaAnswer(qaButtons[0].dataset.qa);
+
+</script>
+  </body>
+</html>
+
+
