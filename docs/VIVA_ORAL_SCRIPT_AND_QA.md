@@ -230,6 +230,272 @@ Next, I would add more models, more providers, stronger black-box calibration, a
 **English answer:**  
 It is broad in modules, but focused in principle. All stages serve the same question: how to make source-code watermarking results inspectable as evidence. The submitted version defends a fixed evidence surface, not five full papers.
 
+## High-Probability Viva Questions
+
+### Q13. How did you construct your dataset?
+
+**中文回答：**  
+我这里更准确地说不是一个单一 dataset，而是五个固定的 evaluation surfaces。CodeMarkBench 是 4 个 watermark baselines、5 个 local code models、7 个 source groups，所以形成 140 个 canonical benchmark runs。SemCodebook 有 24,000 个 positive recovery rows 和 48,000 个 negative-control rows。CodeDye 有 300 个 live audit samples、300 个 positive controls 和 300 个 negative controls。ProbeTrace 有 300 个 scoped owner decisions 和 1,200 个 false-owner controls。SealAudit 是 320 个 cases，每个 case 形成 3 个 marker-hidden claim rows，所以是 960 rows。
+
+**English answer:**  
+Strictly speaking, I would not call it one single dataset. I call it five fixed evaluation surfaces. CodeMarkBench uses 4 watermark baselines, 5 local code models, and 7 source groups, which gives 140 canonical benchmark runs. SemCodebook has 24,000 positive recovery rows and 48,000 negative-control rows. CodeDye has 300 live audit samples, 300 positive controls, and 300 negative controls. ProbeTrace has 300 scoped owner decisions and 1,200 false-owner controls. SealAudit has 320 cases, and each case gives 3 marker-hidden claim rows, so the denominator is 960 rows.
+
+### Q14. Why do you call them evaluation surfaces instead of one dataset?
+
+**中文回答：**  
+因为每个阶段回答的问题不同，分母也不同。如果我把它们叫成一个大 dataset，很容易让人误解为它们可以共享一个 accuracy。实际上，SemCodebook 的白盒 recovery、CodeDye 的黑盒 audit、ProbeTrace 的 owner attribution 和 SealAudit 的 triage 都有不同访问条件和不同 claim boundary。
+
+**English answer:**  
+Because each stage answers a different question and has a different denominator. If I call everything one big dataset, it may sound like one accuracy score is enough. But SemCodebook white-box recovery, CodeDye black-box audit, ProbeTrace owner attribution, and SealAudit triage have different access assumptions and different claim boundaries.
+
+### Q15. How did you avoid cherry-picking data?
+
+**中文回答：**  
+我的做法是先固定分母，再解释结果。比如 140/140、24,000、48,000、300、1,200 和 960 都是解释前已经承认的分母。misses 和 nondecisive rows 不会被删除，而是保留在分母里。仓库里的 claim boundary 和 manifest 也是为了防止只挑好看的结果。
+
+**English answer:**  
+My approach is to fix the denominator before interpretation. For example, 140/140, 24,000, 48,000, 300, 1,200, and 960 are admitted denominators before I explain the results. Misses and nondecisive rows are not removed. They stay inside the denominator. The claim boundary files and manifests are also designed to prevent cherry-picking.
+
+### Q16. How were the evaluation metrics constructed?
+
+**中文回答：**  
+我没有只构造一个总指标，而是给每个阶段定义它自己的指标。CodeMarkBench 看 benchmark completion，也就是 canonical runs 是否完成。SemCodebook 看 positive recovery rate 和 negative-control hit rate。CodeDye 看 live signal rate、positive-control support 和 negative-control hits。ProbeTrace 看 scoped attribution success 和 false-owner false positives。SealAudit 看 decisive triage coverage、needs-review rate 和 unsafe-pass tracking。
+
+**English answer:**  
+I did not define one global metric. Each stage has its own metric. CodeMarkBench uses benchmark completion, meaning whether canonical runs complete. SemCodebook uses positive recovery rate and negative-control hit rate. CodeDye uses live signal rate, positive-control support, and negative-control hits. ProbeTrace uses scoped attribution success and false-owner false positives. SealAudit uses decisive triage coverage, needs-review rate, and unsafe-pass tracking.
+
+### Q17. Can you give the metric formulas simply?
+
+**中文回答：**  
+可以。recovery rate 等于 recovered positives 除以 positive denominator。negative-control FPR 等于 negative hits 除以 negative-control denominator。live signal rate 等于 live signals 除以 live audit samples。owner attribution success 等于 correct scoped decisions 除以 scoped decision denominator。triage decisive coverage 等于 decisive rows 除以 marker-hidden rows。unsafe-pass rate 等于 observed unsafe passes 除以 marker-hidden rows。
+
+**English answer:**  
+Yes. Recovery rate is recovered positives divided by the positive denominator. Negative-control FPR is negative hits divided by the negative-control denominator. Live signal rate is live signals divided by live audit samples. Owner attribution success is correct scoped decisions divided by the scoped decision denominator. Triage decisive coverage is decisive rows divided by marker-hidden rows. Unsafe-pass rate is observed unsafe passes divided by marker-hidden rows.
+
+### Q18. Why do you report controls so strongly?
+
+**中文回答：**  
+因为没有 control 的水印结果很容易被误读。比如一个 detector 命中，不一定说明是真水印，也可能是任务、语言、模板或者 provider 的混杂因素。负控是为了检查误报，正控是为了确认流程在应该命中时确实能命中。所以我在结果里总是同时说分母、控制组和边界。
+
+**English answer:**  
+Because watermarking results without controls are easy to misread. If a detector fires, it does not automatically prove a real watermark. It may be caused by task, language, template, or provider confounds. Negative controls check false positives. Positive controls check whether the pipeline can fire when it should. That is why I always report denominator, controls, and boundary together.
+
+### Q19. Why do you use Wilson intervals?
+
+**中文回答：**  
+因为 0 events 或者 perfect events 不等于绝对 0 风险或者绝对 100%。比如 0/48,000 很强，但它仍然是有限样本。Wilson interval 的作用是提醒读者，这是有限分母下的统计结论，不是数学上的绝对保证。
+
+**English answer:**  
+Because zero events or perfect events do not mean absolute zero risk or absolute 100 percent certainty. For example, 0 out of 48,000 is strong, but it is still a finite sample. Wilson intervals remind the reader that this is a finite-denominator statistical result, not a mathematical guarantee.
+
+### Q20. Why did you choose these five stages?
+
+**中文回答：**  
+这五个阶段对应从 benchmark 到 audit 的完整故事线。CodeMarkBench 先解决“评价对象能不能执行和统计”。SemCodebook 解决“白盒情况下能不能恢复 provenance”。CodeDye 解决“黑盒情况下能不能保守审计”。ProbeTrace 解决“如果 owner 主动注册，能不能做有边界归因”。SealAudit 解决“安全场景里能不能在证据不足时 abstain”。它们不是随机拼接，而是同一个 evidence contract 在不同访问条件下的应用。
+
+**English answer:**  
+The five stages form the benchmark-to-audit story. CodeMarkBench asks whether the evaluation objects are executable and countable. SemCodebook asks whether provenance can be recovered in a white-box setting. CodeDye asks whether conservative black-box auditing is possible. ProbeTrace asks whether scoped attribution is possible when owners actively register. SealAudit asks whether security triage can abstain when evidence is insufficient. They are not random modules. They are applications of the same evidence contract under different access settings.
+
+### Q21. If the examiner asks you to open the repository, what should you show first?
+
+**中文回答：**  
+我会先打开 README.md，用 20 秒说明仓库结构。然后打开 CLAIM_BOUNDARIES.md，因为这是最关键的审查文件，它说明哪些 claim 可以说、哪些不能说。接着打开 docs/TRACEABILITY_MATRIX.md，展示每个 claim 对应到哪个代码路径、artifact 和检查脚本。最后打开 RESULT_MANIFEST.jsonl 或者 results/watermark_submission_main_table_manifest_v1_20260508.json，说明结果不是只写在论文里，而是有 manifest 和 hash 记录。
+
+**English answer:**  
+I would first open README.md and explain the repository structure in about 20 seconds. Then I would open CLAIM_BOUNDARIES.md, because it is the key audit file. It states what can be claimed and what cannot be claimed. Next, I would open docs/TRACEABILITY_MATRIX.md to show how each claim maps to code paths, artifacts, and check scripts. Finally, I would open RESULT_MANIFEST.jsonl or results/watermark_submission_main_table_manifest_v1_20260508.json to show that the results are not only written in the dissertation; they are recorded in manifests with hashes.
+
+### Q22. How would you explain the repository structure live?
+
+**中文回答：**  
+我会说这个仓库有三层。第一层是 viva-facing documents，比如 README、claim boundaries、traceability matrix 和 results summary。第二层是 implementation and scripts，比如各个 project folder 和 scripts。第三层是 evidence artifacts，比如 results 目录、manifest 和 final claim locks。这样老师可以从 claim 走到 code，再从 code 走到 artifact。
+
+**English answer:**  
+I would explain the repository in three layers. The first layer is viva-facing documents, such as README, claim boundaries, traceability matrix, and results summary. The second layer is implementation and scripts, such as project folders and scripts. The third layer is evidence artifacts, such as the results directory, manifests, and final claim locks. This allows the examiner to move from claim to code, and from code to artifact.
+
+### Q23. Where is the main innovation in the code?
+
+**中文回答：**  
+如果只讲一个最核心的实现，我会讲 SemCodebook。它的核心不只是 detector，而是 structured carrier、detector、negative controls 和 evaluation pipeline 的组合。在仓库里，我会先指向 SemCodebook 的 source package，比如 carriers、detector、negative controls 和 evaluation 相关文件，然后再回到 traceability matrix，说明这些代码如何对应 23,342/24,000 和 0/48,000 这两个结果。
+
+**English answer:**  
+If I need to choose one core implementation, I would focus on SemCodebook. The core is not only a detector. It is the combination of structured carriers, detector logic, negative controls, and the evaluation pipeline. In the repository, I would point to the SemCodebook source package, such as the carrier, detector, negative-control, and evaluation files. Then I would return to the traceability matrix and explain how these files connect to the 23,342 out of 24,000 result and the 0 out of 48,000 negative-control result.
+
+### Q24. If asked to show the SemCodebook code, what should you say?
+
+**中文回答：**  
+我会说 SemCodebook 的关键思想是把 provenance 信息嵌入结构化代码载体，而不是只依赖自然语言 token pattern。现场我会展示 carrier 相关代码、detector 相关代码和 negative-control replay 相关代码。我的解释重点不是逐行读代码，而是说明输入是什么、输出是什么、什么时候算 recovered、什么时候算 miss，以及为什么负控必须为 0。
+
+**English answer:**  
+I would say that the key idea of SemCodebook is to embed provenance information into structured code carriers, rather than relying only on natural-language token patterns. In the live walkthrough, I would show carrier-related code, detector-related code, and negative-control replay code. I would not read code line by line. I would explain the input, the output, when a case is counted as recovered, when it is counted as a miss, and why the negative controls must stay at zero.
+
+### Q25. If asked to show CodeDye code, what should you say?
+
+**中文回答：**  
+我会强调 CodeDye 不是污染指控工具，而是 black-box null-audit。现场可以展示 CodeDye 的 audit corpus、positive control、negative control 和 public evidence artifacts。我的回答会很保守：6/300 是稀疏信号，说明有少量受控信号值得审计，但不能说明污染比例，也不能说明 provider 有问题。
+
+**English answer:**  
+I would emphasize that CodeDye is not an accusation tool. It is a black-box null-audit. In the live walkthrough, I can show the audit corpus, positive controls, negative controls, and public evidence artifacts. My answer would stay conservative: 6 out of 300 is a sparse signal. It means a small number of controlled signals are worth auditing, but it does not prove contamination prevalence or provider wrongdoing.
+
+### Q26. If asked to show ProbeTrace code, what should you say?
+
+**中文回答：**  
+我会说 ProbeTrace 的核心是 active-owner attribution，不是普通 authorship classification。它需要 owner registry、commitment 或 witness 逻辑，以及 false-owner controls。现场我会展示 registry 或 manifest 相关文件，再展示 false-owner control 的结果。重点是说明 300/300 只在 scoped owner setting 里成立，不能扩展成通用作者识别。
+
+**English answer:**  
+I would say that ProbeTrace is active-owner attribution, not general authorship classification. It needs an owner registry, commitment or witness logic, and false-owner controls. In the live walkthrough, I would show registry or manifest files, then show false-owner control results. The key point is that 300 out of 300 holds only in the scoped owner setting. It should not be expanded into general authorship identification.
+
+### Q27. If asked to show SealAudit code, what should you say?
+
+**中文回答：**  
+我会说 SealAudit 的核心是 selective triage。它不是强行判断所有样本，而是在安全场景里允许 needs review。现场我会展示 benchmark cases、adjudication 或 promotion gate 相关 artifact。重点是说明 81/960 是 decisive coverage，不是准确率；0 observed unsafe passes 是有限样本观察，不是安全证书。
+
+**English answer:**  
+I would say that the core of SealAudit is selective triage. It does not force a decision for every sample. In a security-facing setting, it allows needs review. In the live walkthrough, I would show benchmark cases and adjudication or promotion-gate artifacts. The key point is that 81 out of 960 is decisive coverage, not accuracy. Zero observed unsafe passes is a finite-sample observation, not a safety certificate.
+
+### Q28. Where are the results stored?
+
+**中文回答：**  
+结果主要在 results 目录和各个 project 的 artifact 目录里。对 viva 来说，最重要的是 RESULT_MANIFEST.jsonl、results/watermark_submission_main_table_manifest_v1_20260508.json、docs/RESULTS_SUMMARY.md 和 CLAIM_BOUNDARIES.md。它们一起说明数字是什么、来自哪里、hash 记录是什么、以及怎么解释。
+
+**English answer:**  
+The results are mainly stored in the results directory and each project artifact directory. For the viva, the most important files are RESULT_MANIFEST.jsonl, results/watermark_submission_main_table_manifest_v1_20260508.json, docs/RESULTS_SUMMARY.md, and CLAIM_BOUNDARIES.md. Together, they show what the numbers are, where they come from, what the hash records are, and how the results should be interpreted.
+
+### Q29. What does viva_check.py actually verify?
+
+**中文回答：**  
+viva_check.py 是轻量检查，不是完整重跑。它检查 viva-facing documents 是否存在，manifest 是否可读，关键 artifacts 是否存在，traceability matrix 是否把 claim、boundary、manifest 和 artifact 连起来。它的作用是现场证明证据路线没有断。
+
+**English answer:**  
+viva_check.py is a lightweight check, not a full rerun. It checks whether the viva-facing documents exist, whether the manifest is readable, whether key artifacts are present, and whether the traceability matrix connects claims, boundaries, manifests, and artifacts. Its purpose is to show live that the evidence route is not broken.
+
+### Q30. Why not rerun the full experiments during the viva?
+
+**中文回答：**  
+因为 full experiments 依赖 GPU、模型权重、provider API 和较长运行时间。现场重跑会不稳定，也会浪费 Q&A 时间。更合理的做法是现场展示轻量检查和证据路线；如果老师需要，我可以在仓库里展示复现实验的脚本和 manifest。
+
+**English answer:**  
+Because the full experiments depend on GPUs, model weights, provider APIs, and long runtime. A live full rerun would be unstable and would take time away from Q&A. A better approach is to show the lightweight check and the evidence route live. If the examiner wants more, I can show the reproduction scripts and manifests in the repository.
+
+### Q31. How do you define a positive example and a negative control?
+
+**中文回答：**  
+positive example 是协议中应该带有可恢复或可审计信号的样本。negative control 是结构上相似、但不应该触发该 claim 的样本。比如 SemCodebook 的负控用于确认 detector 不会在没有对应 provenance 的情况下误报。这个设计是为了把 true signal 和 confound 分开。
+
+**English answer:**  
+A positive example is a sample that should contain a recoverable or auditable signal under the protocol. A negative control is structurally similar, but should not trigger the claim. For example, SemCodebook negative controls check that the detector does not fire when the corresponding provenance is absent. This separates true signal from confounds.
+
+### Q32. How do you handle failed or uncertain cases?
+
+**中文回答：**  
+我不会删除它们。SemCodebook 的 misses 留在 24,000 分母里。SealAudit 的 uncertain cases 留作 needs review，而不是强行变成成功或失败。这个处理方式比只展示成功样本更诚实，也更适合审查。
+
+**English answer:**  
+I do not remove them. SemCodebook misses stay inside the 24,000 denominator. SealAudit uncertain cases stay as needs review instead of being forced into success or failure. This is more honest than only showing successful cases, and it is better for audit.
+
+### Q33. What is the biggest weakness of your dataset construction?
+
+**中文回答：**  
+最大的限制是它仍然是 finite and admitted surfaces，不是整个真实世界的代码分布。也就是说，我能 defend 的是这些固定分母里的结果，而不是所有模型、所有语言和所有项目里的通用结论。后续工作需要增加新的 admitted surfaces。
+
+**English answer:**  
+The biggest limitation is that these are still finite and admitted surfaces, not the entire real-world code distribution. So what I can defend is the result inside these fixed denominators, not a universal conclusion over all models, languages, and projects. Future work should add new admitted surfaces.
+
+### Q34. Why did you use local code models in CodeMarkBench?
+
+**中文回答：**  
+local code models 的好处是可控和可复现。对于毕业设计和 benchmark 基础来说，我需要先保证任务、模型、baseline 和 evaluator 的矩阵可以稳定完成。黑盒 provider 更适合放在 CodeDye 这样的 audit setting 里，而不是作为唯一 benchmark 基础。
+
+**English answer:**  
+Local code models are more controlled and reproducible. For the FYP and benchmark foundation, I first needed a stable matrix of tasks, models, baselines, and evaluators. Black-box providers are better placed in an audit setting such as CodeDye, rather than being the only benchmark foundation.
+
+### Q35. What would you answer if the examiner says the project has too many numbers?
+
+**中文回答：**  
+我会承认数字比较多，但解释方式其实很统一：每个数字都按 denominator、control、artifact、access model 和 boundary 来解释。我不希望老师记住所有数字，而是希望老师看到我没有把不同性质的结果混成一个总分数。
+
+**English answer:**  
+I would agree that there are many numbers, but the interpretation rule is consistent: every number is explained by denominator, controls, artifact, access model, and boundary. I do not expect the examiner to remember every number. I want to show that I do not mix different kinds of results into one overall score.
+
+### Q36. If asked “which part did you personally do?”, what should you say?
+
+**中文回答：**  
+我会说毕业设计提交版的研究设计、实验组织、代码仓库整理、结果分析、论文写作和 viva 展示都是我完成的。后续如果把工作扩展成多个投稿项目，可能会有同学参与写作或扩展实验，但那是 future work，不是提交版 FYP 的贡献来源。
+
+**English answer:**  
+I would say that for the submitted FYP version, I completed the research design, experiment organization, repository preparation, result analysis, dissertation writing, and viva presentation. If the work is later extended into multiple submissions, other students may help with writing or additional experiments, but that is future work, not the source of the submitted FYP contribution.
+
+### Q37. If asked “what is the practical value?”, what should you say?
+
+**中文回答：**  
+实际价值是让代码水印从一个 detector output 变成可审计证据。对老师、审稿人或工程团队来说，他们不只需要一个分数，还需要知道结果怎么来的、证据在哪、误报怎么控制、结论边界是什么。这对代码生成模型的 provenance、版权、审计和安全评估都有意义。
+
+**English answer:**  
+The practical value is turning source-code watermarking from a detector output into auditable evidence. Supervisors, reviewers, or engineering teams do not only need a score. They need to know where the result comes from, where the evidence is, how false positives are controlled, and what the claim boundary is. This is useful for provenance, ownership, auditing, and security evaluation of code generation models.
+
+### Q38. If asked “what is the difference between watermarking and provenance?”, what should you say?
+
+**中文回答：**  
+watermarking 是一种可能的 signal mechanism，provenance 是我要恢复或证明的来源信息。我的工作不是只问 signal 有没有出现，而是问这个 signal 能不能支持一个 provenance claim，并且这个 claim 的证据边界是什么。
+
+**English answer:**  
+Watermarking is a possible signal mechanism. Provenance is the source information I want to recover or support. My work does not only ask whether a signal appears. It asks whether the signal can support a provenance claim, and what the evidence boundary of that claim is.
+
+### Q39. If asked “why is source code harder than text?”, what should you say?
+
+**中文回答：**  
+因为代码有语法、语义和执行行为。一个文本水印可能只关心 token 分布，但代码水印还要考虑程序是否能运行、变量重命名是否改变 signal、格式化和翻译是否破坏 carrier，以及 detector 是否把语法相似误认为水印。
+
+**English answer:**  
+Because source code has syntax, semantics, and execution behavior. A text watermark may mainly care about token distribution, but a code watermark must also consider whether the program still runs, whether variable renaming changes the signal, whether formatting or translation breaks the carrier, and whether the detector confuses syntactic similarity with watermark evidence.
+
+### Q40. If asked “what would you show if I only give you one minute for the repository?”, what should you say?
+
+**中文回答：**  
+我会只展示三个文件。第一，CLAIM_BOUNDARIES.md，说明结论边界。第二，docs/TRACEABILITY_MATRIX.md，说明 claim 如何连到 code 和 artifacts。第三，scripts/viva_check.py，现场运行轻量检查。这样一分钟内可以证明仓库不是装饰，而是和论文证据直接对应。
+
+**English answer:**  
+I would show only three files. First, CLAIM_BOUNDARIES.md, to show the claim boundaries. Second, docs/TRACEABILITY_MATRIX.md, to show how claims connect to code and artifacts. Third, scripts/viva_check.py, to run a lightweight check live. In one minute, this shows that the repository is not decoration. It directly supports the dissertation evidence.
+
+### Q41. If asked “how do you know the citations or references are reliable?”, what should you say?
+
+**中文回答：**  
+我会说参考文献用于定位已有研究背景，而我的核心结果不依赖引用来证明。核心结果依赖固定分母、控制组、artifact 和 manifest。引用帮助说明研究语境，但实验 claim 必须由仓库证据支持。
+
+**English answer:**  
+I would say that references are used to position the research background, but my core results are not proven by citation alone. The core results depend on fixed denominators, controls, artifacts, and manifests. Citations explain the research context, while experimental claims must be supported by repository evidence.
+
+### Q42. If asked “what would fail your claim?”, what should you say?
+
+**中文回答：**  
+如果负控出现明显误报，或者 manifest 不能对应到 artifact，或者一个结果没有固定分母，那我就不应该 defend 那个 claim。我的框架本身就是为了让这些 failure conditions 明确，而不是隐藏起来。
+
+**English answer:**  
+If negative controls show clear false positives, or if a manifest cannot point to the artifact, or if a result has no fixed denominator, then I should not defend that claim. The purpose of my framework is to make these failure conditions explicit, not to hide them.
+
+### Q43. If asked “how would you improve the demo?”, what should you say?
+
+**中文回答：**  
+我会把 demo 从轻量 evidence-route demo 扩展成两层。第一层仍然是当前这种快速检查，适合 viva。第二层是离线复现实验包，包括固定环境、样本切片和更小规模的 rerun，这样可以在不依赖完整 GPU/API 成本的情况下复现核心逻辑。
+
+**English answer:**  
+I would extend the demo into two layers. The first layer would remain the current lightweight evidence-route demo, which is suitable for the viva. The second layer would be an offline reproduction package, with a fixed environment, sample slices, and smaller reruns, so the core logic can be reproduced without the full GPU or API cost.
+
+### Q44. If the examiner asks “why should I trust your repository?”, what should you say?
+
+**中文回答：**  
+我不会要求老师直接相信仓库。我会请老师沿着 traceability route 检查：claim boundary 说明能说什么，traceability matrix 说明看哪个文件，manifest 记录 artifact 和 hash，viva_check.py 检查这些文件是否存在。也就是说，可信度来自可检查路径，而不是来自我的口头承诺。
+
+**English answer:**  
+I would not ask the examiner to trust the repository directly. I would ask the examiner to follow the traceability route: claim boundaries state what can be claimed, the traceability matrix states which files to inspect, the manifest records artifacts and hashes, and viva_check.py checks that these files exist. Trust comes from the inspection path, not from my verbal promise.
+
+### Q45. If asked “what is your main lesson from this FYP?”, what should you say?
+
+**中文回答：**  
+我最大的收获是，做代码生成模型评估时，好的实验不只是跑出一个高分，而是要让别人能理解这个分数从哪里来、什么时候成立、什么时候不成立。这个项目训练我把实验结果写成可以被审查的 evidence，而不是只写成漂亮数字。
+
+**English answer:**  
+My main lesson is that in code generation evaluation, a good experiment is not only about producing a high score. It should also let others understand where the score comes from, when it holds, and when it does not hold. This project trained me to write experimental results as auditable evidence, not just attractive numbers.
+
 ## Emergency Lines
 
 **中文：**  
