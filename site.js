@@ -7,7 +7,7 @@ const contractFacts = {
   denominator: {
     label: "What is counted?",
     title: "A result only means something after the denominator is fixed.",
-    text: "For example, SemCodebook reports 30,330 recoveries over 31,200 admitted positive rows. The misses remain inside the denominator, so the result is easier to inspect."
+    text: "For example, the submitted SemCodebook surface reports 23,342 recoveries over 24,000 admitted positive rows. The misses remain inside the denominator, so the result is easier to inspect."
   },
   controls: {
     label: "What would fail?",
@@ -49,13 +49,14 @@ const submittedResults = [
   {
     name: "SemCodebook",
     tag: "White-box provenance",
-    result: "30.3k/31.2k",
-    denominator: "31,200 positive rows; 62,400 fixed negatives; 62,400 blind replay negatives",
-    controls: "0/62,400 fixed negative-control hits and 0/62,400 blind replay hits",
+    result: "23.3k/24k",
+    exact: "23,342/24,000",
+    denominator: "24,000 positive rows and 48,000 negative-control rows",
+    controls: "0/48,000 negative-control hits",
     claim: "Structured provenance recovery within admitted white-box cells.",
     boundary: "Not universal natural-generation watermarking.",
     oral: "This is the main method contribution: recoveries, misses, and two negative surfaces are reported together.",
-    meter: 97.2,
+    meter: 97.3,
     meterLabel: "recovered",
     controlLabel: "0 fixed / 0 blind hits",
     accent: "cyan"
@@ -63,13 +64,13 @@ const submittedResults = [
   {
     name: "CodeDye",
     tag: "Black-box null audit",
-    result: "4/300",
+    result: "6/300",
     denominator: "300 live audit samples, 300 positive controls, 300 negative controls",
     controls: "170/300 positive controls and 0/300 negative controls",
     claim: "Conservative sparse black-box audit evidence.",
     boundary: "Not prevalence, provider accusation, high-recall detection, or proof of absence.",
     oral: "The sparse signal supports a conservative audit claim, not a contamination-prevalence claim.",
-    meter: 1.3,
+    meter: 2,
     meterLabel: "sparse signal",
     controlLabel: "0/300 negative controls",
     accent: "violet"
@@ -77,9 +78,9 @@ const submittedResults = [
   {
     name: "ProbeTrace",
     tag: "Active-owner attribution",
-    result: "750/750",
-    denominator: "Five-owner DeepSeek commitment/witness surface",
-    controls: "750/750 true-owner positives and 0/5,250 false-attribution controls",
+    result: "300/300",
+    denominator: "300 scoped active-owner decisions and 1,200 false-owner controls",
+    controls: "300/300 scoped decisions and 0/1,200 false-owner controls",
     claim: "Scoped active-owner commitment and witness verification.",
     boundary: "Not provider-general or cross-provider authorship proof.",
     oral: "The strong positive result is bounded by false-owner controls and a fixed owner registry.",
@@ -91,13 +92,13 @@ const submittedResults = [
   {
     name: "SealAudit",
     tag: "Security triage",
-    result: "320/960",
+    result: "81/960",
     denominator: "960 marker-hidden triage rows",
-    controls: "0/960 observed unsafe passes; nondecisive rows retained as review load",
+    controls: "0 observed unsafe passes; nondecisive rows retained as review load",
     claim: "Selective marker-hidden triage with explicit abstention.",
     boundary: "Not an automatic safety classifier or harmlessness certificate.",
     oral: "For security-facing evidence, abstention is part of the design because forced labels would overstate the evidence.",
-    meter: 33.3,
+    meter: 8.4,
     meterLabel: "decisive",
     controlLabel: "0 unsafe passes",
     accent: "green"
@@ -258,7 +259,7 @@ const qaFacts = {
   },
   sparse: {
     title: "Is CodeDye too sparse?",
-    answer: "It would be too sparse for a high-recall detector claim. My claim is conservative black-box audit evidence: 4/300 live signals with 0/300 negative controls."
+    answer: "It would be too sparse for a high-recall detector claim. My claim is conservative black-box audit evidence: 6/300 live signals with 0/300 negative controls."
   },
   code: {
     title: "Where is the code evidence?",
@@ -285,8 +286,8 @@ const stages = {
     question: "Can we recover provenance when local white-box carrier evidence exists?",
     plain: "SemCodebook is the main method contribution: structured carriers over program representations, with recovery and controls reported separately.",
     contribution: "Typed carriers over AST, CFG, and SSA structure, with keyed scheduling and recovery logic.",
-    denominator: "31,200 positives, 62,400 fixed negatives, and 62,400 blind replay negatives.",
-    observed: "30,330/31,200 recoveries; 0/62,400 fixed hits; 0/62,400 blind replay hits.",
+    denominator: "24,000 positives and 48,000 negative-control rows.",
+    observed: "23,342/24,000 recoveries and 0/48,000 negative-control hits.",
     boundary: "White-box admitted-cell provenance, not universal semantic watermarking.",
     speak: "The important point is not just a high recovery rate. The important point is that the misses and the negative controls stay inside the admitted evidence surface.",
     links: [
@@ -300,7 +301,7 @@ const stages = {
     plain: "CodeDye keeps a conservative null-audit surface instead of turning sparse evidence into a provider accusation.",
     contribution: "Hash-bound black-box audit evidence with positive and negative controls.",
     denominator: "300 live audit samples, 300 positive controls, and 300 negative controls.",
-    observed: "4/300 sparse live signals; 170/300 positive controls; 0/300 negative controls.",
+    observed: "6/300 sparse live signals; 170/300 positive controls; 0/300 negative controls.",
     boundary: "Not contamination prevalence, high-recall detection, provider accusation, or proof of absence.",
     speak: "A sparse signal is still useful if it tells us what not to claim. Here the correct claim is conservative audit evidence, not prevalence.",
     links: [
@@ -313,8 +314,8 @@ const stages = {
     question: "Can an active owner make a scoped source claim under a fixed registry?",
     plain: "ProbeTrace treats attribution as commitment and witness verification, not as open-ended authorship inference.",
     contribution: "Five-owner source-bound commitment/witness verification with false-owner controls.",
-    denominator: "6,000 five-owner rows with 5,250 false-attribution controls.",
-    observed: "750/750 true-owner positives and 0/5,250 false-attribution controls.",
+    denominator: "300 scoped active-owner decisions with 1,200 false-owner controls.",
+    observed: "300/300 scoped decisions and 0/1,200 false-owner controls.",
     boundary: "Scoped DeepSeek-only owner evidence, not provider-general authorship proof.",
     speak: "The perfect-looking true-owner result is not presented as universal authorship. It is read together with the false-owner controls and the fixed registry.",
     links: [
@@ -328,7 +329,7 @@ const stages = {
     plain: "SealAudit treats marker-hidden evidence as a triage problem and keeps ambiguous rows as review load.",
     contribution: "Marker-hidden selective triage with abstention and unsafe-pass accounting.",
     denominator: "960 marker-hidden triage rows.",
-    observed: "320/960 decisive outcomes and 0/960 unsafe passes.",
+    observed: "81/960 decisive outcomes and 0 observed unsafe passes.",
     boundary: "Selective triage, not an automatic safety classifier or security certificate.",
     speak: "For this stage, abstention is not a failure of presentation. It is part of the design because forced labels would make the claim less honest.",
     links: [
@@ -361,7 +362,7 @@ const futureTracks = [
     visibility: "Continuation artifact",
     status: "Structured provenance recovery beyond the submitted FYP slice.",
     focus: "Carrier/recovery pipeline and negative-control replay gates.",
-    boundary: "Extra cells are future evidence. They should be reported separately from the submitted 30,330/31,200 FYP recovery surface.",
+    boundary: "Extra cells are future evidence. They should be reported separately from the submitted 23,342/24,000 FYP recovery surface.",
     review: ["Repository", "Carrier pipeline", "Negative controls"]
   },
   {
@@ -439,7 +440,7 @@ function setResultFocus(index) {
   resultFocus.innerHTML = `
     <div class="result-focus-lead">
       <span>${data.tag}</span>
-      <strong>${data.name}: ${data.result}</strong>
+      <strong>${data.name}: ${data.exact || data.result}</strong>
       <p>${data.oral}</p>
     </div>
     <div class="result-focus-grid">
@@ -646,11 +647,13 @@ if (steps.length) document.body.appendChild(stepDots);
 
 if (startupParams.get("presenter") === "1") {
   document.body.classList.add("presenter");
+  document.documentElement.classList.add("presenter");
 }
 
 function updateCurrentStep(id) {
   const step = steps.find((section) => section.id === id);
   if (step && currentStep) currentStep.textContent = step.dataset.step || step.id;
+  document.body.dataset.activeStep = id;
   steps.forEach((section) => section.classList.toggle("active-step", section.id === id));
   routeLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${id}`));
   Array.from(stepDots.children).forEach((button, index) => {
@@ -681,6 +684,7 @@ const demoCue = document.getElementById("demoCue");
 const autoDemoButton = document.getElementById("autoDemo");
 let autoDemoState = null;
 let autoDemoTick = null;
+let lastPresenterWheelAt = 0;
 
 function updateScrollMeter() {
   if (!scrollMeter) return;
@@ -712,9 +716,18 @@ function scrollToStep(target, behavior = "smooth") {
   const targetTop = target.getBoundingClientRect().top + window.scrollY - topbarOffset;
   const top = Math.max(0, targetTop);
   if (behavior === "auto") {
-    window.scrollTo(0, top);
+    const root = document.documentElement;
+    const previousBehavior = root.style.scrollBehavior;
+    const previousSnap = root.style.scrollSnapType;
+    root.style.scrollBehavior = "auto";
+    root.style.scrollSnapType = "none";
+    window.scrollTo({ left: 0, top, behavior: "auto" });
     document.documentElement.scrollTop = top;
     document.body.scrollTop = top;
+    requestAnimationFrame(() => {
+      root.style.scrollBehavior = previousBehavior;
+      root.style.scrollSnapType = previousSnap;
+    });
     return;
   }
   window.scrollTo({ top, behavior });
@@ -777,8 +790,10 @@ function enterAutoStep(planIndex, behavior = "smooth") {
   if (!item) return;
   const target = document.getElementById(item.id);
   if (target) {
-    scrollToStep(target, behavior);
+    const scrollBehavior = document.body.classList.contains("presenter") ? "auto" : behavior;
+    scrollToStep(target, scrollBehavior);
     updateCurrentStep(target.id);
+    if (scrollBehavior === "auto") requestAnimationFrame(() => scrollToStep(target, "auto"));
   }
   if (item.id !== "demo") document.querySelector(".terminal-card")?.classList.remove("demo-final");
   (item.actions || []).forEach((action, actionIndex) => {
@@ -849,6 +864,7 @@ function resumeAutoDemo() {
 function startAutoDemo() {
   clearAutoTimer();
   document.body.classList.add("presenter", "auto-demo");
+  document.documentElement.classList.add("presenter");
   document.body.classList.remove("demo-paused", "demo-complete");
   if (presenterButton) {
     presenterButton.setAttribute("aria-pressed", "true");
@@ -949,7 +965,22 @@ document.getElementById("prevStep")?.addEventListener("click", (event) => {
   scrollToRelativeStep(-1);
 });
 
-window.addEventListener("wheel", handleManualInteraction, { passive: true });
+function handleWheelNavigation(event) {
+  if (!document.body.classList.contains("presenter")) {
+    handleManualInteraction(event);
+    return;
+  }
+  if (event.ctrlKey || event.metaKey || event.altKey) return;
+  event.preventDefault();
+  handleManualInteraction(event);
+  if (Math.abs(event.deltaY) < 38) return;
+  const now = performance.now();
+  if (now - lastPresenterWheelAt < 620) return;
+  lastPresenterWheelAt = now;
+  scrollToRelativeStep(event.deltaY > 0 ? 1 : -1);
+}
+
+window.addEventListener("wheel", handleWheelNavigation, { passive: false });
 window.addEventListener("touchstart", handleManualInteraction, { passive: true });
 
 autoDemoButton?.addEventListener("click", () => {
@@ -974,6 +1005,7 @@ if (presenterButton && document.body.classList.contains("presenter")) {
 presenterButton?.addEventListener("click", () => {
   if (autoDemoState) pauseAutoDemo("presenter-toggle");
   const active = document.body.classList.toggle("presenter");
+  document.documentElement.classList.toggle("presenter", active);
   presenterButton.setAttribute("aria-pressed", String(active));
   presenterButton.textContent = active ? "Exit presenter" : "Presenter mode";
 });
