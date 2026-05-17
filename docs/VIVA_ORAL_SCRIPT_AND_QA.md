@@ -1,276 +1,271 @@
 # WatermarkScope Viva Oral Script and Q&A
 
-Use this as a speaking guide, not as a text to read word by word. The style should sound like a student explaining his own work: clear, direct, and honest. Short sentences are preferred because the viva is spoken, not read.
+Use this as a bilingual speaking guide. The Chinese text is for understanding and memory. The English text is what I should say in the viva. Do not read every line mechanically; speak in short, clear sentences.
 
 ## One-Sentence Story
 
-WatermarkScope is my framework for checking source-code watermarking as evidence that people can inspect, not just as one detector score.
+**中文理解：** 我的项目不是只做一个水印检测器，而是研究“代码水印结果怎样才算可以被老师和审稿人检查的证据”。
+
+**English to say:** WatermarkScope is my framework for treating source-code watermarking as inspectable evidence, not just as one detector score.
 
 ## 10-Minute Route
 
-| Page | Time | What to say |
-|---|---:|---|
-| Opening | 45 sec | Project title, one-sentence story, why this matters. |
-| Problem | 1 min 15 sec | Generated code moves; a score alone is weak. |
-| Method | 1 min 45 sec | Evidence contract plus five-stage pipeline. |
-| Results | 2 min | Five submitted result surfaces; focus on what each number can safely mean. |
-| Demo | 1 min 30 sec | Repository, claim boundary, traceability, manifest, viva check. |
-| Future and close | 45 sec | Submitted FYP is fixed; future work is separate. |
-| Q&A landing | 15 sec | Stop on the Q&A page and use the hot-seat rule. |
-| Buffer | 1 min 30 sec | Slow down, answer interruption, or skip demo details if needed. |
+| Page | Time | 中文目标 | English goal |
+|---|---:|---|---|
+| Opening | 45 sec | 说清题目和主线 | State title and one-sentence story |
+| Problem | 1 min 15 sec | 说明为什么一个分数不够 | Explain why one score is weak |
+| Method | 1 min 45 sec | 讲 evidence contract 和五个阶段 | Explain evidence contract and five stages |
+| Results | 2 min | 只讲核心数字和边界 | Give key numbers with boundaries |
+| Demo | 1 min 30 sec | 点 Play demo，展示可检查性 | Play the demo and show inspectability |
+| Future | 45 sec | 说明后续仓库是 future work | Separate future repos from submitted FYP |
+| Q&A landing | 15 sec | 停在 Q&A 页 | Stop and answer questions |
 
-## Homepage Controls
+## Homepage Control
 
-Use the homepage mainly in manual mode during the real viva. Press **Next** page by page and speak naturally.
+**中文理解：** 真实 viva 推荐用滚轮或 Next 一页一页切。到 Demo 页时，点击 **Play demo**，它会自动播放仓库证据路线。
 
-The **Auto demo** button is useful for rehearsal or for a smooth backup route. It automatically moves through the same story, shows a small cue box, and highlights the evidence route on the demo page.
-
-If I click anything, press Next/Previous, or scroll by mistake, the auto demo pauses. That is fine. I can either press **Resume** or continue manually.
-
-When I reach the live demo page, I should say:
-
-"This automatic highlight is only a guide. If you want to inspect a file, I can open the repository link manually. The purpose here is inspectability, not a full experimental rerun."
+**English to say:** I will use this homepage as my presentation route. On the demo page, I will click Play demo. It will automatically show the evidence route: README, claim boundaries, traceability, manifest, and the quick viva check.
 
 ## Full Oral Script
 
-### Opening
+### 1. Opening
 
-Good afternoon. I am Haoyi Zhang. My project is WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models.
+**中文理解：** 先介绍自己、题目、主页演示方式。重点说“一个检测分数不够”。
 
-I will use this homepage as my presentation route. I will move through the pages one by one, so the talk stays close to ten minutes.
+**English to say:** Good afternoon. I am Haoyi Zhang. My project is WatermarkScope: A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models.
+
+I will use this homepage as my presentation route. I will move page by page, so the talk stays close to ten minutes.
 
 The main idea is simple. Large language models can generate code, but later that code may be copied, edited, translated, or used in another project. When that happens, one detector score is not enough for a strong watermark claim.
 
-So in this project I ask a practical question: if I see a watermark signal, what evidence can I really defend?
+So my question is: if I see a watermark signal, what evidence can I really defend?
 
-My answer is WatermarkScope. It treats source-code watermarking as an evidence problem. I look at what was counted, what controls were used, where the artifacts are, what access setting was assumed, and what claim boundary I should not cross.
+### 2. Problem
 
-### Problem
+**中文理解：** 问题不是“能不能检测”，而是检测结果离开原始 prompt 后还能不能被 defend。
 
-When I started this work, the main gap I saw was not only detection performance. The bigger problem was how to defend the evidence.
+**English to say:** The gap I focus on is not only detection performance. The bigger problem is how to defend the evidence after generated code leaves the original prompt session.
 
-There are three reasons. First, generated code can leave the original prompt session. Second, source code is not only text; it should still run. Third, different access settings mean different claims. A white-box recovery method, a black-box audit, an owner-attribution protocol, and a security triage system are different questions.
+There are three reasons. First, generated code can move into another context. Second, source code is not only text; it should still run. Third, different access settings mean different claims.
 
-So before I interpret any number, I first need to define the evidence surface clearly. That means I need to know the denominator, the controls, and the boundary.
+A white-box recovery method, a black-box audit, an owner-attribution protocol, and a security triage system are different questions. So before I interpret any result, I need to fix the denominator, the controls, and the boundary.
 
-### Method
+### 3. Method
 
-The method has two parts. The first part is an evidence contract. The second part is a five-stage implementation.
+**中文理解：** 方法就是 evidence contract。每个结果都必须回答：数了什么？控制组是什么？证据在哪？什么访问条件？不能声称什么？
 
-The evidence contract is my rule for making a claim. A result should have five things before I treat it as evidence: a denominator, controls, an artifact, an access model, and a boundary.
+**English to say:** My method has two parts. The first part is an evidence contract. The second part is a five-stage implementation.
 
-The denominator tells me what was counted. The controls tell me what would make the signal fail. The artifact tells me where the evidence is stored. The access model tells me whether this is white-box, black-box, active-owner, or security-facing. The boundary tells me what I must not claim.
+The evidence contract asks five questions before I make a claim. What is counted? What controls were used? Where is the artifact? What access model is assumed? And what claim boundary should I not cross?
 
 Then I implemented this through five stages.
 
 CodeMarkBench gives the executable benchmark foundation. SemCodebook is the main white-box provenance recovery method. CodeDye is a conservative black-box audit. ProbeTrace studies scoped active-owner attribution. SealAudit studies marker-hidden security triage.
 
-The key point is this: the five stages are connected by the same evidence discipline, but I do not merge them into one universal accuracy score.
+The important point is that I do not merge these into one universal accuracy score. Each stage has its own evidence surface.
 
-### Results
+### 4. Results
 
-On the results page, I will not read every number. I will explain the results in three points.
+**中文理解：** 不要逐个读表。讲“每个数字都必须带分母、控制组、边界”。
 
-First, the benchmark foundation is complete. CodeMarkBench has 140 out of 140 canonical runs. This tells me the benchmark rows are executable and countable. It does not mean every watermark method succeeds.
+**English to say:** On the results page, I will not read every number. I will explain the results through denominator, controls, and boundary.
 
-Second, SemCodebook is the main method result in the submitted dissertation. It recovers 23,342 out of 24,000 positive cases. It also has 0 hits in 48,000 negative controls. So the safe claim is structured white-box provenance recovery inside the admitted cells.
+First, CodeMarkBench has 140 out of 140 canonical runs. This means the benchmark rows are executable and countable. It is benchmark support, not watermark success.
 
-Third, the other stages show why boundaries matter. CodeDye has sparse black-box evidence, so I do not call it contamination proof. ProbeTrace has strong scoped owner verification, but I do not call it general authorship proof. SealAudit gives selective triage, but I do not call it a safety certificate.
+Second, SemCodebook is the main method result. In the submitted dissertation, it recovers 23,342 out of 24,000 positive cases, with 0 hits in 48,000 negative controls. So the safe claim is structured white-box provenance recovery inside the admitted cells.
 
-So the result message is: do not trust one big detector score. Check the denominator, the controls, and the boundary for each claim.
+Third, the other stages show why boundaries matter. CodeDye has 6 out of 300 sparse live signals, with positive and negative controls. ProbeTrace has 300 out of 300 scoped decisions with 0 out of 1,200 false-owner controls. SealAudit has 81 out of 960 decisive triage outcomes with 0 observed unsafe passes.
 
-### Demo
+So my result message is: do not trust one big detector score. Check what was counted, what controls were run, and what the claim is allowed to mean.
 
-For the demo, I will not rerun the full experiments in the room. Some experiments need GPUs, model weights, or provider APIs, so a full rerun is not realistic in a viva.
+### 5. Demo
 
-Instead, I will show inspectability. I will open the repository, then the claim boundary document, the traceability matrix, the result manifest, and the quick viva check.
+**中文理解：** Demo 不是完整重跑实验。Demo 是证明仓库可以检查：README、边界、traceability、manifest、viva_check。
 
-The point is not to prove everything again from zero. The point is to show that the submitted work is organized so it can be checked. Each claim points to code, artifacts, manifests, and boundaries.
+**English to say:** For the demo, I will not rerun the full experiments in the room. Some experiments need GPUs, model weights, or provider APIs.
 
-### Future Work and Close
+Instead, I will show inspectability. I will click Play demo here. The page will automatically go through the repository README, claim boundaries, traceability matrix, result manifest, and the lightweight viva check.
 
-The submitted FYP version is the version I am defending today. The future page shows five continuation tracks, but I keep them separate from the submitted evidence.
+The point is not to prove everything again from zero. The point is to show that each claim points to code, artifacts, manifests, and boundaries.
 
-If the examiner is interested, I can briefly show these repositories. But I will not mix them with the dissertation result, because the submitted FYP has its own fixed evidence surface.
+### 6. Future Work and Close
 
-To summarize, my contribution is a practical framework for making source-code watermarking evidence more honest and inspectable. I built the benchmark, the method modules, the controls, the artifacts, and the claim boundaries so the result can be checked instead of only trusted.
+**中文理解：** 未来工作可以展示，但必须说清“不是提交版论文的一部分”。
 
-Then I will stop on the Q&A page. My answer rule is simple: direct answer first, one evidence number second, and the boundary third. Thank you. I am happy to answer questions.
+**English to say:** The submitted FYP version is the version I am defending today. The future page shows continuation repositories, but I keep them separate from the submitted evidence.
+
+If the examiner is interested, I can briefly open those repositories. But I will not mix them with the dissertation result, because the submitted FYP has its own fixed evidence surface.
+
+To summarize, my contribution is a practical framework for making source-code watermarking evidence more honest and inspectable. I built the benchmark, method modules, controls, artifacts, and claim boundaries so the result can be checked instead of only trusted.
+
+Thank you. I am happy to answer questions.
 
 ## Short Version If Time Is Tight
 
-My project is WatermarkScope. The problem is that generated code may be copied, edited, and deployed outside the original generation session, so a single watermark detector score is not enough.
+**中文理解：** 如果紧张，就只说这四句话的逻辑：问题、方法、结果、边界。
+
+**English to say:** My project is WatermarkScope. The problem is that generated code can be copied, edited, and deployed outside the original generation session, so a single detector score is not enough.
 
 My method is an evidence contract. Before I make a claim, I fix the denominator, controls, artifact, access model, and boundary.
 
-I implemented this through five stages: CodeMarkBench for executable benchmark rows, SemCodebook for white-box provenance recovery, CodeDye for black-box audit, ProbeTrace for owner attribution, and SealAudit for security triage.
+I implemented this through five stages: benchmark, white-box recovery, black-box audit, owner attribution, and security triage.
 
-The submitted results show that the framework can connect benchmark rows, controls, artifacts, and claim boundaries. The main point is not one universal score. The main point is disciplined evidence.
+The main contribution is not one universal score. The contribution is disciplined, inspectable evidence.
 
 ## Demo Script
 
-1. Open the homepage.
-   - "This page is my viva route. I will use it to keep the story short."
+**中文理解：** 到 demo 页之后，只需要点击 Play demo。不要打开太多外链，除非老师要求。
 
-2. Open the repository.
-   - "The repository contains the submitted FYP code, result artifacts, manifest, and viva-facing documents."
+1. **中文：** 点击 Play demo。  
+   **English:** I will click Play demo. This is a short automatic walkthrough of the evidence route.
 
-3. Open `CLAIM_BOUNDARIES.md`.
-   - "This is important because it says both what I can claim and what I cannot claim."
+2. **中文：** README 定义提交版工作。  
+   **English:** The README defines the submitted FYP surface and the route into the artifacts.
 
-4. Open `docs/TRACEABILITY_MATRIX.md`.
-   - "Here I can trace a claim back to the relevant code, artifact, and document."
+3. **中文：** Claim boundaries 说明能说什么、不能说什么。  
+   **English:** The claim boundary file is important because it states both what I can claim and what I cannot claim.
 
-5. Open `RESULT_MANIFEST.jsonl`.
-   - "The manifest is used to preserve evidence records with hashes and paths."
+4. **中文：** Traceability 把 claim 对到代码和 artifact。  
+   **English:** The traceability matrix connects a claim to the relevant code path and result artifact.
 
-6. Run or show `python scripts/viva_check.py`.
-   - "This quick check is not a full experimental rerun. It checks that the viva-facing evidence route is present and consistent."
+5. **中文：** Manifest 保存证据记录和 hash。  
+   **English:** The manifest preserves evidence records with paths and hashes.
 
-## Answering Style
+6. **中文：** viva_check 是轻量检查，不是完整重跑。  
+   **English:** The quick viva check is not a full experimental rerun. It checks that the viva-facing evidence route is present and consistent.
 
-Use this pattern:
+## Answering Rule
 
-1. Direct answer.
-2. One evidence number or file.
-3. Boundary.
+**中文理解：** QA 时不要长篇解释。先直接回答，再给一个数字或文件，最后说边界。
 
-If I feel nervous, I should slow down and answer in one short paragraph. I do not need to prove everything again in one answer.
+**English pattern:** Direct answer first. Then one evidence number or file. Then the boundary.
 
 Example:
 
-"No, CodeDye does not prove contamination. In the submitted surface it reports 6/300 sparse live signals with 0/300 negative controls. I only claim conservative black-box audit evidence, not provider wrongdoing."
+**中文理解：** CodeDye 不是污染证明。
+
+**English to say:** No, CodeDye does not prove contamination. In the submitted surface it reports 6/300 sparse live signals with 0/300 negative controls. I only claim conservative black-box audit evidence, not provider wrongdoing.
 
 ## Detailed Q&A
 
 ### Core Understanding
 
-**Q1. What is your project about?**  
-A: It is about making source-code watermarking evidence easier to defend. Instead of only reporting a detector score, I connect each result to a denominator, controls, artifacts, access model, and claim boundary.
+**Q1. What is your project about? / 你的项目是做什么的？**  
+**中文：** 让代码水印结果变成可检查证据。  
+**English:** It is about making source-code watermarking evidence easier to defend. Instead of only reporting a detector score, I connect each result to a denominator, controls, artifacts, access model, and claim boundary.
 
-**Q2. What is the main research gap?**  
-A: The gap is that generated code moves away from the original prompt session, but many watermark results are still reported as if one score is enough. For code, I think the result must also be executable, inspectable, and bounded.
+**Q2. What is the main research gap? / 主要研究空白是什么？**  
+**中文：** 生成代码会离开原始会话，但很多评估还像只看一个分数。  
+**English:** The gap is that generated code moves away from the original prompt session, but many watermark results are still reported as if one score is enough.
 
-**Q3. What is your main contribution?**  
-A: My main contribution is the WatermarkScope evidence contract and the five-stage implementation around it. The contract makes each watermark claim explicit: what is counted, what controls exist, and what the claim is not allowed to mean.
+**Q3. What is your main contribution? / 主要贡献是什么？**  
+**中文：** evidence contract 加五阶段实现。  
+**English:** My main contribution is the WatermarkScope evidence contract and the five-stage implementation around it.
 
-**Q4. Why is this a final year project rather than only a survey?**  
-A: Because I built an actual repository with benchmark code, method modules, scripts, result artifacts, manifests, and viva checks. The dissertation is supported by implementation and preserved evidence, not only discussion.
-
-**Q5. Why source code and not normal text?**  
-A: Source code has execution behavior. If a watermarked snippet no longer runs, the claim is much less useful. That is why I treat executable benchmark rows as part of the evidence.
+**Q4. Why source code, not normal text? / 为什么研究代码而不是普通文本？**  
+**中文：** 代码有可执行性，不能只当文本。  
+**English:** Source code has execution behavior. If a watermarked snippet no longer runs, the claim is much less useful.
 
 ### Method and Novelty
 
-**Q6. What is the evidence contract?**  
-A: It is my rule for admitting a watermark result. A result needs a denominator, controls, artifact, access model, hash or preservation route, and claim boundary before I treat it as evidence.
+**Q5. What is the evidence contract? / evidence contract 是什么？**  
+**中文：** 一个结果要有分母、控制组、证据文件、访问模型、边界，才可以被解释。  
+**English:** It is my rule for admitting a watermark result. A result needs a denominator, controls, artifact, access model, and claim boundary before I treat it as evidence.
 
-**Q7. Why not just use accuracy?**  
-A: Accuracy is useful only after we know what was counted. In this project, white-box recovery, black-box audit, owner attribution, and security triage answer different questions, so one accuracy score would mix different claims.
+**Q6. Why not just use accuracy? / 为什么不用一个 accuracy？**  
+**中文：** 因为不同阶段问的问题不一样。  
+**English:** Accuracy is useful only after we know what was counted. White-box recovery, black-box audit, owner attribution, and triage answer different questions.
 
-**Q8. What is the most original technical part?**  
-A: SemCodebook is the main method part. It uses structured program carriers and recovery logic instead of treating code only as text. The relevant implementation is in files such as `projects/SemCodebook/src/semcodebook/carriers.py`, `detector.py`, and the evaluation scripts.
+**Q7. What is the most technical part? / 最技术的部分是什么？**  
+**中文：** SemCodebook，结构化白盒溯源。  
+**English:** SemCodebook is the main method part. It uses structured program carriers and recovery logic instead of treating code only as plain text.
 
-**Q9. What are the five stages?**  
-A: CodeMarkBench is the benchmark foundation. SemCodebook is white-box recovery. CodeDye is black-box audit. ProbeTrace is active-owner attribution. SealAudit is marker-hidden security triage.
-
-**Q10. Why do you need five stages?**  
-A: Because watermark evidence changes with access. A white-box method can inspect more than a black-box audit. An owner-attribution protocol is different from a security triage system. I separate them so I do not overclaim.
-
-**Q11. What is the innovation compared with a normal benchmark?**  
-A: A normal benchmark often reports performance. WatermarkScope also asks what claim the performance is allowed to support. That extra boundary is important for watermarking because the social meaning of a false claim can be serious.
-
-**Q12. Where is the innovation in code?**  
-A: The benchmark structure is under `projects/CodeMarkBench/`. The SemCodebook method is under `projects/SemCodebook/src/semcodebook/`. CodeDye audit logic is under `projects/CodeDye/src/codedye/`. ProbeTrace scripts are under `projects/ProbeTrace/scripts/`. SealAudit triage code is under `projects/SealAudit/src/sealaudit/` and `projects/SealAudit/scripts/`.
+**Q8. Why five stages? / 为什么需要五个阶段？**  
+**中文：** 因为访问条件不同，claim 就不同。  
+**English:** Because watermark evidence changes with access. A white-box method can inspect more than a black-box audit, and owner attribution is different from security triage.
 
 ### Results
 
-**Q13. What is your strongest result?**  
-A: SemCodebook is the strongest method result. It reports 23,342 recoveries out of 24,000 positives, with zero hits in 48,000 negative controls. I still keep the claim limited to the admitted white-box cells.
+**Q9. What is your strongest result? / 最强结果是什么？**  
+**中文：** SemCodebook。  
+**English:** SemCodebook is the strongest method result. It reports 23,342 recoveries out of 24,000 positives, with zero hits in 48,000 negative controls.
 
-**Q14. Does 140/140 mean the benchmark proves watermark success?**  
-A: No. It means the canonical benchmark runs completed and are countable. It is the foundation for evaluation, not a claim that every watermark method succeeded.
+**Q10. Does 140/140 mean watermark success? / 140/140 是否代表水印成功？**  
+**中文：** 不，是 benchmark 跑通。  
+**English:** No. It means the canonical benchmark runs completed and are countable. It is the foundation for evaluation, not a success claim for every watermark.
 
-**Q15. What does SemCodebook prove?**  
-A: It supports structured white-box provenance recovery within the admitted denominator. It does not prove universal watermarking for every model or every natural code distribution.
+**Q11. What does CodeDye prove? / CodeDye 证明了什么？**  
+**中文：** 保守黑盒审计证据，不是污染证明。  
+**English:** CodeDye gives conservative black-box audit evidence: 6/300 sparse live signals, positive-control support, and 0/300 negative controls.
 
-**Q16. What does CodeDye prove?**  
-A: CodeDye gives conservative black-box audit evidence. In the submitted version it has 6/300 sparse live signals, positive-control support, and 0/300 negative controls. It does not prove contamination or wrongdoing.
+**Q12. Is 6/300 too small? / 6/300 太小了吗？**  
+**中文：** 如果声称高召回就太小，但我没有这样声称。  
+**English:** It would be too small for a high-recall detector claim. I do not claim that. I claim sparse, conservative audit evidence under controls.
 
-**Q17. Is 6/300 too small?**  
-A: It would be small if I claimed high-recall detection. I do not claim that. I claim sparse, conservative audit evidence under controls, which is the honest interpretation of that surface.
+**Q13. Is ProbeTrace overclaiming? / ProbeTrace 是否过度声称？**  
+**中文：** 不，它是有边界的 active-owner attribution。  
+**English:** I avoid overclaiming by limiting the claim. ProbeTrace has 300/300 scoped decisions and 0/1,200 false-owner controls inside the submitted surface.
 
-**Q18. ProbeTrace looks very strong. Are you overclaiming?**  
-A: I avoid overclaiming by limiting the claim. ProbeTrace has 300/300 scoped decisions and 0/1,200 false-owner controls inside the submitted surface. That is scoped owner verification, not universal authorship proof.
-
-**Q19. SealAudit only has 81 decisive outcomes out of 960. Is that weak?**  
-A: I see it as selective by design. For security-facing work, forced decisions can be dangerous. I report decisive outcomes and keep uncertain rows as abstention or review load.
-
-**Q20. Why do you report zero unsafe passes?**  
-A: Because it is an important observed control result, but I do not treat it as zero risk. Zero observed events still have finite-sample uncertainty.
+**Q14. Is SealAudit weak because only 81/960 is decisive? / SealAudit 只有 81/960 明确结果，是不是弱？**  
+**中文：** 它是 selective triage，弃权是设计的一部分。  
+**English:** I see it as selective by design. For security-facing work, forced decisions can be dangerous. I report decisive outcomes and keep uncertain rows as review load.
 
 ### Validity and Limitations
 
-**Q21. What is the biggest limitation?**  
-A: Scope. Each result has a finite denominator: specific models, providers, tasks, owners, or triage rows. The dissertation handles this by stating boundaries instead of broadening claims.
+**Q15. What is the biggest limitation? / 最大限制是什么？**  
+**中文：** 范围有限，每个结果都有固定分母。  
+**English:** The biggest limitation is scope. Each result has a finite denominator, so I state boundaries instead of broadening the claim.
 
-**Q22. Could your results generalize to other models?**  
-A: Possibly, but I would not claim that without a new admitted surface. The correct next step is to add more model cells and report them as new evidence, not to stretch the current result.
+**Q16. Can it generalize to other models? / 能泛化到其他模型吗？**  
+**中文：** 可能可以，但需要新的 evidence surface。  
+**English:** Possibly, but I would not claim that without a new admitted surface.
 
-**Q23. Could someone attack the watermark?**  
-A: Yes, attacks are always possible. That is why I report controls and boundaries. The project is not saying watermarking is impossible to break; it is saying how to evaluate evidence more carefully.
+**Q17. Could someone attack the watermark? / 水印能被攻击吗？**  
+**中文：** 可以，所以更需要 controls 和 boundaries。  
+**English:** Yes, attacks are possible. That is why I report controls and boundaries. The project is not saying watermarking is impossible to break.
 
-**Q24. Why is abstention acceptable?**  
-A: Because abstention is more honest than a forced label when the evidence is insufficient. In this project, abstention is a way to avoid turning weak evidence into a strong claim.
-
-**Q25. How do you avoid cherry-picking?**  
-A: I use fixed denominators, controls, manifests, and claim boundaries. Misses and nondecisive rows remain in the denominator instead of being hidden.
-
-**Q26. Why confidence intervals or uncertainty reporting?**  
-A: Because an observed zero is not the same as true zero. Uncertainty reporting reminds the reader that the result is based on a finite sample.
-
-**Q27. What would you do if you had more time?**  
-A: I would add more admitted surfaces: more models, more provider families, stronger black-box calibration, and broader owner registries. I would keep each new result separate from the submitted FYP denominator.
+**Q18. Why is abstention acceptable? / 为什么允许弃权？**  
+**中文：** 证据不足时强行分类会过度声称。  
+**English:** Abstention is more honest than a forced label when the evidence is insufficient.
 
 ### Implementation and Reproducibility
 
-**Q28. Can the examiner reproduce everything live?**  
-A: Not all full experiments live, because some require GPUs, model weights, or provider APIs. But the repository is inspectable, and the viva check verifies the submitted evidence route.
+**Q19. Can the examiner reproduce everything live? / 老师能现场复现全部实验吗？**  
+**中文：** 不能完整重跑，但能检查证据路线。  
+**English:** Not all full experiments live, because some need GPUs, model weights, or provider APIs. But the repository is inspectable, and the quick check verifies the viva-facing route.
 
-**Q29. What does `viva_check.py` do?**  
-A: It checks that viva-facing documents, manifests, claim boundaries, and key artifacts are present and consistent. It is a quick inspection check, not a full GPU/API rerun.
+**Q20. What does `viva_check.py` do? / viva_check.py 做什么？**  
+**中文：** 检查文档、manifest、关键 artifact 是否存在且一致。  
+**English:** It checks that the key viva-facing documents, result manifest, artifacts, traceability matrix, and claim boundaries are present.
 
-**Q30. Why use manifests?**  
-A: Manifests make the evidence easier to inspect. They record paths, hashes, and result records so that claims are tied to preserved artifacts.
+**Q21. Where is the code evidence? / 代码证据在哪里？**  
+**中文：** 仓库里的项目目录、manifest、traceability。  
+**English:** The code evidence is in the submitted repository. The strongest live route is README, CLAIM_BOUNDARIES.md, TRACEABILITY_MATRIX.md, RESULT_MANIFEST.jsonl, and viva_check.py.
 
-**Q31. Why are some future repositories separate?**  
-A: Because the submitted FYP version is fixed. The other repositories are continuation tracks for paper development. I can show them as future work, but they do not change the defended dissertation evidence.
+### Future Work
 
-**Q32. If a repository link is private, how will the examiner see it?**  
-A: For the submitted FYP, the main WatermarkScope repository is the defended artifact. The continuation repositories can be shown from my logged-in laptop if there is time, but they are not required to validate the submitted dissertation.
+**Q22. Are the future repositories part of the submitted FYP? / future repos 是提交版 FYP 吗？**  
+**中文：** 不是，它们是后续投稿准备。  
+**English:** No. They are continuation tracks. The submitted FYP evidence surface stays fixed.
 
-**Q33. What part did you personally implement?**  
-A: The submitted FYP artifact is my individual work: the framework design, repository organization, implementation snapshots, result preservation, dissertation, and viva-facing evidence route.
+**Q23. What would you do next? / 后续怎么做？**  
+**中文：** 增加新模型、新 provider、更强黑盒校准、更大 owner registry。  
+**English:** I would add new admitted surfaces: more models, more provider families, stronger black-box calibration, and broader owner registries.
 
-### Examiner Challenges
+**Q24. Why did you organize this as several repositories? / 为什么分多个仓库？**  
+**中文：** 因为每个问题的 evidence surface 不同，分开更清楚。  
+**English:** Because each continuation track has a different evidence question. Keeping them separate avoids mixing denominators and claims.
 
-**Q34. Is this too broad for one FYP?**  
-A: It is broad, but the unifying idea is narrow: every stage is evaluated through the same evidence contract. I also keep claims bounded, so I do not present all five modules as complete final papers.
+## Emergency Answers
 
-**Q35. Are you mixing completed FYP work with future work?**  
-A: No. During the viva I defend the submitted FYP evidence. Future repositories are only continuation tracks and do not change the submitted denominator or conclusions.
+**If I do not understand the question / 没听清问题：**  
+**English:** Sorry, could you please repeat the question more slowly?
 
-**Q36. Why should this receive a high mark?**  
-A: Because it has a clear research gap, a working software artifact, controlled experiments, preserved result artifacts, claim boundaries, and an honest limitation structure. The work is large, but it is also organized around one defensible idea.
+**If I need a moment / 需要思考：**  
+**English:** Let me think for a second. I want to answer this accurately.
 
-**Q37. What is one thing you would change in the dissertation?**  
-A: I would make the oral story shorter earlier. The dissertation contains many details, but for the viva the strongest story is the evidence contract and the five result surfaces.
+**If the examiner challenges a number / 老师质疑数字：**  
+**English:** The number I defend here is the submitted FYP surface. Later continuation results are separate and should not replace this denominator.
 
-**Q38. If your method fails on a new model, does the project fail?**  
-A: No. A new failure would become a new evidence surface. The framework is designed to report success, misses, controls, and boundaries, not to hide failures.
-
-**Q39. What is the practical value?**  
-A: It helps researchers and reviewers ask better questions before trusting a watermark result: what was counted, what controls were used, what artifact supports it, and what claim is forbidden.
-
-**Q40. What is your final takeaway?**  
-A: My final takeaway is that code watermarking should be evaluated as evidence. A detector score is useful, but only after it is tied to a clear denominator, controls, artifacts, access model, and boundary.
+**If asked whether the work is too broad / 老师问是否太宽：**  
+**English:** It is broad in modules, but narrow in principle. Every stage follows the same evidence contract, and each claim is bounded.
