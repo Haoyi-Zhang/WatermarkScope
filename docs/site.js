@@ -275,30 +275,100 @@ const autoDemoPlan = [
   }
 ];
 
-const qaFacts = {
-  broad: {
-    title: "Is this too broad for one FYP?",
-    answer: "It is broad in modules, but narrow in principle: every stage follows the same evidence contract. The defended surface is the submitted FYP, not five final papers."
+const qaHotspots = {
+  dataset: {
+    title: "Dataset and denominator route",
+    speak: "I would call them fixed evaluation surfaces rather than one dataset. Each stage has its own denominator, controls, and claim boundary.",
+    links: [
+      ["Method index: all denominators", `${repoBlob}/docs/METHOD_INDEX.md`],
+      ["CodeMarkBench result tables", `${repoTree}/projects/CodeMarkBench/results/tables/suite_all_models_methods`],
+      ["SemCodebook denominator manifest", `${repoBlob}/results/SemCodebook/artifacts/generated/semcodebook_whitebox_main_denominator_source_manifest_20260505.json`],
+      ["CodeDye task dataset", `${repoBlob}/projects/CodeDye/benchmarks/code_dyebench_tasks.json`],
+      ["ProbeTrace input rows", `${repoBlob}/results/ProbeTrace/artifacts/generated/probetrace_multi_owner_deepseek_canonical_input_rows_20260507.jsonl`],
+      ["SealAudit claim surface", `${repoBlob}/results/SealAudit/artifacts/generated/canonical_claim_surface_results.json`]
+    ]
   },
-  stages: {
-    title: "Why do you need five stages?",
-    answer: "Because access changes the claim. White-box recovery, black-box audit, owner attribution, and triage cannot honestly share one accuracy score."
+  metrics: {
+    title: "Metric construction route",
+    speak: "The metrics are stage-specific: completion, recovery, negative-control hits, live signal rate, attribution success, decisive coverage, and unsafe-pass tracking.",
+    links: [
+      ["Results summary", `${repoBlob}/docs/RESULTS_SUMMARY.md`],
+      ["Method index: metric definitions", `${repoBlob}/docs/METHOD_INDEX.md`],
+      ["Main table manifest", `${repoBlob}/results/watermark_submission_main_table_manifest_v1_20260508.json`],
+      ["Claim boundaries", `${repoBlob}/CLAIM_BOUNDARIES.md`]
+    ]
+  },
+  code: {
+    title: "Code walkthrough route",
+    speak: "If asked to show code, I first show the main method files, then the audit scripts, then the traceability matrix that connects them to claims.",
+    links: [
+      ["SemCodebook detector", `${repoBlob}/projects/SemCodebook/src/semcodebook/detector.py`],
+      ["SemCodebook evaluation", `${repoBlob}/projects/SemCodebook/src/semcodebook/evaluation.py`],
+      ["CodeDye audit scripts", `${repoTree}/projects/CodeDye/scripts`],
+      ["ProbeTrace live owner run", `${repoBlob}/projects/ProbeTrace/scripts/run_multi_owner_deepseek_live.py`],
+      ["SealAudit triage source", `${repoTree}/projects/SealAudit/src/sealaudit`],
+      ["Traceability matrix", `${repoBlob}/docs/TRACEABILITY_MATRIX.md`]
+    ]
+  },
+  semcodebook: {
+    title: "Main method: SemCodebook",
+    speak: "This is the main technical method. I would show structured carriers, detector logic, negative-control replay, and the result artifact.",
+    links: [
+      ["Structured type layer", `${repoBlob}/projects/SemCodebook/src/semcodebook/typed_ast.py`],
+      ["Detector logic", `${repoBlob}/projects/SemCodebook/src/semcodebook/detector.py`],
+      ["Negative controls", `${repoBlob}/projects/SemCodebook/src/semcodebook/negative_controls.py`],
+      ["Negative replay gate", `${repoBlob}/projects/SemCodebook/scripts/build_negative_control_replay_gate.py`],
+      ["Final claim lock", `${repoBlob}/results/SemCodebook/artifacts/generated/semcodebook_final_claim_lock_v1_20260507.md`]
+    ]
+  },
+  artifacts: {
+    title: "Evidence artifacts and hashes",
+    speak: "The numbers are not only in the dissertation. They are bound to manifests, artifacts, and claim locks.",
+    links: [
+      ["Result manifest", `${repoBlob}/RESULT_MANIFEST.jsonl`],
+      ["Main table source manifest", `${repoBlob}/results/watermark_submission_main_table_manifest_v1_20260508.json`],
+      ["Claim boundaries", `${repoBlob}/CLAIM_BOUNDARIES.md`],
+      ["Traceability matrix", `${repoBlob}/docs/TRACEABILITY_MATRIX.md`],
+      ["Reviewer response ledger", `${repoBlob}/docs/REVIEWER_RESPONSE_LEDGER.md`]
+    ]
+  },
+  reproduce: {
+    title: "Live reproducibility route",
+    speak: "I would not rerun GPU/API experiments live. I would run the lightweight check and show where the full rerun scripts and manifests are.",
+    links: [
+      ["viva_check.py", `${repoBlob}/scripts/viva_check.py`],
+      ["Repository README", `${repoBlob}/README.md`],
+      ["Reproducibility manifests", `${repoTree}/results`],
+      ["Traceability matrix", `${repoBlob}/docs/TRACEABILITY_MATRIX.md`],
+      ["Claim boundary file", `${repoBlob}/CLAIM_BOUNDARIES.md`]
+    ]
+  }
+};
+
+const qaFacts = {
+  dataset: {
+    title: "How was the dataset constructed?",
+    answer: "I use fixed evaluation surfaces rather than one dataset: 140 benchmark runs, 24,000 SemCodebook positives, 48,000 negatives, CodeDye 300 live samples, ProbeTrace APIS-300, and SealAudit 960 marker-hidden rows."
+  },
+  metrics: {
+    title: "How were the metrics constructed?",
+    answer: "Each metric follows the claim: recovery rate, negative-control hit rate, live signal rate, scoped attribution success, decisive triage coverage, and unsafe-pass tracking."
+  },
+  code: {
+    title: "Can you show the code?",
+    answer: "Yes. I would start from SemCodebook detector and evaluation files, then use the traceability matrix to connect code paths to result artifacts."
   },
   rerun: {
     title: "Why not rerun everything live?",
-    answer: "A full rerun needs GPUs, model weights, or provider APIs. The defensible live evidence is inspectability: repository, claim boundaries, traceability, manifest, and the quick check."
-  },
-  generalize: {
-    title: "Can the result generalize?",
-    answer: "Possibly, but a broader claim needs a new admitted surface. The correct next step is to add model cells and report them separately."
+    answer: "A full rerun needs GPUs, model weights, or provider APIs. The live demo verifies inspectability: repository, claim boundaries, traceability, manifest, and viva_check.py."
   },
   sparse: {
     title: "Is CodeDye too sparse?",
     answer: "It would be too sparse for a high-recall detector claim. My claim is conservative black-box audit evidence: 6/300 live signals with 0/300 negative controls."
   },
-  code: {
-    title: "Where is the code evidence?",
-    answer: "The submitted repository is the defended artifact. The strongest live route is README, CLAIM_BOUNDARIES.md, TRACEABILITY_MATRIX.md, RESULT_MANIFEST.jsonl, then viva_check.py."
+  future: {
+    title: "Are future repositories part of the submitted FYP?",
+    answer: "No. The submitted FYP surface stays fixed. Future repositories are continuation tracks and need separate denominators before they can support broader claims."
   }
 };
 
@@ -1213,6 +1283,35 @@ demoLinks.forEach((link) => {
 
 const qaButtons = Array.from(document.querySelectorAll("[data-qa]"));
 const qaAnswer = document.getElementById("qaAnswer");
+const qaHotspotButtons = Array.from(document.querySelectorAll("[data-hotspot]"));
+const qaLinkPanel = document.getElementById("qaLinkPanel");
+
+function setQaHotspot(key) {
+  const data = qaHotspots[key];
+  if (!data || !qaLinkPanel) return;
+  qaLinkPanel.classList.remove("content-refresh");
+  qaHotspotButtons.forEach((button) => {
+    const active = button.dataset.hotspot === key;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  const links = data.links.map(([label, href]) => `<a href="${href}" target="_blank" rel="noopener">${label}</a>`).join("");
+  qaLinkPanel.innerHTML = `
+    <span>Evidence shortcut</span>
+    <strong>${data.title}</strong>
+    <p>${data.speak}</p>
+    <div class="qa-link-list">${links}</div>
+  `;
+  requestAnimationFrame(() => qaLinkPanel.classList.add("content-refresh"));
+}
+
+qaHotspotButtons.forEach((button) => {
+  button.setAttribute("aria-pressed", String(button.classList.contains("active")));
+  button.addEventListener("click", (event) => {
+    handleManualInteraction(event);
+    setQaHotspot(button.dataset.hotspot);
+  });
+});
 
 function setQaAnswer(key) {
   const data = qaFacts[key];
@@ -1240,3 +1339,4 @@ qaButtons.forEach((button) => {
 });
 
 if (qaButtons.length) setQaAnswer(qaButtons[0].dataset.qa);
+if (qaHotspotButtons.length) setQaHotspot(qaHotspotButtons[0].dataset.hotspot);
