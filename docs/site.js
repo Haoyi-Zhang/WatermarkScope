@@ -1,5 +1,5 @@
 const repoBase = "https://github.com/Haoyi-Zhang/WatermarkScope";
-const submittedRef = "e0851409c3fe14d1813b714ff9b2d1fa2da965cb";
+const submittedRef = "main";
 const repoTree = `${repoBase}/tree/${submittedRef}`;
 const repoBlob = `${repoBase}/blob/${submittedRef}`;
 
@@ -142,6 +142,41 @@ const demoFacts = {
     text: "This verifies repository consistency and artifact presence; it is not a replacement for the full GPU/API experiments."
   }
 };
+
+const evidenceDemoTimeline = [
+  {
+    key: "readme",
+    at: 0,
+    line: "[demo] Open README: submitted FYP surface and inspection route."
+  },
+  {
+    key: "boundaries",
+    at: 2.4,
+    line: "[demo] Check CLAIM_BOUNDARIES.md: allowed claim and forbidden wording."
+  },
+  {
+    key: "traceability",
+    at: 4.8,
+    line: "[demo] Check TRACEABILITY_MATRIX.md: claim -> code -> artifact."
+  },
+  {
+    key: "manifest",
+    at: 7.2,
+    line: "[demo] Inspect RESULT_MANIFEST.jsonl: hash-addressed evidence rows."
+  },
+  {
+    key: "check",
+    at: 9.6,
+    line: "[demo] Run viva_check.py: lightweight repository consistency check."
+  },
+  {
+    key: "check",
+    at: 11.6,
+    line: "[OK] Evidence check passed. Full experiments are not rerun live."
+  }
+];
+
+const evidenceDemoDuration = 12;
 
 const autoDemoPlan = [
   {
@@ -1063,6 +1098,14 @@ document.getElementById("copyCommand")?.addEventListener("click", async (event) 
 const demoLinks = Array.from(document.querySelectorAll("[data-demo]"));
 const demoPanelTitle = document.getElementById("demoPanelTitle");
 const demoPanelText = document.getElementById("demoPanelText");
+const demoOutput = document.getElementById("demoOutput");
+const playEvidenceDemoButton = document.getElementById("playEvidenceDemo");
+const resetEvidenceDemoButton = document.getElementById("resetEvidenceDemo");
+const demoProgressBar = document.getElementById("demoProgressBar");
+const demoPlaybackStatus = document.getElementById("demoPlaybackStatus");
+let evidenceDemoTimer = null;
+let evidenceDemoStartedAt = 0;
+let evidenceDemoFired = new Set();
 
 function setDemo(key) {
   const data = demoFacts[key];
@@ -1084,6 +1127,80 @@ function setDemo(key) {
   if (demoPanelText) demoPanelText.textContent = data.text;
   requestAnimationFrame(() => panel?.classList.add("content-refresh"));
 }
+
+function formatShortClock(seconds) {
+  return `00:${String(Math.max(0, Math.round(seconds))).padStart(2, "0")}`;
+}
+
+function setEvidenceDemoProgress(seconds) {
+  const clamped = Math.max(0, Math.min(evidenceDemoDuration, seconds));
+  const ratio = clamped / evidenceDemoDuration;
+  demoProgressBar?.style.setProperty("--demo-progress", String(ratio));
+  if (demoPlaybackStatus) {
+    demoPlaybackStatus.textContent = `${formatShortClock(clamped)} / ${formatShortClock(evidenceDemoDuration)}`;
+  }
+}
+
+function resetEvidenceDemo() {
+  if (evidenceDemoTimer) window.clearInterval(evidenceDemoTimer);
+  evidenceDemoTimer = null;
+  evidenceDemoFired = new Set();
+  document.querySelector(".terminal-card")?.classList.remove("demo-final");
+  if (demoOutput) demoOutput.textContent = "[ready] Click Play demo to run the viva evidence route.";
+  if (playEvidenceDemoButton) {
+    playEvidenceDemoButton.textContent = "Play demo";
+    playEvidenceDemoButton.setAttribute("aria-pressed", "false");
+  }
+  setEvidenceDemoProgress(0);
+  setDemo("readme");
+}
+
+function appendDemoOutput(line) {
+  if (!demoOutput) return;
+  const current = demoOutput.textContent || "";
+  demoOutput.textContent = current.startsWith("[ready]")
+    ? line
+    : `${current}\n${line}`;
+}
+
+function startEvidenceDemo() {
+  resetEvidenceDemo();
+  evidenceDemoStartedAt = performance.now();
+  document.querySelector(".terminal-card")?.classList.remove("demo-final");
+  if (playEvidenceDemoButton) {
+    playEvidenceDemoButton.textContent = "Playing";
+    playEvidenceDemoButton.setAttribute("aria-pressed", "true");
+  }
+  evidenceDemoTimer = window.setInterval(() => {
+    const elapsed = (performance.now() - evidenceDemoStartedAt) / 1000;
+    setEvidenceDemoProgress(elapsed);
+    evidenceDemoTimeline.forEach((item, index) => {
+      if (elapsed < item.at || evidenceDemoFired.has(index)) return;
+      evidenceDemoFired.add(index);
+      setDemo(item.key);
+      appendDemoOutput(item.line);
+    });
+    if (elapsed < evidenceDemoDuration) return;
+    if (evidenceDemoTimer) window.clearInterval(evidenceDemoTimer);
+    evidenceDemoTimer = null;
+    setEvidenceDemoProgress(evidenceDemoDuration);
+    document.querySelector(".terminal-card")?.classList.add("demo-final");
+    if (playEvidenceDemoButton) {
+      playEvidenceDemoButton.textContent = "Replay demo";
+      playEvidenceDemoButton.setAttribute("aria-pressed", "false");
+    }
+  }, 120);
+}
+
+playEvidenceDemoButton?.addEventListener("click", (event) => {
+  handleManualInteraction(event);
+  startEvidenceDemo();
+});
+
+resetEvidenceDemoButton?.addEventListener("click", (event) => {
+  handleManualInteraction(event);
+  resetEvidenceDemo();
+});
 
 demoLinks.forEach((link) => {
   link.addEventListener("mouseenter", () => setDemo(link.dataset.demo));
