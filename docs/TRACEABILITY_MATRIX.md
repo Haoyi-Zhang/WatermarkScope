@@ -15,10 +15,10 @@ This matrix connects the submitted FYP viva claims to implementation code, resul
 
 | Module | Code path | Result path | Main checked claim |
 |---|---|---|---|
-| SemCodebook | `projects/SemCodebook/` | `results/SemCodebook/artifacts/generated/` | 93,600 white-box rows; 30,330/31,200 positives; 870 positive misses retained; 352 no-retry-origin positives remain non-promoted; 0/62,400 fixed negative-control hits; 0/62,400 blind replay hits; 43,200 paired component-delta ablation rows |
-| CodeDye | `projects/CodeDye/` | `results/CodeDye/artifacts/generated/` | Submitted FYP null-audit surface: 4/300 sparse live signals; 170/300 positive controls; 0/300 negative controls; no prevalence, accusation, high-recall, or absence-proof claim |
-| ProbeTrace | `projects/ProbeTrace/` | `results/ProbeTrace/artifacts/generated/` | APIS-300 plus 6,000 DeepSeek five-owner source-bound commitment/witness rows; 750/750 true-owner positives; 0/5,250 controls; 900 transfer support rows with task-cluster boundary |
-| SealAudit | `projects/SealAudit/` | `results/SealAudit/artifacts/generated/` | Submitted FYP marker-hidden triage surface: 320/960 decisive rows; 0/960 observed provider-flag unsafe pass; nondecisive rows retained as abstention or review load |
+| SemCodebook | `projects/SemCodebook/` | `results/SemCodebook/artifacts/generated/` | Submitted FYP white-box surface: 23,342/24,000 positive recoveries; 0/48,000 negative-control hits; misses retained inside the denominator |
+| CodeDye | `projects/CodeDye/` | `results/CodeDye/artifacts/generated/` | Submitted FYP null-audit surface: 6/300 sparse live signals; 170/300 positive controls; 0/300 negative controls; no prevalence, accusation, high-recall, or absence-proof claim |
+| ProbeTrace | `projects/ProbeTrace/` | `results/ProbeTrace/artifacts/generated/` | Submitted FYP active-owner surface: 300/300 scoped decisions; 0/1,200 false-owner controls; no provider-general attribution claim |
+| SealAudit | `projects/SealAudit/` | `results/SealAudit/artifacts/generated/` | Submitted FYP marker-hidden triage surface: 81/960 decisive outcomes; 0 observed unsafe passes; nondecisive rows retained as abstention or review load |
 
 ## What To Check In Code
 
