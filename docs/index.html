@@ -1396,6 +1396,68 @@ dd {
   border-left-color: var(--amber);
 }
 
+.demo-player {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.38fr);
+  gap: 14px;
+  align-items: center;
+}
+
+.demo-playback {
+  display: grid;
+  grid-template-columns: 1fr 0.72fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.demo-playback button {
+  min-height: 34px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.06);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.demo-playback button:hover {
+  border-color: rgba(247, 198, 106, 0.54);
+  background: rgba(247, 198, 106, 0.10);
+}
+
+.demo-playback button[aria-pressed="true"] {
+  color: #06111f;
+  border-color: rgba(85, 215, 231, 0.84);
+  background: var(--cyan);
+}
+
+.demo-progress {
+  grid-column: 1 / -1;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.075);
+  overflow: hidden;
+}
+
+.demo-progress i {
+  display: block;
+  width: calc(var(--demo-progress, 0) * 100%);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--amber), var(--cyan));
+  transition: width 120ms linear;
+}
+
+#demoPlaybackStatus {
+  grid-column: 1 / -1;
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 850;
+  text-align: right;
+}
+
 .demo-route span {
   position: relative;
 }
@@ -2536,6 +2598,21 @@ body.presenter .step-dots {
     display: none;
   }
 
+  body.presenter .demo-player {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    padding: 11px 13px;
+  }
+
+  body.presenter .demo-player p {
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  body.presenter .demo-playback button {
+    min-height: 30px;
+    padding: 5px 8px;
+  }
+
   body.presenter .future-section {
     padding: 22px 0 74px;
   }
@@ -2672,6 +2749,7 @@ body.presenter .step-dots {
   .future-note,
   .future-boundary-strip,
   .qa-hotseat,
+  .demo-player,
   .demo-route {
     grid-template-columns: 1fr;
   }
@@ -3063,15 +3141,15 @@ body.presenter .step-dots {
         </div>
         <div class="demo-grid">
           <div class="demo-route" aria-label="Repository inspection route">
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/README.md" target="_blank" rel="noopener" data-demo="readme">README</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/README.md" target="_blank" rel="noopener" data-demo="readme">README</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/CLAIM_BOUNDARIES.md" target="_blank" rel="noopener" data-demo="boundaries">Claim boundaries</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/CLAIM_BOUNDARIES.md" target="_blank" rel="noopener" data-demo="boundaries">Claim boundaries</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/docs/TRACEABILITY_MATRIX.md" target="_blank" rel="noopener" data-demo="traceability">Traceability</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/docs/TRACEABILITY_MATRIX.md" target="_blank" rel="noopener" data-demo="traceability">Traceability</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/RESULT_MANIFEST.jsonl" target="_blank" rel="noopener" data-demo="manifest">Manifest</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/RESULT_MANIFEST.jsonl" target="_blank" rel="noopener" data-demo="manifest">Manifest</a>
             <span></span>
-            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/e0851409c3fe14d1813b714ff9b2d1fa2da965cb/scripts/viva_check.py" target="_blank" rel="noopener" data-demo="check">viva_check.py</a>
+            <a href="https://github.com/Haoyi-Zhang/WatermarkScope/blob/main/scripts/viva_check.py" target="_blank" rel="noopener" data-demo="check">viva_check.py</a>
           </div>
           <div class="terminal-card">
             <div class="terminal-top">
@@ -3080,18 +3158,21 @@ body.presenter .step-dots {
               <button type="button" id="copyCommand">Copy command</button>
             </div>
             <pre><code id="checkCommand">python scripts/viva_check.py</code></pre>
-            <pre><code>[OK] Evidence-facing documents present
-[OK] Result manifest covers modules
-[OK] Manifest rows are hash-addressed
-[OK] Key inspection artifacts present
-[OK] Claim boundaries are present
-[OK] Evidence check passed</code></pre>
+            <pre><code id="demoOutput">[ready] Click Play demo to run the viva evidence route.</code></pre>
           </div>
         </div>
-        <aside class="interaction-panel demo-panel" aria-live="polite">
-          <span id="demoPanelLabel">Demo step</span>
-          <strong id="demoPanelTitle">Start with the repository README.</strong>
-          <p id="demoPanelText">The README defines the submitted FYP surface and the route into deeper artifacts.</p>
+        <aside class="interaction-panel demo-panel demo-player" aria-live="polite">
+          <div>
+            <span id="demoPanelLabel">Demo step</span>
+            <strong id="demoPanelTitle">Start with the repository README.</strong>
+            <p id="demoPanelText">The README defines the submitted FYP surface and the route into deeper artifacts.</p>
+          </div>
+          <div class="demo-playback" aria-label="One-click evidence demo controls">
+            <button type="button" id="playEvidenceDemo" aria-pressed="false">Play demo</button>
+            <button type="button" id="resetEvidenceDemo">Reset</button>
+            <div class="demo-progress" aria-hidden="true"><i id="demoProgressBar"></i></div>
+            <span id="demoPlaybackStatus">00:00 / 00:12</span>
+          </div>
         </aside>
         <aside class="speak-card">
           <strong>Demo boundary</strong>
@@ -3226,7 +3307,7 @@ body.presenter .step-dots {
 
     <script>
 const repoBase = "https://github.com/Haoyi-Zhang/WatermarkScope";
-const submittedRef = "e0851409c3fe14d1813b714ff9b2d1fa2da965cb";
+const submittedRef = "main";
 const repoTree = `${repoBase}/tree/${submittedRef}`;
 const repoBlob = `${repoBase}/blob/${submittedRef}`;
 
@@ -3369,6 +3450,41 @@ const demoFacts = {
     text: "This verifies repository consistency and artifact presence; it is not a replacement for the full GPU/API experiments."
   }
 };
+
+const evidenceDemoTimeline = [
+  {
+    key: "readme",
+    at: 0,
+    line: "[demo] Open README: submitted FYP surface and inspection route."
+  },
+  {
+    key: "boundaries",
+    at: 2.4,
+    line: "[demo] Check CLAIM_BOUNDARIES.md: allowed claim and forbidden wording."
+  },
+  {
+    key: "traceability",
+    at: 4.8,
+    line: "[demo] Check TRACEABILITY_MATRIX.md: claim -> code -> artifact."
+  },
+  {
+    key: "manifest",
+    at: 7.2,
+    line: "[demo] Inspect RESULT_MANIFEST.jsonl: hash-addressed evidence rows."
+  },
+  {
+    key: "check",
+    at: 9.6,
+    line: "[demo] Run viva_check.py: lightweight repository consistency check."
+  },
+  {
+    key: "check",
+    at: 11.6,
+    line: "[OK] Evidence check passed. Full experiments are not rerun live."
+  }
+];
+
+const evidenceDemoDuration = 12;
 
 const autoDemoPlan = [
   {
@@ -4290,6 +4406,14 @@ document.getElementById("copyCommand")?.addEventListener("click", async (event) 
 const demoLinks = Array.from(document.querySelectorAll("[data-demo]"));
 const demoPanelTitle = document.getElementById("demoPanelTitle");
 const demoPanelText = document.getElementById("demoPanelText");
+const demoOutput = document.getElementById("demoOutput");
+const playEvidenceDemoButton = document.getElementById("playEvidenceDemo");
+const resetEvidenceDemoButton = document.getElementById("resetEvidenceDemo");
+const demoProgressBar = document.getElementById("demoProgressBar");
+const demoPlaybackStatus = document.getElementById("demoPlaybackStatus");
+let evidenceDemoTimer = null;
+let evidenceDemoStartedAt = 0;
+let evidenceDemoFired = new Set();
 
 function setDemo(key) {
   const data = demoFacts[key];
@@ -4311,6 +4435,80 @@ function setDemo(key) {
   if (demoPanelText) demoPanelText.textContent = data.text;
   requestAnimationFrame(() => panel?.classList.add("content-refresh"));
 }
+
+function formatShortClock(seconds) {
+  return `00:${String(Math.max(0, Math.round(seconds))).padStart(2, "0")}`;
+}
+
+function setEvidenceDemoProgress(seconds) {
+  const clamped = Math.max(0, Math.min(evidenceDemoDuration, seconds));
+  const ratio = clamped / evidenceDemoDuration;
+  demoProgressBar?.style.setProperty("--demo-progress", String(ratio));
+  if (demoPlaybackStatus) {
+    demoPlaybackStatus.textContent = `${formatShortClock(clamped)} / ${formatShortClock(evidenceDemoDuration)}`;
+  }
+}
+
+function resetEvidenceDemo() {
+  if (evidenceDemoTimer) window.clearInterval(evidenceDemoTimer);
+  evidenceDemoTimer = null;
+  evidenceDemoFired = new Set();
+  document.querySelector(".terminal-card")?.classList.remove("demo-final");
+  if (demoOutput) demoOutput.textContent = "[ready] Click Play demo to run the viva evidence route.";
+  if (playEvidenceDemoButton) {
+    playEvidenceDemoButton.textContent = "Play demo";
+    playEvidenceDemoButton.setAttribute("aria-pressed", "false");
+  }
+  setEvidenceDemoProgress(0);
+  setDemo("readme");
+}
+
+function appendDemoOutput(line) {
+  if (!demoOutput) return;
+  const current = demoOutput.textContent || "";
+  demoOutput.textContent = current.startsWith("[ready]")
+    ? line
+    : `${current}\n${line}`;
+}
+
+function startEvidenceDemo() {
+  resetEvidenceDemo();
+  evidenceDemoStartedAt = performance.now();
+  document.querySelector(".terminal-card")?.classList.remove("demo-final");
+  if (playEvidenceDemoButton) {
+    playEvidenceDemoButton.textContent = "Playing";
+    playEvidenceDemoButton.setAttribute("aria-pressed", "true");
+  }
+  evidenceDemoTimer = window.setInterval(() => {
+    const elapsed = (performance.now() - evidenceDemoStartedAt) / 1000;
+    setEvidenceDemoProgress(elapsed);
+    evidenceDemoTimeline.forEach((item, index) => {
+      if (elapsed < item.at || evidenceDemoFired.has(index)) return;
+      evidenceDemoFired.add(index);
+      setDemo(item.key);
+      appendDemoOutput(item.line);
+    });
+    if (elapsed < evidenceDemoDuration) return;
+    if (evidenceDemoTimer) window.clearInterval(evidenceDemoTimer);
+    evidenceDemoTimer = null;
+    setEvidenceDemoProgress(evidenceDemoDuration);
+    document.querySelector(".terminal-card")?.classList.add("demo-final");
+    if (playEvidenceDemoButton) {
+      playEvidenceDemoButton.textContent = "Replay demo";
+      playEvidenceDemoButton.setAttribute("aria-pressed", "false");
+    }
+  }, 120);
+}
+
+playEvidenceDemoButton?.addEventListener("click", (event) => {
+  handleManualInteraction(event);
+  startEvidenceDemo();
+});
+
+resetEvidenceDemoButton?.addEventListener("click", (event) => {
+  handleManualInteraction(event);
+  resetEvidenceDemo();
+});
 
 demoLinks.forEach((link) => {
   link.addEventListener("mouseenter", () => setDemo(link.dataset.demo));
@@ -4354,6 +4552,8 @@ if (qaButtons.length) setQaAnswer(qaButtons[0].dataset.qa);
 </script>
   </body>
 </html>
+
+
 
 
 
