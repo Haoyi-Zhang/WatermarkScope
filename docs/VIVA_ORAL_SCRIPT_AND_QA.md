@@ -130,6 +130,14 @@ I will now click Play demo. This demo automatically walks through the evidence r
 **English translation:**  
 I want to emphasize that the purpose of this demo is not to rerun all experiments live. The full experiments need more time and computing resources. The purpose of this demo is to show that my work is not only text in the dissertation. It has a repository, code, result files, boundary statements, and an inspection route that the examiner can follow.
 
+## Final Q&A Control Page
+
+**中文演讲稿：**  
+最后我会停在 Thank you 页面。这个页面不是新的展示内容，而是 Q&A 控制页。如果老师问数据集，我点 Dataset；如果老师问指标，我点 Metrics；如果老师要求看代码，我点 Code 或 Main method；如果老师问结果证据，我点 Artifacts；如果老师问复现，我点 Reproduce。这样我不用临时在仓库里乱找文件，可以直接打开对应的代码、数据集、manifest 或检查脚本。
+
+**English translation:**  
+At the end, I will stay on the Thank you page. This page is not a new presentation section. It is a Q&A control page. If the examiner asks about the dataset, I click Dataset. If the examiner asks about metrics, I click Metrics. If the examiner wants to see code, I click Code or Main method. If the examiner asks about result evidence, I click Artifacts. If the examiner asks about reproducibility, I click Reproduce. In this way, I do not need to search the repository during the viva. I can directly open the corresponding code, dataset, manifest, or checking script.
+
 ## Q&A Answer Format
 
 Use this rule in Q&A: answer directly first, then give one number or file, then state the boundary.
