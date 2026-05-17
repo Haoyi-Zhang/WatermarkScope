@@ -73,7 +73,7 @@ On the results page, I will not read every number. I will explain the results in
 
 First, the benchmark foundation is complete. CodeMarkBench has 140 out of 140 canonical runs. This tells me the benchmark rows are executable and countable. It does not mean every watermark method succeeds.
 
-Second, SemCodebook is the main method result. It recovers 30,330 out of 31,200 positive cases. It also has 0 hits in 62,400 fixed negative controls and 0 hits in 62,400 blind replay negative controls. So the safe claim is structured white-box provenance recovery inside the admitted cells.
+Second, SemCodebook is the main method result in the submitted dissertation. It recovers 23,342 out of 24,000 positive cases. It also has 0 hits in 48,000 negative controls. So the safe claim is structured white-box provenance recovery inside the admitted cells.
 
 Third, the other stages show why boundaries matter. CodeDye has sparse black-box evidence, so I do not call it contamination proof. ProbeTrace has strong scoped owner verification, but I do not call it general authorship proof. SealAudit gives selective triage, but I do not call it a safety certificate.
 
@@ -139,7 +139,7 @@ If I feel nervous, I should slow down and answer in one short paragraph. I do no
 
 Example:
 
-"No, CodeDye does not prove contamination. In the submitted surface it reports 4/300 sparse live signals with 0/300 negative controls. I only claim conservative black-box audit evidence, not provider wrongdoing."
+"No, CodeDye does not prove contamination. In the submitted surface it reports 6/300 sparse live signals with 0/300 negative controls. I only claim conservative black-box audit evidence, not provider wrongdoing."
 
 ## Detailed Q&A
 
@@ -186,7 +186,7 @@ A: The benchmark structure is under `projects/CodeMarkBench/`. The SemCodebook m
 ### Results
 
 **Q13. What is your strongest result?**  
-A: SemCodebook is the strongest method result. It reports 30,330 recoveries out of 31,200 positives, with zero hits in both fixed and blind negative-control surfaces. I still keep the claim limited to the admitted white-box cells.
+A: SemCodebook is the strongest method result. It reports 23,342 recoveries out of 24,000 positives, with zero hits in 48,000 negative controls. I still keep the claim limited to the admitted white-box cells.
 
 **Q14. Does 140/140 mean the benchmark proves watermark success?**  
 A: No. It means the canonical benchmark runs completed and are countable. It is the foundation for evaluation, not a claim that every watermark method succeeded.
@@ -195,15 +195,15 @@ A: No. It means the canonical benchmark runs completed and are countable. It is 
 A: It supports structured white-box provenance recovery within the admitted denominator. It does not prove universal watermarking for every model or every natural code distribution.
 
 **Q16. What does CodeDye prove?**  
-A: CodeDye gives conservative black-box audit evidence. In the submitted version it has 4/300 sparse live signals, positive-control support, and 0/300 negative controls. It does not prove contamination or wrongdoing.
+A: CodeDye gives conservative black-box audit evidence. In the submitted version it has 6/300 sparse live signals, positive-control support, and 0/300 negative controls. It does not prove contamination or wrongdoing.
 
-**Q17. Is 4/300 too small?**  
+**Q17. Is 6/300 too small?**  
 A: It would be small if I claimed high-recall detection. I do not claim that. I claim sparse, conservative audit evidence under controls, which is the honest interpretation of that surface.
 
 **Q18. ProbeTrace looks very strong. Are you overclaiming?**  
-A: I avoid overclaiming by limiting the claim. ProbeTrace has 750/750 true-owner positives and 0/5,250 false-attribution controls inside a fixed five-owner surface. That is scoped owner verification, not universal authorship proof.
+A: I avoid overclaiming by limiting the claim. ProbeTrace has 300/300 scoped decisions and 0/1,200 false-owner controls inside the submitted surface. That is scoped owner verification, not universal authorship proof.
 
-**Q19. SealAudit only has 320 decisive outcomes out of 960. Is that weak?**  
+**Q19. SealAudit only has 81 decisive outcomes out of 960. Is that weak?**  
 A: I see it as selective by design. For security-facing work, forced decisions can be dangerous. I report decisive outcomes and keep uncertain rows as abstention or review load.
 
 **Q20. Why do you report zero unsafe passes?**  
