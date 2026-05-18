@@ -102,7 +102,7 @@ Use this sheet only for rehearsal. During the viva, stay on the final Thank you 
 **Click:** `Research line`
 
 **中文先说：** 这是我持续推进的一条研究线。我已经有两篇早期相关工作被 FSE 2026 IVR 接收，但它们只是研究背景，不是这次 submitted FYP 的结果。  
-**English to say:** This is a research line that I have been developing. I already have two earlier related papers accepted by FSE 2026 IVR, but I use them only as research context, not as part of the submitted FYP result.
+**English to say:** This is part of a research line I have been developing. I already have two related papers accepted at FSE 2026 IVR, but I use them only as research background, not as part of the submitted FYP result.
 
 **Evidence to open:** `FSE 2026 IVR track`, then the current opening page context if needed.
 
