@@ -450,6 +450,73 @@ h3 {
   line-height: 1.42;
 }
 
+.accepted-strip {
+  max-width: 920px;
+  margin-top: 16px;
+  padding: 13px 15px 12px;
+  border: 1px solid rgba(246, 128, 41, 0.24);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(246, 128, 41, 0.08), rgba(255, 255, 255, 0.03)), rgba(8, 20, 35, 0.72);
+}
+
+.accepted-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.accepted-head span {
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 860;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.accepted-head strong {
+  color: #ffd49d;
+  font-size: 12px;
+  font-weight: 880;
+  letter-spacing: 0.02em;
+}
+
+.accepted-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.accepted-grid article {
+  min-height: 72px;
+  padding: 11px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.accepted-grid strong {
+  display: block;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.accepted-grid p {
+  margin: 6px 0 0;
+  color: #d0dbec;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.accepted-note {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.28;
+}
+
 .cover-route {
   display: flex;
   flex-wrap: wrap;
@@ -2592,6 +2659,32 @@ body.presenter .step-dots {
     display: none;
   }
 
+  body.presenter .accepted-strip {
+    margin-top: 14px;
+    padding: 11px 13px 10px;
+  }
+
+  body.presenter .accepted-grid article {
+    min-height: 58px;
+    padding: 9px 10px;
+  }
+
+  body.presenter .accepted-grid strong {
+    font-size: 14px;
+  }
+
+  body.presenter .accepted-grid p {
+    margin-top: 5px;
+    font-size: 11.8px;
+    line-height: 1.22;
+  }
+
+  body.presenter .accepted-note {
+    margin-top: 7px;
+    font-size: 11px;
+    line-height: 1.22;
+  }
+
   body.presenter h1 {
     font-size: clamp(40px, 5vw, 56px);
   }
@@ -3004,8 +3097,96 @@ body.presenter .step-dots {
     grid-template-columns: 1fr;
   }
 
+  .accepted-grid {
+    grid-template-columns: 1fr;
+  }
+
   .step-dots {
     display: none;
+  }
+}
+
+@media (max-height: 920px) and (min-width: 1181px) {
+  .cover-shell {
+    min-height: min(720px, calc(100svh - 102px));
+    padding: 34px 54px;
+  }
+
+  h1 {
+    font-size: clamp(56px, 5.1vw, 72px);
+  }
+
+  .title-line {
+    max-width: 980px;
+    font-size: clamp(28px, 3vw, 46px);
+  }
+
+  .hero-lead {
+    font-size: 16px;
+    line-height: 1.32;
+  }
+
+  .accepted-strip {
+    margin-top: 12px;
+    padding: 10px 12px 9px;
+  }
+
+  .accepted-grid {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .accepted-grid article {
+    min-height: 58px;
+    padding: 8px 10px;
+  }
+
+  .accepted-grid strong {
+    font-size: 14px;
+  }
+
+  .accepted-grid p {
+    margin-top: 4px;
+    font-size: 11.8px;
+    line-height: 1.2;
+  }
+
+  .accepted-note {
+    margin-top: 6px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .cover-route {
+    margin-top: 16px;
+  }
+
+  .cover-route a {
+    min-height: 30px;
+    padding: 5px 9px;
+    font-size: 12.5px;
+  }
+
+  .route-timer {
+    display: none;
+  }
+
+  .cover-footer {
+    padding-top: 20px;
+  }
+}
+
+@media (max-height: 800px) and (min-width: 1181px) {
+  .accepted-note {
+    display: none;
+  }
+
+  .accepted-strip {
+    padding-bottom: 8px;
+  }
+
+  .cover-route {
+    margin-top: 12px;
   }
 }
 
@@ -3143,6 +3324,23 @@ body.presenter .step-dots {
             <h1>WatermarkScope</h1>
             <p class="title-line">A Benchmark-to-Audit Framework for Source-Code Watermarking in Code Generation Models</p>
             <p class="hero-lead">A framework for turning source-code watermark detector outputs into inspectable, bounded evidence.</p>
+            <div class="accepted-strip" aria-label="Related accepted work">
+              <div class="accepted-head">
+                <span>Related accepted work</span>
+                <strong>FSE 2026 IVR</strong>
+              </div>
+              <div class="accepted-grid">
+                <article>
+                  <strong>Who Wrote This Patch?</strong>
+                  <p>Toward Accountable Automated Program Repair</p>
+                </article>
+                <article>
+                  <strong>The Watermark Paradox</strong>
+                  <p>How Provenance Verification Paves the Road to Camouflaged Backdoors</p>
+                </article>
+              </div>
+              <p class="accepted-note">These are related early works in the same research line. They are not part of the submitted FYP evidence surface.</p>
+            </div>
             <div class="cover-route" aria-label="Interactive viva route">
               <a href="#problem">1 Problem</a>
               <a href="#contract">2 Method</a>
@@ -4896,6 +5094,10 @@ if (qaHotspotButtons.length) setQaHotspot(qaHotspotButtons[0].dataset.hotspot);
 </script>
   </body>
 </html>
+
+
+
+
 
 
 
