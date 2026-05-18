@@ -344,8 +344,8 @@ const qaHotspots = {
     ]
   },
   research: {
-    title: "Research line and accepted related work",
-    speak: "I use this only as background credibility. The accepted FSE IVR papers are related early works in the same research line, not part of the submitted FYP evidence surface.",
+    title: "Research line background",
+    speak: "I already have two related papers accepted at FSE 2026 IVR. I mention them only as background. Today I still defend the submitted FYP surface.",
     links: [
       ["FSE 2026 IVR track", `https://conf.researchr.org/track/fse-2026/fse-2026-ideas-visions-and-reflections`],
       ["Opening page context", `https://haoyi-zhang.github.io/WatermarkScope/?presenter=1#top`],
@@ -377,7 +377,7 @@ const qaFacts = {
   },
   research: {
     title: "Do you already have accepted work in this direction?",
-    answer: "Yes. I already have two related early papers accepted at FSE 2026 IVR. I mention them only as research context. The work I defend today is still the submitted FYP surface."
+    answer: "Yes. I already have two related papers accepted at FSE 2026 IVR. They give background for this direction, but today I still defend only the submitted FYP surface."
   },
   future: {
     title: "Are future repositories part of the submitted FYP?",
@@ -463,7 +463,7 @@ const futureTracks = [
     key: "codemarkbench",
     name: "CodeMarkBench",
     route: "Benchmark foundation",
-    venue: "EMNLP Findings / ARR resource track",
+    venue: "TOSEM / benchmark paper",
     repo: "https://github.com/Haoyi-Zhang/CodeMarkBench",
     visibility: "Continuation artifact",
     status: "Benchmark expansion with separately admitted denominators.",
@@ -475,7 +475,7 @@ const futureTracks = [
     key: "semcodebook",
     name: "SemCodebook",
     route: "White-box method",
-    venue: "EMNLP Main / ACL Main",
+    venue: "EMNLP / planned submission",
     repo: "https://github.com/Haoyi-Zhang/SemCodebook",
     visibility: "Continuation artifact",
     status: "Structured provenance recovery beyond the submitted FYP slice.",
@@ -487,7 +487,7 @@ const futureTracks = [
     key: "codedye",
     name: "CodeDye",
     route: "Black-box audit",
-    venue: "Findings / audit workshop",
+    venue: "EMNLP / planned submission",
     repo: "https://github.com/Haoyi-Zhang/CodeDye",
     visibility: "Continuation artifact",
     status: "Conservative black-box null-audit evidence.",
@@ -499,7 +499,7 @@ const futureTracks = [
     key: "probetrace",
     name: "ProbeTrace",
     route: "Owner attribution",
-    venue: "EMNLP / USENIX-style crossover",
+    venue: "EMNLP / planned submission",
     repo: "https://github.com/Haoyi-Zhang/ProbeTrace",
     visibility: "Continuation artifact",
     status: "Scoped owner verification with commitment/witness evidence.",
@@ -511,7 +511,7 @@ const futureTracks = [
     key: "sealaudit",
     name: "SealAudit",
     route: "Security triage",
-    venue: "Responsible NLP / safety track",
+    venue: "EMNLP / planned submission",
     repo: "https://github.com/Haoyi-Zhang/SealAudit",
     visibility: "Continuation artifact",
     status: "Marker-hidden selective security triage.",
