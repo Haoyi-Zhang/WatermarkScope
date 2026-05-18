@@ -1967,6 +1967,10 @@ code {
   line-height: 1.2;
 }
 
+.qa-shortcut-grid button[data-hotspot="research"] {
+  grid-column: 1 / -1;
+}
+
 .qa-section.active-step .qa-shortcut-grid button {
   animation: quietFloat 9s ease-in-out infinite;
 }
@@ -1976,6 +1980,7 @@ code {
 .qa-section.active-step .qa-shortcut-grid button:nth-child(4) { animation-delay: 300ms; }
 .qa-section.active-step .qa-shortcut-grid button:nth-child(5) { animation-delay: 400ms; }
 .qa-section.active-step .qa-shortcut-grid button:nth-child(6) { animation-delay: 500ms; }
+.qa-section.active-step .qa-shortcut-grid button:nth-child(7) { animation-delay: 600ms; }
 
 .qa-link-panel {
   min-height: 208px;
@@ -2122,6 +2127,7 @@ code {
 .qa-section.active-step .qa-challenges button:nth-child(4) { animation-delay: 300ms; }
 .qa-section.active-step .qa-challenges button:nth-child(5) { animation-delay: 400ms; }
 .qa-section.active-step .qa-challenges button:nth-child(6) { animation-delay: 500ms; }
+.qa-section.active-step .qa-challenges button:nth-child(7) { animation-delay: 600ms; }
 
 .qa-hotseat {
   display: grid;
