@@ -97,6 +97,17 @@ Use this sheet only for rehearsal. During the viva, stay on the final Thank you 
 
 **Boundary:** 后续实验必须作为新的 evidence surface 单独报告。
 
+### 9. 老师问：你为什么做这个方向？或者你已经有相关工作了吗？
+
+**Click:** `Research line`
+
+**中文先说：** 这是我持续推进的一条研究线。我已经有两篇早期相关工作被 FSE 2026 IVR 接收，但它们只是研究背景，不是这次 submitted FYP 的结果。  
+**English to say:** This is a research line that I have been developing. I already have two earlier related papers accepted by FSE 2026 IVR, but I use them only as research context, not as part of the submitted FYP result.
+
+**Evidence to open:** `FSE 2026 IVR track`, then the current opening page context if needed.
+
+**Boundary:** 相关已接收论文用于说明研究连续性，不替换当前 FYP 的 fixed evidence surface。
+
 ## Emergency Lines
 
 **没听清：** Sorry, could you please repeat the question more slowly?
@@ -104,4 +115,3 @@ Use this sheet only for rehearsal. During the viva, stay on the final Thank you 
 **需要思考：** Let me think for a second. I want to answer this accurately.
 
 **老师质疑数字：** The number I defend here is the submitted FYP surface. Later continuation results are separate future work and should not replace this denominator.
-
