@@ -344,8 +344,8 @@ const qaHotspots = {
     ]
   },
   research: {
-    title: "Research line and accepted related work",
-    speak: "I use this only as background credibility. The accepted FSE IVR papers are related early works in the same research line, not part of the submitted FYP evidence surface.",
+    title: "Research line background",
+    speak: "I already have two related papers accepted at FSE 2026 IVR. I mention them only as background. Today I still defend the submitted FYP surface.",
     links: [
       ["FSE 2026 IVR track", `https://conf.researchr.org/track/fse-2026/fse-2026-ideas-visions-and-reflections`],
       ["Opening page context", `https://haoyi-zhang.github.io/WatermarkScope/?presenter=1#top`],
@@ -377,7 +377,7 @@ const qaFacts = {
   },
   research: {
     title: "Do you already have accepted work in this direction?",
-    answer: "Yes. I already have two related early papers accepted at FSE 2026 IVR. I mention them only as research context. The work I defend today is still the submitted FYP surface."
+    answer: "Yes. I already have two related papers accepted at FSE 2026 IVR. They give background for this direction, but today I still defend only the submitted FYP surface."
   },
   future: {
     title: "Are future repositories part of the submitted FYP?",
