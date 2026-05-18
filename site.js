@@ -342,6 +342,15 @@ const qaHotspots = {
       ["Traceability matrix", `${repoBlob}/docs/TRACEABILITY_MATRIX.md`],
       ["Claim boundary file", `${repoBlob}/CLAIM_BOUNDARIES.md`]
     ]
+  },
+  research: {
+    title: "Research line and accepted related work",
+    speak: "I use this only as background credibility. The accepted FSE IVR papers are related early works in the same research line, not part of the submitted FYP evidence surface.",
+    links: [
+      ["FSE 2026 IVR track", `https://conf.researchr.org/track/fse-2026/fse-2026-ideas-visions-and-reflections`],
+      ["Opening page context", `https://haoyi-zhang.github.io/WatermarkScope/?presenter=1#top`],
+      ["Submitted FYP boundary", `${repoBlob}/CLAIM_BOUNDARIES.md`]
+    ]
   }
 };
 
@@ -365,6 +374,10 @@ const qaFacts = {
   sparse: {
     title: "Is CodeDye too sparse?",
     answer: "It would be too sparse for a high-recall detector claim. My claim is conservative black-box audit evidence: 6/300 live signals with 0/300 negative controls."
+  },
+  research: {
+    title: "Do you already have accepted work in this direction?",
+    answer: "Yes. I already have two related early papers accepted at FSE 2026 IVR. I mention them only as research context. The work I defend today is still the submitted FYP surface."
   },
   future: {
     title: "Are future repositories part of the submitted FYP?",
