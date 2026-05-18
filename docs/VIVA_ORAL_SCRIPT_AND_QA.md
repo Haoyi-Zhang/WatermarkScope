@@ -31,13 +31,13 @@ Good afternoon. I am Haoyi Zhang. My final year project is WatermarkScope: A Ben
 在正式进入问题之前，我想补充一个研究背景。代码水印和可信代码生成不是我临时做的一个单点题目，而是我持续推进的一条研究线。在这条线上，我有两篇早期相关工作已经被 FSE 2026 Ideas, Visions and Reflections track 接收。一篇是 Who Wrote This Patch? Toward Accountable Automated Program Repair，讨论自动程序修复中的 patch provenance 和责任归属。另一篇是 The Watermark Paradox: How Provenance Verification Paves the Road to Camouflaged Backdoors，讨论代码水印、provenance verification 和隐藏后门之间的张力。
 
 **English translation:**  
-Before moving into the problem itself, I want to add one piece of research context. Code watermarking and trustworthy code generation are not a one-off topic for me. They are part of a research line that I have been developing. In this line, two of my earlier related papers have already been accepted by the FSE 2026 Ideas, Visions and Reflections track. One is Who Wrote This Patch? Toward Accountable Automated Program Repair, which discusses patch provenance and accountability in automated program repair. The other is The Watermark Paradox: How Provenance Verification Paves the Road to Camouflaged Backdoors, which discusses the tension between code watermarking, provenance verification, and hidden backdoors.
+Before moving into the problem itself, I want to add one piece of research context. This is part of a research line I have been developing. In that line, two earlier related papers were accepted by the FSE 2026 Ideas, Visions and Reflections track. One is about patch accountability in automated program repair. The other is about the tension between provenance verification and camouflaged backdoors.
 
 **中文演讲稿：**  
 我在这里提到这两篇论文，不是为了把它们算作这次毕业设计的结果，而是为了说明 WatermarkScope 不是孤立出现的。前面的工作更多是在提出风险、问题和研究方向，而这次 FYP 的重点，是把代码水印评价进一步工程化和系统化，回答一个更具体的问题：如果我们真的要评价代码水印，怎样把结论组织成可检查、可复现、可说明边界的证据。今天我答辩的主体仍然是已经提交的 FYP 版本，所有结果数字都以提交版的固定分母为准。
 
 **English translation:**  
-I mention these two papers not because they are part of the submitted FYP results, but because they show that WatermarkScope did not appear in isolation. The earlier works focus more on raising the risk, the problem, and the direction. This FYP focuses on making the evaluation of source-code watermarking more systematic and engineering-oriented. It asks a more concrete question: if we really want to evaluate code watermarking, how should we organize the conclusions as evidence that is inspectable, reproducible, and bounded. The work I defend today is still the submitted FYP version, and all result numbers are tied to the fixed submitted denominators.
+I mention these papers only as background. They are not part of the submitted FYP results. The earlier works raise the problem and the risk. This FYP asks a more concrete question: how to organize code-watermarking results as inspectable and bounded evidence. The work I defend today is still the submitted FYP version.
 
 ### 2. Problem
 
@@ -157,7 +157,7 @@ I want to emphasize that the purpose of this demo is not to rerun all experiment
 最后我会停在 Thank you 页面。这个页面不是新的展示内容，而是 Q&A 控制页。如果老师问数据集，我点 Dataset；如果老师问指标，我点 Metrics；如果老师要求看代码，我点 Code 或 Main method；如果老师问结果证据，我点 Artifacts；如果老师问复现，我点 Reproduce；如果老师问我为什么做这个方向，或者我有没有相关工作基础，我点 Research line。这样我不用临时在仓库里乱找文件，可以直接打开对应的代码、数据集、manifest、检查脚本或者研究背景入口。
 
 **English translation:**  
-At the end, I will stay on the Thank you page. This page is not a new presentation section. It is a Q&A control page. If the examiner asks about the dataset, I click Dataset. If the examiner asks about metrics, I click Metrics. If the examiner wants to see code, I click Code or Main method. If the examiner asks about result evidence, I click Artifacts. If the examiner asks about reproducibility, I click Reproduce. If the examiner asks why I work on this direction, or whether I already have related accepted work, I click Research line. In this way, I do not need to search the repository during the viva. I can directly open the corresponding code, dataset, manifest, checking script, or research-context entry.
+At the end, I will stay on the Thank you page. It is my Q&A control page. For dataset questions, I click Dataset. For metrics, I click Metrics. For code, I click Code or Main method. For result evidence, I click Artifacts. For reproducibility, I click Reproduce. For research background, I click Research line. This lets me open the right file directly instead of searching during the viva.
 
 ## Q&A Answer Format
 
@@ -531,7 +531,7 @@ My main lesson is that in code generation evaluation, a good experiment is not o
 有。我在同一条研究线上已经有两篇早期相关工作被 FSE 2026 IVR 接收。一篇讨论自动程序修复里的 patch accountability，另一篇讨论 provenance verification 和 camouflaged backdoors 之间的张力。但我会把这两篇论文只当作研究背景，不当作这次 submitted FYP 的结果。
 
 **English answer:**  
-Yes. In the same research line, I already have two earlier related papers accepted by the FSE 2026 IVR track. One studies patch accountability in automated program repair, and the other studies the tension between provenance verification and camouflaged backdoors. But I use them only as research context, not as part of the submitted FYP results.
+Yes. I already have two related papers accepted at FSE 2026 IVR. I use them only as research background. Today I still defend only the submitted FYP results.
 
 ### Q47. How is this FYP different from those accepted papers?
 
@@ -539,7 +539,7 @@ Yes. In the same research line, I already have two earlier related papers accept
 前面的论文更多是在提出问题、风险和研究方向。这次 FYP 更强调系统化评价和工程化证据组织。WatermarkScope 关注的是：如果我们真的要评价代码水印，怎样把 benchmark、controls、artifacts 和 claim boundary 组织成可以被检查的证据路线。
 
 **English answer:**  
-The earlier papers focus more on raising the problem, the risk, and the research direction. This FYP focuses more on systematic evaluation and engineering-oriented evidence organization. WatermarkScope asks a more concrete question: if we really want to evaluate code watermarking, how should we organize benchmark rows, controls, artifacts, and claim boundaries into an inspectable evidence route.
+The earlier papers focus more on the problem and the risk. This FYP is more concrete and more engineering-oriented. It focuses on how to turn benchmark rows, controls, artifacts, and claim boundaries into an inspectable evidence route.
 
 ## Emergency Lines
 
