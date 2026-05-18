@@ -1975,6 +1975,10 @@ code {
   line-height: 1.2;
 }
 
+.qa-shortcut-grid button[data-hotspot="research"] {
+  grid-column: 1 / -1;
+}
+
 .qa-section.active-step .qa-shortcut-grid button {
   animation: quietFloat 9s ease-in-out infinite;
 }
@@ -1984,6 +1988,7 @@ code {
 .qa-section.active-step .qa-shortcut-grid button:nth-child(4) { animation-delay: 300ms; }
 .qa-section.active-step .qa-shortcut-grid button:nth-child(5) { animation-delay: 400ms; }
 .qa-section.active-step .qa-shortcut-grid button:nth-child(6) { animation-delay: 500ms; }
+.qa-section.active-step .qa-shortcut-grid button:nth-child(7) { animation-delay: 600ms; }
 
 .qa-link-panel {
   min-height: 208px;
@@ -2130,6 +2135,7 @@ code {
 .qa-section.active-step .qa-challenges button:nth-child(4) { animation-delay: 300ms; }
 .qa-section.active-step .qa-challenges button:nth-child(5) { animation-delay: 400ms; }
 .qa-section.active-step .qa-challenges button:nth-child(6) { animation-delay: 500ms; }
+.qa-section.active-step .qa-challenges button:nth-child(7) { animation-delay: 600ms; }
 
 .qa-hotseat {
   display: grid;
@@ -3699,6 +3705,10 @@ body.presenter .step-dots {
               <span>Reproduce</span>
               <strong>Live check and rerun boundary</strong>
             </button>
+            <button type="button" data-hotspot="research">
+              <span>Research line</span>
+              <strong>Accepted related work and scope boundary</strong>
+            </button>
           </div>
           <aside class="qa-link-panel" id="qaLinkPanel" aria-live="polite">
             <span>Evidence shortcut</span>
@@ -3712,6 +3722,7 @@ body.presenter .step-dots {
           <button type="button" data-qa="code">Show code?</button>
           <button type="button" data-qa="rerun">Why no full rerun?</button>
           <button type="button" data-qa="sparse">CodeDye sparse?</button>
+          <button type="button" data-qa="research">Research line?</button>
           <button type="button" data-qa="future">Future work?</button>
         </div>
         <aside class="qa-answer" id="qaAnswer" aria-live="polite">
@@ -4092,6 +4103,15 @@ const qaHotspots = {
       ["Traceability matrix", `${repoBlob}/docs/TRACEABILITY_MATRIX.md`],
       ["Claim boundary file", `${repoBlob}/CLAIM_BOUNDARIES.md`]
     ]
+  },
+  research: {
+    title: "Research line and accepted related work",
+    speak: "I use this only as background credibility. The accepted FSE IVR papers are related early works in the same research line, not part of the submitted FYP evidence surface.",
+    links: [
+      ["FSE 2026 IVR track", `https://conf.researchr.org/track/fse-2026/fse-2026-ideas-visions-and-reflections`],
+      ["Opening page context", `https://haoyi-zhang.github.io/WatermarkScope/?presenter=1#top`],
+      ["Submitted FYP boundary", `${repoBlob}/CLAIM_BOUNDARIES.md`]
+    ]
   }
 };
 
@@ -4115,6 +4135,10 @@ const qaFacts = {
   sparse: {
     title: "Is CodeDye too sparse?",
     answer: "It would be too sparse for a high-recall detector claim. My claim is conservative black-box audit evidence: 6/300 live signals with 0/300 negative controls."
+  },
+  research: {
+    title: "Do you already have accepted work in this direction?",
+    answer: "Yes. I already have two related early papers accepted at FSE 2026 IVR. I mention them only as research context. The work I defend today is still the submitted FYP surface."
   },
   future: {
     title: "Are future repositories part of the submitted FYP?",
@@ -5094,6 +5118,7 @@ if (qaHotspotButtons.length) setQaHotspot(qaHotspotButtons[0].dataset.hotspot);
 </script>
   </body>
 </html>
+
 
 
 
