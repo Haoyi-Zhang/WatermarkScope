@@ -154,10 +154,10 @@ I want to emphasize that the purpose of this demo is not to rerun all experiment
 ## Final Q&A Control Page
 
 **中文演讲稿：**  
-最后我会停在 Thank you 页面。这个页面不是新的展示内容，而是 Q&A 控制页。如果老师问数据集，我点 Dataset；如果老师问指标，我点 Metrics；如果老师要求看代码，我点 Code 或 Main method；如果老师问结果证据，我点 Artifacts；如果老师问复现，我点 Reproduce。这样我不用临时在仓库里乱找文件，可以直接打开对应的代码、数据集、manifest 或检查脚本。
+最后我会停在 Thank you 页面。这个页面不是新的展示内容，而是 Q&A 控制页。如果老师问数据集，我点 Dataset；如果老师问指标，我点 Metrics；如果老师要求看代码，我点 Code 或 Main method；如果老师问结果证据，我点 Artifacts；如果老师问复现，我点 Reproduce；如果老师问我为什么做这个方向，或者我有没有相关工作基础，我点 Research line。这样我不用临时在仓库里乱找文件，可以直接打开对应的代码、数据集、manifest、检查脚本或者研究背景入口。
 
 **English translation:**  
-At the end, I will stay on the Thank you page. This page is not a new presentation section. It is a Q&A control page. If the examiner asks about the dataset, I click Dataset. If the examiner asks about metrics, I click Metrics. If the examiner wants to see code, I click Code or Main method. If the examiner asks about result evidence, I click Artifacts. If the examiner asks about reproducibility, I click Reproduce. In this way, I do not need to search the repository during the viva. I can directly open the corresponding code, dataset, manifest, or checking script.
+At the end, I will stay on the Thank you page. This page is not a new presentation section. It is a Q&A control page. If the examiner asks about the dataset, I click Dataset. If the examiner asks about metrics, I click Metrics. If the examiner wants to see code, I click Code or Main method. If the examiner asks about result evidence, I click Artifacts. If the examiner asks about reproducibility, I click Reproduce. If the examiner asks why I work on this direction, or whether I already have related accepted work, I click Research line. In this way, I do not need to search the repository during the viva. I can directly open the corresponding code, dataset, manifest, checking script, or research-context entry.
 
 ## Q&A Answer Format
 
@@ -524,6 +524,22 @@ I would not ask the examiner to trust the repository directly. I would ask the e
 
 **English answer:**  
 My main lesson is that in code generation evaluation, a good experiment is not only about producing a high score. It should also let others understand where the score comes from, when it holds, and when it does not hold. This project trained me to write experimental results as auditable evidence, not just attractive numbers.
+
+### Q46. Do you already have accepted work in this direction?
+
+**中文回答：**  
+有。我在同一条研究线上已经有两篇早期相关工作被 FSE 2026 IVR 接收。一篇讨论自动程序修复里的 patch accountability，另一篇讨论 provenance verification 和 camouflaged backdoors 之间的张力。但我会把这两篇论文只当作研究背景，不当作这次 submitted FYP 的结果。
+
+**English answer:**  
+Yes. In the same research line, I already have two earlier related papers accepted by the FSE 2026 IVR track. One studies patch accountability in automated program repair, and the other studies the tension between provenance verification and camouflaged backdoors. But I use them only as research context, not as part of the submitted FYP results.
+
+### Q47. How is this FYP different from those accepted papers?
+
+**中文回答：**  
+前面的论文更多是在提出问题、风险和研究方向。这次 FYP 更强调系统化评价和工程化证据组织。WatermarkScope 关注的是：如果我们真的要评价代码水印，怎样把 benchmark、controls、artifacts 和 claim boundary 组织成可以被检查的证据路线。
+
+**English answer:**  
+The earlier papers focus more on raising the problem, the risk, and the research direction. This FYP focuses more on systematic evaluation and engineering-oriented evidence organization. WatermarkScope asks a more concrete question: if we really want to evaluate code watermarking, how should we organize benchmark rows, controls, artifacts, and claim boundaries into an inspectable evidence route.
 
 ## Emergency Lines
 
